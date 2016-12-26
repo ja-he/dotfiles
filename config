@@ -236,3 +236,4 @@ exec --no-startup-id seafile-applet
 exec_always --no-startup-id xmodmap -e 'keycode 110 = NoSymbol'
 exec_always --no-startup-id xmodmap -e 'keycode 115 = NoSymbol'
 exec_always --no-startup-id xset m 00
+exec_always --no-startup-id setxkbmap de
