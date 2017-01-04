@@ -134,6 +134,7 @@ assign [class="vlc"] $workspace3
 assign [class="Firefox"] $workspace1
 assign [class="bluej-Boot"] $workspace2
 assign [class="Alarm-clock-applet"] $workspace4
+assign [class="Go-for-it"] $workspace4
 assign [class="Seafile Client"] $workspace6
 assign [class="krita"] $workspace5
 assign [class="Keepassx"] $workspace7
