@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 10
+font pango:DejaVu Snas Mono Book 10
 
 
 
@@ -32,7 +32,7 @@ font pango:monospace 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec gnome-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -98,10 +98,10 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-set $workspace1 "1     "
+set $workspace1 "1     "
 set $workspace2 "2     "
 set $workspace3 "3     "
-set $workspace4 "4     "
+set $workspace4 "4     "
 set $workspace5 "5     "
 set $workspace6 "6     "
 set $workspace7 "7     "
@@ -151,7 +151,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'let me out!' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -195,11 +195,13 @@ bar {
 	}
 }
 
-set $bg-color 	         #2f343f
-set $inactive-bg-color   #2f343f
-set $text-color          #f3f4f5
-set $inactive-text-color #676E7D
+set $bg-color 	         #080E24
+set $bg-color-plus 	 #0E1940
+set $inactive-bg-color   #080E24
+set $text-color          #D5DEDB
+set $inactive-text-color #9AA09E
 set $urgent-bg-color     #E53935
+set $non-used-color 	 #99D7FF
 
 # window colors
 #                       border              background         text                 indicator
@@ -224,7 +226,7 @@ hide_edge_borders both
 exec --no-startup-id i3-msg 'workspace $workspace10; exec gnome-terminal.real'
 exec --no-startup-id quodlibet
 
-exec_always --no-startup-id feh --bg-scale wp.png
+exec_always --no-startup-id feh --bg-fill ~/Pictures/sf/images/wallpapers/soar*
 exec --no-startup-id alarm-clock-applet
 exec_always --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Tap Time" 0
 exec_always --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Edge Scrolling" 1, 1, 0
