@@ -91,10 +91,6 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-alias ..='cd ..'
-alias studiumcd='cd ~/Documents/sf/documents/studium/sem1'
-alias i3cfg='vim ~/.config/i3/config'
-alias nltwitch='streamlink twitch.tv/northernlion best'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert

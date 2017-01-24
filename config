@@ -57,7 +57,8 @@ bindsym $mod+l focus up
 bindsym $mod+odiaeresis focus right
 
 # i3lock
-bindsym $mod+t exec i3lock -i ~/Pictures/sf/images/wallpapers/i3bsod.png
+bindsym $mod+t exec i3lock -i ~/Pictures/sf/images/wallpapers/soarlocksmall.png
+
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -148,6 +149,7 @@ assign [class="Alarm-clock-applet"] $workspace4
 assign [class="Go-for-it"] $workspace4
 assign [class="Seafile Client"] $workspace6
 assign [class="krita"] $workspace5
+assign [class="Gimp"] $workspace5
 assign [class="Keepassx"] $workspace7
 assign [class="Steam"] $workspace9
 
