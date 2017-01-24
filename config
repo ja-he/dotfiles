@@ -37,11 +37,11 @@ bindsym $mod+Return exec gnome-terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu (a program launcher)
-bindsym $mod+d exec rofi -show run -lines 8 -eh 1 -width 60 -padding 50 -bw 2 -bc "$inactive-text-color" -bg "$bg-color" -fg "$text-color" -hlbg "$text-color" -hlfg "$bg-color" -font "DejaVu Sans Mono Book 16"
+# start rofi (a program launcher)
+bindsym $mod+d exec rofi -show run -lines 6 -eh 1 -width 36 -padding 10 -bw 1 -font "DejaVu Sans Mono Book 12"
 
-# start dmenu (a program launcher)
-bindsym $mod+shift+d exec rofi -show window -lines 8 -eh 1 -width 60 -padding 50 -bw 2 -bc "$inactive-text-color" -bg "$bg-color" -fg "$text-color" -hlbg "$text-color" -hlfg "$bg-color" -font "DejaVu Sans Mono Book 16"
+# start rofi (a program launcher)
+bindsym $mod+shift+d exec rofi -show window -lines 8 -eh 1 -width 36 -padding 10 -bw 1 -font "DejaVu Sans Mono Book 12"
 
 # bindsym $mod+d exec rofi -show run -width 100 -fg "#B0E670" -bg "#14161F" -hlfg "#14161F" -hlbg "#B0E670" -bc "#14161F" -location 0 -lines 19 -bw 0 -font "Ubuntu Mono 16" -padding 310 -separator-style none -opacity 80
 
@@ -189,6 +189,8 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+	mode hide
+	
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
         tray_output $PrimaryDisplay 
 	
@@ -202,11 +204,11 @@ bar {
 	}
 }
 
-set $bg-color 	         #080E24
+set $bg-color 	         #000000
 set $bg-color-plus 	 #0E1940
-set $inactive-bg-color   #080E24
-set $text-color          #D5DEDB
-set $inactive-text-color #393E4F
+set $inactive-bg-color   #000000
+set $text-color          #FFFFFF
+set $inactive-text-color #333333
 set $urgent-bg-color     #E53935
 set $non-used-color 	 #99D7FF
 
@@ -232,8 +234,8 @@ hide_edge_borders both
 
 exec --no-startup-id i3-msg 'workspace $workspace10; exec gnome-terminal.real'
 exec --no-startup-id quodlibet
-
-exec_always --no-startup-id feh --bg-fill ~/Pictures/sf/images/wallpapers/soar*
+exec --no-startup-id compton -f
+exec_always --no-startup-id feh --bg-fill ~/Pictures/sf/images/wallpapers/plutofull.*
 exec --no-startup-id alarm-clock-applet
 exec_always --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Tap Time" 0
 exec_always --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Edge Scrolling" 1, 1, 0
