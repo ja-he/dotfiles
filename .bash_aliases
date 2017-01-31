@@ -8,4 +8,7 @@ alias texplate='cp ~/.texplate.tex temp.tex && printf "rename by typing: mv temp
 alias lolight='xbacklight -set 1'
 alias hilight='xbacklight -set 100'
 alias dotfilecollect='cp ~/.vimrc ~/gits/dotfiles && cp ~/.config/i3/config ~/gits/dotfiles && cp ~/.bashrc ~/gits/dotfiles && cp ~/.Xresources ~/gits/dotfiles && cp ~/.bash_aliases ~/gits/dotfiles && cd ~/gits/dotfiles && git status'
+alias chatty='thunar ~/.chatty/Chatty.jar'
+alias showclock='tty-clock -cC 7'
+
 

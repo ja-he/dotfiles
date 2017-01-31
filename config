@@ -45,6 +45,10 @@ bindsym $mod+shift+d exec rofi -show window -lines 8 -eh 1 -width 36 -padding 10
 
 # bindsym $mod+d exec rofi -show run -width 100 -fg "#B0E670" -bg "#14161F" -hlfg "#14161F" -hlbg "#B0E670" -bc "#14161F" -location 0 -lines 19 -bw 0 -font "Ubuntu Mono 16" -padding 310 -separator-style none -opacity 80
 
+# moving workspace to HDMI  output
+bindsym $mod+p move workspace to output HDMI1
+bindsym $mod+o move workspace to output eDP1
+
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -57,7 +61,7 @@ bindsym $mod+l focus up
 bindsym $mod+odiaeresis focus right
 
 # i3lock
-bindsym $mod+t exec i3lock -i ~/Pictures/sf/images/wallpapers/soarlocksmall.png
+bindsym $mod+t exec i3lock -i ~/Pictures/sf/images/wallpapers/plutolock.png
 
 
 # alternatively, you can use the cursor keys:
@@ -235,6 +239,8 @@ hide_edge_borders both
 exec --no-startup-id i3-msg 'workspace $workspace10; exec gnome-terminal.real'
 exec --no-startup-id quodlibet
 exec --no-startup-id compton -f
+
+# WALLPAPER
 exec_always --no-startup-id feh --bg-fill ~/Pictures/sf/images/wallpapers/plutofull.*
 exec --no-startup-id alarm-clock-applet
 exec_always --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Tap Time" 0
