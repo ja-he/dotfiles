@@ -1,7 +1,6 @@
 alias ..='cd ..'
-alias studiumcd='cd ~/Documents/sf/documents/studium/sem1'
+alias cdsem2='cd ~/Documents/sf/documents/studium/sem2'
 alias i3cfg='vim ~/.config/i3/config'
-alias nltwitch='streamlink twitch.tv/northernlion best'
 alias krita='./.krita.appimage'
 alias ledger='vim ~/.notes/ledger.txt'
 alias texplate='cp ~/.texplate.tex temp.tex && printf "rename by typing: mv temp.tex newfilename.tex\n" && printf "remove by typing: rm temp.tex\n"'
