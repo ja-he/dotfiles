@@ -233,14 +233,14 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
 
 hide_edge_borders both
-
+new_window none
 
 exec --no-startup-id i3-msg 'workspace $workspace10; exec gnome-terminal.real'
 exec --no-startup-id quodlibet
 exec --no-startup-id compton -fc
 
 # WALLPAPER
-exec_always --no-startup-id feh --bg-fill ~/Pictures/sf/images/wallpapers/oceanspray.*
+exec_always --no-startup-id feh --bg-fill ~/Pictures/sf/images/wallpapers/duskpeaks.*
 exec --no-startup-id alarm-clock-applet
 exec_always --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Tap Time" 0
 exec_always --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Edge Scrolling" 1, 1, 0
