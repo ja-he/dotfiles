@@ -38,7 +38,7 @@ bindsym $mod+Return exec gnome-terminal
 bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
-bindsym $mod+d exec rofi -show run -lines 6 -eh 1 -width 36 -padding 10 -bw 1 -font "DejaVu Sans Mono Book 12"
+bindsym $mod+d exec rofi -show run -lines 6 -eh 1 -width 36 -padding 10 -bw 0 -font "DejaVu Sans Mono Book 12"
 
 # start rofi (a program launcher)
 bindsym $mod+shift+d exec rofi -show window -lines 8 -eh 1 -width 36 -padding 10 -bw 1 -font "DejaVu Sans Mono Book 12"
