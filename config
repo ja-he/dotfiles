@@ -234,6 +234,7 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightne
 
 hide_edge_borders both
 new_window none
+new_float none
 
 exec --no-startup-id i3-msg 'workspace $workspace10; exec gnome-terminal.real'
 exec --no-startup-id quodlibet
