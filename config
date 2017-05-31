@@ -46,8 +46,8 @@ bindsym $mod+shift+d exec rofi -show window -lines 8 -eh 1 -width 36 -padding 10
 # bindsym $mod+d exec rofi -show run -width 100 -fg "#B0E670" -bg "#14161F" -hlfg "#14161F" -hlbg "#B0E670" -bc "#14161F" -location 0 -lines 19 -bw 0 -font "Ubuntu Mono 16" -padding 310 -separator-style none -opacity 80
 
 # moving workspace to HDMI  output
-bindsym $mod+p move workspace to output HDMI1
-bindsym $mod+o move workspace to output eDP1
+bindsym $mod+p move workspace to output $RightDisplay
+bindsym $mod+o move workspace to output $LeftDisplay
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -119,7 +119,9 @@ set $workspace8 "8     "
 set $workspace9 "9     "
 set $workspace10 "0     "
 
-set $PrimaryDisplay "eDP1"
+# Display Positions 
+    set $LeftDisplay "HDMI1" 
+    set $RightDisplay "eDP1"
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -196,7 +198,7 @@ bar {
 	mode hide
 	
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
-        tray_output $PrimaryDisplay 
+        tray_output $LeftDisplay 
 	
 	colors {
 		background $bg-color
@@ -241,7 +243,7 @@ exec --no-startup-id quodlibet
 exec --no-startup-id compton -fc
 
 # WALLPAPER
-exec_always --no-startup-id feh --bg-fill ~/Pictures/sf/images/wallpapers/duskpeaks.*
+exec_always --no-startup-id feh --bg-fill ~/Pictures/sf/images/wallpapers/wavy.*
 exec --no-startup-id alarm-clock-applet
 exec_always --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Tap Time" 0
 exec_always --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Edge Scrolling" 1, 1, 0
