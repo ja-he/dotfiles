@@ -120,7 +120,9 @@ set $workspace9 "9     "
 set $workspace10 "0     "
 
 # Display Positions 
-    set $LeftDisplay "HDMI1" 
+#    set $LeftDisplay "eDP1" 
+#    set $RightDisplay "HDMI1"
+    set $LeftDisplay "HDMI1"
     set $RightDisplay "eDP1"
 
 # switch to workspace
@@ -198,6 +200,7 @@ bar {
 	mode hide
 	
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
+#        tray_output $LeftDisplay
         tray_output $LeftDisplay 
 	
 	colors {

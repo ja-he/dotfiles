@@ -12,4 +12,5 @@ alias showclock='tty-clock -cC 7'
 alias lowlight='xbacklight -set 1'
 alias fullight='xbacklight -set 100'
 alias weatherrep='curl -s wttr.in/Bremen'
+alias i3switch='./.i3switch.sh'
 
