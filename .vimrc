@@ -68,3 +68,6 @@ let g:bullets_enabled_file_types = [
     \ 'gitcommit',
     \ 'scratch'
     \]
+
+" testing ... 
+colorscheme default 
