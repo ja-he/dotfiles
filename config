@@ -61,7 +61,7 @@ bindsym $mod+l focus up
 bindsym $mod+odiaeresis focus right
 
 # i3lock
-bindsym $mod+t exec i3lock -i ~/Pictures/sf/images/wallpapers/oceanspraylock.png
+bindsym $mod+t exec "i3lock -i ~/Pictures/sf/images/wallpapers/blossomingsproutletterboxedlock.png"
 
 
 # alternatively, you can use the cursor keys:
@@ -200,7 +200,7 @@ bar {
 	mode hide
 	
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
-#        tray_output $LeftDisplay
+#        tray_output $RightDisplay
         tray_output $LeftDisplay 
 	
 	colors {
@@ -247,7 +247,7 @@ exec --no-startup-id quodlibet
 exec --no-startup-id compton -fc
 
 # WALLPAPER
-exec_always --no-startup-id feh --bg-fill ~/Pictures/sf/images/wallpapers/blossomingsprout*
+exec_always --no-startup-id feh --bg-fill ~/Pictures/sf/images/wallpapers/blossomingsproutletterboxed.*
 exec --no-startup-id alarm-clock-applet
 exec_always --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Tap Time" 0
 exec_always --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Edge Scrolling" 1, 1, 0
@@ -258,3 +258,4 @@ exec_always --no-startup-id xmodmap -e 'keycode 115 = NoSymbol'
 exec_always --no-startup-id xset m 00
 # ger keyboard layout
 exec_always --no-startup-id setxkbmap de
+exec --no-startup-id redshift -t 5500K:3500K
