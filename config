@@ -259,3 +259,4 @@ exec_always --no-startup-id xset m 00
 # ger keyboard layout
 exec_always --no-startup-id setxkbmap de
 exec --no-startup-id redshift -t 5500K:3500K
+exec_always --no-startup-id ~/./.walscript.sh
