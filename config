@@ -61,7 +61,7 @@ bindsym $mod+l focus up
 bindsym $mod+odiaeresis focus right
 
 # i3lock
-set $i3lock "i3lock -i ~/Pictures/sf/images/wallpapers/blossomingsproutletterboxedlock.png"
+set $i3lock "./.i3lockscript.sh"
 bindsym $mod+t exec $i3lock
 
 # alternatively, you can use the cursor keys:
@@ -201,8 +201,8 @@ bar {
 	mode hide
 	
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
-        tray_output $RightDisplay
-#        tray_output $LeftDisplay 
+#        tray_output $RightDisplay
+        tray_output $LeftDisplay 
 	
 	colors {
 		background $bg-color
@@ -234,6 +234,10 @@ bindsym $mod + plus         exec --no-startup-id pactl set-sink-volume alsa_outp
 bindsym $mod + minus        exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -5% #decrease sound volume
 bindsym $mod + numbersign   exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo 100% #volume = 100%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 2 toggle # mute sound
+# Toggle Mute Built in Speakers Keybind (further down its default is set to muted)
+bindsym $mod+dead_acute exec --no-startup-id pactl set-sink-mute alsa_output.pci-0000_00_1b.0.analog-stereo toggle
+# Default Built-in Speakers to muted 
+exec --no-startup-id pactl set-sink-mute alsa_output.pci-0000_00_1b.0.analog-stereo 1
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
@@ -245,6 +249,7 @@ new_float none
 
 exec --no-startup-id i3-msg 'workspace $workspace10; exec gnome-terminal.real'
 exec --no-startup-id compton -fc
+exec --no-startup-id ./home/ztf/pia.sh
 
 # WALLPAPER
 exec_always --no-startup-id feh --bg-fill ~/Pictures/sf/images/wallpapers/blossomingsproutletterboxed.*
@@ -260,5 +265,4 @@ exec_always --no-startup-id xset m 00
 exec_always --no-startup-id setxkbmap de
 exec_always --no-startup-id redshift -rt 6500K:2000K
 exec_always --no-startup-id ~/./.walscript.sh
-exec --no-startup-id ./.screenlayout/single.sh
 exec --no-startup-id $i3lock 
