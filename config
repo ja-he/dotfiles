@@ -249,7 +249,7 @@ new_float none
 
 exec --no-startup-id i3-msg 'workspace $workspace10; exec gnome-terminal.real'
 exec --no-startup-id compton -fc
-exec --no-startup-id ./home/ztf/pia.sh
+exec --no-startup-id ~/./pia.sh
 
 # WALLPAPER
 exec_always --no-startup-id feh --bg-fill ~/Pictures/sf/images/wallpapers/blossomingsproutletterboxed.*
