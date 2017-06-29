@@ -252,7 +252,6 @@ exec --no-startup-id compton -fc
 exec --no-startup-id ~/./pia.sh
 
 # WALLPAPER
-exec_always --no-startup-id feh --bg-fill ~/Pictures/sf/images/wallpapers/blossomingsproutletterboxed.*
 exec --no-startup-id alarm-clock-applet --hidden
 exec_always --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Tap Time" 0
 exec_always --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Edge Scrolling" 1, 1, 0
@@ -266,3 +265,4 @@ exec_always --no-startup-id setxkbmap de
 exec_always --no-startup-id redshift -rt 6500K:2000K
 exec_always --no-startup-id ~/./.walscript.sh
 exec --no-startup-id $i3lock 
+exec_always --no-startup-id feh --bg-fill ~/Pictures/sf/images/wallpapers/blossomingsproutletterboxed.*
