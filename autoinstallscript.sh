@@ -57,7 +57,7 @@
 	# install
 	sudo apt-get install git -y
 	# setup
-	ssh-keygen -t rsa -C "ja_he@uni-bremen.de" -b 4096#
+	ssh-keygen -t rsa -C "ja_he@uni-bremen.de" -b 4096
 	xclip -sel clip < ~/.ssh/id_rsa.pub
 	echo "Your key is in the clipboard, log in and paste it. "
 	echo "make sure you close the browser afterwards, bud..."
