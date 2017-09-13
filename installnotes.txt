@@ -1,0 +1,29 @@
+Notes from the install process [10.09.2017]
+___________________________________________
+
+wal:
+I couldnt get pywal installed, it simply wouldnt open even though the install itself seemed to go fine, so i went with wal.
+
+pia:
+Very simple install, simply follow instructions on their website. It did however seem to mess with the internet connectivity on lubuntu (couldnt get it to work) and also didnt play nice with it on xubuntu unless some of the options in pia (mace, ipv6 leak protection, killswitch, ...) were disabled.
+
+git:
+first install obviously very basic.
+setup more complex.
+1. get ssh key
+	- generate via "ssh-keygen -t rsa -C "your.email@example.com" -b 4096"
+	- copy key via "xclip -sel clip < ~/.ssh/id_rsa.pub"
+2. paste it at https://gitlab.informatik.uni-bremen.de/profile/keys and name it
+3. set up global config for git
+	- git config --global user.email "ja_he@uni-bremen.de"
+	- git config --global user.name "Jan Hensel"
+
+vim:
+vimrc itself just a lot of options to shuffle through.
+to manage plugins my first dabble with tpope's pathogen.vim
+also to install latex-box
+
+i3blocks:
+the conf can be placed in ~/.config/i3blocks/config
+the blocks are in /usr/share/i3blocks/...
+
