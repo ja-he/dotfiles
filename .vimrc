@@ -1,40 +1,80 @@
+" MY VIMRC 
+"___________________________________________________________________________
+
+" ----------------
+" GENERAL SETTINGS 
+" ----------------
+
+" sets the lines of history, that vim will remember 
+set history=500
+
+" enable filetype plugins 
 filetype plugin on
+filetype indent on 
 
-" Custom commands to make LaTeX compiling and viewing more easily accessible 
-command LV      LatexView
-command Lmk     Latexmk
+" set to automatically ready if a file was externally changed 
+set autoread 
 
-"syntax enable
-colors distinguished
+" fixing the capital :W human error 
+command W w !sudo tee % > /dev/null 
 
+"____________________________________________________________________________
+
+" ------------------
+" INTERFACE SETTINGS 
+" ------------------
+
+" show line numbers 
+set number 
+" make them grey on black 
 highlight LineNr ctermfg=grey ctermbg=black
 
-" Enables line numbers 
-set number
+" indicate the current line by underscoring 
+set cursorline 
 
-filetype plugin indent on
+" predictive command menu (visualization) 
+set wildmenu 
 
-" show existing tab with 4 spaces width
-set tabstop=4
-" allows to delete the four spaces in a tab with one backspace 
-set softtabstop=4
-" when indenting with '>', use 4 spaces width
-set shiftwidth=4
-" On pressing tab, insert 4 spaces
-set expandtab
+" more easily accessible navigation in a line of text 
+nnoremap B ^
+nnoremap E $
 
-" Smart indented line breaking 
-" particularly for .tex group projects this works well
-" where others might edit the same doc on TeXworks 
-set breakindent
+" show current position 
+set ruler 
 
-" Makes cursor shape dependent on insert vs normal mode
-" []  block for -- normal --  
-" |   line  for -- insert --
+" command bar height 
+set cmdheight=2
+
+" adjusting backspace behaviour 
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
+
+" ignore case in searches 
+set ignorecase 
+" still prioritize though 
+set smartcase 
+
+" highlight search results 
+set hlsearch 
+
+" show matching brackets, when on indicator 
+set showmatch 
+
+" matching bracket blinking speed (10ths of seconds) 
+set mat=2 
+
+" always show the status line 
+set laststatus=2
+
+" format status line (commented out, since it didnt work, i made 0 effort to
+" fix it though...)
+" set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
+
+" make cursor shape dependent on insert vs normal mode 
 if has("autocmd")
       au VimEnter,InsertLeave * silent execute '!echo -ne "\e[2 q"' | redraw!
         au InsertEnter,InsertChange *
-            \ if v:insertmode == 'i' | 
+            \ if v:insertmode == 'i' |
             \   silent execute '!echo -ne "\e[6 q"' | redraw! |
             \ elseif v:insertmode == 'r' |
             \   silent execute '!echo -ne "\e[4 q"' | redraw! |
@@ -42,32 +82,94 @@ if has("autocmd")
           au VimLeave * silent execute '!echo -ne "\e[ q"' | redraw!
       endif
 
-" Enables mouse support 
-set mouse=a
+" enable the mouse for text navigation 
+set mouse=a 
 
-" shows the most recent command in the bottom left 
-set showcmd
+" _________________________________________________________________________
 
-" highlighting current line of cursor
-set cursorline 
+" -----------
+" BEAUTIFYING 
+" ----------- 
 
-" predictive command menu 
-set wildmenu
+" syntax highlighting 
+syntax enable 
 
-" indicates the match to any bracket / parenthesis / ... 
-set showmatch 
+" auto indent 
+set ai 
 
-" move to beginning/end of line
-nnoremap B ^
-nnoremap E $
+" smart indent 
+set si 
 
-" Bullets.vim
-let g:bullets_enabled_file_types = [
-    \ 'markdown',
-    \ 'text',
-    \ 'gitcommit',
-    \ 'scratch'
-    \]
+" wrap lines 
+set wrap 
 
-" testing ... 
-colorscheme default 
+" _________________________________________________________________________
+
+" ----------
+" FILES ETC.
+" ----------
+
+" turn off backup, since it's annoying 
+set nobackup
+set nowb
+set noswapfile 
+
+" _________________________________________________________________________
+
+" --------------
+" TEXT BEHAVIOUR 
+" --------------
+
+" tabs become spaces 
+set expandtab 
+
+" smart tabs 
+set smarttab 
+
+" 1 Tab = 4 Spaces 
+set shiftwidth=4    " inserting tabs = 4 spaces 
+set tabstop=4       " existing tabs = 4 spaces 
+set expandtab
+set softtabstop=4   " delete the 4 spaces of a tab with backspace 
+
+" UTF-8 standard encoding 
+set encoding=utf8
+
+" delete trailing whitespaces on saving 
+fun! CleanExtraSpaces()
+    let save_cursor = getpos(".")
+    let old_query = getreg('/')
+        silent! %s/\s\+$//e
+        call setpos('.', save_cursor)
+        call setreg('/', old_query)
+endfun
+
+if has("autocmd")
+    autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
+endif
+
+" paste toggle so (vim stops messing with pasted text formatting)
+set pastetoggle=<F2>
+
+" ___________________________________________________________________________________
+
+
+" -------
+" PLUGINS 
+" -------
+
+" Pathogen 
+execute pathogen#infect()
+
+" ___________________________________________________________________________________
+
+
+" -----
+" BINDS
+" -----
+
+" LaTeX-Box binds 
+command LV      LatexView
+command Lmk     Latexmk
+
+

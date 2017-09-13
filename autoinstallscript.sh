@@ -79,6 +79,8 @@
     git clone https://github.com/tpope/vim-pathogen.git
     cd
     cp ~/gits/vim-pathogen/autoload/pathogen.vim ~/.vim/autoload/pathogen.vim
+# latexmk
+    sudo apt-get install latexmk -y
 # latex-box.vim
     cd ~/.vim/bundle
     git clone git://github.com/LaTeX-Box-Team/LaTeX-Box.git
