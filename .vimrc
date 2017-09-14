@@ -29,6 +29,17 @@ set number
 " make them grey on black 
 highlight LineNr ctermfg=grey ctermbg=black
 
+" color column at the 101st column 
+" this is currently done by the command below, 
+" thanks to Damian Conway
+"set colorcolumn=101
+" make the column dark grey
+"highlight ColorColumn ctermbg=8
+
+" Damian Conway's clever ColorColumn regex. Highlights the 101st column only in lines in which the text overflows that limit 
+highlight ColorColumn ctermbg=magenta
+call matchadd('ColorColumn', '\%101v', 100)
+
 " indicate the current line by underscoring 
 set cursorline 
 
