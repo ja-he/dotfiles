@@ -35,10 +35,6 @@ set cursorline
 " predictive command menu (visualization) 
 set wildmenu 
 
-" more easily accessible navigation in a line of text 
-nnoremap B ^
-nnoremap E $
-
 " show current position 
 set ruler 
 
