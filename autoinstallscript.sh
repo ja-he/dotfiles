@@ -10,10 +10,9 @@
 # keepassx
     sudo apt-get install keepassx -y
 # zathura
+    # you can set this to be the
+    # default pdf program via thunar
     sudo apt-get install zathura -y
-    # also remove evince, to avoid issues
-    # when using latex-box.vim
-    sudo apt-get remove evince -y
 # gedit
     sudo apt-get install gedit -y
 # qbittorrent
@@ -79,8 +78,6 @@
     git clone https://github.com/tpope/vim-pathogen.git
     cd
     cp ~/gits/vim-pathogen/autoload/pathogen.vim ~/.vim/autoload/pathogen.vim
-# latexmk
-    sudo apt-get install latexmk -y
 # latex-box.vim
     cd ~/.vim/bundle
     git clone git://github.com/LaTeX-Box-Team/LaTeX-Box.git
@@ -115,4 +112,8 @@
     sudo apt-get install redshift -y
 # curl
     sudo apt-get install curl -y
+# latexmk
+    sudo apt-get install latexmk -y
+# texlive
+    sudo apt-get install texlive-full -y
 
