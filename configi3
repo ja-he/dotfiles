@@ -111,6 +111,15 @@ set $PrimaryOutput alsa_output.usb-FiiO_FiiO_USB_DAC_K1-01.analog-stereo
 	# Set Volume = 100%
 	bindsym $mod+shift+plus exec pactl set-sink-volume $PrimaryOutput 100%
 
+# Basic colors 
+set $Foundation         "#000000"
+set $ActiveBGColor      "#000000"
+set $InactiveBGColor    "#000000"
+set $ActiveTextColor    "#FFFFFF"
+set $InactiveTextColor  "#666666"
+set $UrgentColor        "#883333"
+set $AltInfoColor       "#339955"
+
 # Workspace Names 
 set $workspace01 "1 browse " 
 set $workspace02 "2 code   " 
@@ -204,6 +213,20 @@ bar {
 	mode hide 
         status_command i3blocks
 	tray_output $PrimaryDisplay
+
+	colors {
+        background          $Foundation
+        statusline          $ActiveTextColor
+        separator           $InactiveTextColor
+
+        # class             border              background          text 
+        focused_workspace   $ActiveBGColor      $ActiveBGColor      $ActiveTextColor
+        active_workspace    #0000ff             #ff0000             #ffffff
+        inactive_workspace  $InactiveBGColor    $InactiveBGColor    $InactiveTextColor
+        urgent_workspace    $UrgentColor        $InactiveBGColor    $UrgentColor
+        binding_mode        $InactiveBGColor    $InactiveBGColor    $AltInfoColor
+    }
+
 }
 
 # Window Settings 
