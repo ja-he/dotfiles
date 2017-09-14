@@ -211,8 +211,20 @@ hide_edge_borders both
 new_window none 
 new_float none
 
+# setting the wallpaper 
+# any wallpaper you want set has to be located 
+# in /home/ztf/ named ".bgimg.(jpg|png)"
 exec --no-startup-id feh --bg-fill ~/.bgimg.*
+
+# starting private internet access 
+# (remove in case of regular connection issues, esp DNS issues)
 exec --no-startup-id ~/./pia.sh
+
+# start redshift (=f.lux) 
+# -r = disable temp transitions 
+# -t = set day:night temperatures
+# -l = set longitude=latitude 
+exec --no-startup-id redshift -r -t 6500:2000 -l 53:8
 
 # ------------------------------------
 # LENOVO IDEAPAD E31 SPECIFIC SECTION: 

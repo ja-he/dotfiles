@@ -113,4 +113,6 @@
     sudo apt-get install krita -y
 # redshift
     sudo apt-get install redshift -y
+# curl
+    sudo apt-get install curl -y
 
