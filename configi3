@@ -41,7 +41,7 @@ bindsym $mod+Shift+q kill
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+d exec rofi -show run -width 15 -lines 4 -hide-scrollbar
+bindsym $mod+d exec rofi -show run
 # you could add a rofi window switcher as well... 
 
 # moving workspaces to other display 
