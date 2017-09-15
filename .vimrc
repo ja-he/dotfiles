@@ -28,7 +28,7 @@
         filetype plugin on
         filetype indent on 
 
-    " set to automatically ready if a file was externally changed 
+    " set to automatically read if a file was externally changed 
         set autoread 
 
     " fixing the capital :W human error 
@@ -44,7 +44,7 @@
     " show line numbers 
         set number 
     " make them grey on black 
-        highlight LineNr ctermfg=grey ctermbg=black
+        highlight LineNr ctermfg=darkgrey ctermbg=black
 
     " color column at the 101st column 
     " this is currently done by the command below, 
@@ -199,4 +199,6 @@
         command LV      LatexView
         command Lmk     Latexmk
 
-    " 
+    " LaTeX command test...
+        map <F3> :Latexmk<CR>
+        map <F4> :LatexView<CR>
