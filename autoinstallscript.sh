@@ -116,4 +116,6 @@
     sudo apt-get install latexmk -y
 # texlive
     sudo apt-get install texlive-full -y
-
+# scrot
+    sudo apt-get install scrot -y
+#

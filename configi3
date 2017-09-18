@@ -51,6 +51,9 @@ bindsym $mod+o move workspace to output $LeftDisplay
 # i3lock 
 bindsym $mod+t exec i3lock -i ~/.lockimg.*
 
+# scrot 
+bindsym $mod+z exec scrot /home/ztf/.screenshots.jpg
+
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -173,6 +176,8 @@ set $LeftDisplay DVI-D-0
 # Display Configuration
 # exec_always --no-startup-id xrandr --output DVI-D-0 --mode 1920x1080 --rate 144
 exec_always --no-startup-id xrandr --output $PrimaryDisplay --mode $PrimaryDisplayResolution --rate $PrimaryDisplayRate
+# alternative script, not sure if I should use this method instead 
+# exec --no-startup-id /home/ztf/.scripts/./xrandr.sh
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -189,10 +194,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym odiaeresis resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -230,9 +235,20 @@ bar {
 }
 
 # Window Settings 
-hide_edge_borders both
-new_window none 
-new_float none
+set $BorderWidth 1
+hide_edge_borders none
+new_window pixel $BorderWidth
+new_float pixel $BorderWidth
+bindsym $mod+i border none
+bindsym $mod+u border pixel $BorderWidth
+# class                 border              backgr. text    indicator child_border
+client.focused          $ActiveTextColor    #285577 #ffffff #2e9ef4   $ActiveTextColor
+client.focused_inactive #00ff00             #5f676a #ffffff #484e50   $InactiveTextColor
+client.unfocused        $InactiveTextColor  #222222 #888888 #292d2e   $InactiveTextColor
+client.urgent           $UrgentColor        #900000 #ffffff #900000   $UrgentColor
+client.placeholder      #0000ff             #0c0c0c #ffffff #000000   #ff0000
+
+client.background       #ffffff
 
 # setting the wallpaper 
 # any wallpaper you want set has to be located 
@@ -247,7 +263,7 @@ exec --no-startup-id ~/./pia.sh
 # -r = disable temp transitions 
 # -t = set day:night temperatures
 # -l = set longitude=latitude 
-exec --no-startup-id redshift -r -t 6500:2000 -l 53:8
+exec --no-startup-id /home/ztf/.scripts/./redshift.sh
 
 # ------------------------------------
 # LENOVO IDEAPAD E31 SPECIFIC SECTION: 
