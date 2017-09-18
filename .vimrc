@@ -41,8 +41,9 @@
 " INTERFACE SETTINGS 
 " ------------------
 
-    " show line numbers 
-        set number 
+    " show line numbers (relative w/ current line showing actual number)
+        set number
+        set relativenumber 
     " make them grey on black 
         highlight LineNr ctermfg=darkgrey ctermbg=black
 
@@ -92,7 +93,8 @@
         set laststatus=2
 
     " format status line (commented out, since it didnt work, i made 0 effort to
-    " fix it though...)
+    " fix it though...) 
+    " I currently use vim-airline which makes this obsolete anways. 
         "set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
 
     " make cursor shape dependent on insert vs normal mode 
@@ -129,6 +131,8 @@
     " wrap lines 
         set wrap 
 
+    " let linewrap respect indentation 
+        set breakindent
 
 " ________________________________________________________________________________________
 
@@ -161,19 +165,6 @@
 
     " UTF-8 standard encoding 
         set encoding=utf8
-
-    " delete trailing whitespaces on saving 
-        fun! CleanExtraSpaces()
-            let save_cursor = getpos(".")
-            let old_query = getreg('/')
-                silent! %s/\s\+$//e
-                call setpos('.', save_cursor)
-                call setreg('/', old_query)
-        endfun
-
-        if has("autocmd")
-            autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
-        endif
 
 
 " ________________________________________________________________________________________
