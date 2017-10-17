@@ -166,6 +166,9 @@ assign [class="Steam"]          $workspace09
 assign [class="Keepassx"]       $workspace07
 assign [class="krita"]          $workspace05
 
+# set mpv to float 
+for_window [class="mpv"] floating enable
+
 # Display Details 
 set $PrimaryDisplay DVI-D-0
 set $PrimaryDisplayResolution 1920x1080
@@ -235,7 +238,7 @@ bar {
 }
 
 # Window Settings 
-set $BorderWidth 1
+set $BorderWidth 2
 hide_edge_borders none
 new_window pixel $BorderWidth
 new_float pixel $BorderWidth
@@ -264,6 +267,12 @@ exec --no-startup-id ~/./pia.sh
 # -t = set day:night temperatures
 # -l = set longitude=latitude 
 exec --no-startup-id /home/ztf/.scripts/./redshift.sh
+
+# seafile startup 
+exec --no-startup-id seafile-applet
+
+# compton 
+exec --no-startup-id compton 
 
 # ------------------------------------
 # LENOVO IDEAPAD E31 SPECIFIC SECTION: 
