@@ -118,4 +118,6 @@
     sudo apt-get install texlive-full -y
 # scrot
     sudo apt-get install scrot -y
-#
+# c / c++
+    sudo apt install libstdc++-6-doc -y 
+# 
