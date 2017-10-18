@@ -1,7 +1,7 @@
 ! "Enabled modi" Set from: Default
 ! rofi.modi:                           window,run,ssh
 ! "Window width" Set from: Default
-rofi.width:                             10
+rofi.width:                             15
 ! "Number of lines" Set from: Default
 rofi.lines:                             4
 ! "Number of columns" Set from: Default
@@ -15,9 +15,9 @@ rofi.color-normal:                      #000000,#666666,#000000,#000000,#ffffff
 ! "Color scheme for active row" Set from: Default
 ! rofi.color-active:                   #fdf6e3,#268bd2,#eee8d5,#268bd2,#fdf6e3
 ! "Color scheme window" Set from: Default
-rofi.color-window:                      #000000,#000000
+rofi.color-window:                      #000000,#ffffff
 ! "Border width" Set from: Default
-rofi.bw:                                0
+rofi.bw:                               2 
 ! "Location on screen" Set from: Default
 ! rofi.location:                       0
 ! "Padding" Set from: Default
