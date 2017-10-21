@@ -118,7 +118,13 @@
     sudo apt-get install texlive-full -y
 # scrot
     sudo apt-get install scrot -y
+<<<<<<< HEAD
 # compton 
     sudo apt-get install compton -y
 # xbacklight 
     sudo apt-get install xbacklight -y
+=======
+# c / c++
+    sudo apt install libstdc++-6-doc -y 
+# 
+>>>>>>> 6df28037e81a008f28874ffb52e7d43214657257
