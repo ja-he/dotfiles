@@ -124,4 +124,6 @@
     sudo apt-get install xbacklight -y
 # c / c++
     sudo apt install libstdc++-6-doc -y 
-# 
+# quodlibet 
+    sudo apt-get install quodlibet -y 
+
