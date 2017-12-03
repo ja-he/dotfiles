@@ -107,12 +107,13 @@ bindsym $mod+a focus parent
 # Volume Changing 
 set $PrimaryOutput alsa_output.usb-FiiO_FiiO_USB_DAC_K1-01.analog-stereo
 	# Mute Toggle 
-	bindsym $mod+numbersign exec pactl set-sink-mute $PrimaryOutput toggle
+	bindsym $mod+numbersign     exec pactl set-sink-mute $PrimaryOutput toggle
  	# Volume up / down 
- 	bindsym $mod+plus exec pactl set-sink-volume $PrimaryOutput +5%
-	bindsym $mod+minus exec pactl set-sink-volume $PrimaryOutput -5%
-	# Set Volume = 100%
-	bindsym $mod+shift+plus exec pactl set-sink-volume $PrimaryOutput 100%
+ 	bindsym $mod+plus           exec pactl set-sink-volume $PrimaryOutput +5%
+	bindsym $mod+minus          exec pactl set-sink-volume $PrimaryOutput -5%
+	# Set Volume = 100% / 25%
+	bindsym $mod+shift+plus     exec pactl set-sink-volume $PrimaryOutput 100%
+	bindsym $mod+shift+minus    exec pactl set-sink-volume $PrimaryOutput 25%
 
 # Basic colors 
 set $Foundation         "#000000"
@@ -184,6 +185,8 @@ exec_always --no-startup-id xrandr --output $PrimaryDisplay --mode $PrimaryDispl
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
+# open google calendar in chromium in app mode 
+bindsym $mod+c exec "chromium-browser --app=https://calendar.google.com/calendar/b/0/r?pli=1&t=AKUaPmYJ9NrtIuS2qc3uJoW1nco5vqjbxKWMFkR3dSBpRmMqRpeTMtqc1Mze6hYY4h4OixQuYu1qJIm1oRMoDK0ko1oT6HHHSw%3D%3D#main_7"
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)

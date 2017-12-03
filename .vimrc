@@ -174,6 +174,8 @@
 " -------
 
     " Pathogen 
+        " use this to disable plugins if you need to find a bottleneck 
+        let g:pathogen_disabled = []
         execute pathogen#infect()
 
 
