@@ -126,4 +126,5 @@
     sudo apt install libstdc++-6-doc -y 
 # quodlibet 
     sudo apt-get install quodlibet -y 
-
+# rofi 
+    sudo apt-get install rofi -y
