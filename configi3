@@ -107,13 +107,12 @@ bindsym $mod+a focus parent
 # Volume Changing 
 set $PrimaryOutput alsa_output.usb-FiiO_FiiO_USB_DAC_K1-01.analog-stereo
 	# Mute Toggle 
-	bindsym $mod+numbersign     exec pactl set-sink-mute $PrimaryOutput toggle
+	bindsym $mod+numbersign exec pactl set-sink-mute $PrimaryOutput toggle
  	# Volume up / down 
- 	bindsym $mod+plus           exec pactl set-sink-volume $PrimaryOutput +5%
-	bindsym $mod+minus          exec pactl set-sink-volume $PrimaryOutput -5%
-	# Set Volume = 100% / 25%
-	bindsym $mod+shift+plus     exec pactl set-sink-volume $PrimaryOutput 100%
-	bindsym $mod+shift+minus    exec pactl set-sink-volume $PrimaryOutput 25%
+ 	bindsym $mod+plus exec pactl set-sink-volume $PrimaryOutput +5%
+	bindsym $mod+minus exec pactl set-sink-volume $PrimaryOutput -5%
+	# Set Volume = 100%
+	bindsym $mod+shift+plus exec pactl set-sink-volume $PrimaryOutput 100%
 
 # Basic colors 
 set $Foundation         "#000000"
@@ -171,11 +170,11 @@ assign [class="krita"]          $workspace05
 for_window [class="mpv"] floating enable
 
 # Display Details 
-set $PrimaryDisplay DVI-D-0
-set $PrimaryDisplayResolution 1920x1080
-set $PrimaryDisplayRate 144
-set $RightDisplay DVI-D-0
-set $LeftDisplay DVI-D-0
+set $PrimaryDisplay eDP1
+set $PrimaryDisplayResolution 1366x768
+set $PrimaryDisplayRate 60
+set $RightDisplay eDP-1
+set $LeftDisplay HDMI1
 
 # Display Configuration
 # exec_always --no-startup-id xrandr --output DVI-D-0 --mode 1920x1080 --rate 144
@@ -185,8 +184,6 @@ exec_always --no-startup-id xrandr --output $PrimaryDisplay --mode $PrimaryDispl
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
-# open google calendar in chromium in app mode 
-bindsym $mod+c exec "chromium-browser --app=https://calendar.google.com/calendar/b/0/r?pli=1&t=AKUaPmYJ9NrtIuS2qc3uJoW1nco5vqjbxKWMFkR3dSBpRmMqRpeTMtqc1Mze6hYY4h4OixQuYu1qJIm1oRMoDK0ko1oT6HHHSw%3D%3D#main_7"
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
@@ -281,15 +278,15 @@ exec --no-startup-id compton
 # LENOVO IDEAPAD E31 SPECIFIC SECTION: 
 
 # Sreen brightness controls
-	# bindsym XF86MonBrightnessUp exec xbacklight -inc 10 
-	# bindsym XF86MonBrightnessDown exec xbacklight -dec 10 
+	bindsym XF86MonBrightnessUp exec xbacklight -inc 10 
+	bindsym XF86MonBrightnessDown exec xbacklight -dec 10 
 
 # Touchpad setup
-	# exec_always --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Tap Time" 0
-	# exec_always --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Edge Scrolling" 1, 1, 0
+	exec_always --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Tap Time" 0
+	exec_always --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Edge Scrolling" 1, 1, 0
 
 # GER KB layout 
 	# exec_always --no-startup-id setxkbmap de
 
 # Default Built-in Speakers to muted 
-	# exec --no-startup-id pactl set-sink-mute alsa_output.pci-0000_00_1b.0.analog-stereo 1
+	exec --no-startup-id pactl set-sink-mute alsa_output.pci-0000_00_1b.0.analog-stereo 1
