@@ -167,7 +167,7 @@ assign [class="Keepassx"]       $workspace07
 assign [class="krita"]          $workspace05
 
 # set mpv to float 
-for_window [class="mpv"] floating enable
+#for_window [class="mpv"] floating enable
 
 # Display Details 
 set $PrimaryDisplay eDP1
