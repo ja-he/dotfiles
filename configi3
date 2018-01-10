@@ -282,11 +282,13 @@ exec --no-startup-id compton
 	bindsym XF86MonBrightnessDown exec xbacklight -dec 10 
 
 # Touchpad setup
-	exec_always --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Tap Time" 0
-	exec_always --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Edge Scrolling" 1, 1, 0
+    # set touchpad (deviceid=13) touchpad disabled while typing (optionnr=295) to true
+	exec_always --no-startup-id xinput set-prop 13 295 1
+    # set touchpad (deviceid=13) scroll methods (optionnr=293) to enable edge scrolling 
+	exec_always --no-startup-id xinput set-prop 13 293 {1, 1, 0} 
 
 # GER KB layout 
-	# exec_always --no-startup-id setxkbmap de
+	exec_always --no-startup-id setxkbmap de
 
 # Default Built-in Speakers to muted 
 	exec --no-startup-id pactl set-sink-mute alsa_output.pci-0000_00_1b.0.analog-stereo 1
