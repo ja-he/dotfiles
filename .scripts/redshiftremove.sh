@@ -1,0 +1,2 @@
+killall redshift
+redshift -x 

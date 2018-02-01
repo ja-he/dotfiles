@@ -46,7 +46,7 @@ bindsym $mod+d exec rofi -show run
 
 # moving workspaces to other display 
 bindsym $mod+p move workspace to output $RightDisplay
-bindsym $mod+o move workspace to output $LeftDisplay 
+bindsym $mod+o move workspace to output $LeftDisplay
 
 # i3lock 
 bindsym $mod+t exec ~/.scripts/lockimg.sh
@@ -170,10 +170,10 @@ assign [class="krita"]          $workspace05
 #for_window [class="mpv"] floating enable
 
 # Display Details 
-set $PrimaryDisplay DVI-D-0
-set $PrimaryDisplayResolution 1920x1080
-set $PrimaryDisplayRate 144
-set $RightDisplay eDP-1
+set $PrimaryDisplay eDP1
+set $PrimaryDisplayResolution 1366x768
+set $PrimaryDisplayRate 60
+set $RightDisplay eDP1
 set $LeftDisplay HDMI1
 
 # Display Configuration
@@ -282,10 +282,15 @@ exec --no-startup-id compton -f -D 5
 	bindsym XF86MonBrightnessDown exec xbacklight -dec 10 
 
 # Touchpad setup
+# [sidenote: these are dependent on the number of connected devices, 
+# meaning, dass die id des Touchpads zB 13 sein kann, wenn das Gerät mit 
+# zusätzlich verbundene Geräten gestartet wird. 
+# Allg. Fall wohl unverbunden, daher id=12
     # set touchpad (deviceid=13) touchpad disabled while typing (optionnr=295) to true
-	exec_always --no-startup-id xinput set-prop 13 295 1
+	exec_always --no-startup-id xinput set-prop 12 295 1
     # set touchpad (deviceid=13) scroll methods (optionnr=293) to enable edge scrolling 
-	exec_always --no-startup-id xinput set-prop 13 293 {1, 1, 0} 
+	exec_always --no-startup-id xinput set-prop 12 293 {1, 1, 0} 
+    exec_always --no-startup-id ~/.scripts/touchpadsettings.sh
 
 # GER KB layout 
 	exec_always --no-startup-id setxkbmap de
