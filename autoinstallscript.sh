@@ -128,3 +128,6 @@
     sudo apt-get install quodlibet -y 
 # rofi 
     sudo apt-get install rofi -y
+# ibus 
+    sudo apt-get install ibus -y 
+    sudo apt-get install ibus-hangul -y 
