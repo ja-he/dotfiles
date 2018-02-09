@@ -1,0 +1,31 @@
+NOTES ON THE INSTALLATION AND SETUP OF WEECHAT 
+--------------------------------------------------------------------------------
+Most of the below steps figured out via the documentation on weechat.org
+--------------------------------------------------------------------------------
+
+        $ sudo apt-get install weechat -y 
+        $ weechat 
+        /help 
+        /server add freenode chat.freenode.net 
+        /connect freenode 
+    [get a nickserv prompt] 
+        /msg NickServ identify <password>
+    [get msg saying im identified]
+        /join #archlinux 
+    // filtering spammy joins/parts/quits 
+        /set irc.look.smart_filter on
+        /filter add irc_smart * irc_smart_filter *
+    // to connect to snoonet 
+        /server add snoonet irc.snoonet.org
+        /connect snoonet 
+    [prompt to log in]
+    [registered anew, not sure if that was ideal...]
+        /msg NickServ REGISTER pw email
+        /msg NickServ CONFIRM blahp455c0d3
+        /join #korean
+
+--------------------------------------------------------------------------------
+NOTES: 
+    alt + left / right swtiches between channel views (or f5/f6)
+    /part to leave a channel
+    /close to close the view of that channel 
