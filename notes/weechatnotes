@@ -15,6 +15,7 @@ Most of the below steps figured out via the documentation on weechat.org
     // filtering spammy joins/parts/quits 
         /set irc.look.smart_filter on
         /filter add irc_smart * irc_smart_filter *
+    
     // to connect to snoonet 
         /server add snoonet irc.snoonet.org
         /connect snoonet 
@@ -23,6 +24,12 @@ Most of the below steps figured out via the documentation on weechat.org
         /msg NickServ REGISTER pw email
         /msg NickServ CONFIRM blahp455c0d3
         /join #korean
+
+    // twitch 
+    [get a oauth token]
+        /server add twitch irc.twitch.tv/6667 -password=oauth:<token> -nicks=THORNFORG3 -username=THORNFORG3
+        /connect twitch 
+        /join #northernlion
 
 --------------------------------------------------------------------------------
 NOTES: 
