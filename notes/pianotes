@@ -1,0 +1,12 @@
+
+
+When PIA is stuck on connecting it could be due to an encrypted home directory. 
+To fix it I followed the steps here: https://helpdesk.privateinternetaccess.com/hc/en-us/articles/227831828-Installing-the-PIA-app-on-Linux-with-encrypted-home-directories
+
+sudo mkdir /opt/
+sudo rm -rf /opt/pia_manager
+sudo mv ~/.pia_manager /opt/pia_manager
+ln -s /opt/pia_manager ~/.pia_manager
+sudo rm /tmp/pia*
+
+worked! 
