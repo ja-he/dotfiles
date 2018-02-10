@@ -39,3 +39,9 @@ NOTES:
     
     to connect to the #korean channel on snoonet: 
         /join -server snoonet #korean
+
+    to rm the seconds from time: 
+        /set weechat.look.buffer_time_format [%H:%M]
+
+    to not align msgs with unames 
+        /set weechat.look.prefix_align none
