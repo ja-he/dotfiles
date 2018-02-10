@@ -136,3 +136,7 @@
     sudo apt-get install xsel -y 
 # festival 
     sudo apt-get install festival -y 
+# weechat 
+    sudo apt-get install weechat -y 
+# neofetch 
+    sudo apt-get install neofetch -y 
