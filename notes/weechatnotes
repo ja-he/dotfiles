@@ -36,3 +36,6 @@ NOTES:
     alt + left / right swtiches between channel views (or f5/f6)
     /part to leave a channel
     /close to close the view of that channel 
+    
+    to connect to the #korean channel on snoonet: 
+        /join -server snoonet #korean
