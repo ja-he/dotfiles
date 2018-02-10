@@ -35,6 +35,9 @@ bindsym $mod+Return exec i3-sensible-terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
+# readout selection 
+bindsym $mod+q exec ~/.scripts/readout
+
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -170,11 +173,11 @@ assign [class="krita"]          $workspace05
 #for_window [class="mpv"] floating enable
 
 # Display Details 
-set $PrimaryDisplay eDP1
-set $PrimaryDisplayResolution 1366x768
-set $PrimaryDisplayRate 60
-set $RightDisplay eDP1
-set $LeftDisplay HDMI1
+set $PrimaryDisplay DVI-D-0
+set $PrimaryDisplayResolution 1920x1080
+set $PrimaryDisplayRate 144
+set $RightDisplay DVI-D-0
+set $LeftDisplay DVI-D-0
 
 # Display Configuration
 # exec_always --no-startup-id xrandr --output DVI-D-0 --mode 1920x1080 --rate 144
