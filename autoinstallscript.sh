@@ -132,3 +132,5 @@
     sudo apt-get install ibus -y 
     sudo apt-get install ibus-hangul -y 
     sudo apt-get install ibus-table-latex -y 
+# gparted 
+    sudo apt-get install gparted -y 
