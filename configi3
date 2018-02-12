@@ -12,8 +12,8 @@
 set $mod Mod4
 
 # gaps 
-gaps inner 10 
-gaps outer 10
+gaps inner 10
+gaps outer 0
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -263,7 +263,8 @@ client.background       #ffffff
 # setting the wallpaper 
 # any wallpaper you want set has to be located 
 # in /home/ztf/ named ".bgimg.(jpg|png)"
-exec --no-startup-id feh --bg-fill ~/.bgimg.*
+exec --no-startup-id wal -b "#000000" 
+bindsym $mod+n exec wal -b "#000000" -R 
 
 # starting private internet access 
 # (remove in case of regular connection issues, esp DNS issues)
@@ -279,7 +280,7 @@ exec --no-startup-id /home/ztf/.scripts/./redshift.sh
 exec --no-startup-id seafile-applet
 
 # compton 
-exec --no-startup-id compton -f -D 5 
+exec --no-startup-id compton -f -D 5 -c
 
 # ------------------------------------
 # LENOVO IDEAPAD E31 SPECIFIC SECTION: 

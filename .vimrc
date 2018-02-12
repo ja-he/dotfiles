@@ -41,6 +41,9 @@
 " INTERFACE SETTINGS 
 " ------------------
 
+    " 256 colors 
+        set t_Co=256
+
     " show line numbers (relative w/ current line showing actual number)
         set number
         set relativenumber 

@@ -140,3 +140,7 @@
     sudo apt-get install weechat -y 
 # neofetch 
     sudo apt-get install neofetch -y 
+# TODO i3-gaps 
+# wal 
+    sudo apt-get install python3-pip -y 
+    sudo pip3 install pywal 
