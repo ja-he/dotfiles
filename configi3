@@ -173,8 +173,9 @@ assign [class="Steam"]          $workspace09
 assign [class="Keepassx"]       $workspace07
 assign [class="krita"]          $workspace05
 
-# set mpv to float 
+# set some stuff to float 
 #for_window [class="mpv"] floating enable
+for_window [class="Evince"] floating enable
 
 # Display Details 
 set $PrimaryDisplay DVI-D-0
