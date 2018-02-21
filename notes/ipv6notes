@@ -1,0 +1,19 @@
+To fix the problem I had with my connection I 
+came to the conclusion that I had to disable ipv6, 
+as per this post: 
+    https://askubuntu.com/questions/905866/new-ubuntu-17-04-problem-your-connection-was-interrupted
+
+To do it I followed this post's instructions: 
+    https://askubuntu.com/questions/440649/how-to-disable-ipv6-in-ubuntu-14-04
+which boils down to adding these lines to my /etc/sysctl.conf: 
+    net.ipv6.conf.all.disable_ipv6 = 1
+    net.ipv6.conf.default.disable_ipv6 = 1
+    net.ipv6.conf.lo.disable_ipv6 = 1
+checking whether it had the desired effect: 
+    cat /proc/sys/net/ipv6/conf/all/disable_ipv6
+and if this doesn't return "1", activating sysctl.conf: 
+    sudo sysctl -p
+whereafter I checked again: 
+    cat /proc/sys/net/ipv6/conf/all/disable_ipv6
+which should now return "1". 
+Done.
