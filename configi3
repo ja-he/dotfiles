@@ -21,7 +21,7 @@ set $mod Mod4
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans Mono 8
+font pango:DejaVu Sans Mono Book 8
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -178,11 +178,11 @@ assign [class="krita"]          $workspace05
 for_window [class="Evince"] floating enable
 
 # Display Details 
-set $PrimaryDisplay DVI-D-0
-set $PrimaryDisplayResolution 1920x1080
-set $PrimaryDisplayRate 144
-set $RightDisplay DVI-D-0
-set $LeftDisplay DVI-D-0
+set $PrimaryDisplay eDP1
+set $PrimaryDisplayResolution 1360x768
+set $PrimaryDisplayRate 60
+set $RightDisplay eDP1
+set $LeftDisplay HDMI1
 
 # Display Configuration
 # exec_always --no-startup-id xrandr --output DVI-D-0 --mode 1920x1080 --rate 144
