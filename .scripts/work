@@ -1,0 +1,3 @@
+#!/bin/bash
+feh ~/work.png -F & 
+mpv --shuffle --loop-playlist ~/Music/Ornette\ Coleman/ --no-video

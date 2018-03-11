@@ -308,3 +308,6 @@ exec --no-startup-id compton -f -D 5 -c
 
 # Default Built-in Speakers to muted 
 	exec --no-startup-id pactl set-sink-mute alsa_output.pci-0000_00_1b.0.analog-stereo 1
+
+# monitor detection 
+    exec --no-startup-id ~/.scripts/screendetector.sh
