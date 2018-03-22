@@ -1,0 +1,10 @@
+To convert the files downloaded from my audible library via a browser which 
+are in .aa format, I use ffmpeg, as per this thread: 
+    https://askubuntu.com/questions/16918/how-to-listen-to-audible-files
+
+The relevant command is: 
+    $ ffmpeg -i <inputfile.aa> [-codec copy] <outputfile.mp3>
+
+In this command the "-codec copy" option makes it run a lot more quickly and 
+apparently it also makes it scrollable in mpv for example, whereas without it 
+it might cause trouble when scrolling / skipping through. 

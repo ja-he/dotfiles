@@ -7,7 +7,7 @@ rofi.lines:                             4
 ! "Number of columns" Set from: Default
 rofi.columns:                           1
 ! "Font to use" Set from: Default
-rofi.font:                              DejaVu Sans Mono Book 8
+rofi.font:                              Scientifica 8
 ! "Color scheme for normal row" Set from: Default
 rofi.color-normal:                      #000000,#666666,#000000,#000000,#ffffff
 ! "Color scheme for urgent row" Set from: Default
