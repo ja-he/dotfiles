@@ -123,7 +123,7 @@
 " ----------- 
 
     " syntax highlighting 
-        syntax enable 
+        syntax off 
 
     " auto indent 
         set ai 
