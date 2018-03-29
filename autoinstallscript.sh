@@ -159,3 +159,12 @@
     sudo pip3 install pywal 
 # bluetooth
     sudo apt-get install bluez-tools -y 
+# scientifica font 
+    cd /etc/fonts/conf.d/
+    sudo rm /etc/fonts/conf.d/10* && sudo rm -rf 70-no-bitmaps.conf && sudo ln -s ../conf.avail/
+	sudo dpkg-reconfigure fontconfig
+	cd ~/gits
+	git clone https://github.com/nerdypepper/scientifica
+	mkdir ~/.local/share/fonts
+	ln -fs ~/gits/scientifica/regular/scientifica-11.bdf ~/.local/share/fonts/scientifica-11.bdf
+	ln -fs ~/gits/scientifica/bold/scientificaBold-11.bdf ~/.local/share/fonts/scientificaBold-11.bdf
