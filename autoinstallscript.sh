@@ -168,3 +168,5 @@
 	mkdir ~/.local/share/fonts
 	ln -fs ~/gits/scientifica/regular/scientifica-11.bdf ~/.local/share/fonts/scientifica-11.bdf
 	ln -fs ~/gits/scientifica/bold/scientificaBold-11.bdf ~/.local/share/fonts/scientificaBold-11.bdf
+# sensors 
+    sudo apt-get install lm-sensors -y
