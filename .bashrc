@@ -122,7 +122,7 @@ fi
     fi
 
 # Custom bash prompt via kirsle.net/wizards/ps1.html
-export PS1="\[$(tput bold)\]\[$(tput setaf 3)\][\w] \\$ \[$(tput sgr0)\]"
+export PS1="\n\[$(tput bold)\]\[$(tput setaf 3)\][\w] \\$ \[$(tput sgr0)\]"
 
 # Import colorscheme from 'wal' asynchronously
 # &   # Run the process in the background.
