@@ -114,12 +114,12 @@ bindsym $mod+a focus parent
 # Volume Changing 
 set $PrimaryOutput alsa_output.usb-FiiO_FiiO_USB_DAC_K1-01.analog-stereo
 	# Mute Toggle 
-	bindsym $mod+numbersign exec pactl set-sink-mute $PrimaryOutput toggle
+	bindsym XF86AudioMute exec pactl set-sink-mute $PrimaryOutput toggle
  	# Volume up / down 
- 	bindsym $mod+plus exec pactl set-sink-volume $PrimaryOutput +5%
-	bindsym $mod+minus exec pactl set-sink-volume $PrimaryOutput -5%
+ 	bindsym XF86AudioRaiseVolume exec pactl set-sink-volume $PrimaryOutput +5%
+	bindsym XF86AudioLowerVolume exec pactl set-sink-volume $PrimaryOutput -5%
 	# Set Volume = 100%
-	bindsym $mod+shift+plus exec pactl set-sink-volume $PrimaryOutput 100%
+	bindsym $mod+numbersign exec pactl set-sink-volume $PrimaryOutput 100%
 
 # Basic colors 
 set $Foundation         "#000000"
@@ -286,9 +286,8 @@ exec --no-startup-id compton -f -D 5 -c
 # ------------------------------------
 # LENOVO IDEAPAD E31 SPECIFIC SECTION: 
 
-# Sreen brightness controls
-	bindsym XF86MonBrightnessUp exec xbacklight -set 100
-	bindsym XF86MonBrightnessDown exec xbacklight -set 1 
+# screen off button 
+    bindsym XF86Launch1 exec xset dpms force standby 
 
 # Touchpad setup
 # [sidenote: these are dependent on the number of connected devices, 
