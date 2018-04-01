@@ -199,5 +199,7 @@
     " These won't work in insert mode (yet) 
         map <F3> :Latexmk<CR>
         map <F4> :LatexView<CR>
+        map <F5> :syntax on<CR>
+        map <F6> :syntax off<CR>
 
     " 

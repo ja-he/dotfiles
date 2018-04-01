@@ -310,3 +310,6 @@ exec --no-startup-id compton -f -D 5
 
 # monitor detection 
     exec --no-startup-id ~/.scripts/screendetector.sh
+
+# timed shutdown
+    exec shutdown 22:00
