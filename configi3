@@ -181,8 +181,8 @@ for_window [class="Evince"] floating enable
 set $PrimaryDisplay LVDS-1
 set $PrimaryDisplayResolution 1600x900
 set $PrimaryDisplayRate 60
-set $RightDisplay LVDS-1
-set $LeftDisplay VGA-1
+set $RightDisplay VGA-1
+set $LeftDisplay LVDS-1
 
 # Display Configuration
 # exec_always --no-startup-id xrandr --output DVI-D-0 --mode 1920x1080 --rate 144
