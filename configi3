@@ -34,7 +34,8 @@ font pango: scientifica 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec gnome-terminal --window-with-profile=scientifica 
+bindsym $mod+shift+Return exec gnome-terminal --window-with-profile=DejaVu 
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -264,8 +265,9 @@ client.background       #ffffff
 # setting the wallpaper 
 # any wallpaper you want set has to be located 
 # in /home/ztf/ named ".bgimg.(jpg|png)"
-exec --no-startup-id wal -b "#000000" -R 
-bindsym $mod+n exec wal -b "#000000" -R 
+# exec --no-startup-id wal -b "#000000" -R 
+# bindsym $mod+n exec wal -b "#000000" -R 
+exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpapers/allblack.*
 
 # starting private internet access 
 # (remove in case of regular connection issues, esp DNS issues)

@@ -17,7 +17,7 @@ rofi.color-normal:                      #000000,#666666,#000000,#000000,#ffffff
 ! "Color scheme window" Set from: Default
 rofi.color-window:                      #000000,#ffffff
 ! "Border width" Set from: Default
-rofi.bw:                               2 
+rofi.bw:                               1 
 ! "Location on screen" Set from: Default
 ! rofi.location:                       0
 ! "Padding" Set from: Default
