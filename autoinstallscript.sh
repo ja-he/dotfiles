@@ -170,3 +170,7 @@
 	ln -fs ~/gits/scientifica/bold/scientificaBold-11.bdf ~/.local/share/fonts/scientificaBold-11.bdf
 # sensors 
     sudo apt-get install lm-sensors -y
+# pip
+    sudo apt-get install python-pip -y 
+# intellij
+    sudo snap install intellij-idea-community --classic --edge 
