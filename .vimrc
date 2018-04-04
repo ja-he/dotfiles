@@ -14,6 +14,16 @@
 "
 "_________________________________________________________________________________________
 
+"                   CONTENTS: 
+"                       - general settings
+"                       - interface settings 
+"                       - beautifying 
+"                       - files etc. 
+"                       - text behaviour 
+"                       - plugins 
+"                       - binds 
+
+"_________________________________________________________________________________________
 " ----------------
 " GENERAL SETTINGS 
 " ----------------
@@ -55,7 +65,7 @@
     " thanks to Damian Conway
         set colorcolumn=91
     " make the column dark grey
-        highlight ColorColumn ctermbg=8
+        highlight ColorColumn ctermbg=darkgrey
 
     " Damian Conway's clever ColorColumn regex. Highlights the 101st column only in lines in which 
     " the text overflows that limit (which is a few characters beyond the previous line)
@@ -178,8 +188,13 @@
 
     " Pathogen 
         " use this to disable plugins if you need to find a bottleneck 
-        let g:pathogen_disabled = []
+        let g:pathogen_disabled = ["vim-airline"]
         execute pathogen#infect()
+
+        " vim-indent-guides color settings 
+            let g:indent_guides_auto_colors = 0
+			autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=darkgrey
+			autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=grey
 
 
 " ________________________________________________________________________________________
@@ -199,7 +214,7 @@
     " These won't work in insert mode (yet) 
         map <F3> :Latexmk<CR>
         map <F4> :LatexView<CR>
+
+    " Syntax color binds (TODO: make a toggle properly)
         map <F5> :syntax on<CR>
         map <F6> :syntax off<CR>
-
-    " 

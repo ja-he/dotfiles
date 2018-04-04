@@ -5,4 +5,4 @@ alias texplate='cp ~/.templates/textemplate.tex temp.tex && printf "rename by ty
 alias dotfilecollect='~/.scripts/dotfilecollect'
 alias showclock='tty-clock -cC 3'
 alias weatherrep='curl -s wttr.in/Bremen'
-
+alias vi='vim --noplugin'
