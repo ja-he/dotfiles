@@ -1,6 +1,2 @@
 #!/bin/sh
-# xrandr 
-xrandr --output HDMI1 --off --output DP1 --off --output eDP1 --primary --mode 1366x768 --pos 0x0 --rotate normal --output VIRTUAL1 --off
-
-# feh 
-feh --bg-fill ~/.bgimg.png
+xrandr --output VGA-1 --off --output LVDS-1 --primary --mode 1600x900 --pos 0x0 --rotate normal --output HDMI-3 --off --output HDMI-2 --off --output HDMI-1 --off --output DP-3 --off --output DP-2 --off --output DP-1 --off

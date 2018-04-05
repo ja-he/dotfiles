@@ -187,7 +187,9 @@ set $LeftDisplay LVDS-1
 
 # Display Configuration
 # exec_always --no-startup-id xrandr --output DVI-D-0 --mode 1920x1080 --rate 144
-exec_always --no-startup-id xrandr --output $PrimaryDisplay --mode $PrimaryDisplayResolution --rate $PrimaryDisplayRate
+# exec_always --no-startup-id xrandr --output $PrimaryDisplay --mode $PrimaryDisplayResolution --rate $PrimaryDisplayRate
+# script to decide wether or not to exec dual screen or single screen
+exec ~/.scripts/autoscreen.sh
 # alternative script, not sure if I should use this method instead 
 # exec --no-startup-id /home/ztf/.scripts/./xrandr.sh
 
