@@ -26,7 +26,7 @@ Most of the below steps figured out via the documentation on weechat.org
         /join #korean
 
     // twitch 
-    [get a oauth token]
+    [get a oauth token from https://twitchapps.com/tmi/]
         /server add twitch irc.twitch.tv/6667 -password=oauth:<token> -nicks=THORNFORG3 -username=THORNFORG3
         /connect twitch 
         /join #northernlion
