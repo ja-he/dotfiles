@@ -6,3 +6,4 @@ alias dotfilecollect='~/.scripts/dotfilecollect && cd ~/gits/dotfiles && git sta
 alias showclock='tty-clock -cC 3'
 alias weatherrep='curl -s wttr.in/Bremen'
 alias vi='vim --noplugin'
+alias timestamp="date '+%Y-%m-%d %H:%M:%S'"

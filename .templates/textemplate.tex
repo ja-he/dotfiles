@@ -1,39 +1,61 @@
 \documentclass{article}
 
-    \usepackage[utf8]{inputenc}
-    \usepackage[ngerman]{babel}
-    \usepackage{tgschola}
-    \usepackage[T1]{fontenc}
-    \usepackage{kotex}
+    % input & font encoding 
+        \usepackage[utf8]{inputenc}
+        \usepackage[ngerman]{babel}
+        % hangul character parsing and display
+        \usepackage{kotex}
+        \usepackage{tgschola}
+        \usepackage[T1]{fontenc}
+        % math
+        \usepackage{amsmath,amssymb,amsthm,amsfonts,amsbsy,latexsym}
+        \usepackage{dsfont}
 
-    \usepackage{tabulary}
-    \usepackage{color}
-        \newcommand{\gr}[0]{\color{green}}
-        \newcommand{\re}[0]{\color{red}}
-        \newcommand{\bl}[0]{\color{blue}}
-        \newcommand{\bk}[0]{\color{black}}
-    \usepackage{amsmath,amssymb,amsthm,amsfonts,amsbsy,latexsym}
-    \usepackage{dsfont}
-    \usepackage{stackengine}
-    \usepackage{textcomp}
-    \usepackage{booktabs}
-        \renewcommand{\arraystretch}{1.2}
-    \usepackage{listings}
+    % tables 
+        % better tabular alternative 
+        \usepackage{tabulary}
+        % pretty tables
+        \usepackage{booktabs}
 
-        \lstset{
-            basicstyle=\ttfamily\footnotesize, 
-            breaklines=true,
-            commentstyle=\color{red},
-            keywordstyle=\color{green},
-            keepspaces=true,
-            frame=single,
-            language=c++,
-            numbers=left,
-            numberstyle=\tiny\color{black},
-            showspaces=false,
-            showstringspaces=false,
-            stringstyle=\color{blue}
-        }
+    % color 
+        \usepackage{color}
+            \newcommand{\gr}[0]{\color{green}}
+            \newcommand{\re}[0]{\color{red}}
+            \newcommand{\bl}[0]{\color{blue}}
+            \newcommand{\bk}[0]{\color{black}}
+
+        \usepackage{stackengine}
+        \usepackage{textcomp}
+            \renewcommand{\arraystretch}{1.2}
+
+    % TODOs 
+        \newcommand{\todo}[1]{\texttt{\re TODO #1}}
+
+    % code listings 
+        \usepackage{listings}
+            \lstset{
+                basicstyle=\ttfamily\footnotesize, 
+                breaklines=true,
+                commentstyle=\color{red},
+                keywordstyle=\color{green},
+                keepspaces=true,
+                frame=single,
+                language=c++,
+                numbers=left,
+                numberstyle=\tiny\color{black},
+                showspaces=false,
+                showstringspaces=false,
+                stringstyle=\color{blue}
+            }
+
+    % theo2 spezifisch (StudIP Vorlage)
+        % blank und cent command 
+        \usepackage[makeroom]{cancel}
+        \renewcommand{\b} {\ensuremath{\cancel{b}}}
+        \renewcommand{\c} {\ensuremath{\cancel{c}}}
+        % tikz für automatengrafen
+        \usepackage{tikz}
+            \usetikzlibrary{arrows,automata}
 
 \begin{document}
 \scshape
