@@ -29,7 +29,7 @@
             \renewcommand{\arraystretch}{1.2}
 
     % TODOs 
-        \newcommand{\todo}[1]{\texttt{\re TODO #1}}
+        \newcommand{\todo}[1]{\texttt{\re TODO #1\\}}
 
     % code listings 
         \usepackage{listings}
@@ -48,17 +48,19 @@
                 stringstyle=\color{blue}
             }
 
-    % theo2 spezifisch (StudIP Vorlage)
-        % blank und cent command 
+    % theo2 vorlage 
+        % blank / cent commands 
         \usepackage[makeroom]{cancel}
-        \renewcommand{\b} {\ensuremath{\cancel{b}}}
-        \renewcommand{\c} {\ensuremath{\cancel{c}}}
+            \renewcommand{\b}{ensuremath{\cancel{b}}}
+            \renewcommand{\c}{ensuremath{\cancel{c}}}
         % tikz für automatengrafen
         \usepackage{tikz}
             \usetikzlibrary{arrows,automata}
 
+\author{Jan Hensel}
+\title{something stupid...}
 \begin{document}
-\scshape
-\textbf{Placeholdinnnnnnnggg!!!}
+\maketitle
+\todo{actually write something...}
 
 \end{document}
