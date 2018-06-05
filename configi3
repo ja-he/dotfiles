@@ -59,6 +59,9 @@ bindsym $mod+o move workspace to output $LeftDisplay
 # i3lock 
 bindsym $mod+t exec ~/.scripts/lockimg.sh
 
+# hdoff (requuires hdparm to have nopasswd in sudo file)
+bindsym Mod1 + h exec sudo hdparm -Y /dev/sdb
+
 # scrot 
 bindsym $mod+z exec scrot /home/ztf/.screenshots.jpg
 

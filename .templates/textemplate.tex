@@ -3,12 +3,18 @@
     % input & font encoding 
         \usepackage[utf8]{inputenc}
         \usepackage[ngerman]{babel}
+        % \usepackage[english]{babel}
         % hangul character parsing and display
         \usepackage{kotex}
         \usepackage{tgschola}
         \usepackage[T1]{fontenc}
         % math
-        \usepackage{amsmath,amssymb,amsthm,amsfonts,amsbsy,latexsym}
+        \usepackage{amsmath}
+        \usepackage{amssymb}
+        \usepackage{amsthm}
+        \usepackage{amsfonts}
+        \usepackage{amsbsy}
+        \usepackage{latexsym}
         \usepackage{dsfont}
 
     % tables 
@@ -16,17 +22,27 @@
         \usepackage{tabulary}
         % pretty tables
         \usepackage{booktabs}
+            \renewcommand{\arraystretch}{1.2}
+        % no paragraph start indentation 
+            \setlength{\parindent}{0em}
+        % small gaps between paragraphs 
+            \setlength{\parskip}{0.5em}
 
-    % color 
-        \usepackage{color}
-            \newcommand{\gr}[0]{\color{green}}
-            \newcommand{\re}[0]{\color{red}}
-            \newcommand{\bl}[0]{\color{blue}}
+    % colors 
+        \usepackage{xcolor}
+            \definecolor{blue_custom} {HTML}{0066b5}
+            \definecolor{red_custom}  {HTML}{9e0007}
+            \definecolor{green_custom}{HTML}{007527}
+            \newcommand{\gr}[0]{\color{green_custom}}
+            \newcommand{\re}[0]{\color{red_custom}}
+            \newcommand{\bl}[0]{\color{blue_custom}}
             \newcommand{\bk}[0]{\color{black}}
+            \newcommand{\wh}[0]{\color{white}}
 
+    % moving stuff around...
+        % \usepackage[margin=4cm]{geometry}
         \usepackage{stackengine}
         \usepackage{textcomp}
-            \renewcommand{\arraystretch}{1.2}
 
     % TODOs 
         \newcommand{\todo}[1]{\texttt{\re TODO #1\\}}
