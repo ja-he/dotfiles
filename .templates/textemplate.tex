@@ -45,7 +45,9 @@
         \usepackage{textcomp}
 
     % TODOs 
-        \newcommand{\todo}[1]{\texttt{\re TODO #1\\}}
+        \usepackage{todonotes}
+        % deprecated custom todo command
+        % \newcommand{\todo}[1]{\texttt{\re TODO #1\\}}
 
     % code listings 
         \usepackage{listings}
@@ -74,7 +76,7 @@
             \usetikzlibrary{arrows,automata}
 
 \author{Jan Hensel}
-\title{something stupid...}
+\title{\textbf{something} stupid...}
 \begin{document}
 \maketitle
 \todo{actually write something...}
