@@ -12,8 +12,8 @@
 set $mod Mod4
 
 # gaps 
-gaps inner 0
-gaps outer 0
+gaps inner 10
+gaps outer 30
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -34,8 +34,7 @@ font pango: scientifica 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec gnome-terminal --window-with-profile=scientifica 
-bindsym $mod+shift+Return exec gnome-terminal --window-with-profile=DejaVu 
+bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -118,10 +117,10 @@ bindsym $mod+a focus parent
 # Volume Changing 
 set $PrimaryOutput alsa_output.usb-FiiO_FiiO_USB_DAC_K1-01.analog-stereo
 	# Mute Toggle 
-	bindsym XF86AudioMute exec pactl set-sink-mute $PrimaryOutput toggle
+	bindsym XF86AudioMute exec ~/.scripts/audiosettings.sh --toggle
  	# Volume up / down 
- 	bindsym XF86AudioRaiseVolume exec pactl set-sink-volume $PrimaryOutput +5%
-	bindsym XF86AudioLowerVolume exec pactl set-sink-volume $PrimaryOutput -5%
+ 	bindsym XF86AudioRaiseVolume exec ~/.scripts/audiosettings.sh --increase
+ 	bindsym XF86AudioLowerVolume exec ~/.scripts/audiosettings.sh --decrease
 	# Set Volume = 100%
 	bindsym $mod+numbersign exec pactl set-sink-volume $PrimaryOutput 100%
 
@@ -297,15 +296,7 @@ exec --no-startup-id compton -f -D 5
     bindsym XF86Launch1 exec xset dpms force standby 
 
 # Touchpad setup
-# [sidenote: these are dependent on the number of connected devices, 
-# meaning, dass die id des Touchpads zB 13 sein kann, wenn das Gerät mit 
-# zusätzlich verbundene Geräten gestartet wird. 
-# Allg. Fall wohl unverbunden, daher id=12
-    # set touchpad (deviceid=13) touchpad disabled while typing (optionnr=295) to true
-	exec_always --no-startup-id xinput set-prop 12 295 1
-    # set touchpad (deviceid=13) scroll methods (optionnr=293) to enable edge scrolling 
-	exec_always --no-startup-id xinput set-prop 12 293 {1, 1, 0} 
-    exec_always --no-startup-id ~/.scripts/touchpadsettings.sh
+    exec_always --no-startup-id ~/.scripts/trackpadsettings.sh
 
 # GER KB layout 
 	exec_always --no-startup-id setxkbmap de
