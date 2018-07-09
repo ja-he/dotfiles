@@ -1,0 +1,15 @@
+Downloading the Driver install tool (top of the options) from 
+    http://support.brother.com/g/b/downloadlist.aspx?c=de&lang=de&prod=hll2300d_us_eu_as&os=128&flang=English
+follow the folling steps in the terminal (wherever it was downloaded): 
+
+	$   gunzip lin...[tab]
+	$   sudo su 
+    #   bash lin...[tab]
+		> enter "HL-L2300D" (without quotes)
+		> enter "y"
+		> enter "y"
+		> enter "n" for device URI (because on USB)
+		> test print if you like (y) 
+		> hit ENTER
+		> exit root 
+	done 
