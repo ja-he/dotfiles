@@ -8,3 +8,10 @@ The relevant command is:
 In this command the "-codec copy" option makes it run a lot more quickly and 
 apparently it also makes it scrollable in mpv for example, whereas without it 
 it might cause trouble when scrolling / skipping through. 
+
+On another note: 
+    The files downloadable on audible are .aa or .aax depending on what quality 
+    option is chosen from the dropdown on the website. The .aa can easily be 
+    converted by what is described above, while the .aax apparenty require 
+    you getting a decryption key from audible through some janky github-hosted 
+    tool and then supply that key to ffmpeg... 
