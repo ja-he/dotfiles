@@ -222,3 +222,9 @@
     " Syntax color binds (TODO: make a toggle properly)
         map <F5> :syntax on<CR>
         map <F6> :syntax off<CR>
+
+    " table binds 
+        command! -bar Usrtableeval :TableEvalFormulaLine
+        command! -bar Usrtableenable :TableModeEnable 
+        command! -bar Usrtablecompound Usrtableeval|Usrtableenable 
+        map <F7> :Usrtablecompound<CR>
