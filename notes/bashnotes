@@ -1,0 +1,12 @@
+REMOVING A SUFFIX FROM A STRING 
+    I had a set of filenames of songs that ended up having ".fixedcover.mp3" as a 
+    suffix (so that they weren't the overwriting the original files but ffmpeg still 
+    would identify them as mp3s) and to remove that suffix i did the following: 
+        for song in *.mp3; do 
+            newsong="${song%.fixedcover.mp3}"
+            mv "$song" "$newsong"
+        done 
+    The crucial part here is of course the 
+        ${song%.fixedcover.mp3} 
+    where anything after the "%" is a regex so i could write "${y%.*}" to remove anything 
+    after and including the first period in the variable y. 

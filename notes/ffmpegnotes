@@ -1,0 +1,18 @@
+ADDING A COVER IMAGE TO ALL .mp3 SONGS IN THE CURRENT DIRECTORY 
+    I had to do this and it turned out to be a bit tricky, here's the command, firstly: 
+        for song in *.mp3; do  
+			ffmpeg -i "$song" -i cover.jpg -map 0:0 -map 1:0 -c copy -id3v2_version 3 -metadata:s:v title="Album cover" -metadata:s:v comment="Cover (front)" "$song.fixedcover"; 
+        done
+    So we loop trough all *.mp3-files in the current dir, and for each one we assign 
+    the image called cover.jpg to be the new cover image for the song and output the 
+    result as the original songname appended with ".fixedcover.mp3". 
+    This is a bit hacky because when i tried to simply overwrite the songs the 
+    song-durations turned into 2 seconds, which wasn't the case when i outputted 
+    new files. 
+    You could perhaps make this a little cleaner by autoremoving and -renaming the 
+    files to clean up by adding this to the loop (but i havent tried this, so careful): 
+        for ... 
+            ...
+            rm "$song"
+            mv "$song.fixedcover.mp3" "$song"
+        done 
