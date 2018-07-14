@@ -25,10 +25,6 @@
     sudo apt-get install pavucontrol -y
 # htop
     sudo apt-get install htop -y
-# cava
-    sudo add-apt-repository ppa:tehtotalpwnage/ppa
-    sudo apt-get update
-    sudo apt-get install cava -y
 # thunar
     sudo apt-get install thunar -y
 #ranger
@@ -178,3 +174,13 @@
     sudo apt-get install python-pip -y 
 # intellij
     sudo snap install intellij-idea-community --classic --edge 
+# cava
+    sudo apt-get install libfftw3-dev libasound2-dev libncursesw5-dev libpulse-dev libtool -y 
+	cd ~/gits/
+	git clone https://github.com/karlstav/cava.git
+	cd ~/gits/cava/
+	./autogen.sh
+	./configure.sh
+	sudo make 
+	sudo make install 
+	cd
