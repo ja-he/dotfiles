@@ -17,10 +17,7 @@ ADDING A COVER IMAGE TO ALL .mp3 SONGS IN THE CURRENT DIRECTORY
             rm "$song"
             mv "$newsong" "$song"
         done 
-    So I think ideally this is what the little script should look like: 
-        for song in *.mp3; do  
-            newsong="$song.fixedcover.mp3"
-            ffmpeg -i "$song" -i cover.jpg -map 0:0 -map 1:0 -c copy -id3v2_version 3 -metadata:s:v title="Album cover" -metadata:s:v comment="Cover (front)" "$newsong"; 
-            rm "$song"
-            mv "$newsong" "$song"
-        done
+    I've written this out as a functioning bash-script in .scripts under the name 
+    albumcoveradder.sh so all you really have to do is run 
+        ~/.scripts/albumcoveradder album_cover_file_name.jpg 
+    in the directory where the songs in question are located. 
