@@ -43,9 +43,24 @@ NOTES:
 
     to rm the seconds from time: 
         /set weechat.look.buffer_time_format [%H:%M]
+    ... or more minimal even 
+        /set weechat.look.buffer_time_format " %H:%M"
 
     to not align msgs with unames 
         /set weechat.look.prefix_align none
+    ... or to align names to the right 
+        /set weechat.look.prefix_align "right"
+
+    to set the separator between name and message to nothing
+        /set weechat.look.prefix_suffix ""
+
+    to have a neater looking chat if somebody says multiple things in a row
+        /set weechat.look.prefix_same_nick “↳”
+
+    to limit the namelength to a 15 char cutoff
+        /set weechat.look.prefix_align_max 15
 
     to enable mouse 
         /mouse enable 
+
+(dont forget to /save your settings)
