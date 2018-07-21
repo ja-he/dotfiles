@@ -123,7 +123,7 @@
               endif
 
     " enable the mouse for text navigation 
-        set mouse=a 
+        set mouse=n 
 
 
 " ________________________________________________________________________________________
