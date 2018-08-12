@@ -66,7 +66,8 @@ bindsym $mod+t exec ~/.scripts/lockimg.sh
 bindsym Mod1 + h exec sudo hdparm -Y /dev/sdb
 
 # scrot 
-bindsym $mod+z exec scrot /home/ztf/.screenshots.jpg
+   #bindsym $mod+z exec scrot /home/ztf/.screenshots.jpg
+    bindsym $mod+z exec xfce4-screenshooter -r 
 
 # change focus
 bindsym $mod+h focus left
