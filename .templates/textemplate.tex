@@ -33,6 +33,7 @@
             \definecolor{blue_custom} {HTML}{0066b5}
             \definecolor{red_custom}  {HTML}{9e0007}
             \definecolor{green_custom}{HTML}{007527}
+			\definecolor{gray_custom} {HTML}{999999}
             \definecolor{todored}{HTML}{ff7c7a}
             \newcommand{\gr}[0]{\color{green_custom}}
             \newcommand{\re}[0]{\color{red_custom}}
@@ -55,20 +56,37 @@
             \lstset{
                 basicstyle=\ttfamily\footnotesize, 
                 breaklines=true,
-                commentstyle=\color{red_custom},
-                keywordstyle=\color{green_custom},
-                stringstyle=\color{blue_custom}, 
+                commentstyle=\color{gray_custom},
+                keywordstyle=\color{blue_custom},
+                stringstyle=\color{green_custom}, 
+                morekeywords={},
+                deletekeywords={},
                 keepspaces=true,
-                frame=single,
-                language=c++,
+                frame=none,
+                language=Java,
                 numbers=left,
-                numberstyle=\tiny\color{black},
+                numberstyle=\tiny\color{gray_custom},
                 showspaces=false,
+                showtabs=false,
                 showstringspaces=false,
-                gobble=8, 
                 xleftmargin=0.05\textwidth,
                 xrightmargin=0.05\textwidth, 
-                linewidth=\textwidth
+                linewidth=\textwidth, 
+                tabsize=4,
+                columns=fullflexible,
+                captionpos=t,
+                gobble=8
+            }
+            \lstdefinestyle{bash}{
+                language=Bash,
+                morekeywords={ffmpeg,chmod,grep,rm,mv,cp,vim}
+            }
+            \lstdefinestyle{terminal}{
+                style=bash,
+                numbers=none
+            }
+            \lstdefinestyle{cpp}{
+                language=C++
             }
 
     % theo2 vorlage 
@@ -81,9 +99,34 @@
             \usetikzlibrary{arrows,automata}
 
 \author{Jan Hensel}
-\title{\textbf{something} stupid...}
+\title{\textbf{\LaTeX\ Template File}\\
+        Example Secondary Title}
 \begin{document}
 \maketitle
-\todo{actually write something...}
+\section{Example Section}
+    What would a code listing look like? Here for example a listing of Java code: 
+    \begin{lstlisting}
+        public class ExampleClass{
+            private static int number = 69; 
+            // example comment 
+            public static void main(String args[]){
+                System.out.println("Example Code for LaTeX Testing...");
+            }
+        }
+    \end{lstlisting}
+
+    And now some bash: 
+    \begin{lstlisting}[style=bash]
+		while true; do
+			echo "example" 
+			sleep 1
+		done
+    \end{lstlisting}
+    As well as a terminal input: 
+    \begin{lstlisting}[style=terminal]
+        $ ffmpeg -i example.mp4 example.mp3
+    \end{lstlisting}
+    
+\todo{Example TODO Note}
 
 \end{document}
