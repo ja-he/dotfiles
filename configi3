@@ -279,7 +279,7 @@ exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpapers/allblack.*
 
 # starting private internet access 
 # (remove in case of regular connection issues, esp DNS issues)
-exec --no-startup-id ~/./pia.sh
+   #exec --no-startup-id ~/./pia.sh
 
 # start redshift (=f.lux) 
 # -r = disable temp transitions 
@@ -314,4 +314,5 @@ exec --no-startup-id compton -f -D 5
     exec --no-startup-id ~/.scripts/screendetector.sh
 
 # timed shutdown
-    exec shutdown 22:00
+   #exec shutdown 22:00
+    exec ~/.scripts/sleeper.sh
