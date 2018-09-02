@@ -190,3 +190,11 @@
 	cd
 # cmake 
     sudo apt-get install cmake -y 
+# anki 
+    echo "opening chrome so you can DL the right version of anki"
+    echo "make sure you close it when the DL is done"
+    chromium-browser https://apps.ankiweb.net/ 
+    tar xjf Download/anki-*.tar.bz2
+    cd anki*
+    sudo make install
+    cd
