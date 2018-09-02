@@ -2,8 +2,8 @@
 
     % input & font encoding 
         \usepackage[utf8]{inputenc}
-        \usepackage[ngerman]{babel}
-        % \usepackage[english]{babel}
+        \usepackage[english]{babel}
+        % \usepackage[ngerman]{babel}
         % hangul character parsing and display
         \usepackage{kotex}
         \usepackage{tgschola}
@@ -42,12 +42,12 @@
             \newcommand{\wh}[0]{\color{white}}
 
     % moving stuff around...
-        % \usepackage[margin=4cm]{geometry}
+        \usepackage[left=3cm,right=7cm,top=3cm,bottom=3cm]{geometry}
         \usepackage{stackengine}
         \usepackage{textcomp}
 
     % TODOs 
-        \usepackage[textsize=tiny,color=todored,bordercolor=white]{todonotes}
+        \usepackage[textwidth=4cm,textsize=tiny,color=todored,bordercolor=white]{todonotes}
         % deprecated custom todo command
         % \newcommand{\todo}[1]{\texttt{\re TODO #1\\}}
 
@@ -79,7 +79,7 @@
             }
             \lstdefinestyle{bash}{
                 language=Bash,
-                morekeywords={ffmpeg,chmod,grep,rm,mv,cp,vim}
+                morekeywords={sleep,ffmpeg,chmod,grep,rm,mv,cp,vim}
             }
             \lstdefinestyle{terminal}{
                 style=bash,
@@ -88,22 +88,112 @@
             \lstdefinestyle{cpp}{
                 language=C++
             }
+            \lstdefinestyle{latex}{
+                language=tex,
+                numbers=none
+            }
 
     % theo2 vorlage 
         % blank / cent commands 
         \usepackage[makeroom]{cancel}
-            \renewcommand{\b}{ensuremath{\cancel{b}}}
-            \renewcommand{\c}{ensuremath{\cancel{c}}}
+            \renewcommand{\b}{\ensuremath{\cancel{b}}}
+            \renewcommand{\c}{\ensuremath{\cancel{c}}}
         % tikz für automatengrafen
         \usepackage{tikz}
             \usetikzlibrary{arrows,automata}
+
+    % custom commands 
+        % math explanations 
+        % \mexpl: regular explanation 
+            \newcommand{\mexpl}[1]{\color{gray_custom}\left(\text{#1}\right)}
+        % \mexplbig: expansive multi-line explanation 
+            \newcommand{\mexplbig}[1]{
+                \color{gray_custom}{\left(\parbox{4cm}{ \centering \footnotesize #1 }\right)}
+            }
 
 \author{Jan Hensel}
 \title{\textbf{\LaTeX\ Template File}\\
         Example Secondary Title}
 \begin{document}
 \maketitle
-\section{Example Section}
+
+\section{Specific Settings}
+    \subsection{Margins}
+    The margins are set via the \texttt{geometry}-package via the settings \texttt{left}, 
+    \texttt{right}, \texttt{top} and \texttt{bottom} such that the ultimate inclusion 
+    looks as follows: 
+    \begin{lstlisting}[style=latex]
+        \usepackage[left=3cm,right=7cm,top=3cm,bottom=3cm]{geometry}
+    \end{lstlisting}
+    This is mostly done so that todonotes (from the \texttt{todonotes}-package) are more 
+    likely to have enough space. To that end the todonotes are set to have a 
+    \texttt{textwidth}-setting of 4cm: 
+    \begin{lstlisting}[style=latex]
+        \usepackage[textwidth=4cm,textsize=tiny,color=todored,bordercolor=white]{todonotes}
+    \end{lstlisting}
+
+    \subsection{Listings}
+    Listings (from the \texttt{listings}-package) have been customized to look appealing 
+    within the text and to support a variety of styles, such as Bash scripts, command 
+    line inputs, \TeX commands and languages like Java, Python, C, etc. 
+
+    \subsection{Colors}
+    \begin{tabulary}{\textwidth}{LLLL}
+        \toprule 
+        \textbf{color name} 
+                    & \textbf{command} 
+                                    & \textbf{hex definition} 
+                                                        & \textbf{examples}             \\
+        \midrule 
+        \texttt{black} 
+                    & \texttt{\textbackslash bk} 
+                                    & \texttt{\#000000} & \colorbox{black!100}
+                                                            {\wh back}
+                                                            \bk text                    \\
+        \texttt{gray\_custom} 
+                    &  
+                                    & \texttt{\#999999} & \colorbox{gray_custom!100}
+                                                            {\wh back}
+                                                            \color{gray_custom} text    \\
+        \texttt{white} 
+                    & \texttt{\textbackslash wh}
+                                    & \texttt{\#ffffff} & \colorbox{white!100}
+                                                            {\bk back}
+                                                            \color{white} text          \\
+        \texttt{blue\_custom} 
+                    & \texttt{\textbackslash bl} 
+                                    & \texttt{\#0066b5} & \colorbox{blue_custom!100}
+                                                            {\wh back}
+                                                            \bl text                    \\
+        \texttt{red\_custom} 
+                    & \texttt{\textbackslash re} 
+                                    & \texttt{\#9e0007} & \colorbox{red_custom!100}
+                                                            {\wh back}
+                                                            \re text                    \\
+        \texttt{green\_custom} 
+                    & \texttt{\textbackslash gr} 
+                                    & \texttt{\#007527} & \colorbox{green_custom!100}
+                                                            {\wh back}
+                                                            \gr text                    \\
+        \bottomrule
+    \end{tabulary}
+
+    \subsection{Inline Math Explanations}
+    To make simple non-invasive explanations in equations and such easy to write, two 
+    commands have been created: 
+    \begin{itemize}
+        \item \texttt{\textbackslash mexpl\{<arg>\}} \\
+            creates a simple one-line inline bracketed text block in grey
+        \item \texttt{\textbackslash mexplbig\{<arg>\}} \\
+            creates a parbox of 4cm width for inline bracketed 
+            \texttt{footnotesize} text block in grey, that 
+            has nice line-breaks and allows for full sentence explanations of steps 
+    \end{itemize}
+    An example of this can be found by the equations in subsection \ref{subsec:maths}. 
+
+
+\section{Examples}
+    \subsection{Code}
     What would a code listing look like? Here for example a listing of Java code: 
     \begin{lstlisting}
         public class ExampleClass{
@@ -126,7 +216,85 @@
     \begin{lstlisting}[style=terminal]
         $ ffmpeg -i example.mp4 example.mp3
     \end{lstlisting}
-    
-\todo{Example TODO Note}
+
+    \subsection{Mathematics}\label{subsec:maths}
+    To show off some equations and such, let's prove the irrationality of $\sqrt{2}$. 
+
+    \subsubsection*{Proof by Contradiction}
+    Suppose $\sqrt{2}$ were a rational number. 
+    That would imply that there exist two integers $a,b\in\mathbb{Z}$ 
+    such that the fraction $\frac{a}{b} = \sqrt{2}$ is in lowest terms. \\
+    Thus let $a,b$ be two such integers. 
+    \begin{align*}
+        &&       
+            \frac{a}{b}                     &=          \sqrt{2}
+                                                                                        \\
+        \Rightarrow&&       
+            \left(\frac{a}{b}\right)^2      &=          \left(\sqrt{2}\right)^2
+            &&\mexpl{squaring both sides}
+                                                                                        \\
+        \Rightarrow&&       
+            \frac{a^2}{b^2}                 &=          2
+            &&\mexplbig{
+                squaring a fraction is squaring numerator and denominator
+            }
+                                                                                        \\
+        \Leftrightarrow&&       
+            \frac{a^2}{b^2}(b^2)            &=          2(b^2)
+            &&\mexpl{multipy with $b^2$}
+                                                                                        \\
+        \Leftrightarrow&&       
+            a^2                             &=          2b^2
+            &&\mexpl{simplify}
+    \end{align*}
+    So $a^2$ is double the square of some integer $b$, therefore $a^2$ has to be an even 
+    number. 
+    This means $a$ has to be an even number as well, since if it were odd, it's square 
+    would be odd as well.
+
+    We also know of course that $a$ has to be greater than $0$, since 
+    $\frac{0}{b}^2 = 0 < 2$. 
+    So $a^2$ has to be an even number's square, itself an even number and more imporantly 
+    still even if divided by 2. \\
+    This means that since we also know $b^2 = \frac{a^2}{2}$ that $b^2$ has to be even, 
+    and again this implies that $b$ is even as well. 
+
+    However this contradicts our supposition that $\frac{a}{b}$ is in lowest terms, since 
+    now we know they're both divisible by $2$. 
+
+    Thus we've encountered a contradiction and know that our initial supposition has to 
+    be false. 
+
+    Therefore 
+        $\nexists \,\, a,b\in\mathbb{Z} : \frac{a}{b} = \sqrt{2}$
+    meaning $\sqrt{2} \not\in \mathbb{Q}$. 
+    \qed
+
+    \subsection{Lorem Ipsum}
+	Just to see what a couple of dense-text paragraphs would end up looking like, have a 
+    lorem ipsum (with a little todonote from the \texttt{todonotes}-package thrown in). 
+	
+	\paragraph{Paragraph Title}
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ut lorem a sem mattis 
+	commodo faucibus non diam. Duis feugiat, sapien a accumsan mattis, velit erat 
+    vulputate magna, nec scelerisque augue lectus sit amet quam. 
+    Duis \textit{pellentesque} lorem sit amet odio lobortis ullamcorper. 
+    Phasellus bibendum dapibus nulla, aliquet auctor tortor pellentesque non. 
+    \textit{Nam nec metus varius}, semper turpis non, dapibus 
+    justo. Cras lacinia faucibus massa eget vestibulum. Integer porta ante non risus 
+    finibus porttitor. Donec eget blandit nibh. Sed sodales lacus ut orci luctus 
+    volutpat. Vivamus ut dapibus mi. Nam lectus leo, fermentum sit amet pharetra in, 
+    porta id arcu.
+	\todo{Example TODO Note with some content in it, 
+		simply to showcase that now these notes can contain some text without it 
+		being likely for you to run into spacing troubles, due to the margins}
+
+	Sed tempor purus at ex eleifend varius. Aliquam tincidunt nibh eu est pellentesque 
+    aliquam. Pellentesque pharetra mi aliquam tincidunt vulputate. Suspendisse vulputate 
+    lobortis ultricies. Etiam rutrum eros bibendum sem elementum, at condimentum metus 
+    venenatis. Ut sed volutpat dui. Curabitur dapibus risus in congue tempor. Nullam 
+    at justo quam. Cras mi quam, faucibus eget erat vel, interdum finibus 
+    quam. Vestibulum quam nibh, bibendum quis ipsum at, maximus interdum 
+    purus. Duis id convallis mauris. Sed et suscipit augue.
 
 \end{document}
