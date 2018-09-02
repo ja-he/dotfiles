@@ -1,2 +1,86 @@
 \documentclass[varwidth, border=1bp]{standalone}
+    \usepackage[utf8]{inputenc}
+    \usepackage[english]{babel}
+    \usepackage{kotex}
+    \usepackage{tgschola}
+    \usepackage[T1]{fontenc}
+    \usepackage{amsmath}
+    \usepackage{amssymb}
+    \usepackage{amsthm}
+    \usepackage{amsfonts}
+    \usepackage{amsbsy}
+    \usepackage{latexsym}
+    \usepackage{dsfont}
+
+    \usepackage{tabulary}
+    \usepackage{booktabs}
+    \renewcommand{\arraystretch}{1.2}
+    \setlength{\parindent}{0em}
+    \setlength{\parskip}{0.5em}
+
+    \usepackage{xcolor}
+    \definecolor{blue_custom} {HTML}{0066b5}
+    \definecolor{red_custom}  {HTML}{9e0007}
+    \definecolor{green_custom}{HTML}{007527}
+    \definecolor{gray_custom} {HTML}{999999}
+    \definecolor{todored}{HTML}{ff7c7a}
+    \newcommand{\gr}[0]{\color{green_custom}}
+    \newcommand{\re}[0]{\color{red_custom}}
+    \newcommand{\bl}[0]{\color{blue_custom}}
+    \newcommand{\bk}[0]{\color{black}}
+    \newcommand{\wh}[0]{\color{white}}
+
+    \usepackage{stackengine}
+    \usepackage{textcomp}
+
+    \usepackage{listings}
+    \lstset{
+        basicstyle=\ttfamily\footnotesize, 
+        breaklines=true,
+        commentstyle=\color{gray_custom},
+        keywordstyle=\color{blue_custom},
+        stringstyle=\color{green_custom}, 
+        morekeywords={},
+        deletekeywords={},
+        keepspaces=true,
+        frame=none,
+        language=Java,
+        numbers=left,
+        numberstyle=\tiny\color{gray_custom},
+        showspaces=false,
+        showtabs=false,
+        showstringspaces=false,
+        xleftmargin=0.05\textwidth,
+        xrightmargin=0.05\textwidth, 
+        linewidth=\textwidth, 
+        tabsize=4,
+        columns=fullflexible,
+        captionpos=t,
+        gobble=0
+    }
+    \lstdefinestyle{bash}{
+        language=Bash,
+        morekeywords={sleep,ffmpeg,chmod,grep,rm,mv,cp,vim}
+    }
+    \lstdefinestyle{terminal}{
+        style=bash,
+        numbers=none
+    }
+    \lstdefinestyle{cpp}{
+        language=C++
+    }
+    \lstdefinestyle{latex}{
+        language=tex,
+        numbers=none
+    }
+
+    \usepackage[makeroom]{cancel}
+    \renewcommand{\b}{\ensuremath{\cancel{b}}}
+    \renewcommand{\c}{\ensuremath{\cancel{c}}}
+    \usepackage{tikz}
+    \usetikzlibrary{arrows,automata}
+
+    \newcommand{\mexpl}[1]{\color{gray_custom}\left(\text{#1}\right)}
+    \newcommand{\mexplbig}[1]{ \color{gray_custom}{\left(\parbox{4cm}{ \centering \footnotesize #1 }\right)} }
+    
 \begin{document}

@@ -1,41 +1,66 @@
 #!/bin/bash 
 
-if [ -z "$1" ]; then 
-    echo "please pass latex" 
-    exit 1
-fi 
+show_help() {
+    cat << EOF 
+USAGE: quicktex path/to/outputfilename [-h] [-p] [-f path/to/texfile.tex] 
+                                        [-o path/to/outputfile]
 
-if [ "$1"="-h" ]; then 
-    echo "syntax: " 
-    echo ".scripts/quicktex.sh path/to/latex_code_file.tex output/path/imgname"
-    break 1
-fi 
+    (pass the outputfilename without the .png or .pdf extension)
 
-if [ "$1"="-c" ]; then 
+    -h      show this help 
+    -p      save the PDF instead of the PNG
+    -f      specify a custom tex-file to use, rather than writing on the spot 
+            pass the file's location
+    -o      specify the location of the output file, pass the location
+EOF
+}
+
+outputtype=".png"
+outputfile="/home/ztf/quicktex_output"
+content=~/.scripts/quicktexfiles/content.tex
+default_content_location_used=true
+while getopts "hpo:f:" opt; do
+    case "$opt" in
+    h)  show_help
+        exit 0
+        ;;
+    p)  outputtype=".pdf"
+        ;;
+    o)  outputfile="$OPTARG"
+        ;;
+    f)  content="$OPTARG"
+        default_content_location_used=false
+        ;;
+    esac
+done
+
+if [ $default_content_location_used = true ]; then 
     vim ~/.scripts/quicktexfiles/content.tex
-    CONTENT=~/.scripts/quicktexfiles/content.tex
-    DEFAULT_FILE_USED=true
-else 
-    CONTENT="$1"
-    DEFAULT_FILE_USED=false
 fi 
 
-if [ -z "$2" ]; then 
-    echo "please pass output file"
-    exit 1
+input="q"; 
+while [ $input != "y" ]; do 
+    cat ~/.scripts/quicktexfiles/pre.tex $content ~/.scripts/quicktexfiles/post.tex | pdflatex -output-directory ~
+    zathura ~/texput.pdf > /dev/null 
+    echo -ne "were you satisfied with the appearance?\n"
+    read -p " [y]es or [n]o ? > " -rsn1 input 
+    echo "$input"
+    if [ "$input" = "n" ]; then 
+        vim ~/.scripts/quicktexfiles/content.tex 
+    fi 
+done 
+
+if [ $outputtype = ".png" ]; then 
+    echo -ne "attempting to convert the file $outputfile as a filetype $outputtype now...\n"
+    convert -density 1920 ~/texput.pdf -quality 90 "$outputfile.png"
+    feh "$outputfile.png" -B white -.
 else 
-    IMAGE="$2.png"
+    cp ~/texput.pdf "$outputfile.pdf"
+    zathura "$outputfile.pdf"
 fi 
-
-# rendering 
-cat ~/.scripts/quicktexfiles/pre.tex $CONTENT ~/.scripts/quicktexfiles/post.tex | pdflatex -output-directory ~
-convert -density 1920 ~/texput.pdf -quality 90 "$IMAGE"
-
-# previewing 
-feh "$IMAGE" -B white -.
 
 # cleanup 
-rm ~/texput.*
-if [ $DEFAULT_FILE_USED = true ]; then 
+#rm ~/texput.*
+if [ $default_content_location_used = true ]; then 
     rm ~/.scripts/quicktexfiles/content.*
 fi 
