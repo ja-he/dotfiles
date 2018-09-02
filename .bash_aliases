@@ -8,3 +8,4 @@ alias weatherrep='curl -s wttr.in/Bremen'
 alias vi='vim --noplugin'
 alias timestamp="date '+%Y-%m-%d %H:%M:%S'"
 alias hdoff="sudo hdparm -Y /dev/sdb"
+alias quicktex="~/.scripts/quicktex.sh"
