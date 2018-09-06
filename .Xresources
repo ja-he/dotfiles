@@ -1,29 +1,6 @@
-! ------------------------------------------------------------------------------
-! ROFI Color theme
-! ! ------------------------------------------------------------------------------
-rofi.color-enabled: true
-rofi.color-window: #000000, #441410, #000000
-rofi.color-normal: #000000, #ffffff, #000000, #ffffff, #000000
-rofi.color-active: #000000, #888387, #000000, #888387, #000000
-rofi.color-urgent: #000000, #934d34, #000000, #934d34, #000000
 
-Xcursor.theme: DMZ (White)
-Xcursor.size: 16
-
-URxvt*scrollColor: #ff00ff
-URxvt*scrollBar: false 
-URxvt*scrollBar_right: false 
-URxvt*scrollBar_floating: false 
-URxvt*font:xft:scientifica:size=8
-URxvt.letterSpace: 1
-URxvt.background: black
-URxvt.foreground: white
-URxvt.color0: red
-URxvt.color1: white
-URxvt.color2: white
-URxvt.color3: white
-URxvt.color4: white
-URxvt.color5: white
-URxvt.color6: white
-URxvt.color7: white
-URxvt.color8: white
+urxvt*font:         xft:scientifica:size=12
+urxvt*letterSpace:  1
+urxvt*background:   #000000
+urxvt*foreground:   #ffffff
+urxvt*scrollBar:    false
