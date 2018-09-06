@@ -16,6 +16,11 @@ USAGE: quicktex path/to/outputfilename [-h] [-p] [-f path/to/texfile.tex]
 EOF
 }
 
+#TODO: refactor so that the custom file is copied to content.tex and then just 
+#       continue with content.tex as always. 
+#       this should streamline the script somewhat.
+#TODO: refactor the variable names to be more sensible and in tune with changes 
+
 outputtype=".png"
 outputfile="/home/ztf/quicktex_output"
 content=~/.scripts/quicktexfiles/content.tex
