@@ -38,7 +38,8 @@ font pango: scientifica 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec urxvt
+bindsym $mod+shift+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -136,6 +137,8 @@ set $ActiveTextColor    "#FFFFFF"
 set $InactiveTextColor  "#666666"
 set $UrgentColor        "#883333"
 set $AltInfoColor       "#339955"
+set $TitleBarsEtc       "#000000"
+set $TitleBarsInact     "#000000"
 
 # Workspace Names 
 set $workspace01 "1 browse " 
@@ -261,12 +264,12 @@ new_window pixel $BorderWidth
 new_float pixel $BorderWidth
 bindsym $mod+i border none
 bindsym $mod+u border pixel $BorderWidth
-# class                 border              backgr. text    indicator child_border
-client.focused          $ActiveTextColor    #285577 #ffffff #2e9ef4   $ActiveTextColor
-client.focused_inactive #00ff00             #5f676a #ffffff #484e50   $InactiveTextColor
-client.unfocused        $InactiveTextColor  #222222 #888888 #292d2e   $InactiveTextColor
-client.urgent           $UrgentColor        #900000 #ffffff #900000   $UrgentColor
-client.placeholder      #0000ff             #0c0c0c #ffffff #000000   #ff0000
+# class                 border              backgr.         text    indicator child_border
+client.focused          $ActiveTextColor    $TitleBarsEtc   #ffffff #2e9ef4   $ActiveTextColor
+client.focused_inactive #00ff00             #5f676a         #ffffff #484e50   $InactiveTextColor
+client.unfocused        $InactiveTextColor  $TitleBarsInact #888888 #292d2e   $InactiveTextColor
+client.urgent           $UrgentColor        #900000         #ffffff #900000   $UrgentColor
+client.placeholder      #0000ff             #0c0c0c         #ffffff #000000   #ff0000
 
 client.background       #ffffff
 
