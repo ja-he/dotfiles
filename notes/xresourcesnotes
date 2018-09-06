@@ -1,0 +1,12 @@
+The .Xresources file can be used to define settings, iE for URxvt. 
+
+To actually apply these settings you'll have to use xrvd: 
+    $ xrdb .Xresources 
+or 
+    $ xrdb -merge .Xresources 
+which will apply the settings (merging them with existing ones, I believe). 
+
+To get the current settings simply do 
+    $ xrdb -query 
+and to remove them 
+    $ xrdb -remove 
