@@ -9,6 +9,7 @@
         \usepackage{tgschola}
         \usepackage[T1]{fontenc}
         % math
+        \usepackage{mathtools}
         \usepackage{amsmath}
         \usepackage{amssymb}
         \usepackage{amsthm}
@@ -269,6 +270,33 @@
         $\nexists \,\, a,b\in\mathbb{Z} : \frac{a}{b} = \sqrt{2}$
     meaning $\sqrt{2} \not\in \mathbb{Q}$. 
     \qed
+
+    \subsubsection{common formatting questions}
+    To have a brace under part of an equation use \verb|\underbrace|:  
+    \begin{lstlisting}[style=LaTeX]
+        $$n^2 = \underbrace{ n\cdot n\cdot...\cdot n }_{ n\text{-times} }$$
+    \end{lstlisting}
+        $$n^2 = \underbrace{ n\cdot n\cdot...\cdot n }_{ n\text{-times} }$$
+
+    To simply write over an element of an equation, use \verb|\overset|. 
+    If you'd like to write above an arrow you'd probably be better off using 
+    \verb|\xrightarrow| and similar commands as with these, the arrows extend with the 
+    text over and under them 
+    (\verb|\xrightarrow[under]{over}| takes an optional argument for under and an 
+    argument for over): 
+    \begin{lstlisting}[style=LaTeX]
+        $$\overset{ \delta }{\rightarrow}$$
+        $$\overset{ a^2 = b^2 }{\Rightarrow}$$
+
+        $$\xrightarrow{ \text{text above arrow} }$$
+        $$\xRightarrow[ \text{text under arrow} ]{}$$
+    \end{lstlisting}
+        $$\overset{ \delta }{\rightarrow}$$
+        $$\overset{ a^2 = b^2 }{\Rightarrow}$$
+
+        $$\xrightarrow{ \text{text above arrow} }$$
+        $$\xRightarrow[ \text{text under arrow} ]{}$$
+
 
     \subsection{Lorem Ipsum}
 	Just to see what a couple of dense-text paragraphs would end up looking like, have a 
