@@ -1,4 +1,4 @@
-" ________________________________________________________________________________________ 
+" ______________________________________________________________________________
 "
 "			                                ___           ___           ___     
 "			       ___        ___          /__/\         /  /\         /  /\    
@@ -12,7 +12,7 @@
 "			    \__\::::/      \__\/      \  \:\        \  \:\        \  \::/   
 "			        ~~~~                   \__\/         \__\/         \__\/    
 "
-"_________________________________________________________________________________________
+" ______________________________________________________________________________
 
 "                   CONTENTS: 
 "                       - general settings
@@ -23,7 +23,7 @@
 "                       - plugins 
 "                       - binds 
 
-"_________________________________________________________________________________________
+" ______________________________________________________________________________
 " ----------------
 " GENERAL SETTINGS 
 " ----------------
@@ -45,7 +45,7 @@
         command W w !sudo tee % > /dev/null 
 
 
-" ________________________________________________________________________________________
+" ______________________________________________________________________________
 
 " ------------------
 " INTERFACE SETTINGS 
@@ -60,15 +60,16 @@
     " make them grey on black 
         highlight LineNr ctermfg=darkgrey ctermbg=black
 
-    " color column at the 91st column 
+    " color column at the 81st column 
     " this is currently done by the command below, 
     " thanks to Damian Conway
-        set colorcolumn=91
+        set colorcolumn=81
     " make the column dark grey
         highlight ColorColumn ctermbg=darkgrey
 
-    " Damian Conway's clever ColorColumn regex. Highlights the 101st column only in lines in which 
-    " the text overflows that limit (which is a few characters beyond the previous line)
+    " Damian Conway's clever ColorColumn regex. Highlights the 101st column
+    " only in lines in which the text overflows that limit (which is a few
+    " characters beyond the previous line)
         "highlight ColorColumn ctermbg=magenta
         "call matchadd('ColorColumn', '\%101v', 100)
 
@@ -105,8 +106,8 @@
     " always show the status line 
         set laststatus=2
 
-    " format status line (commented out, since it didnt work, i made 0 effort to
-    " fix it though...) 
+    " format status line (commented out, since it didnt work, i made 0 effort
+    " to fix it though...) 
     " I currently use vim-airline which makes this obsolete anways. 
         "set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
 
@@ -126,7 +127,7 @@
         set mouse=n 
 
 
-" ________________________________________________________________________________________
+" ______________________________________________________________________________
 
 " -----------
 " BEAUTIFYING 
@@ -147,7 +148,7 @@
     " let linewrap respect indentation 
         set breakindent
 
-" ________________________________________________________________________________________
+" ______________________________________________________________________________
 
 " ----------
 " FILES ETC.
@@ -158,7 +159,7 @@
         set nowb
         set noswapfile 
 
-" ________________________________________________________________________________________
+" ______________________________________________________________________________
 
 " --------------
 " TEXT BEHAVIOUR 
@@ -180,7 +181,7 @@
         set encoding=utf8
 
 
-" ________________________________________________________________________________________
+" ______________________________________________________________________________
 
 " -------
 " PLUGINS 
@@ -201,11 +202,14 @@
             let g:calendar_google_calendar = 1 
             let g:calendar_google_task = 1 
 
-" ________________________________________________________________________________________
+" ______________________________________________________________________________
 
 " -----
 " BINDS
 " -----
+    
+    " more accessible move-to-mark key 
+        map ß `
 
     " paste toggle so (vim stops messing with pasted text formatting)
         set pastetoggle=<F2>
