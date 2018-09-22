@@ -9,3 +9,5 @@ cp -r ~/.config/rofi/config    ~/gits/dotfiles/configrofi
 cp -r ~/.templates/*           ~/gits/dotfiles/.templates/
 cp -r ~/.inputrc               ~/gits/dotfiles/.inputrc
 cp -r ~/.scripts/*             ~/gits/dotfiles/.scripts/
+cp -r /home/ztf/.mozilla/firefox/kuikvue4.default/chrome/userChrome.css ~/gits/dotfiles/
+
