@@ -19,3 +19,7 @@ Followed these steps exactly:
         ../configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers
         make
         sudo make install
+
+
+# getting the window class
+    use xprop
