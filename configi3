@@ -147,7 +147,7 @@ set $workspace03 "3 watch  "
 set $workspace04 "4 write  " 
 set $workspace05 "5 draw   " 
 set $workspace06 "6 order  " 
-set $workspace07 "7 secure " 
+set $workspace07 "7 chat   " 
 set $workspace08 "8 listen " 
 set $workspace09 "9 study  " 
 set $workspace10 "0 command" 
@@ -180,7 +180,7 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
    #assign [class="mpv"]            $workspace03
     assign [class="Seafile Client"] $workspace06
     assign [class="Steam"]          $workspace09
-    assign [class="Keepassx"]       $workspace07
+    assign [class="Slack"]          $workspace07
     assign [class="krita"]          $workspace05
 
 # set some stuff to float 
