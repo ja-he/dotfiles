@@ -1,7 +1,7 @@
 #!/bin/bash 
 
-# setting the cover variable to the given argument, should one have been provided 
-# or otherwise defaulting to the default name, as long as it exists
+# setting the cover variable to the given argument, should one have been
+# provided or otherwise defaulting to the default name, as long as it exists
 # should neither be the case, printing an error and exiting 
 if [ $1 ]; then 
     cover="$1"
@@ -19,11 +19,12 @@ else
     fi 
 fi 
 
-# looping through all .mp3-files in the current dir and assigning them each the 
+# looping through all .mp3-files in the current dir and assigning them each the
 # cover image with ffmpeg. 
-# the files are output with a suffix of .fixedcover.mp3 and then renamed to the original 
-# filename, as long as the conversion was successful (ie such an output file was actually 
-# produced. if any output file ever isn't we simply print an error, but continue. 
+# the files are output with a suffix of .fixedcover.mp3 and then renamed to the
+# original filename, as long as the conversion was successful (ie such an
+# output file was actually produced. if any output file ever isn't we simply
+# print an error, but continue. 
 for song in *.mp3; do
 	newsong="$song.fixedcover.mp3"
 	ffmpeg -i "$song" -i "$cover" -map 0:0 -map 1:0 -c copy -id3v2_version 3 -metadata:s:v title="Album cover" -metadata:s:v comment="Cover (front)" "$newsong";
