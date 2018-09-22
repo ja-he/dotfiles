@@ -1,0 +1,3 @@
+the userchrome.css should be in 
+    /home/ztf/.mozilla/firefox/kuikvue4.default/chrome
+(the chrome directory had to be manually created)
