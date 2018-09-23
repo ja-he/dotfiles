@@ -1,3 +1,7 @@
 the userchrome.css should be in 
     /home/ztf/.mozilla/firefox/kuikvue4.default/chrome
 (the chrome directory had to be manually created)
+
+# Disabling ^scroll to zoom: 
+in about:config change 
+mousewheel.with_control.action to 0 (from 3)
