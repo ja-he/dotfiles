@@ -171,12 +171,19 @@
     " smart tabs 
         set smarttab 
 
-    " 1 Tab = 4 Spaces 
+    " 1 Tab = 4 Spaces as the standard setting 
         set shiftwidth=4    " inserting tabs = 4 spaces 
         set tabstop=4       " existing tabs = 4 spaces 
         set expandtab
         set softtabstop=4   " delete the 4 spaces of a tab with backspace 
 
+    " filetype-specific settings to only 2 spaces per tab 
+        autocmd BufRead,BufNewFile *.cc,*.cpp,*.tex 
+                    \ setlocal  tabstop=2
+                    \           shiftwidth=2
+                    \           softtabstop=2
+
+    
     " UTF-8 standard encoding 
         set encoding=utf8
 
