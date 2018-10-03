@@ -178,7 +178,7 @@
         set softtabstop=4   " delete the 4 spaces of a tab with backspace 
 
     " filetype-specific settings to only 2 spaces per tab 
-        autocmd BufRead,BufNewFile *.cc,*.cpp,*.tex 
+        autocmd BufRead,BufNewFile *.cc,*.cpp,*.tex,*.md
                     \ setlocal  tabstop=2
                     \           shiftwidth=2
                     \           softtabstop=2
@@ -201,8 +201,10 @@
 
         " vim-indent-guides color settings 
             let g:indent_guides_auto_colors = 0
-			autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=darkgrey
-			autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=grey
+			autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  
+                        \ guibg=red   ctermbg=darkgrey
+			autocmd VimEnter,Colorscheme * :hi IndentGuidesEven 
+                        \ guibg=green ctermbg=grey
 
         " Calendar settings 
         " google calendar 
