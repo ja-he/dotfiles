@@ -163,6 +163,10 @@
     sudo pip3 install pywal 
 # bluetooth
     sudo apt-get install bluez-tools -y 
+# iosevka font 
+    sudo add-apt-repository ppa:laurent-boulard/fonts
+    sudo apt-get update 
+    sudo apt-get install fonts-iosevka
 # scientifica font 
     cd /etc/fonts/conf.d/
     sudo rm /etc/fonts/conf.d/10* && sudo rm -rf 70-no-bitmaps.conf && sudo ln -s ../conf.avail/
