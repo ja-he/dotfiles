@@ -129,3 +129,7 @@ export PS1="\n\[$(tput bold)\]\[$(tput setaf 3)\][\w] \\$ \[$(tput sgr0)\]"
 
 # To add support for TTYs this line can be optionally added.
 #source ~/.cache/wal/colors-tty.sh
+
+# Term setting for vim according to arch-forum 
+TERM='rxvt-unicode'
+COLORTERM='rxvt-unicode-256-color'
