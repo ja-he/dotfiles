@@ -1,26 +1,26 @@
 " ______________________________________________________________________________
 "
-"			                                ___           ___           ___     
-"			       ___        ___          /__/\         /  /\         /  /\    
-"			      /__/\      /  /\        |  |::\       /  /::\       /  /:/    
-"			      \  \:\    /  /:/        |  |:|:\     /  /:/\:\     /  /:/     
-"			       \  \:\  /__/::\      __|__|:|\:\   /  /:/~/:/    /  /:/  ___ 
-"			   ___  \__\:\ \__\/\:\__  /__/::::| \:\ /__/:/ /:/___ /__/:/  /  /\
-"			  /__/\ |  |:|    \  \:\/\ \  \:\~~\__\/ \  \:\/:::::/ \  \:\ /  /:/
-"			  \  \:\|  |:|     \__\::/  \  \:\        \  \::/~~~~   \  \:\  /:/ 
-"			   \  \:\__|:|     /__/:/    \  \:\        \  \:\        \  \:\/:/  
-"			    \__\::::/      \__\/      \  \:\        \  \:\        \  \::/   
-"			        ~~~~                   \__\/         \__\/         \__\/    
+"                                      ___           ___           ___     
+"             ___        ___          /__/\         /  /\         /  /\    
+"            /__/\      /  /\        |  |::\       /  /::\       /  /:/    
+"            \  \:\    /  /:/        |  |:|:\     /  /:/\:\     /  /:/     
+"             \  \:\  /__/::\      __|__|:|\:\   /  /:/~/:/    /  /:/  ___ 
+"         ___  \__\:\ \__\/\:\__  /__/::::| \:\ /__/:/ /:/___ /__/:/  /  /\
+"        /__/\ |  |:|    \  \:\/\ \  \:\~~\__\/ \  \:\/:::::/ \  \:\ /  /:/
+"        \  \:\|  |:|     \__\::/  \  \:\        \  \::/~~~~   \  \:\  /:/ 
+"         \  \:\__|:|     /__/:/    \  \:\        \  \:\        \  \:\/:/  
+"          \__\::::/      \__\/      \  \:\        \  \:\        \  \::/   
+"              ~~~~                   \__\/         \__\/         \__\/    
 "
 " ______________________________________________________________________________
 
 "                   CONTENTS: 
 "                       - general settings
+"                       - plugins 
 "                       - interface settings 
 "                       - beautifying 
 "                       - files etc. 
 "                       - text behaviour 
-"                       - plugins 
 "                       - binds 
 
 " ______________________________________________________________________________
@@ -42,7 +42,30 @@
         set autoread 
 
     " fixing the capital :W human error 
-        command W w !sudo tee % > /dev/null 
+        command W w  
+
+" ______________________________________________________________________________
+
+" -------
+" PLUGINS 
+" -------
+
+    " Pathogen 
+        " use this to disable plugins if you need to find a bottleneck 
+        let g:pathogen_disabled = ["vim-airline"]
+        execute pathogen#infect()
+
+        " vim-indent-guides color settings 
+            let g:indent_guides_auto_colors = 0
+            autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  
+                        \ guibg=red   ctermbg=darkgrey
+            autocmd VimEnter,Colorscheme * :hi IndentGuidesEven 
+                        \ guibg=green ctermbg=grey
+
+        " Calendar settings 
+        " google calendar 
+            let g:calendar_google_calendar = 1 
+            let g:calendar_google_task = 1 
 
 
 " ______________________________________________________________________________
@@ -126,6 +149,8 @@
     " enable the mouse for text navigation 
         set mouse=n 
 
+    " colorscheme (from github through pathogen)
+        colo fahrenheit
 
 " ______________________________________________________________________________
 
@@ -178,7 +203,7 @@
         set softtabstop=4   " delete the 4 spaces of a tab with backspace 
 
     " filetype-specific settings to only 2 spaces per tab 
-        autocmd BufRead,BufNewFile *.cc,*.cpp,*.tex,*.md
+        autocmd BufRead,BufNewFile *.cc,*.hh,*.cpp,*.tex,*.md,*.txt
                     \ setlocal  tabstop=2
                     \           shiftwidth=2
                     \           softtabstop=2
@@ -187,29 +212,6 @@
     " UTF-8 standard encoding 
         set encoding=utf8
 
-
-" ______________________________________________________________________________
-
-" -------
-" PLUGINS 
-" -------
-
-    " Pathogen 
-        " use this to disable plugins if you need to find a bottleneck 
-        let g:pathogen_disabled = ["vim-airline"]
-        execute pathogen#infect()
-
-        " vim-indent-guides color settings 
-            let g:indent_guides_auto_colors = 0
-			autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  
-                        \ guibg=red   ctermbg=darkgrey
-			autocmd VimEnter,Colorscheme * :hi IndentGuidesEven 
-                        \ guibg=green ctermbg=grey
-
-        " Calendar settings 
-        " google calendar 
-            let g:calendar_google_calendar = 1 
-            let g:calendar_google_task = 1 
 
 " ______________________________________________________________________________
 
