@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/ztf/Pictures/wallpapers/milehigh.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0e080c",
+        "foreground": "#ffffff",
+        "cursor": "#b5b7b5"
+    },
+    "colors": {
+        "color0": "#0e080c",
+        "color1": "#9E2A15",
+        "color2": "#CC3710",
+        "color3": "#A94835",
+        "color4": "#DC542C",
+        "color5": "#9A6D67",
+        "color6": "#D46A4E",
+        "color7": "#b5b7b5",
+        "color8": "#7e807e",
+        "color9": "#9E2A15",
+        "color10": "#CC3710",
+        "color11": "#A94835",
+        "color12": "#DC542C",
+        "color13": "#9A6D67",
+        "color14": "#D46A4E",
+        "color15": "#b5b7b5"
+    }
+}
