@@ -1,115 +1,121 @@
 \documentclass{article}
 
-    % input & font encoding 
-        \usepackage[utf8]{inputenc}
-        \usepackage[english]{babel}
-        % \usepackage[ngerman]{babel}
-        % hangul character parsing and display
-        \usepackage{kotex}
-        \usepackage{tgschola}
-        \usepackage[T1]{fontenc}
-        % math
-        \usepackage{mathtools}
-        \usepackage{amsmath}
-        \usepackage{amssymb}
-        \usepackage{amsthm}
-        \usepackage{amsfonts}
-        \usepackage{amsbsy}
-        \usepackage{latexsym}
-        \usepackage{dsfont}
+  % input & font encoding 
+    \usepackage[utf8]{inputenc}
+    \usepackage[english]{babel}
+    % \usepackage[ngerman]{babel}
+    % hangul character parsing and display
+    \usepackage{kotex}
+    \usepackage{tgschola}
+    \usepackage[T1]{fontenc}
+    % math
+    \usepackage{mathtools}
+    \usepackage{amsmath}
+    \usepackage{amssymb}
+    \usepackage{amsthm}
+    \usepackage{amsfonts}
+    \usepackage{amsbsy}
+    \usepackage{latexsym}
+    \usepackage{dsfont}
 
-    % tables 
-        % better tabular alternative 
-        \usepackage{tabulary}
-        % pretty tables
-        \usepackage{booktabs}
-            \renewcommand{\arraystretch}{1.2}
-        % no paragraph start indentation 
-            \setlength{\parindent}{0em}
-        % small gaps between paragraphs 
-            \setlength{\parskip}{0.5em}
+  % tables 
+    % better tabular alternative 
+    \usepackage{tabulary}
+    % pretty tables
+    \usepackage{booktabs}
+      \renewcommand{\arraystretch}{1.2}
+    % no paragraph start indentation 
+      \setlength{\parindent}{0em}
+    % small gaps between paragraphs 
+      \setlength{\parskip}{0.5em}
 
-    % colors 
-        \usepackage{xcolor}
-            \definecolor{blue_custom} {HTML}{0066b5}
-            \definecolor{red_custom}  {HTML}{9e0007}
-            \definecolor{green_custom}{HTML}{007527}
-			\definecolor{gray_custom} {HTML}{999999}
-            \definecolor{todored}{HTML}{ff7c7a}
-            \newcommand{\gr}[0]{\color{green_custom}}
-            \newcommand{\re}[0]{\color{red_custom}}
-            \newcommand{\bl}[0]{\color{blue_custom}}
-            \newcommand{\bk}[0]{\color{black}}
-            \newcommand{\wh}[0]{\color{white}}
+  % colors 
+    \usepackage{xcolor}
+      \definecolor{blue_custom} {HTML}{0066b5}
+      \definecolor{red_custom}  {HTML}{9e0007}
+      \definecolor{green_custom}{HTML}{007527}
+      \definecolor{gray_custom} {HTML}{999999}
+      \definecolor{todored}{HTML}{ff7c7a}
+      \newcommand{\gr}[0]{\color{green_custom}}
+      \newcommand{\re}[0]{\color{red_custom}}
+      \newcommand{\bl}[0]{\color{blue_custom}}
+      \newcommand{\bk}[0]{\color{black}}
+      \newcommand{\wh}[0]{\color{white}}
 
-    % moving stuff around...
-        \usepackage[left=3cm,right=7cm,top=3cm,bottom=3cm]{geometry}
-        \usepackage{stackengine}
-        \usepackage{textcomp}
+  % moving stuff around...
+    \usepackage[left=3cm,right=7cm,top=3cm,bottom=3cm]{geometry}
+    \usepackage{stackengine}
+    \usepackage{textcomp}
 
-    % TODOs 
-        \usepackage[textwidth=4cm,textsize=tiny,color=todored,bordercolor=white]{todonotes}
-        % deprecated custom todo command
-        % \newcommand{\todo}[1]{\texttt{\re TODO #1\\}}
+  % TODOs 
+    \usepackage[textwidth=4cm,
+                textsize=tiny,
+                color=todored,
+                bordercolor=white]{todonotes}
+    % deprecated custom todo command
+    % \newcommand{\todo}[1]{\texttt{\re TODO #1\\}}
 
-    % code listings 
-        \usepackage{listings}
-            \lstset{
-                basicstyle=\ttfamily\footnotesize, 
-                breaklines=true,
-                commentstyle=\color{gray_custom},
-                keywordstyle=\color{blue_custom},
-                stringstyle=\color{green_custom}, 
-                morekeywords={},
-                deletekeywords={},
-                keepspaces=true,
-                frame=none,
-                language=Java,
-                numbers=left,
-                numberstyle=\tiny\color{gray_custom},
-                showspaces=false,
-                showtabs=false,
-                showstringspaces=false,
-                xleftmargin=0.05\textwidth,
-                xrightmargin=0.05\textwidth, 
-                linewidth=\textwidth, 
-                tabsize=4,
-                columns=fullflexible,
-                captionpos=t,
-                gobble=8
-            }
-            \lstdefinestyle{bash}{
-                language=Bash,
-                morekeywords={sleep,ffmpeg,chmod,grep,rm,mv,cp,vim}
-            }
-            \lstdefinestyle{terminal}{
-                style=bash,
-                numbers=none
-            }
-            \lstdefinestyle{cpp}{
-                language=C++
-            }
-            \lstdefinestyle{latex}{
-                language=tex,
-                numbers=none
-            }
+  % code listings 
+    \usepackage{listings}
+      \lstset{
+        basicstyle=\ttfamily\footnotesize, 
+        breaklines=true,
+        commentstyle=\color{gray_custom},
+        keywordstyle=\color{blue_custom},
+        stringstyle=\color{green_custom}, 
+        morekeywords={},
+        deletekeywords={},
+        keepspaces=true,
+        frame=none,
+        language=Java,
+        numbers=left,
+        numberstyle=\tiny\color{gray_custom},
+        showspaces=false,
+        showtabs=false,
+        showstringspaces=false,
+        xleftmargin=0.05\textwidth,
+        xrightmargin=0.05\textwidth, 
+        linewidth=\textwidth, 
+        tabsize=4,
+        columns=fullflexible,
+        captionpos=t,
+        gobble=0
+      }
+      \lstdefinestyle{bash}{
+        language=Bash,
+        morekeywords={sleep,ffmpeg,chmod,grep,rm,mv,cp,vim}
+      }
+      \lstdefinestyle{terminal}{
+        style=bash,
+        numbers=none
+      }
+      \lstdefinestyle{cpp}{
+        language=C++
+      }
+      \lstdefinestyle{haskell}{
+        language=haskell
+      }
+      \lstdefinestyle{latex}{
+        language=tex,
+        numbers=none
+      }
 
-    % theo2 vorlage 
-        % blank / cent commands 
-        \usepackage[makeroom]{cancel}
-            \renewcommand{\b}{\ensuremath{\cancel{b}}}
-            \renewcommand{\c}{\ensuremath{\cancel{c}}}
-        % tikz für automatengrafen
-        \usepackage{tikz}
-            \usetikzlibrary{arrows,automata}
+  % theo2 vorlage 
+    % blank / cent commands 
+    \usepackage[makeroom]{cancel}
+      \renewcommand{\b}{\ensuremath{\cancel{b}}}
+      \renewcommand{\c}{\ensuremath{\cancel{c}}}
+    % tikz für automatengrafen
+    \usepackage{tikz}
+      \usetikzlibrary{arrows,automata}
 
-    % custom commands 
-        % math explanations 
-        % \mexpl: regular explanation 
-            \newcommand{\mexpl}[1]{\color{gray_custom}\left(\text{#1}\right)}
-        % \mexplbig: expansive multi-line explanation 
-            \newcommand{\mexplbig}[1]{ \color{gray_custom}{\left(\parbox{4cm}{
-                            \centering \footnotesize #1 }\right)} }
+  % custom commands 
+    % math explanations 
+    % \mexpl: regular explanation 
+      \newcommand{\mexpl}[1]{\color{gray_custom}\left(\text{#1}\right)}
+    % \mexplbig: expansive multi-line explanation 
+      \newcommand{\mexplbig}[1]{ \color{gray_custom}{\left(\parbox{4cm}{
+              \centering \footnotesize #1 }\right)} }
 
 \author{Jan Hensel}
 \title{\textbf{\LaTeX\ Template File}\\
@@ -118,74 +124,85 @@
 \maketitle
 
 \section{Specific Settings}
-    \subsection{Margins}
+  \subsection{Margins}
     The margins are set via the \texttt{geometry}-package via the settings
     \texttt{left}, \texttt{right}, \texttt{top} and \texttt{bottom} such that
     the ultimate inclusion looks as follows: 
-    \begin{lstlisting}[style=latex]
-        \usepackage[left=3cm,right=7cm,top=3cm,bottom=3cm]{geometry}
+    \begin{lstlisting}[style=latex,gobble=6]
+      \usepackage[left=3cm,
+                  right=7cm,
+                  top=3cm,
+                  bottom=3cm]{geometry}
     \end{lstlisting}
     This is mostly done so that todonotes (from the \texttt{todonotes}-package)
     are more likely to have enough space. To that end the todonotes are set to
     have a \texttt{textwidth}-setting of 4cm: 
-    \begin{lstlisting}[style=latex]
-        \usepackage[textwidth=4cm,textsize=tiny,color=todored,bordercolor=white]{todonotes}
+    \begin{lstlisting}[style=latex,gobble=6]
+      \usepackage[textwidth=4cm,
+                  textsize=tiny,
+                  color=todored,
+                  bordercolor=white]{todonotes}
     \end{lstlisting}
 
-    \subsection{Listings}
+  \subsection{Listings}
     Listings (from the \texttt{listings}-package) have been customized to look
     appealing within the text and to support a variety of styles, such as Bash
     scripts, command line inputs, \TeX commands and languages like Java,
     Python, C, etc. 
 
-    \subsection{Colors}
+  \subsection{Colors}
     \begin{tabulary}{\textwidth}{LLLL}
-        \toprule 
-        \textbf{color name} 
-                    & \textbf{command} 
-                                    & \textbf{hex definition} 
-                                                        & \textbf{examples}             \\
-        \midrule 
-        \texttt{black} 
-                    & \texttt{\textbackslash bk} 
-                                    & \texttt{\#000000} & \colorbox{black!100}
-                                                            {\wh back}
-                                                            \bk text                    \\
-        \texttt{gray\_custom} 
-                    &  
-                                    & \texttt{\#999999} & \colorbox{gray_custom!100}
-                                                            {\wh back}
-                                                            \color{gray_custom} text    \\
-        \texttt{white} 
-                    & \texttt{\textbackslash wh}
-                                    & \texttt{\#ffffff} & \colorbox{white!100}
-                                                            {\bk back}
-                                                            \color{white} text          \\
-        \texttt{blue\_custom} 
-                    & \texttt{\textbackslash bl} 
-                                    & \texttt{\#0066b5} & \colorbox{blue_custom!100}
-                                                            {\wh back}
-                                                            \bl text                    \\
-        \texttt{red\_custom} 
-                    & \texttt{\textbackslash re} 
-                                    & \texttt{\#9e0007} & \colorbox{red_custom!100}
-                                                            {\wh back}
-                                                            \re text                    \\
-        \texttt{green\_custom} 
-                    & \texttt{\textbackslash gr} 
-                                    & \texttt{\#007527} & \colorbox{green_custom!100}
-                                                            {\wh back}
-                                                            \gr text                    \\
-        \bottomrule
+      \toprule 
+      \textbf{color name} 
+                  & \textbf{command} 
+                                  & \textbf{hex definition} 
+                                                      & \textbf{examples}     \\
+      \midrule 
+      \texttt{black} 
+                  & \texttt{\textbackslash bk} 
+                                  & \texttt{\#000000} & \colorbox{black!100}
+                                                          {\wh back}
+                                                          \bk text            \\
+      \texttt{gray\_custom} 
+                  &  
+                                  & \texttt{\#999999} & \colorbox
+                                                          {gray_custom!100}
+                                                          {\wh back}
+                                                          \color{gray_custom} 
+                                                          text                \\
+      \texttt{white} 
+                  & \texttt{\textbackslash wh}
+                                  & \texttt{\#ffffff} & \colorbox{white!100}
+                                                          {\bk back}
+                                                          \color{white} text  \\
+      \texttt{blue\_custom} 
+                  & \texttt{\textbackslash bl} 
+                                  & \texttt{\#0066b5} & \colorbox
+                                                          {blue_custom!100}
+                                                          {\wh back}
+                                                          \bl text            \\
+      \texttt{red\_custom} 
+                  & \texttt{\textbackslash re} 
+                                  & \texttt{\#9e0007} & \colorbox
+                                                          {red_custom!100}
+                                                          {\wh back}
+                                                          \re text            \\
+      \texttt{green\_custom} 
+                  & \texttt{\textbackslash gr} 
+                                  & \texttt{\#007527} & \colorbox
+                                                          {green_custom!100}
+                                                          {\wh back}
+                                                          \gr text            \\
+      \bottomrule
     \end{tabulary}
 
-    \subsection{Inline Math Explanations}
+  \subsection{Inline Math Explanations}
     To make simple non-invasive explanations in equations and such easy to
     write, two commands have been created: 
     \begin{itemize}
-        \item \texttt{\textbackslash mexpl\{<arg>\}} \\ creates a simple
-            one-line inline bracketed text block in grey
-        \item \texttt{\textbackslash mexplbig\{<arg>\}} \\ creates a parbox of
+      \item \texttt{\textbackslash mexpl\{<arg>\}} \\ creates a simple one-line
+            inline bracketed text block in grey
+      \item \texttt{\textbackslash mexplbig\{<arg>\}} \\ creates a parbox of
             4cm width for inline bracketed \texttt{footnotesize} text block in
             grey, that has nice line-breaks and allows for full sentence
             explanations of steps 
@@ -195,60 +212,71 @@
 
 
 \section{Examples}
-    \subsection{Code}
+  \subsection{Code}
     What would a code listing look like? Here for example a listing of Java
-    code: \begin{lstlisting}
-        public class ExampleClass{
-            private static int number = 69; 
-            // example comment 
-            public static void main(String args[]){
-                System.out.println("Example Code for LaTeX Testing...");
-            }
+    code: 
+    \begin{lstlisting}[gobble=6]
+      public class ExampleClass{
+        private static int number = 69; 
+        // example comment 
+        public static void main(String args[]){
+          System.out.println("Example Code for LaTeX Testing...");
         }
+      }
+    \end{lstlisting}
+
+    Some Haskell: 
+    \begin{lstlisting}[style=haskell,gobble=6]
+      -- | calculates the factorial (n!) of a number n
+      fac :: Integer -- ^ the value n for which to calculate the factorial 
+          -> Integer -- ^ the factorial of n (n!)
+      fac n 
+        | n == 0          = 1 
+        | otherwise       = n * ( fac (n - 1) )
     \end{lstlisting}
 
     And now some bash: 
-    \begin{lstlisting}[style=bash]
-		while true; do
-			echo "example" 
-			sleep 1
-		done
+    \begin{lstlisting}[style=bash,gobble=6]
+      while true; do
+        echo "example" 
+        sleep 1
+      done
     \end{lstlisting}
     As well as a terminal input: 
-    \begin{lstlisting}[style=terminal]
-        $ ffmpeg -i example.mp4 example.mp3
+    \begin{lstlisting}[style=terminal,gobble=6]
+      $ ffmpeg -i example.mp4 example.mp3
     \end{lstlisting}
 
-    \subsection{Mathematics}\label{subsec:maths}
+  \subsection{Mathematics}\label{subsec:maths}
     To show off some equations and such, let's prove the irrationality of
     $\sqrt{2}$. 
 
-    \subsubsection*{Proof by Contradiction}
+  \subsubsection*{Proof by Contradiction}
     Suppose $\sqrt{2}$ were a rational number. 
     That would imply that there exist two integers $a,b\in\mathbb{Z}$ such that
     the fraction $\frac{a}{b} = \sqrt{2}$ is in lowest terms. \\
     Thus let $a,b$ be two such integers. 
     \begin{align*}
-        &&       
-            \frac{a}{b}                     &=          \sqrt{2}
-                                                                                        \\
-        \Rightarrow&&       
-            \left(\frac{a}{b}\right)^2      &=          \left(\sqrt{2}\right)^2
-            &&\mexpl{squaring both sides}
-                                                                                        \\
-        \Rightarrow&&       
-            \frac{a^2}{b^2}                 &=          2
-            &&\mexplbig{
-                squaring a fraction is squaring numerator and denominator
-            }
-                                                                                        \\
-        \Leftrightarrow&&       
-            \frac{a^2}{b^2}(b^2)            &=          2(b^2)
-            &&\mexpl{multipy with $b^2$}
-                                                                                        \\
-        \Leftrightarrow&&       
-            a^2                             &=          2b^2
-            &&\mexpl{simplify}
+      &&
+          \frac{a}{b}                     &=          \sqrt{2}
+                                                                              \\
+      \Rightarrow&&       
+          \left(\frac{a}{b}\right)^2      &=          \left(\sqrt{2}\right)^2
+          &&\mexpl{squaring both sides}
+                                                                              \\
+      \Rightarrow&&       
+          \frac{a^2}{b^2}                 &=          2
+          &&\mexplbig{
+              squaring a fraction is squaring numerator and denominator
+          }
+                                                                              \\
+      \Leftrightarrow&&       
+          \frac{a^2}{b^2}(b^2)            &=          2(b^2)
+          &&\mexpl{multipy with $b^2$}
+                                                                              \\
+      \Leftrightarrow&&       
+          a^2                             &=          2b^2
+          &&\mexpl{simplify}
     \end{align*}
     So $a^2$ is double the square of some integer $b$, therefore $a^2$ has to
     be an even number. 
@@ -272,12 +300,12 @@
     $\sqrt{2} \not\in \mathbb{Q}$. 
     \qed
 
-    \subsubsection{common formatting questions}
+  \subsubsection{common formatting questions}
     To have a brace under part of an equation use \verb|\underbrace|:  
     \begin{lstlisting}[style=LaTeX]
-        $$n^2 = \underbrace{ n\cdot n\cdot...\cdot n }_{ n\text{-times} }$$
+      $$n^2 = \underbrace{ n\cdot n\cdot...\cdot n }_{ n\text{-times} }$$
     \end{lstlisting}
-        $$n^2 = \underbrace{ n\cdot n\cdot...\cdot n }_{ n\text{-times} }$$
+      $$n^2 = \underbrace{ n\cdot n\cdot...\cdot n }_{ n\text{-times} }$$
 
     To simply write over an element of an equation, use \verb|\overset|. 
     If you'd like to write above an arrow you'd probably be better off using
@@ -285,46 +313,46 @@
     with the text over and under them (\verb|\xrightarrow[under]{over}| takes
     an optional argument for under and an argument for over): 
     \begin{lstlisting}[style=LaTeX]
-        $$\overset{ \delta }{\rightarrow}$$
-        $$\overset{ a^2 = b^2 }{\Rightarrow}$$
+      $$\overset{ \delta }{\rightarrow}$$
+      $$\overset{ a^2 = b^2 }{\Rightarrow}$$
 
-        $$\xrightarrow{ \text{text above arrow} }$$
-        $$\xRightarrow[ \text{text under arrow} ]{}$$
+      $$\xrightarrow{ \text{text above arrow} }$$
+      $$\xRightarrow[ \text{text under arrow} ]{}$$
     \end{lstlisting}
-        $$\overset{ \delta }{\rightarrow}$$
-        $$\overset{ a^2 = b^2 }{\Rightarrow}$$
+      $$\overset{ \delta }{\rightarrow}$$
+      $$\overset{ a^2 = b^2 }{\Rightarrow}$$
 
-        $$\xrightarrow{ \text{text above arrow} }$$
-        $$\xRightarrow[ \text{text under arrow} ]{}$$
+      $$\xrightarrow{ \text{text above arrow} }$$
+      $$\xRightarrow[ \text{text under arrow} ]{}$$
 
 
-    \subsection{Lorem Ipsum}
-    Just to see what a couple of dense-text paragraphs would end up looking
-    like, have a lorem ipsum (with a little todonote from the
-    \texttt{todonotes}-package thrown in). 
-	
-	\paragraph{Paragraph Title}
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ut lorem a sem
-    mattis commodo faucibus non diam. Duis feugiat, sapien a accumsan mattis,
-    velit erat vulputate magna, nec scelerisque augue lectus sit amet quam. 
-    Duis \textit{pellentesque} lorem sit amet odio lobortis ullamcorper. 
-    Phasellus bibendum dapibus nulla, aliquet auctor tortor pellentesque non. 
-    \textit{Nam nec metus varius}, semper turpis non, dapibus 
-    justo. Cras lacinia faucibus massa eget vestibulum. Integer porta ante non
-    risus finibus porttitor. Donec eget blandit nibh. Sed sodales lacus ut orci
-    luctus volutpat. Vivamus ut dapibus mi. Nam lectus leo, fermentum sit amet
-    pharetra in, porta id arcu.
-    \todo{Example TODO Note with some content in it, simply to showcase that
-        now these notes can contain some text without it being likely for you
-        to run into spacing troubles, due to the margins}
+  \subsection{Lorem Ipsum}
+  Just to see what a couple of dense-text paragraphs would end up looking
+  like, have a lorem ipsum (with a little todonote from the
+  \texttt{todonotes}-package thrown in). 
 
-    Sed tempor purus at ex eleifend varius. Aliquam tincidunt nibh eu est
-    pellentesque aliquam. Pellentesque pharetra mi aliquam tincidunt vulputate.
-    Suspendisse vulputate lobortis ultricies. Etiam rutrum eros bibendum sem
-    elementum, at condimentum metus venenatis. Ut sed volutpat dui. Curabitur
-    dapibus risus in congue tempor. Nullam at justo quam. Cras mi quam,
-    faucibus eget erat vel, interdum finibus quam. Vestibulum quam nibh,
-    bibendum quis ipsum at, maximus interdum purus. Duis id convallis mauris.
-    Sed et suscipit augue.
+\paragraph{Paragraph Title}
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ut lorem a sem
+  mattis commodo faucibus non diam. Duis feugiat, sapien a accumsan mattis,
+  velit erat vulputate magna, nec scelerisque augue lectus sit amet quam. 
+  Duis \textit{pellentesque} lorem sit amet odio lobortis ullamcorper. 
+  Phasellus bibendum dapibus nulla, aliquet auctor tortor pellentesque non. 
+  \textit{Nam nec metus varius}, semper turpis non, dapibus 
+  justo. Cras lacinia faucibus massa eget vestibulum. Integer porta ante non
+  risus finibus porttitor. Donec eget blandit nibh. Sed sodales lacus ut orci
+  luctus volutpat. Vivamus ut dapibus mi. Nam lectus leo, fermentum sit amet
+  pharetra in, porta id arcu.
+  \todo{Example TODO Note with some content in it, simply to showcase that now
+        these notes can contain some text without it being likely for you to
+        run into spacing troubles, due to the margins}
+
+  Sed tempor purus at ex eleifend varius. Aliquam tincidunt nibh eu est
+  pellentesque aliquam. Pellentesque pharetra mi aliquam tincidunt vulputate.
+  Suspendisse vulputate lobortis ultricies. Etiam rutrum eros bibendum sem
+  elementum, at condimentum metus venenatis. Ut sed volutpat dui. Curabitur
+  dapibus risus in congue tempor. Nullam at justo quam. Cras mi quam,
+  faucibus eget erat vel, interdum finibus quam. Vestibulum quam nibh,
+  bibendum quis ipsum at, maximus interdum purus. Duis id convallis mauris.
+  Sed et suscipit augue.
 
 \end{document}
