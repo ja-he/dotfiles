@@ -2,8 +2,13 @@
 
 BGOPT=""
 
-while getopts ":b:" opt; do
+set_wp=''
+
+while getopts "nb:" opt; do
     case $opt in
+        n)
+            set_wp='-n'
+            ;;
         b)
             if [ "$OPTARG" = "0" ]; then 
                 BGOPT="-b "#000000""
@@ -23,7 +28,7 @@ done
 for i in ./*.{jpg,jpeg,png}
 do 
     echo -n "working... "
-    wal $BGOPT -i $i -q
+    wal $BGOPT -i $i -q $set_wp
     echo -n -e "\033[2K\r"
     echo -e             "displayed file:  \t[\033[0;31m$i\033[0m]"
     looper=true
