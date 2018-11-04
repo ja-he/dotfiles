@@ -159,7 +159,7 @@
 " ----------- 
 
     " syntax highlighting 
-        syntax off 
+        syntax on 
 
     " auto indent 
         set ai 
@@ -203,7 +203,7 @@
         set softtabstop=4   " delete the 4 spaces of a tab with backspace 
 
     " filetype-specific settings to only 2 spaces per tab 
-        autocmd BufRead,BufNewFile *.cc,*.hh,*.cpp,*.tex,*.md,*.txt
+        autocmd BufRead,BufNewFile *.cc,*.hh,*.cpp,*.tex,*.md,*.txt,*.hs
                     \ setlocal  tabstop=2
                     \           shiftwidth=2
                     \           softtabstop=2
@@ -243,3 +243,9 @@
         command! -bar Usrtableenable :TableModeEnable 
         command! -bar Usrtablecompound Usrtableeval|Usrtableenable 
         map <F7> :Usrtablecompound<CR>
+
+    " tex specific conditional bind 
+        autocmd BufRead,BufNewFile *.tex
+                    \ map <F5> :LatexTOCToggle<CR>
+        autocmd BufRead,BufNewFile *.md 
+                    \ map <F3> :! pandocify % <CR> 

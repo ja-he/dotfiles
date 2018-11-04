@@ -122,7 +122,7 @@ export PS1="\n\[$(tput bold)\]\[$(tput setaf 3)\][\w] \\$ \[$(tput sgr0)\]"
 # Import colorscheme from 'wal' asynchronously
 # &   # Run the process in the background.
 # ( ) # Hide shell job control messages.
-#(cat ~/.cache/wal/sequences &)
+(cat ~/.cache/wal/sequences &)
 
 # Alternative (blocks terminal for 0-3ms)
 #cat ~/.cache/wal/sequences
@@ -133,3 +133,6 @@ export PS1="\n\[$(tput bold)\]\[$(tput setaf 3)\][\w] \\$ \[$(tput sgr0)\]"
 # Term setting for vim according to arch-forum 
 TERM='rxvt-unicode'
 COLORTERM='rxvt-unicode-256-color'
+
+# Pandoc autocompletion 
+eval "$(pandoc --bash-completion)"
