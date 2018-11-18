@@ -116,8 +116,13 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Custom bash prompt via kirsle.net/wizards/ps1.html
-export PS1="\n\[$(tput bold)\]\[$(tput setaf 3)\][\w] \\$ \[$(tput sgr0)\]"
+# Custom bash prompt 
+PS1=\
+'\n\
+\[$(tput bold)\]\[$(tput setaf 7)\][\w]\
+\[$(tput setaf 8)\]$(__git_ps1)\
+ [\A] \
+\n\[$(tput setaf 7)\]$ \[$(tput sgr0)\]'
 
 # Import colorscheme from 'wal' asynchronously
 # &   # Run the process in the background.
