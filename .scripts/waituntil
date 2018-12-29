@@ -1,0 +1,18 @@
+#!/bin/bash 
+
+if [ -z $1 ]; then 
+    echo "input a time, dummy"
+    exit
+fi 
+
+while true; do 
+    if [ "$(date +%H%M)" == "$1" ]; then 
+        mpv '/home/ztf/Music/Run The Jewels/RTJ3/03 - Legend Has It.mp3' \
+            --volume=60 --geometry=100x100+5+5
+        exit 
+    else 
+        echo -ne "date is: "
+        date +%H%M
+        sleep 60
+    fi 
+done 
