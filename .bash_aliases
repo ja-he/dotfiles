@@ -10,3 +10,9 @@ alias timestamp="date '+%Y-%m-%d %H:%M:%S'"
 alias hdoff="sudo hdparm -Y /dev/sdb"
 alias quicktex="~/.scripts/quicktex.sh"
 alias log="~/.scripts/log"
+alias anki-vim="~/.local/bin/anki-vim"
+alias gitlab="chromium-browser --app=https://gitlab.informatik.uni-bremen.de"
+alias grep_hl="grep --color=always -z" 
+alias pi3get='wget -O /home/ztf/prak3/slides/slides-all.pdf "http://www.informatik.uni-bremen.de/~cxl/lehre/pi3.ws18/lectures/slides-all.pdf"'
+alias mpv_music='mpv --geometry=200+41%+9% --loop-playlist'
+alias mpv_img='mpv --image-display-duration=inf --geometry=1280'
