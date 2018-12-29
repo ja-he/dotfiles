@@ -1,0 +1,10 @@
+did lots of things, got mostly where i wanted using the material theme off 
+    settings > plugins > search 
+and then tweaked it to the moon. 
+
+in terms of theme, tried lots, they mostly suck because intellij just 
+highlights so goddamn many things. 
+best just to tweak that shit in 
+    settings > editor > colos scheme > general
+already found out: 
+    annoying click on text highlight = "identifier under caret"

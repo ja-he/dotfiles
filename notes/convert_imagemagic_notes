@@ -1,0 +1,14 @@
+NO PERMISSIONS ISSUE: 
+    I had a problem with permissions, it said I couldn't write a PDF, even sudo 
+    wouldn't let me. 
+    To solve this I edited the file 
+      /etc/ImageMagick-6/policy.xml 
+    such that the Line that said 
+      <policy domain="coder" rights="none" pattern="PDF" />
+    now said 
+      <policy domain="coder" rights="read|write" pattern="PDF" />
+    and this solved my issue. 
+
+CONVERT PNG TO PDF: 
+    It's as easy as 
+      convert imagefile.png outputfile.pdf 
