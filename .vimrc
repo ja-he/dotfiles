@@ -44,6 +44,9 @@
     " fixing the capital :W human error 
         command W w  
 
+    " global clipboard 
+        set clipboard=unnamed
+
 " ______________________________________________________________________________
 
 " -------
@@ -203,7 +206,7 @@
         set softtabstop=4   " delete the 4 spaces of a tab with backspace 
 
     " filetype-specific settings to only 2 spaces per tab 
-        autocmd BufRead,BufNewFile *.cc,*.hh,*.cpp,*.tex,*.md,*.txt,*.hs
+        autocmd BufRead,BufNewFile *.cc,*.hh,*.cpp,*.tex,*.md,*.txt,*.hs,*.lhs
                     \ setlocal  tabstop=2
                     \           shiftwidth=2
                     \           softtabstop=2
@@ -249,3 +252,8 @@
                     \ map <F5> :LatexTOCToggle<CR>
         autocmd BufRead,BufNewFile *.md 
                     \ map <F3> :! pandocify % <CR> 
+
+    " ctrl+hjkl navigation between splits 
+        map <C-J> <C-W>j<C-W>_
+        map <C-K> <C-W>k<C-W>_
+
