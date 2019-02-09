@@ -150,7 +150,7 @@
               endif
 
     " enable the mouse for text navigation 
-        set mouse=n 
+        set mouse=v 
 
     " colorscheme (from github through pathogen)
         colo fahrenheit
@@ -247,9 +247,12 @@
         command! -bar Usrtablecompound Usrtableeval|Usrtableenable 
         map <F7> :Usrtablecompound<CR>
 
-    " tex specific conditional bind 
+    " let <F5> be the toc-toggler for latex files, 
+    " in latex and md files let vim enforce 80 character limit 
         autocmd BufRead,BufNewFile *.tex
                     \ map <F5> :LatexTOCToggle<CR>
+        autocmd BufRead,BufNewFile *.tex,*.md,*.txt
+                    \ setlocal tw=80
         autocmd BufRead,BufNewFile *.md 
                     \ map <F3> :! pandocify % <CR> 
 
