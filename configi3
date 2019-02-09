@@ -57,6 +57,7 @@ bindsym $mod+q exec ~/.scripts/readout
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+d exec rofi -show run
+bindsym $mod+shift+d exec rofi -show window
 # you could add a rofi window switcher as well... 
 
 # moving workspaces to other display 
