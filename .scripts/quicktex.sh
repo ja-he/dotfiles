@@ -13,7 +13,37 @@ USAGE: quicktex path/to/outputfilename [-h] [-p] [-f path/to/texfile.tex]
             pass the file's location
     -o      specify the location of the output file, pass the location
     -m      quick inline math 
+    -k      keep the .tex-file 
 EOF
+}
+
+edit_content() {
+    vim "$tex_content_location"
+}
+
+compile_to_pdf() {
+    cat "$pre" "$tex_content_location" "$post" | pdflatex
+}
+
+show_pdf() {
+    zathura texput.pdf > /dev/null
+}
+
+clean_up_pdflatex_clutter() {
+    rm texput.aux
+    rm texput.log
+    rm texput.pdf
+}
+
+clean_up() {
+    clean_up_pdflatex_clutter
+    if [ $keep_tex = false ]; then 
+        rm $tex_content_location
+    fi 
+}
+
+turn_pdf_to_png() {
+    convert -density 1920 texput.pdf -quality 90 "$output_file_name.png"
 }
 
 #TODO: refactor so that the custom file is copied to content.tex and then just 
@@ -21,64 +51,80 @@ EOF
 #       this should streamline the script somewhat.
 #TODO: refactor the variable names to be more sensible and in tune with changes 
 
-outputtype=".png"
-outputfile="/home/ztf/quicktex_output"
-content=~/.scripts/quicktexfiles/content.tex
-default_content_location_used=true
-inline_math_passed=false
-passed_math=""
+pre="/home/ztf/.scripts/quicktexfiles/pre.tex"
+post="/home/ztf/.scripts/quicktexfiles/post.tex"
 
-while getopts "hpo:f:m:" opt; do
+# what kind of rendered file will be saved
+output_type=".png"
+# what the saved files will be called
+output_file_name="qtout"
+# where the tex body is stored during runtime 
+tex_content_location="content.tex"
+# whether the tex source is to be kept
+keep_tex=false
+
+# whether math was passed inline 
+inline_math_passed=false
+
+# Handling options and arguments 
+while getopts "hkpo:f:m:" opt; do
     case "$opt" in
+    # show the help 
     h)  show_help
         exit 0
         ;;
-    p)  outputtype=".pdf"
+    # save as a pdf instead of a png 
+    p)  output_type=".pdf"
         ;;
-    o)  outputfile="$OPTARG"
+    # save under a custom name
+    o)  output_file_name="$OPTARG"
         ;;
-    f)  content="$OPTARG"
-        default_content_location_used=false
+    # specify a content file to use, instead of starting empty 
+    f)  tex_content_location="$OPTARG"
         ;;
+    # keep the tex body 
+    k)  keep_tex=true
+        tex_content_location="$output_file_name.tex"
+        ;;
+    # pass an equation inline 
     m)  inline_math_passed=true
-        default_content_location_used=false
-        passed_math="$OPTARG"
+        # write the passed math slightly formatted into the content file 
+        echo '\[' > "$tex_content_location"
+        echo "$OPTARG" >> "$tex_content_location"
+        echo '\]' >> "$tex_content_location"
         ;;
     esac
 done
 
-if [ $default_content_location_used = true ]; then 
-    vim ~/.scripts/quicktexfiles/content.tex
-elif [ $inline_math_passed = true ]; then 
-    echo -n "\$\$$passed_math\$\$" > /home/ztf/.scripts/quicktexfiles/content.tex
-    default_content_location_used=true
-fi 
+# get the initial content from the user, unless they passed it as inline math 
+if [ $inline_math_passed = false ]; then 
+    edit_content
+fi
 
-input="q"; 
-while [ $input != "y" ]; do 
-    cat ~/.scripts/quicktexfiles/pre.tex $content ~/.scripts/quicktexfiles/post.tex | pdflatex -output-directory ~
-    zathura ~/texput.pdf > /dev/null 
-    echo -ne "$(tput setaf 1)were you satisfied with the appearance?\n"
-    read -p " [y]es or [n]o ? > " -rsn1 input 
-    echo "$input"
-    tput sgr0
-    if [ "$input" = "n" ]; then 
-        vim ~/.scripts/quicktexfiles/content.tex 
+# let the user continually tweak the content, until they are satisfied
+# (recompiling after each edit)
+input="q"
+while [ $input != "n" ]; do 
+    # pipe the cobbled together latex file into pdflatex 
+    # (this produces a file called texput.pdf)
+    compile_to_pdf
+    show_pdf
+    # ask the user, if they want to edit further and get their answer
+    echo -ne "$(tput setaf 1)would you like to make further edits?\n"
+    read -p " [ y / n ]   > " -rsn1 input
+    echo "$input" 
+    tput sgr0 
+    if [ "$input" = "y" ]; then
+        edit_content
     fi 
-done 
+done
 
-if [ $outputtype = ".png" ]; then 
-    convert -density 1920 ~/texput.pdf -quality 90 "$outputfile.png"
-    feh "$outputfile.png" -B white -.
-else 
-    cp ~/texput.pdf "$outputfile.pdf"
-    zathura "$outputfile.pdf"
+# if the user wants the pdf instead of the png, save it and exit
+if [ "$output_type" = ".pdf" ]; then 
+    cp texput.pdf "$output_file_name.pdf"
+else # if the user wants a png
+    turn_pdf_to_png
 fi 
-echo -e "$(tput setaf 1)your file should be saved to $outputfile$outputtype"
-tput sgr0
 
-# cleanup 
-#rm ~/texput.*
-if [ $default_content_location_used = true ]; then 
-    rm ~/.scripts/quicktexfiles/content.*
-fi 
+clean_up
+exit 0
