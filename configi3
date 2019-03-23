@@ -13,7 +13,7 @@ set $mod Mod4
 
 # gaps 
     gaps inner 10
-    gaps outer 30
+    gaps outer 10
 # gaps toggle 
     bindsym $mod+g gaps inner all set 0 gaps outer all set 0
     bindsym $mod+shift+g gaps inner all set 10 gaps outer all set 30 
