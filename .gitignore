@@ -3,3 +3,6 @@
 *.fls
 *.aux
 *.fdb_latexmk
+*.html
+.scripts/variables/
+.scripts/quicktexfiles/content.tex
