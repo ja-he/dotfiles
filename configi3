@@ -335,3 +335,6 @@ exec --no-startup-id compton -f -D 5
 
 # disable capslock 
     exec_always --no-startup-id /home/ztf/.scripts/keyconfig.sh
+
+# run battery warner script 
+    exec --no-startup-id ~/.scripts/batterywarner.sh
