@@ -126,9 +126,9 @@
     sudo apt-get update
     sudo apt-get install numix-icon-theme
 # krita
-    sudo add-apt-repository ppa:kritalime/ppa
-    sudo apt-get update
-    sudo apt-get install krita -y
+   #sudo add-apt-repository ppa:kritalime/ppa
+   #sudo apt-get update
+   #sudo apt-get install krita -y
 # redshift
     sudo apt-get install redshift -y
 # curl
