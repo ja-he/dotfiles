@@ -102,6 +102,10 @@
     cd ~/.vim/bundle
     git clone https://github.com/andreasvc/vim-256noir.git
 	cd 
+# fahrenheit 
+    cd ~/.vim/bundle
+    git clone https://github.com/fcpg/vim-fahrenheit
+    cd
 # i3-gaps 
     # dependencies 
         sudo apt-get install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake
@@ -202,3 +206,5 @@
     cd anki*
     sudo make install
     cd
+# urxvt
+    sudo apt-get install rxvt-unicode -y 
