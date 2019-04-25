@@ -108,7 +108,7 @@
     cd
 # i3-gaps 
     # dependencies 
-        sudo apt-get install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake
+        sudo apt-get install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake -y
     # install 
         cd ~/gits
         git clone https://www.github.com/Airblader/i3 i3-gaps
@@ -208,3 +208,14 @@
     cd
 # urxvt
     sudo apt-get install rxvt-unicode -y 
+# konsole 
+    sudo apt-get install konsole -y
+# pandoc 
+    sudo apt install pandoc -y
+# TODO: linking config files and such 
+# TODO: running the thing to make xresources apply 
+# TODO: running wal for the theme in the dotfiles-repo
+# gotop 
+    git clone --depth 1 https://github.com/cjbassi/gotop /tmp/gotop 
+    /tmp/gotop/scripts/download.sh 
+    sudo mv gotop /usr/local/bin/
