@@ -16,7 +16,7 @@ set $mod Mod4
     gaps outer 10
 # gaps toggle 
     bindsym $mod+g gaps inner all set 0 gaps outer all set 0
-    bindsym $mod+shift+g gaps inner all set 10 gaps outer all set 30 
+    bindsym $mod+shift+g gaps inner all set 10 gaps outer all set 10 
 
 
 # Font for window titles. Will also be used by the bar unless a different font
