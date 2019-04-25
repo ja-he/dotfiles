@@ -60,8 +60,8 @@
 	git config --global user.email "ja_he@uni-bremen.de"
 	git config --global user.name "Jan Hensel"
 	# get dotfiles
-	mkdir gits
-	cd gits
+	mkdir ~/gits
+	cd ~/gits
 	git clone git@gitlab.informatik.uni-bremen.de:ja_he/dotfiles.git
 	cd
 # wal
