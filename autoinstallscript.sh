@@ -201,8 +201,9 @@
 # anki 
     echo "opening chrome so you can DL the right version of anki"
     echo "make sure you close it when the DL is done"
+    echo "save it into \"Downloads\""
     chromium-browser https://apps.ankiweb.net/ 
-    tar xjf Download/anki-*.tar.bz2
+    tar xjf Downloads/anki-*.tar.bz2
     cd anki*
     sudo make install
     cd
@@ -219,3 +220,11 @@
     git clone --depth 1 https://github.com/cjbassi/gotop /tmp/gotop 
     /tmp/gotop/scripts/download.sh 
     sudo mv gotop /usr/local/bin/
+# gtkwave 
+    sudo apt install gtkwave -y 
+# iverilog 
+    sudo apt install iverilog -y 
+# ghc(i) 
+    sudo apt install ghc -y
+# gnuplot 
+    sudo apt install gnuplot -y
