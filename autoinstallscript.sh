@@ -210,6 +210,7 @@
     sudo apt-get install konsole -y
 # pandoc 
     sudo apt install pandoc -y
+# dunst [TODO: is this necessary?]
 # linking config files and such 
     # i3 config
     mkdir ~/.config/i3
@@ -232,6 +233,7 @@
     ln ~/gits/dotfiles/.Xresources ~/.Xresources
     # Xresources application
     xrdb .Xresources 
+    # dunst [TODO: link the dunstrc to .config/dunst/dunstrc]
 # running wal for the theme in the dotfiles-repo
     wal --theme ~/.gits/dotfiles/.waltheme_milehigh.json -b "#000000"
 # gotop 
@@ -248,5 +250,6 @@
     sudo apt install gnuplot -y
 # jupyter 
     sudo apt-get install jupyter -y
+# [TODO: other python libs, like numpy, matplotlib, sklearn, tf, ...]
 # xdot 
     sudo apt-get install xdot -y 
