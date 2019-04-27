@@ -214,6 +214,8 @@
     # i3 config
     mkdir ~/.config/i3
     ln ~/gits/dotfiles/configi3 ~/.config/i3/config
+    # i3blocks 
+    cp -r ~/gits/dotfiles/i3blocks* ~/.config/
     # rofi config
     mkdir ~/.config/rofi
     ln ~/gits/dotfiles/configrofi ~/.config/rofi/config
