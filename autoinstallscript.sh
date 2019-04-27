@@ -64,8 +64,6 @@
 	cd ~/gits
 	git clone git@gitlab.informatik.uni-bremen.de:ja_he/dotfiles.git
 	cd
-# wal
-	# not sure if viable (maybe need for syncing?)
 # pathogen.vim
     mkdir ~/.vim
     mkdir ~/.vim/bundle
@@ -106,7 +104,7 @@
     cd ~/.vim/bundle
     git clone https://github.com/fcpg/vim-fahrenheit
     cd
-# i3-gaps 
+# i3-gaps [TODO: does this work? i don't believe it does...]
     # dependencies 
         sudo apt-get install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake -y
     # install 
@@ -125,7 +123,7 @@
     sudo add-apt-repository ppa:numix/ppa
     sudo apt-get update
     sudo apt-get install numix-icon-theme
-# krita
+# krita [TODO: what's the proper way?]
    #sudo add-apt-repository ppa:kritalime/ppa
    #sudo apt-get update
    #sudo apt-get install krita -y
@@ -161,7 +159,6 @@
     sudo apt-get install weechat -y 
 # neofetch 
     sudo apt-get install neofetch -y 
-# TODO i3-gaps 
 # wal 
     sudo apt-get install python3-pip -y 
     sudo pip3 install pywal 
@@ -213,9 +210,28 @@
     sudo apt-get install konsole -y
 # pandoc 
     sudo apt install pandoc -y
-# TODO: linking config files and such 
-# TODO: running the thing to make xresources apply 
-# TODO: running wal for the theme in the dotfiles-repo
+# linking config files and such 
+    # i3 config
+    mkdir ~/.config/i3
+    ln ~/gits/dotfiles/configi3 ~/.config/i3/config
+    # rofi config
+    mkdir ~/.config/rofi
+    ln ~/gits/dotfiles/configrofi ~/.config/rofi/config
+    # vim configuration
+    rm ~/.vimrc 
+    ln ~/gits/dotfiles/.vimrc ~/.vimrc
+    # bash configuration 
+    rm ~/.bashrc
+    ln ~/gits/dotfiles/.bashrc ~/.bashrc
+    rm ~/.bash_aliases 
+    ln ~/gits/dotfiles/.bash_aliases ~/.bash_aliases
+    # Xresources linking 
+    rm ~/.Xresources
+    ln ~/gits/dotfiles/.Xresources ~/.Xresources
+    # Xresources application
+    xrdb .Xresources 
+# running wal for the theme in the dotfiles-repo
+    wal --theme ~/.gits/dotfiles/.waltheme_milehigh.json -b "#000000"
 # gotop 
     git clone --depth 1 https://github.com/cjbassi/gotop /tmp/gotop 
     /tmp/gotop/scripts/download.sh 
@@ -228,3 +244,7 @@
     sudo apt install ghc -y
 # gnuplot 
     sudo apt install gnuplot -y
+# jupyter 
+    sudo apt-get install jupyter -y
+# xdot 
+    sudo apt-get install xdot -y 
