@@ -228,6 +228,8 @@
     ln ~/gits/dotfiles/.bashrc ~/.bashrc
     rm ~/.bash_aliases 
     ln ~/gits/dotfiles/.bash_aliases ~/.bash_aliases
+    rm ~/.inputrc 
+    ln ~/gits/dotfiles/.inputrc ~/.inputrc
     # Xresources linking 
     rm ~/.Xresources
     ln ~/gits/dotfiles/.Xresources ~/.Xresources
