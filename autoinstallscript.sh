@@ -104,6 +104,10 @@
     cd ~/.vim/bundle
     git clone https://github.com/fcpg/vim-fahrenheit
     cd
+# supertab
+    cd ~/.vim/bundle
+    git clone https://github.com/ervandew/supertab.git 
+    cd
 # i3-gaps [TODO: does this work? i don't believe it does...]
     # dependencies 
         sudo apt-get install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake -y
