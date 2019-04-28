@@ -5,8 +5,13 @@
 # i3-wm
     sudo apt-get install i3 -y
     sudo apt-get install i3blocks -y
-# lxappearance
+# theming 
+    # lxappearance 
     sudo apt-get install lxappearance -y
+    # gtk-chtheme 
+    sudo apt-get install gtk-chtheme -y 
+    # qtconfig-qt4
+    sudo apt-get install qt4-qtconfig -y 
 # keepassx
     sudo apt-get install keepassx -y
 # zathura
