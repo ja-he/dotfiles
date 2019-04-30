@@ -276,3 +276,5 @@
 # [TODO: other python libs, like numpy, matplotlib, sklearn, tf, ...]
 # xdot 
     sudo apt-get install xdot -y 
+# meld 
+    sudo apt install meld -y 
