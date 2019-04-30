@@ -265,6 +265,8 @@
     cabal install tasty 
     # hunit framework 
     cabal install tasty-hunit
+    # place configuration file 
+    ln ~/gits/dotfiles/.ghci ~/.ghci
 # gnuplot 
     sudo apt install gnuplot -y
 # jupyter 
