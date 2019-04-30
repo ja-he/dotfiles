@@ -257,6 +257,14 @@
     sudo apt install iverilog -y 
 # ghc(i) 
     sudo apt install ghc -y
+# cabal 
+    sudo apt install cabal-install -y 
+    # update 
+    cabal update 
+    # tasty framework 
+    cabal install tasty 
+    # hunit framework 
+    cabal install tasty-hunit
 # gnuplot 
     sudo apt install gnuplot -y
 # jupyter 
