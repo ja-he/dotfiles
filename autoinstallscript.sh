@@ -69,6 +69,8 @@
 	cd ~/gits
 	git clone git@gitlab.informatik.uni-bremen.de:ja_he/dotfiles.git
 	cd
+    # link git config file to correct place
+    ln ~/gits/dotfiles/.gitconfig ~/.gitconfig
 # pathogen.vim
     mkdir ~/.vim
     mkdir ~/.vim/bundle
