@@ -117,7 +117,7 @@
     cd
 # i3-gaps [TODO: does this work? i don't believe it does...]
     # dependencies 
-        sudo apt-get install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake -y
+        sudo apt-get install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake libxcb-shape0-dev -y
     # install 
         cd ~/gits
         git clone https://www.github.com/Airblader/i3 i3-gaps
@@ -247,6 +247,8 @@
     # Xresources application
     xrdb .Xresources 
     # dunst [TODO: link the dunstrc to .config/dunst/dunstrc]
+    # link pandoc files 
+    ln -s ~/gits/dotfiles/.pandocfiles ~/.pandocfiles
 # running wal for the theme in the dotfiles-repo
     wal --theme ~/.gits/dotfiles/.waltheme_milehigh.json -b "#000000"
 # gotop 
@@ -267,6 +269,11 @@
     cabal install tasty 
     # hunit framework 
     cabal install tasty-hunit
+    # warp webserver 
+    cabal install warp
+    # blaze html and svg
+    cabal install blaze-html
+    cabal install blaze-svg
     # place configuration file 
     ln ~/gits/dotfiles/.ghci ~/.ghci
 # gnuplot 
