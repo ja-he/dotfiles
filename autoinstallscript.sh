@@ -1,7 +1,8 @@
 # initial update
     sudo apt-get update
 # vim
-    sudo apt-get install vim -y
+    sudo apt-get install vim -y # [TODO: this ain't no longer needed, right?]
+    sudo apt intsall vim-gtk -y
 # i3-wm
     sudo apt-get install i3 -y
     sudo apt-get install i3blocks -y

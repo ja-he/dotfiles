@@ -46,6 +46,7 @@
 
     " global clipboard 
         set clipboard=unnamed
+        set clipboard=unnamedplus
 
 " ______________________________________________________________________________
 
