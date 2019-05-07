@@ -250,6 +250,8 @@
     # dunst [TODO: link the dunstrc to .config/dunst/dunstrc]
     # link pandoc files 
     ln -s ~/gits/dotfiles/.pandocfiles ~/.pandocfiles
+    # link pandoc script to $PATH
+    sudo ln ~/.scripts/pandocify /usr/local/bin/
 # running wal for the theme in the dotfiles-repo
     wal --theme ~/.gits/dotfiles/.waltheme_milehigh.json -b "#000000"
 # gotop 
