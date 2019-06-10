@@ -207,7 +207,7 @@
         set softtabstop=4   " delete the 4 spaces of a tab with backspace 
 
     " filetype-specific settings to only 2 spaces per tab 
-        autocmd BufRead,BufNewFile *.cc,*.hh,*.cpp,*.tex,*.md,*.txt,*.hs,*.lhs
+        autocmd BufRead,BufNewFile *.smv,*.cc,*.hh,*.cpp,*.tex,*.md,*.txt,*.hs,*.lhs
                     \ setlocal  tabstop=2
                     \           shiftwidth=2
                     \           softtabstop=2
@@ -252,6 +252,8 @@
     " in latex and md files let vim enforce 80 character limit 
         autocmd BufRead,BufNewFile *.tex
                     \ map <F5> :LatexTOCToggle<CR>
+        autocmd BufRead,BufNewFile *.tex
+                    \ set filetype=tex
         autocmd BufRead,BufNewFile *.tex,*.md,*.txt
                     \ setlocal tw=80
         autocmd BufRead,BufNewFile *.md 
