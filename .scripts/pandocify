@@ -2,4 +2,4 @@
 
 filepath="${1%.md}"
 
-pandoc $filepath.md -s -o $filepath.html --highlight ~/.pandocfiles/style.theme -c ~/.pandocfiles/style.css
+pandoc $filepath.md -s -o $filepath.html --mathjax --highlight monochrome -c ~/.pandocfiles/style.css
