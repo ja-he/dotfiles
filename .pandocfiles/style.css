@@ -10,14 +10,14 @@ html {
 }
 
 body {
-  color: #fff;
-  font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+  color: #000;
+  font-family: 'DejaVu Sans', Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
   font-size: 12px;
   line-height: 1.4;
   padding: 1em;
   margin: auto;
   max-width: 42em;
-  background: #000000;
+  background: #fff;
 }
 
 a {
@@ -70,10 +70,10 @@ img {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #111;
+  color: #000;
   line-height: 125%;
   margin-top: 2em;
-  font-weight: normal;
+  font-weight: bold;
 }
 
 h4, h5, h6 {
@@ -82,32 +82,32 @@ h4, h5, h6 {
 
 h1 {
   font-size: 2.5em;
-  color: #ffffff; 
+  color: #000; 
 }
 
 h2 {
   font-size: 2em;
-  color: #ffffff; 
+  color: #000; 
 }
 
 h3 {
   font-size: 1.5em;
-  color: #ffffff; 
+  color: #000; 
 }
 
 h4 {
   font-size: 1.2em;
-  color: #ffffff; 
+  color: #000; 
 }
 
 h5 {
   font-size: 1em;
-  color: #ffffff; 
+  color: #000; 
 }
 
 h6 {
   font-size: 0.9em;
-  color: #ffffff; 
+  color: #000; 
 }
 
 blockquote {
@@ -128,8 +128,8 @@ hr {
 }
 
 pre, code, kbd, samp {
-  color: #fff;
-  background-color: #101010; 
+  color: #000;
+  background-color: #eee; 
   font-family: fira code, monospace;
   _font-family: 'courier new', monospace;
   font-size: 0.90em;
