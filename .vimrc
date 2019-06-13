@@ -48,6 +48,9 @@
         set clipboard=unnamed
         set clipboard=unnamedplus
 
+    " eliminate the delay exiting insert mode 
+        set timeoutlen=0
+
 " ______________________________________________________________________________
 
 " -------
@@ -216,6 +219,13 @@
     " UTF-8 standard encoding 
         set encoding=utf8
 
+    " Turn off relative numberings in insert mode, but enable them in visual
+    " and normal modes.
+        augroup every
+          autocmd!
+          au InsertEnter * set norelativenumber
+          au InsertLeave * set relativenumber
+        augroup END
 
 " ______________________________________________________________________________
 
@@ -262,4 +272,7 @@
     " ctrl+hjkl navigation between splits 
         map <C-J> <C-W>j<C-W>_
         map <C-K> <C-W>k<C-W>_
+
+    " get to first non-empty char of line 
+        
 
