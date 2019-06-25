@@ -17,3 +17,4 @@ alias pi3get='wget -O /home/ztf/prak3/slides/slides-all.pdf "http://www.informat
 alias mpv_music='mpv --geometry=200-12+10 --loop-playlist'
 alias mpv_img='mpv --image-display-duration=inf --geometry=1280'
 alias transp_term="urxvt -depth 32 -bg rgba:3f00/3f00/3f00/0000"
+alias setup-notes="~/.scripts/notes_setup
