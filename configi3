@@ -12,11 +12,11 @@
 set $mod Mod4
 
 # gaps 
-    gaps inner 10
-    gaps outer 10
+#   gaps inner 10
+#   gaps outer 10
 # gaps toggle 
-    bindsym $mod+g gaps inner all set 0 gaps outer all set 0
-    bindsym $mod+shift+g gaps inner all set 10 gaps outer all set 10 
+#   bindsym $mod+g gaps inner all set 0 gaps outer all set 0
+#   bindsym $mod+shift+g gaps inner all set 10 gaps outer all set 10 
 
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -199,11 +199,11 @@ for_window [class="mpv"] floating enable
 for_window [class="Evince"] floating enable
 
 # Display Details 
-set $PrimaryDisplay LVDS-1
-set $PrimaryDisplayResolution 1600x900
+set $PrimaryDisplay eDP-1
+set $PrimaryDisplayResolution 1366x768
 set $PrimaryDisplayRate 60
-set $RightDisplay VGA-1
-set $LeftDisplay LVDS-1
+set $RightDisplay DP-1
+set $LeftDisplay eDP-1
 
 # Display Configuration
 # exec_always --no-startup-id xrandr --output DVI-D-0 --mode 1920x1080 --rate 144
@@ -338,3 +338,6 @@ exec --no-startup-id compton -f -D 5
 
 # run battery warner script 
     exec --no-startup-id ~/.scripts/batterywarner.sh
+
+# dunst 
+    exec --no-startup-id dunst 
