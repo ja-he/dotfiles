@@ -1,5 +1,0 @@
-on my tp-t430 the hdd in the ultrabay adapter spins up on startup and spins loudly 
-for a long time after, especially annoying in the uni library. 
-the command to force it to enter the lowest power mode immediately is: 
-    sudo hdparm -Y /dev/sdb 
-where obviously sdb could be different at some point in the future. 

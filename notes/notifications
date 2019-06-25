@@ -1,9 +1,0 @@
-so for notifications you need a deamon running, like dunst. 
-dunst can be configured through dunstrc (in ~/.config/dunst/). 
-
-When dunst says "Cannot acquire 'org.freedesktop.Notifications'" then another
-daemon is already running. In my case (curiously only on the t430 not the e31
-install of xubuntu19.04) this was caused by xfce4-notifyd.
-
-So for i3-looking basic notifications use dunst, 
-for the nice xfce looking ones maybe try xfce4-notifyd...

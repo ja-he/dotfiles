@@ -1,8 +1,0 @@
-Per the instructions here: 
-    https://askubuntu.com/questions/377937/how-to-set-a-custom-resolution
-
-1. $ cvt <width> <height> <rate>
-2. copy the string (excluding the word Modeline)
-3. $ sudo xrandr --newmode <copied string> 
-4. $ sudo xrandr --addmode <output> <name of the new res given above in doublequotes>
-5. $ xrandr --output <output> --mode <name of the new mode> 
