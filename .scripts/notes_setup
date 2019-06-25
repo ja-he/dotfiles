@@ -1,10 +1,21 @@
 #!/bin/bash
 
-filename_md=$(date '+%Y-%m-%d').md
-filename_html=$(date '+%Y-%m-%d').html
-echo "---" > $filename_md
-echo -n "title: " >> $filename_md
-date '+%Y-%m-%d' >> $filename_md
-echo "---" >> $filename_md
+date_result=$(date '+%Y-%m-%d')
+filename_base=notes
+filename_md=$filename_base.md
+if [[ $1 =~ .*d.* ]]; then 
+    filename_html="$filename_base"_dark.html
+else 
+    filename_html=$filename_base.html
+fi
+
+if [[ $1 =~ .*f.* ]]; then 
+    echo "---" > $filename_md
+    echo "title: 'Notes on ...'" >> $filename_md
+    echo "---" >> $filename_md
+fi
+
+echo "# $date_result" >> $filename_md
+
 pandocify $filename_md
-chromium-browser --app=file:`pwd`/$filename_html
+chromium-browser --app=file:`pwd`/$filename_html 2> /dev/null & 
