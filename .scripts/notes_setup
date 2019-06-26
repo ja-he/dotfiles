@@ -15,7 +15,11 @@ if [[ $1 =~ .*f.* ]]; then
     echo "---" >> $filename_md
 fi
 
+echo "" >> $filename_md
+echo "***" >> $filename_md
+echo "" >> $filename_md
 echo "# $date_result" >> $filename_md
+echo "" >> $filename_md
 
 pandocify $filename_md
 chromium-browser --app=file:`pwd`/$filename_html 2> /dev/null & 
