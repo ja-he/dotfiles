@@ -3,12 +3,22 @@
 date_result=$(date '+%Y-%m-%d')
 filename_base=notes
 filename_md=$filename_base.md
+
+# if the [c] option is given, parse $2 as a [c]ustom file name
+if [[ $1 =~ .*c.* ]]; then 
+    filename_base="$2"
+else 
+    filename_base=notes
+fi
+
+# if the [d]ark option is given, use the dark html version 
 if [[ $1 =~ .*d.* ]]; then 
     filename_html="$filename_base"_dark.html
 else 
     filename_html=$filename_base.html
 fi
 
+# if the [f]irst setup option is give, setup for the first time 
 if [[ $1 =~ .*f.* ]]; then 
     echo "---" > $filename_md
     echo "title: 'Notes on ...'" >> $filename_md
@@ -16,7 +26,7 @@ if [[ $1 =~ .*f.* ]]; then
 fi
 
 echo "" >> $filename_md
-echo "***" >> $filename_md
+echo "---" >> $filename_md
 echo "" >> $filename_md
 echo "# $date_result" >> $filename_md
 echo "" >> $filename_md
