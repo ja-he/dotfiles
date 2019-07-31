@@ -1,8 +1,6 @@
 #!/bin/bash
 
 date_result=$(date '+%Y-%m-%d')
-filename_base=notes
-filename_md=$filename_base.md
 
 # if the [c] option is given, parse $2 as a [c]ustom file name
 if [[ $1 =~ .*c.* ]]; then 
@@ -10,6 +8,8 @@ if [[ $1 =~ .*c.* ]]; then
 else 
     filename_base=notes
 fi
+
+filename_md=$filename_base.md
 
 # if the [d]ark option is given, use the dark html version 
 if [[ $1 =~ .*d.* ]]; then 
