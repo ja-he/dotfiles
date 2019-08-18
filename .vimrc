@@ -63,11 +63,11 @@
         execute pathogen#infect()
 
         " vim-indent-guides color settings 
-            let g:indent_guides_auto_colors = 0
-            autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  
-                        \ guibg=red   ctermbg=darkgrey
-            autocmd VimEnter,Colorscheme * :hi IndentGuidesEven 
-                        \ guibg=green ctermbg=grey
+        "   let g:indent_guides_auto_colors = 0
+        "   autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  
+        "               \ guibg=red   ctermbg=darkgrey
+        "   autocmd VimEnter,Colorscheme * :hi IndentGuidesEven 
+        "               \ guibg=green ctermbg=grey
 
         " Calendar settings 
         " google calendar 
@@ -86,16 +86,16 @@
 
     " show line numbers (relative w/ current line showing actual number)
         set number
-        set relativenumber 
+        set norelativenumber 
     " make them grey on black 
-        highlight LineNr ctermfg=darkgrey ctermbg=black
+    "   highlight LineNr ctermfg=darkgrey ctermbg=black
 
     " color column at the 81st column 
     " this is currently done by the command below, 
     " thanks to Damian Conway
         set colorcolumn=81
     " make the column dark grey
-        highlight ColorColumn ctermbg=darkgrey
+    "   highlight ColorColumn ctermbg=darkgrey
 
     " Damian Conway's clever ColorColumn regex. Highlights the 101st column
     " only in lines in which the text overflows that limit (which is a few
@@ -157,7 +157,13 @@
         set mouse=v 
 
     " colorscheme (from github through pathogen)
-        colo fahrenheit
+       "colo fahrenheit
+        if $TERM == "xterm-256color"
+            colo monochrome-light
+        else
+            colo monochrome-dark
+        endif
+
 
 " ______________________________________________________________________________
 
@@ -210,7 +216,7 @@
         set softtabstop=4   " delete the 4 spaces of a tab with backspace 
 
     " filetype-specific settings to only 2 spaces per tab 
-        autocmd BufRead,BufNewFile *.smv,*.cc,*.hh,*.cpp,*.tex,*.md,*.txt,*.hs,*.lhs
+        autocmd BufRead,BufNewFile *.vim,*.smv,*.cc,*.hh,*.cpp,*.tex,*.md,*.txt,*.hs,*.lhs,*.h
                     \ setlocal  tabstop=2
                     \           shiftwidth=2
                     \           softtabstop=2
@@ -221,11 +227,11 @@
 
     " Turn off relative numberings in insert mode, but enable them in visual
     " and normal modes.
-        augroup every
-          autocmd!
-          au InsertEnter * set norelativenumber
-          au InsertLeave * set relativenumber
-        augroup END
+       "augroup every
+       "  autocmd!
+       "  au InsertEnter * set norelativenumber
+       "  au InsertLeave * set relativenumber
+       "augroup END
 
 " ______________________________________________________________________________
 
@@ -275,3 +281,16 @@
 
     " get to first non-empty char of line via H instead of ^
         nnoremap H ^
+
+" ----------
+"   MISC
+" ----------
+
+  " Show highlighting groups for current word 
+  nmap <C-P> :call <SID>SynStack()<CR>
+  function! <SID>SynStack() 
+    if !exists("*synstack")
+      return
+    endif 
+    echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+  endfunc
