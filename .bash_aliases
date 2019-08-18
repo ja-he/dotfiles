@@ -14,7 +14,7 @@ alias anki-vim="~/.local/bin/anki-vim"
 alias gitlab="chromium-browser --app=https://gitlab.informatik.uni-bremen.de"
 alias grep_hl="grep --color=always -z" 
 alias pi3get='wget -O /home/ztf/prak3/slides/slides-all.pdf "http://www.informatik.uni-bremen.de/~cxl/lehre/pi3.ws18/lectures/slides-all.pdf"'
-alias mpv_music='mpv --geometry=200-12+10 --loop-playlist'
+alias mpv_music='mpv --geometry=200-12+10 --loop-playlist --volume=30'
 alias mpv_img='mpv --image-display-duration=inf --geometry=1280'
 alias transp_term="urxvt -depth 32 -bg rgba:3f00/3f00/3f00/0000"
 alias setup-notes="~/.scripts/notes_setup"
