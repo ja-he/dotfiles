@@ -1,22 +1,33 @@
+/**
+ * - letterSpace: 1 for scientifica to look good... 
+ */
 
-urxvt*font:         xft:scientifica:size=12
+/* disabled currently
+urxvt*font:         xft:Clean:size=9 
+urxvt*font:         xft:DejaVu Sans Mono:size=9
+urxvt*font:         xft:Fixed:size=10
+urxvt*font:         xft:Inconsolata:size=9
+*
+*/ 
+
+urxvt*font:         xft:scientifica:size=9
 urxvt*letterSpace:  1
 urxvt*scrollBar:    false
-*background:  #000000
-*foreground:  #ffffff
-*color0:  #0e181f
-*color1:  #8c2929
-*color2:  #9eb529
-*color3:  #e58d23
-*color4:  #4d91a2
-*color5:  #9e2855
-*color6:  #45585c
-*color7:  #f1fff1
-*color8:  #3c464d
-*color9:  #b34d4d
-*color10:  #a4c75e
-*color11:  #e6cf4a
-*color12:  #91b3a2
-*color13:  #a22b4d
-*color14:  #8aa1a6
-*color15:  #809c8e
+*foreground:        #ffffff
+*background:        #000000
+*color0:            #000000
+*color1:            #8c2929
+*color2:            #9eb529
+*color3:            #e58d23
+*color4:            #4d91a2
+*color5:            #9e2855
+*color6:            #45585c
+*color7:            #f1fff1
+*color8:            #3c464d
+*color9:            #b34d4d
+*color10:           #a4c75e
+*color11:           #e6cf4a
+*color12:           #91b3a2
+*color13:           #a22b4d
+*color14:           #8aa1a6
+*color15:           #809c8e
