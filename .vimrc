@@ -153,9 +153,6 @@
                   au VimLeave * silent execute '!echo -ne "\e[ q"' | redraw!
               endif
 
-    " enable the mouse for text navigation 
-        set mouse=v 
-
     " colorscheme (from github through pathogen)
        "colo fahrenheit
         if $TERM == "xterm-256color"
@@ -282,6 +279,14 @@
     " get to first non-empty char of line via H instead of ^
         nnoremap H ^
 
+    " loading the cpp-manpage instead of the system man page
+        fu CppManpage()
+           let l:Command = expand("<cword>")
+           execute "!cppman " . l:Command
+        endfu 
+        autocmd BufRead,BufNewFile *.cc,*.hpp,*.cpp,*.h
+                    \ map K :execute CppManpage()<CR>
+
 " ----------
 "   MISC
 " ----------
@@ -294,3 +299,9 @@
     endif 
     echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
   endfunc
+
+" -------------------
+"   CODE AUTOFORMAT 
+" -------------------
+
+
