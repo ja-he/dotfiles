@@ -1,0 +1,5 @@
+#!/bin/sh
+url=$(xclip -o)
+echo "$url" >> ~/.watchlist
+title=$(youtube-dl -e "$url")
+notify-send "$(echo "the video $title was added to watchlist.")"

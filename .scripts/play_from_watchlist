@@ -1,0 +1,27 @@
+#!/bin/bash
+
+numOfEntries=$(wc -l ~/.watchlist)
+numOfEntries=${numOfEntries% *}
+echo "found $numOfEntries entries" # DEBUG
+if [ $numOfEntries -eq 0 ]; then 
+    notify-send "$(echo "no entries to play")"
+    exit
+fi
+
+url=$(head -1 ~/.watchlist)
+echo "found url: $url" # DEBUG
+
+numOfRemainingEntries=$((numOfEntries - 1))
+echo "remaining entries: $numOfRemainingEntries" # DEBUG
+
+echo ""
+echo "heres whats gonna remain in the watchlist"
+tail ~/.watchlist --lines=$numOfRemainingEntries > ~/.tmp_watchlist
+cat ~/.tmp_watchlist > ~/.watchlist
+rm ~/.tmp_watchlist
+echo ""
+echo "after changing:"
+cat ~/.watchlist
+
+notify-send "playing $url"
+mpv $url --volume=30
