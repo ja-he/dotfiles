@@ -15,11 +15,13 @@ urxvt*letterSpace:  1
 urxvt*scrollBar:    false
 *foreground:        #ffffff
 *background:        #000000
+*color4:            #4d91a2
+*color12:           #91b3a2
+/*
 *color0:            #000000
 *color1:            #8c2929
 *color2:            #9eb529
 *color3:            #e58d23
-*color4:            #4d91a2
 *color5:            #9e2855
 *color6:            #45585c
 *color7:            #f1fff1
@@ -27,7 +29,7 @@ urxvt*scrollBar:    false
 *color9:            #b34d4d
 *color10:           #a4c75e
 *color11:           #e6cf4a
-*color12:           #91b3a2
 *color13:           #a22b4d
 *color14:           #8aa1a6
 *color15:           #809c8e
+*/
