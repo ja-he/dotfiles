@@ -40,6 +40,10 @@ floating_modifier $mod
 # stickyness 
     bindsym $mod+s sticky toggle 
 
+# mpv clipboard
+    bindsym $mod+m          exec ~/.scripts/play_from_watchlist
+    bindsym $mod+shift+m    exec ~/.scripts/add_to_watchlist
+
 # start a terminal
 bindsym $mod+Return exec urxvt
 bindsym $mod+shift+Return exec konsole
@@ -63,6 +67,15 @@ bindsym $mod+shift+d exec rofi -show window
 # moving workspaces to other display 
 bindsym $mod+p move workspace to output $RightDisplay
 bindsym $mod+o move workspace to output $LeftDisplay
+
+# scratchpad
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
+# change screen res on the fly 
+bindsym $mod+shift+o exec .scripts/singlescreen.sh
+bindsym $mod+shift+p exec .scripts/uni_ta_720mirror.sh
+#bindsym $mod+shift+p exec .scripts/customres.sh eDP-1 683 384
 
 # i3lock 
    #bindsym $mod+t exec ~/.scripts/lockimg.sh
@@ -100,6 +113,9 @@ bindsym $mod+Right focus right
 
 # split in horizontal orientation
 bindsym $mod+b split h
+
+# bluetooth audio quickfix 
+bindsym $mod+shift+b exec ~/.scripts/pabl.sh
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -249,7 +265,8 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-	mode hide 
+	mode hide
+	#mode dock
         status_command i3blocks -c ~/.config/i3blocks.conf
 	tray_output $PrimaryDisplay
 
@@ -289,7 +306,10 @@ client.background       #ffffff
 # in /home/ztf/ named ".bgimg.(jpg|png)"
 # exec --no-startup-id wal -b "#000000" -R 
 # bindsym $mod+n exec wal -b "#000000" -R 
-exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpapers/allblack.*
+exec --no-startup-id feh --bg-fill ~/Pictures/wallpapers/allblack.*
+#exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpapers/allblack.*
+
+bindsym $mod+shift+w exec ~/.scripts/randomwp
 
 # starting private internet access 
 # (remove in case of regular connection issues, esp DNS issues)
@@ -341,3 +361,6 @@ exec --no-startup-id compton -f -D 5
 
 # dunst 
     exec --no-startup-id dunst 
+
+# initialize trackpad   
+    exec .scripts/trackpadsettings.sh initialize
