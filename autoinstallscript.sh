@@ -84,6 +84,10 @@
     cd ~/.vim/bundle
     git clone git://github.com/LaTeX-Box-Team/LaTeX-Box.git
     cd
+# vim-autoformat
+    cd ~/.vim/bundle
+    git clone https://github.com/Chiel92/vim-autoformat.git
+    cd
 # tabular.vim
     cd ~/.vim/bundle
     git clone git://github.com/godlygeek/tabular.git
@@ -158,8 +162,10 @@
     sudo apt-get install weechat -y 
 # neofetch 
     sudo apt-get install neofetch -y 
-# wal 
+# pip
+    # sudo apt-get install python-pip -y 
     sudo apt-get install python3-pip -y 
+# wal 
     sudo pip3 install pywal 
 # bluetooth
     sudo apt-get install bluez-tools -y 
@@ -178,8 +184,6 @@
 	ln -fs ~/gits/scientifica/bold/scientificaBold-11.bdf ~/.local/share/fonts/scientificaBold-11.bdf
 # sensors 
     sudo apt-get install lm-sensors -y
-# pip
-    sudo apt-get install python-pip -y 
 # intellij
     sudo snap install intellij-idea-community --classic --edge 
 # cava
