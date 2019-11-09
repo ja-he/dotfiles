@@ -217,34 +217,18 @@
 # linking config files and such 
     echo "COMMENTED OUT THE LINKING LINES, YOU'LL HAVE TO LINK YOURSELF!"
     read -p "PRESS [ENTER] TO CONTINUE, BUT I RECOMMEND FIRST DOING THE LINKING, WRITING DOWN WHAT YOU DID AND ADDING IT TO THE SCRIPT ONCE IT'S DONE RUNNING"
- ## i3 config
-   #mkdir ~/.config/i3
-   #ln ~/gits/dotfiles/configi3 ~/.config/i3/config
- ## i3blocks 
-   #cp -r ~/gits/dotfiles/i3blocks* ~/.config/
- ## rofi config
-   #mkdir ~/.config/rofi
-   #ln ~/gits/dotfiles/configrofi ~/.config/rofi/config
- ## vim configuration
-   #rm ~/.vimrc 
-   #ln ~/gits/dotfiles/.vimrc ~/.vimrc
- ## bash configuration 
-   #rm ~/.bashrc
-   #ln ~/gits/dotfiles/.bashrc ~/.bashrc
-   #rm ~/.bash_aliases 
-   #ln ~/gits/dotfiles/.bash_aliases ~/.bash_aliases
-   #rm ~/.inputrc 
-   #ln ~/gits/dotfiles/.inputrc ~/.inputrc
- ## Xresources linking 
-   #rm ~/.Xresources
-   #ln ~/gits/dotfiles/.Xresources ~/.Xresources
- ## Xresources application
-   #xrdb .Xresources 
- ## dunst [TODO: link the dunstrc to .config/dunst/dunstrc]
- ## link pandoc files 
-   #ln -s ~/gits/dotfiles/.pandocfiles ~/.pandocfiles
- ## link pandoc script to $PATH
-   #sudo ln ~/.scripts/pandocify /usr/local/bin/
+ # do the linking
+    rm ~/.bashrc
+    ln ~/gits/dotfiles/.bashrc ~/.bashrc
+    rm ~/.bash_aliases 
+    ln ~/gits/dotfiles/.bash_aliases ~/.bash_aliases
+    rm ~/.inputrc 
+    ln ~/gits/dotfiles/.inputrc ~/.inputrc
+    rm ~/.vimrc 
+    ln ~/gits/dotfiles/.vimrc ~/.vimrc
+    ln ~/gits/dotfiles/.Xresources ~/.Xresources
+    xrdb ~/.Xresources
+ ## TODO: do .config linking either one link for whole dir or indiv. links for each subdir
 # running wal for the theme in the dotfiles-repo
    #wal --theme ~/.gits/dotfiles/.waltheme_milehigh.json -b "#000000"
 # gotop 
