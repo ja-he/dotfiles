@@ -215,8 +215,6 @@
     sudo apt install pandoc -y
 # dunst [TODO: is this necessary?]
 # linking config files and such 
-    echo "COMMENTED OUT THE LINKING LINES, YOU'LL HAVE TO LINK YOURSELF!"
-    read -p "PRESS [ENTER] TO CONTINUE, BUT I RECOMMEND FIRST DOING THE LINKING, WRITING DOWN WHAT YOU DID AND ADDING IT TO THE SCRIPT ONCE IT'S DONE RUNNING"
  # do the linking
     rm ~/.bashrc
     ln ~/gits/dotfiles/.bashrc ~/.bashrc
@@ -228,6 +226,12 @@
     ln ~/gits/dotfiles/.vimrc ~/.vimrc
     ln ~/gits/dotfiles/.Xresources ~/.Xresources
     xrdb ~/.Xresources
+    echo "----> COMMENTED OUT SOME OF THE LINKING LINES, YOU'LL HAVE TO LINK YOURSELF!"
+    echo "      PRESS [ENTER] TO CONTINUE" 
+    echo "      BUT I RECOMMEND FIRST DOING THE LINKING,"
+    echo "      WRITING DOWN WHAT YOU DID AND ADDING IT TO"
+    echo "      THE SCRIPT ONCE IT'S DONE RUNNING"
+    read
  ## TODO: do .config linking either one link for whole dir or indiv. links for each subdir
 # running wal for the theme in the dotfiles-repo
    #wal --theme ~/.gits/dotfiles/.waltheme_milehigh.json -b "#000000"
