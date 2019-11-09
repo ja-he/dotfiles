@@ -55,21 +55,21 @@
 # xclip
     sudo apt-get install xclip -y
 # git
-	# install
-	sudo apt-get install git -y
-	# setup
-	ssh-keygen -t rsa -C "ja_he@uni-bremen.de" -b 4096
-	xclip -sel clip < ~/.ssh/id_rsa.pub
-	echo "Your key is in the clipboard, log in and paste it. "
-	echo "make sure you close the browser afterwards, bud..."
-	chromium-browser https://gitlab.informatik.uni-bremen.de/profile/keys
-	git config --global user.email "ja_he@uni-bremen.de"
-	git config --global user.name "Jan Hensel"
-	# get dotfiles
-	mkdir ~/gits
-	cd ~/gits
-	git clone git@gitlab.informatik.uni-bremen.de:ja_he/dotfiles.git
-	cd
+    # install
+    sudo apt-get install git -y
+    # setup
+    ssh-keygen -t rsa -C "ja_he@uni-bremen.de" -b 4096
+    xclip -sel clip < ~/.ssh/id_rsa.pub
+    echo "Your key is in the clipboard, log in and paste it. "
+    echo "make sure you close the browser afterwards, bud..."
+    chromium-browser https://gitlab.informatik.uni-bremen.de/profile/keys
+    git config --global user.email "ja_he@uni-bremen.de"
+    git config --global user.name "Jan Hensel"
+    # get dotfiles
+    mkdir ~/gits
+    cd ~/gits
+    git clone git@gitlab.informatik.uni-bremen.de:ja_he/dotfiles.git
+    cd
     # link git config file to correct place
     ln ~/gits/dotfiles/.gitconfig ~/.gitconfig
 # pathogen.vim
@@ -246,7 +246,7 @@
  ## link pandoc script to $PATH
    #sudo ln ~/.scripts/pandocify /usr/local/bin/
 # running wal for the theme in the dotfiles-repo
-    wal --theme ~/.gits/dotfiles/.waltheme_milehigh.json -b "#000000"
+   #wal --theme ~/.gits/dotfiles/.waltheme_milehigh.json -b "#000000"
 # gotop 
     git clone --depth 1 https://github.com/cjbassi/gotop /tmp/gotop 
     /tmp/gotop/scripts/download.sh 
