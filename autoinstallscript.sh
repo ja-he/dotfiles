@@ -226,6 +226,7 @@
     ln ~/gits/dotfiles/.vimrc ~/.vimrc
     ln ~/gits/dotfiles/.Xresources ~/.Xresources
     xrdb ~/.Xresources
+    ln -s ~/gits/dotfiles/.scripts ~/.scripts
     echo "----> COMMENTED OUT SOME OF THE LINKING LINES, YOU'LL HAVE TO LINK YOURSELF!"
     echo "      PRESS [ENTER] TO CONTINUE" 
     echo "      BUT I RECOMMEND FIRST DOING THE LINKING,"
