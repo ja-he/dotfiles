@@ -185,7 +185,7 @@
 # sensors 
     sudo apt-get install lm-sensors -y
 # intellij
-    sudo snap install intellij-idea-community --classic --edge 
+    # sudo snap install intellij-idea-community --classic --edge 
 # cava
     sudo apt-get install libfftw3-dev libasound2-dev libncursesw5-dev libpulse-dev libtool -y 
 	cd ~/gits/
