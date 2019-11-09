@@ -248,9 +248,11 @@
 # running wal for the theme in the dotfiles-repo
    #wal --theme ~/.gits/dotfiles/.waltheme_milehigh.json -b "#000000"
 # gotop 
-    git clone --depth 1 https://github.com/cjbassi/gotop /tmp/gotop 
-    /tmp/gotop/scripts/download.sh 
-    sudo mv gotop /usr/local/bin/
+    snap install gotop-cjbassi
+  ## manual
+   #git clone --depth 1 https://github.com/cjbassi/gotop /tmp/gotop 
+   #/tmp/gotop/scripts/download.sh 
+   #sudo mv gotop /usr/local/bin/
 # gtkwave 
     sudo apt install gtkwave -y 
 # iverilog 
