@@ -81,9 +81,9 @@
     cd
     cp ~/gits/vim-pathogen/autoload/pathogen.vim ~/.vim/autoload/pathogen.vim
 # latex-box.vim
-    cd ~/.vim/bundle
-    git clone git://github.com/LaTeX-Box-Team/LaTeX-Box.git
-    cd
+   #cd ~/.vim/bundle
+   #git clone git://github.com/LaTeX-Box-Team/LaTeX-Box.git
+   #cd
 # vim-autoformat
     cd ~/.vim/bundle
     git clone https://github.com/Chiel92/vim-autoformat.git
@@ -107,11 +107,11 @@
 # vim-table-mode.vim 
     cd ~/.vim/bundle
     git clone https://github.com/dhruvasagar/vim-table-mode.git
-	cd 
+    cd 
 # 256_noir (vim colorscheme)
     cd ~/.vim/bundle
     git clone https://github.com/andreasvc/vim-256noir.git
-	cd 
+    cd 
 # fahrenheit 
     cd ~/.vim/bundle
     git clone https://github.com/fcpg/vim-fahrenheit
