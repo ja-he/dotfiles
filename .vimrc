@@ -59,7 +59,7 @@
 
     " Pathogen 
         " use this to disable plugins if you need to find a bottleneck 
-        let g:pathogen_disabled = ["vim-airline"]
+        " let g:pathogen_disabled = ["vim-airline"]
         execute pathogen#infect()
 
         " vim-indent-guides color settings 
@@ -213,7 +213,7 @@
         set softtabstop=4   " delete the 4 spaces of a tab with backspace 
 
     " filetype-specific settings to only 2 spaces per tab 
-        autocmd BufRead,BufNewFile *.vim,*.smv,*.cc,*.hh,*.cpp,*.tex,*.md,*.txt,*.hs,*.lhs,*.h
+        autocmd BufRead,BufNewFile *.vim,*.smv,*.cc,*.hh,*.cpp,*.tex,*.bib,*.md,*.txt,*.hs,*.lhs,*.h
                     \ setlocal  tabstop=2
                     \           shiftwidth=2
                     \           softtabstop=2
@@ -248,7 +248,7 @@
 
     " First iteration of LaTeX commands, very basic... 
     " These won't work in insert mode (yet) 
-        map <F3> :Latexmk<CR>
+        map <F3> :!make<CR>
         map <F4> :LatexView<CR>
 
     " Syntax color binds (TODO: make a toggle properly)
@@ -269,8 +269,6 @@
                     \ set filetype=tex
         autocmd BufRead,BufNewFile *.tex,*.md,*.txt
                     \ setlocal tw=80
-        autocmd BufRead,BufNewFile *.md 
-                    \ map <F3> :! pandocify % <CR> 
 
     " ctrl+hjkl navigation between splits 
         map <C-J> <C-W>j<C-W>_
