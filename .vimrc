@@ -45,7 +45,7 @@
         command W w  
 
     " global clipboard 
-        set clipboard=unnamed
+       "set clipboard=unnamed
         set clipboard=unnamedplus
 
     " eliminate the delay exiting insert mode 
@@ -213,7 +213,7 @@
         set softtabstop=4   " delete the 4 spaces of a tab with backspace 
 
     " filetype-specific settings to only 2 spaces per tab 
-        autocmd BufRead,BufNewFile *.vim,*.smv,*.cc,*.hh,*.cpp,*.tex,*.bib,*.md,*.txt,*.hs,*.lhs,*.h
+        autocmd BufRead,BufNewFile *.vim,*.smv,*.cc,*.hh,*.cpp,*.vhd,*.tex,*.bib,*.md,*.txt,*.hs,*.lhs,*.h
                     \ setlocal  tabstop=2
                     \           shiftwidth=2
                     \           softtabstop=2
