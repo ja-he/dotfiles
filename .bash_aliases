@@ -1,7 +1,7 @@
 alias ..='cd ..'
 alias cdsem2='cd ~/Documents/sf/documents/studium/sem2'
 alias i3cfg='vim ~/.config/i3/config'
-alias texplate='cp ~/.templates/textemplate.tex temp.tex && printf "rename by typing: mv temp.tex newfilename.tex\n" && printf "remove by typing: rm temp.tex\n"'
+alias texplate='cp ~/.templates/textemplate.tex temp.tex && cp ~/.templates/Makefile ./Makefile-latex'
 alias dotfilecollect='~/.scripts/dotfilecollect && cd ~/gits/dotfiles && git status'
 alias showclock='tty-clock -cC 3'
 alias weatherrep='curl -s wttr.in/Bremen'
@@ -18,3 +18,4 @@ alias mpv_music='mpv --geometry=200-12+10 --loop-playlist --volume=30'
 alias mpv_img='mpv --image-display-duration=inf --geometry=1280'
 alias transp_term="urxvt -depth 32 -bg rgba:3f00/3f00/3f00/0000"
 alias setup-notes="~/.scripts/notes_setup"
+alias isvpnup='curl -s https://www.privateinternetaccess.com |grep "You are protected" > /dev/null && echo -e "\e[32myes\e[28m" || echo -e "\e[31mno\e[28m"'

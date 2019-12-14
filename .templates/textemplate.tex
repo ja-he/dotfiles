@@ -5,8 +5,6 @@
     \usepackage[english]{babel}
     % \usepackage[ngerman]{babel}
     % hangul character parsing and display
-    \usepackage{kotex}
-    \usepackage{tgschola}
     \usepackage[T1]{fontenc}
     % math
     \usepackage{mathtools}
@@ -16,7 +14,6 @@
     \usepackage{amsfonts}
     \usepackage{amsbsy}
     \usepackage{latexsym}
-    \usepackage{dsfont}
 
   % tables 
     % better tabular alternative 
@@ -120,15 +117,57 @@
       \newcommand{\mexplbig}[1]{ \color{gray_custom}{\left(\parbox{4cm}{
               \centering \footnotesize #1 }\right)} }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \author{Jan Hensel}
-\title{\textbf{\LaTeX\ Template File}\\
+\title{\textbf{\LaTeX\ \textsf{Template} File}\\
         Example Secondary Title}
 \begin{document}
 \maketitle
 
+\oldstylenums{1234}
+
 \section{Specific Settings}
   \subsection{Margins}
-    The margins are set via the \texttt{geometry}-package via the settings
+    The \textit{margins} are set via the \texttt{geometry}-package via the settings
     \texttt{left}, \texttt{right}, \texttt{top} and \texttt{bottom} such that
     the ultimate inclusion looks as follows: 
     \begin{lstlisting}[style=latex,gobble=6]
@@ -349,7 +388,8 @@
         these notes can contain some text without it being likely for you to
         run into spacing troubles, due to the margins}
 
-  Sed tempor purus at ex eleifend varius. Aliquam tincidunt nibh eu est
+  \itshape
+  Sed tempor italicus at ex eleifend varius. Aliquam tincidunt nibh eu est
   pellentesque aliquam. Pellentesque pharetra mi aliquam tincidunt vulputate.
   Suspendisse vulputate lobortis ultricies. Etiam rutrum eros bibendum sem
   elementum, at condimentum metus venenatis. Ut sed volutpat dui. Curabitur
