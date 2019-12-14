@@ -56,21 +56,21 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-fi
+#if [ "$color_prompt" = yes ]; then
+#    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+#else
+#    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+#fi
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
+#case "$TERM" in
+#xterm*|rxvt*)
+#    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+#    ;;
+#*)
+#    ;;
+#esac
 
 # enable color support of ls and also add handy aliases
 # i commented some of these out, since it was making me think the defaults were these settings) 
@@ -90,7 +90,7 @@ fi
 
 # some more ls aliases
 alias ll='ls -alF'
-alias la='ls -A'
+alias la='ls -A1'
 alias l='ls -1'
 
 # Add an "alert" alias for long running commands.  Use like so:
@@ -117,13 +117,15 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# to make __git_ps1 work
+source /usr/share/git/git-prompt.sh
 # Custom bash prompt 
 PS1=\
 '\n\
 \[$(tput bold)\]\[$(tput setaf 7)\][\w]\
 \[$(tput setaf 8)\]$(__git_ps1)\
  [\A] \
-\n\[$(tput setaf 7)\]$ \[$(tput sgr0)\]'
+\[$(tput sgr0)\]\n$ '
 
 # Import colorscheme from 'wal' asynchronously
 # &   # Run the process in the background.
@@ -142,3 +144,17 @@ COLORTERM='rxvt-unicode-256-color'
 
 # Pandoc autocompletion 
 eval "$(pandoc --bash-completion)"
+
+# PATH extension for PE... riscvtools
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/ztf/documents/studium/sem7/PEidmSmCpp/ex/riscv/riscv-gnu-toolchain/riscv/bin/riscv/bin:/home/ztf/gits/riscv-gnu-toolchain/riscv/bin
+
+# sets mode to vi mode instead of emacs mode, meaning escape puts me in normal
+# mode and i can navigate the line with vim keybinds from there, getting back 
+# to insert mode with 'i'
+set -o vi
+
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+
+export QSYS_ROOTDIR="/home/ztf/.cache/yay/quartus-free/pkg/quartus-free/opt/altera/19.1/quartus/sopc_builder/bin"
