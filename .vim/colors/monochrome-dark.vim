@@ -59,6 +59,11 @@ highlight link javaCommentTitle Comment
 highlight link javaDocParam     Comment 
 
 " Markdown specific
+highlight markdownH1      cterm=bold,underline ctermbg=NONE        ctermfg=NONE
+highlight link markdownHeadingDelimiter markdownH1 
+highlight link markdownH2 markdownH1 
+highlight link markdownH3 markdownH1 
+highlight link markdownH4 markdownH1 
 highlight link markdownCode Comment
 highlight link markdownCodeBlock markdownCode 
 
