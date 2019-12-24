@@ -19,3 +19,4 @@ alias mpv_img='mpv --image-display-duration=inf --geometry=1280'
 alias transp_term="urxvt -depth 32 -bg rgba:3f00/3f00/3f00/0000"
 alias setup-notes="~/.scripts/notes_setup"
 alias isvpnup='curl -s https://www.privateinternetaccess.com |grep "You are protected" > /dev/null && echo -e "\e[32myes\e[28m" || echo -e "\e[31mno\e[28m"'
+alias please='echo "of course :)"; sudo $(fc -ln -1)'
