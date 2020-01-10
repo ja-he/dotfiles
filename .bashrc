@@ -146,7 +146,10 @@ COLORTERM='rxvt-unicode-256-color'
 eval "$(pandoc --bash-completion)"
 
 # PATH extension for PE... riscvtools
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/ztf/documents/studium/sem7/PEidmSmCpp/ex/riscv/riscv-gnu-toolchain/riscv/bin/riscv/bin:/home/ztf/gits/riscv-gnu-toolchain/riscv/bin
+export PATH=$PATH:/home/ztf/documents/studium/sem7/PEidmSmCpp/ex/riscv/riscv-gnu-toolchain/riscv/bin/riscv/bin:/home/ztf/gits/riscv-gnu-toolchain/riscv/bin
+
+# PATH for higan
+export PATH=$PATH:/home/ztf/.local/bin
 
 # sets mode to vi mode instead of emacs mode, meaning escape puts me in normal
 # mode and i can navigate the line with vim keybinds from there, getting back 
