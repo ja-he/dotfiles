@@ -44,7 +44,12 @@
     " fixing the capital :W human error 
         command W w  
 
-    " global clipboard 
+    " global clipboard (ONLY WORKS UNDER GVIM!) 
+    " CHECK WHETHER IT WORKS USING
+    "  > :echo has('clipboard') 
+    " OR BY SEARCHING THE OUTPUT OF 
+    "  > $ vim --version 
+    " FOR '+clipboard'
        "set clipboard=unnamed
         set clipboard=unnamedplus
 
@@ -93,7 +98,7 @@
     " color column at the 81st column 
     " this is currently done by the command below, 
     " thanks to Damian Conway
-        set colorcolumn=81
+        set colorcolumn=69,81
     " make the column dark grey
     "   highlight ColorColumn ctermbg=darkgrey
 
@@ -154,12 +159,12 @@
               endif
 
     " colorscheme (from github through pathogen)
-       "colo fahrenheit
-        if $TERM == "xterm-256color"
-            colo monochrome-light
-        else
-            colo monochrome-dark
-        endif
+        colo fahrenheit
+       "if $TERM == "xterm-256color"
+       "    colo monochrome-light
+       "else
+       "    colo monochrome-dark
+       "endif
 
 
 " ______________________________________________________________________________
@@ -213,7 +218,7 @@
         set softtabstop=4   " delete the 4 spaces of a tab with backspace 
 
     " filetype-specific settings to only 2 spaces per tab 
-        autocmd BufRead,BufNewFile *.vim,*.smv,*.cc,*.hh,*.cpp,*.vhd,*.tex,*.bib,*.md,*.txt,*.hs,*.lhs,*.h
+        autocmd BufRead,BufNewFile *.vim,*.smv,*.c,*.cc,*.hh,*.cpp,*.vhd,*.tex,*.bib,*.md,*.txt,*.hs,*.lhs,*.h
                     \ setlocal  tabstop=2
                     \           shiftwidth=2
                     \           softtabstop=2
@@ -268,7 +273,7 @@
         autocmd BufRead,BufNewFile *.tex
                     \ set filetype=tex
         autocmd BufRead,BufNewFile *.tex,*.md,*.txt
-                    \ setlocal tw=80
+                    \ setlocal tw=68
 
     " ctrl+hjkl navigation between splits 
         map <C-J> <C-W>j<C-W>_
