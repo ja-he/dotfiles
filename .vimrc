@@ -18,9 +18,9 @@
 "                       - general settings
 "                       - plugins 
 "                       - interface settings 
-"                       - beautifying 
+"                       - appearance
 "                       - files etc. 
-"                       - text behaviour 
+"                       - behaviour 
 "                       - binds 
 
 " ______________________________________________________________________________
@@ -43,6 +43,7 @@
 
     " fixing the capital :W human error 
         command W w  
+        command Q q  
 
     " global clipboard (ONLY WORKS UNDER GVIM!) 
     " CHECK WHETHER IT WORKS USING
@@ -63,22 +64,10 @@
 " -------
 
     " Pathogen 
-        " use this to disable plugins if you need to find a bottleneck 
-        " let g:pathogen_disabled = ["vim-airline"]
+        " use this to disable plugins if you need to find a
+        " bottleneck:
+        "  > let g:pathogen_disabled = ["vim-airline"]
         execute pathogen#infect()
-
-        " vim-indent-guides color settings 
-        "   let g:indent_guides_auto_colors = 0
-        "   autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  
-        "               \ guibg=red   ctermbg=darkgrey
-        "   autocmd VimEnter,Colorscheme * :hi IndentGuidesEven 
-        "               \ guibg=green ctermbg=grey
-
-        " Calendar settings 
-        " google calendar 
-            let g:calendar_google_calendar = 1 
-            let g:calendar_google_task = 1 
-
 
 " ______________________________________________________________________________
 
@@ -89,26 +78,16 @@
     " 256 colors 
         set t_Co=256
 
-    " show line numbers (relative w/ current line showing actual number)
+    " show line numbers (relative w/ current line showing actual
+    " number)
         set number
         set norelativenumber 
-    " make them grey on black 
-    "   highlight LineNr ctermfg=darkgrey ctermbg=black
 
-    " color column at the 81st column 
-    " this is currently done by the command below, 
-    " thanks to Damian Conway
+    " color columns at the 69th and 81st column thanks to Damian
+    " Conway
         set colorcolumn=69,81
-    " make the column dark grey
-    "   highlight ColorColumn ctermbg=darkgrey
 
-    " Damian Conway's clever ColorColumn regex. Highlights the 101st column
-    " only in lines in which the text overflows that limit (which is a few
-    " characters beyond the previous line)
-        "highlight ColorColumn ctermbg=magenta
-        "call matchadd('ColorColumn', '\%101v', 100)
-
-    " indicate the current line by underscoring 
+    " indicate the current line
         set cursorline 
 
     " predictive command menu (visualization) 
@@ -118,11 +97,11 @@
         set ruler 
 
     " command bar height 
-        set cmdheight=2
+        set cmdheight=1
 
     " adjusting backspace behaviour 
-        set backspace=eol,start,indent
-        set whichwrap+=<,>,h,l
+        set backspace=eol,start,indent  "allows backspacing over these
+        set whichwrap+=<,>,h,l          " 
 
     " ignore case in searches 
         set ignorecase 
@@ -170,7 +149,7 @@
 " ______________________________________________________________________________
 
 " -----------
-" BEAUTIFYING 
+" APPEARANCE
 " ----------- 
 
     " syntax highlighting 
@@ -202,7 +181,7 @@
 " ______________________________________________________________________________
 
 " --------------
-" TEXT BEHAVIOUR 
+" BEHAVIOUR 
 " --------------
 
     " tabs become spaces 
@@ -211,29 +190,16 @@
     " smart tabs 
         set smarttab 
 
-    " 1 Tab = 4 Spaces as the standard setting 
-        set shiftwidth=4    " inserting tabs = 4 spaces 
-        set tabstop=4       " existing tabs = 4 spaces 
-        set expandtab
-        set softtabstop=4   " delete the 4 spaces of a tab with backspace 
+    " 1 tab = 2 spaces as the standard setting 
+        set shiftwidth=2  " inserting tabs = 2 spaces 
+        set tabstop=2     " existing tabs = 2 spaces 
+        set softtabstop=2 " delete the 2 spaces of a tab with backspace 
 
-    " filetype-specific settings to only 2 spaces per tab 
-        autocmd BufRead,BufNewFile *.vim,*.smv,*.c,*.cc,*.hh,*.cpp,*.vhd,*.tex,*.bib,*.md,*.txt,*.hs,*.lhs,*.h
-                    \ setlocal  tabstop=2
-                    \           shiftwidth=2
-                    \           softtabstop=2
-
-    
     " UTF-8 standard encoding 
         set encoding=utf8
 
-    " Turn off relative numberings in insert mode, but enable them in visual
-    " and normal modes.
-       "augroup every
-       "  autocmd!
-       "  au InsertEnter * set norelativenumber
-       "  au InsertLeave * set relativenumber
-       "augroup END
+    " set a max textwidth of 68 characters
+        set tw=68
 
 " ______________________________________________________________________________
 
@@ -247,33 +213,8 @@
     " paste toggle so (vim stops messing with pasted text formatting)
         set pastetoggle=<F2>
 
-    " LaTeX-Box binds 
-        command LV      LatexView
-        command Lmk     Latexmk
-
-    " First iteration of LaTeX commands, very basic... 
-    " These won't work in insert mode (yet) 
+    " basic make bind
         map <F3> :!make<CR>
-        map <F4> :LatexView<CR>
-
-    " Syntax color binds (TODO: make a toggle properly)
-        map <F5> :syntax on<CR>
-        map <F6> :syntax off<CR>
-
-    " table binds 
-        command! -bar Usrtableeval :TableEvalFormulaLine
-        command! -bar Usrtableenable :TableModeEnable 
-        command! -bar Usrtablecompound Usrtableeval|Usrtableenable 
-        map <F7> :Usrtablecompound<CR>
-
-    " let <F5> be the toc-toggler for latex files, 
-    " in latex and md files let vim enforce 80 character limit 
-        autocmd BufRead,BufNewFile *.tex
-                    \ map <F5> :LatexTOCToggle<CR>
-        autocmd BufRead,BufNewFile *.tex
-                    \ set filetype=tex
-        autocmd BufRead,BufNewFile *.tex,*.md,*.txt
-                    \ setlocal tw=68
 
     " ctrl+hjkl navigation between splits 
         map <C-J> <C-W>j<C-W>_
@@ -281,14 +222,6 @@
 
     " get to first non-empty char of line via H instead of ^
         nnoremap H ^
-
-    " loading the cpp-manpage instead of the system man page
-        fu CppManpage()
-           let l:Command = expand("<cword>")
-           execute "!cppman " . l:Command
-        endfu 
-        autocmd BufRead,BufNewFile *.cc,*.hpp,*.cpp,*.h
-                    \ map K :execute CppManpage()<CR>
 
 " ----------
 "   MISC
@@ -302,9 +235,3 @@
     endif 
     echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
   endfunc
-
-" -------------------
-"   CODE AUTOFORMAT 
-" -------------------
-
-
