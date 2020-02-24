@@ -8,8 +8,8 @@ vim $tmpq
 vim $tmpa
 
 # pandoc -> html -> rem newlines -> put into clipboard
-qstr=$(cat $tmpq | pandoc -f markdown -t html | tr -d "\n")
-astr=$(cat $tmpa | pandoc -f markdown -t html | tr -d "\n")
+qstr=$(cat $tmpq | pandoc -f markdown -t html --mathjax | tr -d "\n")
+astr=$(cat $tmpa | pandoc -f markdown -t html --mathjax | tr -d "\n")
 
 echo -e "String:\n\n$qstr;$astr\n" 
 
