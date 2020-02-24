@@ -11,7 +11,7 @@ highlight Visual        cterm=NONE          ctermbg=235         ctermfg=230
 highlight LineNr        cterm=NONE          ctermbg=NONE        ctermfg=NONE
 highlight CursorLineNr  cterm=bold          ctermbg=NONE        ctermfg=NONE
 highlight CursorLine    cterm=NONE          ctermbg=235         ctermfg=NONE 
-highlight ColorColumn   cterm=NONE          ctermbg=16          ctermfg=196
+highlight ColorColumn   cterm=NONE          ctermbg=16          ctermfg=NONE
 highlight Folded        cterm=italic        ctermbg=NONE        ctermfg=NONE
 
 " vimscript
