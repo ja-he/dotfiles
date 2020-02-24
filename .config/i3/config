@@ -19,14 +19,15 @@ font pango:scientifica 8
 floating_modifier $mod
 
 # locking
-bindsym $mod+t exec i3lock -c 8f0032
+bindsym $mod+t exec ~/.scripts/lockscript.sh
+#bindsym $mod+t exec i3lock -c 8f0032
 
 # stickyness 
 bindsym $mod+s sticky toggle 
 
 # start a terminal
-bindsym $mod+Return exec urxvt
-bindsym $mod+shift+Return exec .scripts/tutterm.sh
+bindsym $mod+Return       exec urxvt
+bindsym $mod+shift+Return exec konsole
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -85,9 +86,9 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-# bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+shift+w layout stacking
+bindsym $mod+w       layout tabbed
+bindsym $mod+e       layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -109,6 +110,9 @@ bindsym XF86AudioPlay exec mpc toggle
 bindsym XF86Launch1   exec mpc toggle
 bindsym XF86AudioNext exec ~/.scripts/nextsong.sh
 bindsym XF86AudioPrev exec ~/.scripts/prevsong.sh
+
+# videos
+bindsym $mod+m exec notify-send "playing $(xclip -o -selection clipboard)" & mpv --volume=40 $(xclip -o -selection clipboard)
 
 # backlight
 bindsym XF86MonBrightnessUp     exec xbacklight -inc 20
@@ -246,8 +250,8 @@ set $BorderWidth 1
 hide_edge_borders none
 new_window pixel $BorderWidth
 new_float pixel $BorderWidth
-bindsym $mod+i border none
-bindsym $mod+u border pixel $BorderWidth
+#bindsym $mod+i border none
+#bindsym $mod+u border pixel $BorderWidth
 # class                 border              backgr.             text    indicator       child_border
 client.focused          $ActiveTextColor    $TitleBarsEtc       #ffffff $BordersActive  $ActiveTextColor
 client.focused_inactive $InactiveTextColor  $TitleBarsActiveUnf #ffffff #484e50         $InactiveTextColor
@@ -263,11 +267,10 @@ client.background       #ffffff
 
 
 
+bindsym $mod+c       exec urxvt -e python3
 
-
-
-
-
+bindsym $mod+i       exec xinput --disable "SynPS/2 Synaptics TouchPad"
+bindsym $mod+shift+i exec xinput --enable  "SynPS/2 Synaptics TouchPad"
 
 # STARTUP ----------------------------------------------------------------------
 exec xrdb .Xresources
