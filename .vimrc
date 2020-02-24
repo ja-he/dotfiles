@@ -11,22 +11,22 @@
 "         \  \:\__|:|     /__/:/    \  \:\      
 "         .\__\::::/      \__\/      \  \:\     
 "              ~~~~                   \__\/RC   
-"              ______     ______   ______       
-"           by/\___  \   /\__  _\ /\  ___\ 
-"             \/_/  /__  \/_/\ \/ \ \  __\ 
-"               /\_____\    \ \_\  \ \_\   
-"               \/_____/     \/_/   \/_/   
+"              ______   ______   ______       
+"           by/\___  \ /\__  _\ /\  ___\ 
+"             \/_/  /__\/_/\ \/ \ \  __\ 
+"               /\_____\  \ \_\  \ \_\   
+"               \/_____/   \/_/   \/_/   
 "                                              
 "
 "
 "           CONTENTS: 
 "               - general settings
-"               - plugins 
 "               - interface settings 
 "               - appearance
 "               - files etc. 
 "               - behaviour 
 "               - binds 
+"               - plugins 
 "
 " __________________________________________________________________
 
@@ -62,17 +62,6 @@
 
   " eliminate the delay exiting insert mode 
     set timeoutlen=0
-
-" __________________________________________________________________
-
-" -----------
-"   PLUGINS  
-" -----------
-
-  " pathogen 
-    " use this to disable plugins if you need to find a bottleneck:
-    "  > let g:pathogen_disabled = ["vim-airline"]
-    execute pathogen#infect()
 
 " __________________________________________________________________
 
@@ -137,9 +126,6 @@
         \ endif
       au VimLeave * silent execute '!echo -ne "\e[ q"' | redraw!
     endif
-
-  " colorscheme (from GitHub through pathogen)
-    colo fahrenheit
 
 " __________________________________________________________________
 
@@ -233,3 +219,23 @@
       echo map(synstack(line('.'), 
               \col('.')), 'synIDattr(v:val, "name")')
     endfunc
+
+" __________________________________________________________________
+
+" -----------
+"   PLUGINS  
+" -----------
+
+  " pathogen 
+    " use this to disable plugins if you need to find a bottleneck:
+    "  > let g:pathogen_disabled = ["vim-airline"]
+    execute pathogen#infect()
+
+  " arm-assembly highlighting
+    au BufNewFile,BufRead *.s,*.S set filetype=arm " arm = armv6/7
+
+  " colorscheme (from GitHub through pathogen)
+    colo fahrenheit
+
+  " powerline
+    set rtp+=/usr/lib/python3.8/site-packages/powerline/bindings/vim/
