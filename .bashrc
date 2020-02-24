@@ -147,6 +147,7 @@ eval "$(pandoc --bash-completion)"
 
 # PATH extension for PE... riscvtools
 export PATH=$PATH:/home/ztf/documents/studium/sem7/PEidmSmCpp/ex/riscv/riscv-gnu-toolchain/riscv/bin/riscv/bin:/home/ztf/gits/riscv-gnu-toolchain/riscv/bin
+export PATH=$PATH:/home/ztf/gits/riscv-vp/vp/build/bin
 
 # PATH for higan
 export PATH=$PATH:/home/ztf/.local/bin
@@ -161,3 +162,11 @@ export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 
 export QSYS_ROOTDIR="/home/ztf/.cache/yay/quartus-free/pkg/quartus-free/opt/altera/19.1/quartus/sopc_builder/bin"
+
+# spaceship
+#eval "$(starship init bash)"
+
+powerline-daemon -q
+POWERLINE_BASH_CONTINUATION=1
+POWERLINE_BASH_SELECT=1
+. /usr/lib/python3.8/site-packages/powerline/bindings/bash/powerline.sh
