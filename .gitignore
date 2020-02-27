@@ -1,4 +1,6 @@
 *.pdf
+*.jpg
+*.png
 *.log
 *.fls
 *.aux
