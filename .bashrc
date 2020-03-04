@@ -163,10 +163,11 @@ export QT_IM_MODULE=ibus
 
 export QSYS_ROOTDIR="/home/ztf/.cache/yay/quartus-free/pkg/quartus-free/opt/altera/19.1/quartus/sopc_builder/bin"
 
-# spaceship
-#eval "$(starship init bash)"
+# starship
+ #eval "$(starship init bash)"
 
-powerline-daemon -q
-POWERLINE_BASH_CONTINUATION=1
-POWERLINE_BASH_SELECT=1
-. /usr/lib/python3.8/site-packages/powerline/bindings/bash/powerline.sh
+# powerline
+  powerline-daemon -q
+  POWERLINE_BASH_CONTINUATION=1
+  POWERLINE_BASH_SELECT=1
+  . /usr/lib/python3.8/site-packages/powerline/bindings/bash/powerline.sh
