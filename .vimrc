@@ -63,6 +63,9 @@
   " eliminate the delay exiting insert mode 
     set timeoutlen=0
 
+  " make vim check for a local-directory .vimrc file 
+    set exrc
+
 " __________________________________________________________________
 
 " ----------------------
@@ -239,3 +242,4 @@
 
   " powerline
     set rtp+=/usr/lib/python3.8/site-packages/powerline/bindings/vim/
+
