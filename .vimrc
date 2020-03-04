@@ -250,3 +250,4 @@
 
   " powerline
     set rtp+=/usr/lib/python3.8/site-packages/powerline/bindings/vim/
+
