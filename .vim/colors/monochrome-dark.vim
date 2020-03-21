@@ -80,3 +80,9 @@ highlight link texSection Statement
 " Manpages
 highlight link manSubHeading manSectionHeading
 highlight link manReference Normal
+
+" Diff
+highlight DiffAdd    cterm=NONE ctermbg=22   ctermfg=NONE
+highlight DiffDelete cterm=NONE ctermbg=88   ctermfg=NONE
+highlight DiffChange cterm=NONE ctermbg=238  ctermfg=NONE
+highlight DiffText   cterm=bold ctermbg=NONE ctermfg=NONE
