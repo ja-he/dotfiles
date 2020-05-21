@@ -1,12 +1,14 @@
 # vi editing mode 
 set editing-mode vi
 set show-mode-in-prompt on
+# these are to change cursor shape depending on mode
 set vi-cmd-mode-string "\1\e[2 q\2"
 set vi-ins-mode-string "\1\e[6 q\2"
 
 # cycling, case-insensitive completion
-Control-j: menu-complete
-Control-k: menu-complete-backward
+TAB: menu-complete
+Control-n: menu-complete
+Control-p: menu-complete-backward
 set show-all-if-ambiguous on
 set menu-complete-display-prefix on
 set completion-display-width 1
