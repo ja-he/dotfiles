@@ -35,7 +35,7 @@
 " --------------------
 
   " Don't make any effort for vi compatibility 
-  set nocompatible 
+    set nocompatible 
 
   " sets the lines of history, that vim will remember 
     set history=500
@@ -107,6 +107,8 @@
     set ignorecase 
   " still prioritize though 
     set smartcase 
+  " preview results while typing search
+    set incsearch
 
   " highlight search results 
     set hlsearch 
@@ -185,6 +187,12 @@
   " set a max textwidth of 68 characters
     set tw=68
 
+  " enable the mouse in diff mode 
+    if &diff
+      set mouse=a
+      set colorcolumn=0
+    endif
+
 " __________________________________________________________________
 
 " ---------
@@ -237,9 +245,8 @@
   " arm-assembly highlighting
     au BufNewFile,BufRead *.s,*.S set filetype=arm " arm = armv6/7
 
-  " colorscheme (from GitHub through pathogen)
-    colo fahrenheit
+  " colorscheme (self-written)
+    colo monochrome-dark
 
   " powerline
     set rtp+=/usr/lib/python3.8/site-packages/powerline/bindings/vim/
-
