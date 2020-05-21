@@ -1,13 +1,14 @@
 ! "Enabled modi" Set from: Default
 ! rofi.modi:                           window,run,ssh
 ! "Window width" Set from: Default
-rofi.width:                             20
+rofi.width:                             20em
+rofi.height:                            100%
 ! "Number of lines" Set from: Default
 rofi.lines:                             6
 ! "Number of columns" Set from: Default
 rofi.columns:                           1
 ! "Font to use" Set from: Default
-rofi.font:                              Scientifica 8
+rofi.font:                              dina 10
 ! "Color scheme for normal row" Set from: Default
 rofi.color-normal:                      #000000,#666666,#000000,#000000,#ffffff
 ! "Color scheme for urgent row" Set from: Default
@@ -220,3 +221,4 @@ rofi.scrollbar-width:                   0
 ! rofi.display-windowcd:               
 ! "The display name of this browser" Set from: Default
 ! rofi.display-combi:                  
+!rofi.theme: .config/rofi/sidebar.rasi
