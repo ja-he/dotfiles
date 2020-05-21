@@ -25,7 +25,7 @@ highlight Normal        cterm=NONE          ctermbg=NONE        ctermfg=NONE
 highlight Type          cterm=underline     ctermbg=NONE        ctermfg=NONE
 highlight Statement     cterm=bold          ctermbg=NONE        ctermfg=NONE
 highlight Conditional   cterm=bold          ctermbg=NONE        ctermfg=NONE 
-highlight Comment       cterm=italic        ctermbg=NONE        ctermfg=242
+highlight Comment       cterm=NONE          ctermbg=NONE        ctermfg=242
 highlight Todo          cterm=italic        ctermbg=NONE        ctermfg=242
 highlight Number        cterm=NONE          ctermbg=NONE        ctermfg=NONE 
 highlight String        cterm=NONE          ctermbg=NONE        ctermfg=NONE 
