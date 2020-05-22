@@ -124,6 +124,9 @@
   " wrap lines
     set nowrap
 
+  " let wrapping (if enabled by `set wrap`) be at on word level
+    set linebreak
+
   " let linewrap respect indentation
     set breakindent
 
