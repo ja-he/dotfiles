@@ -186,11 +186,8 @@ bindsym $mod+Shift+9 move container to workspace $workspace09
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
 # Display Details 
-set $PrimaryDisplay LVDS1
-set $PrimaryDisplayResolution 1600x900
-set $PrimaryDisplayRate 60
-set $RightDisplay VGA1
-set $LeftDisplay LVDS1
+set $LeftDisplay    DisplayPort-2
+set $RightDisplay   DisplayPort-2
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -233,7 +230,7 @@ bar {
         status_command i3blocks -c ~/.config/i3blocks.conf
         #status_command i3status
         #status_command i3status-rs ~/.config/i3/status.toml
-	tray_output $PrimaryDisplay
+	tray_output $LeftDisplay
 
 	colors {
         background          $Foundation
