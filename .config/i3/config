@@ -283,9 +283,8 @@ bindsym $mod+n exec ~/.scripts/loopbacktoggle.sh
 #gaps inner 10
 #gaps outer 40
 
-bindsym $mod+period exec feh -z --bg-fill /home/ztf/images/wallpapers/favs/
+bindsym $mod+period exec feh -z --bg-fill /home/ztf/Pictures/wallpapers/favs/
 
 # STARTUP ----------------------------------------------------------------------
 exec xrdb .Xresources
 exec dunst
-exec ~/.scripts/batterywarner.sh
