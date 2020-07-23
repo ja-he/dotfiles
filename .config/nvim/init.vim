@@ -134,7 +134,7 @@
     set list
 
   " set the colorscheme to my preferred colorscheme
-    colo blackbox
+    "colo blackbox
 
 " __________________________________________________________________
 
@@ -178,10 +178,10 @@
 " ---------
 
     call plug#begin()
-    Plug 'vimwiki/vimwiki'
+"   Plug 'vimwiki/vimwiki'
     Plug 'junegunn/fzf'
     Plug 'junegunn/fzf.vim'
-    Plug 'SirVer/ultisnips'
+"   Plug 'SirVer/ultisnips'
 "   Plug 'vim-pandoc/vim-pandoc'
 "   Plug 'vim-pandoc/vim-pandoc-syntax'
     call plug#end()
@@ -190,24 +190,24 @@
 "   VIMWIKI
 " -----------
 
-    let g:vimwiki_list =
-      \ [ {'path': '~/notes/wiki/vimwiki/'
-        \ ,'template_path': '~/repositories/notes/'
-        \ ,'template_default': 'ztf-template'
-        \ ,'template_ext': '.html'
-        \ }
-      \ , {'path': '~/notes/wiki/vimwiki/thesis/'
-        \ ,'path_html':'~/notes/wiki/vimwiki_html/thesis/'
-        \ ,'template_path': '~/notes/'
-        \ ,'template_default': 'thesis-template'
-        \ ,'template_ext': '.html'
-        \ }
-      \ , {'path': '~/mdtest/'
-        \ ,'syntax': 'markdown'
-        \ ,'ext': '.md'
-        \ ,'custom_wiki2html': 'vimwiki_markdown'
-        \ }
-      \ ]
+"   let g:vimwiki_list =
+"     \ [ {'path': '~/notes/wiki/vimwiki/'
+"       \ ,'template_path': '~/repositories/notes/'
+"       \ ,'template_default': 'ztf-template'
+"       \ ,'template_ext': '.html'
+"       \ }
+"     \ , {'path': '~/notes/wiki/vimwiki/thesis/'
+"       \ ,'path_html':'~/notes/wiki/vimwiki_html/thesis/'
+"       \ ,'template_path': '~/notes/'
+"       \ ,'template_default': 'thesis-template'
+"       \ ,'template_ext': '.html'
+"       \ }
+"     \ , {'path': '~/mdtest/'
+"       \ ,'syntax': 'markdown'
+"       \ ,'ext': '.md'
+"       \ ,'custom_wiki2html': 'vimwiki_markdown'
+"       \ }
+"     \ ]
 
-  " map \wa to compile the whole wiki
-    nmap <Leader>wa :VimwikiAll2HTML<CR>
+" " map \wa to compile the whole wiki
+"   nmap <Leader>wa :VimwikiAll2HTML<CR>
