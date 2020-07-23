@@ -65,8 +65,8 @@
 "   INTERFACE SETTINGS
 " ----------------------
 
-  " 256 colors
-    set t_Co=256
+  " use 24-bit RGB colors
+    set termguicolors
 
   " show line numbers (relative w/ current line showing actual
   " number)
@@ -75,7 +75,7 @@
 
   " color columns at the 69th and 81st column thanks to Damian
   " Conway
-    set colorcolumn=69,81
+    set colorcolumn=81
 
   " indicate the current line
     set cursorline
@@ -133,8 +133,8 @@
   " show spaces, tabs, etc with other characters
     set list
 
-  " set the colorscheme to my own colorscheme 'monochrome-dark'
-    colo monochrome-dark
+  " set the colorscheme to my preferred colorscheme
+    colo blackbox
 
 " __________________________________________________________________
 
@@ -156,7 +156,7 @@
     set encoding=utf8
 
   " set a max textwidth of 68 characters
-    set tw=68
+    set tw=80
 
   " enable the mouse in diff mode
     if &diff
@@ -172,3 +172,42 @@
 
   " more accessible move-to-mark key
     map ß `
+
+" ---------
+"   PLUG
+" ---------
+
+    call plug#begin()
+    Plug 'vimwiki/vimwiki'
+    Plug 'junegunn/fzf'
+    Plug 'junegunn/fzf.vim'
+    Plug 'SirVer/ultisnips'
+"   Plug 'vim-pandoc/vim-pandoc'
+"   Plug 'vim-pandoc/vim-pandoc-syntax'
+    call plug#end()
+
+" -----------
+"   VIMWIKI
+" -----------
+
+    let g:vimwiki_list =
+      \ [ {'path': '~/notes/wiki/vimwiki/'
+        \ ,'template_path': '~/repositories/notes/'
+        \ ,'template_default': 'ztf-template'
+        \ ,'template_ext': '.html'
+        \ }
+      \ , {'path': '~/notes/wiki/vimwiki/thesis/'
+        \ ,'path_html':'~/notes/wiki/vimwiki_html/thesis/'
+        \ ,'template_path': '~/notes/'
+        \ ,'template_default': 'thesis-template'
+        \ ,'template_ext': '.html'
+        \ }
+      \ , {'path': '~/mdtest/'
+        \ ,'syntax': 'markdown'
+        \ ,'ext': '.md'
+        \ ,'custom_wiki2html': 'vimwiki_markdown'
+        \ }
+      \ ]
+
+  " map \wa to compile the whole wiki
+    nmap <Leader>wa :VimwikiAll2HTML<CR>

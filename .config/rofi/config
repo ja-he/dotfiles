@@ -18,7 +18,7 @@ rofi.color-normal:                      #000000,#666666,#000000,#000000,#ffffff
 ! "Color scheme window" Set from: Default
 rofi.color-window:                      #000000,#ffffff
 ! "Border width" Set from: Default
-rofi.bw:                               1 
+rofi.bw:                               1
 ! "Location on screen" Set from: Default
 ! rofi.location:                       0
 ! "Padding" Set from: Default
@@ -221,4 +221,4 @@ rofi.scrollbar-width:                   0
 ! rofi.display-windowcd:               
 ! "The display name of this browser" Set from: Default
 ! rofi.display-combi:                  
-!rofi.theme: .config/rofi/sidebar.rasi
+rofi.theme: /home/ztf/.blackbox-rofi-theme.rasi

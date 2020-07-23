@@ -39,7 +39,7 @@ bindsym $mod+Shift+q kill
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+d exec rofi -show run
-#bindsym $mod+shift+d exec rofi -show window
+bindsym $mod+shift+d exec rofi -show window
 # you could add a rofi window switcher as well... 
 
 # moving workspaces to other display 
@@ -77,7 +77,7 @@ bindsym $mod+Right  focus right
 bindsym $mod+b split h
 
 # bluetooth audio quickfix 
-bindsym $mod+shift+b exec ~/.scripts/pabl.sh
+bindsym $mod+shift+b exec ~/.scripts/bt-toggle.sh
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -136,30 +136,30 @@ bindsym $mod+numbersign exec pactl set-sink-volume $PrimaryOutput 100%
 set $Foundation         "#000000"
 set $ActiveBGColor      "#000000"
 set $InactiveBGColor    "#000000"
-set $ActiveTextColor    "#FFFFFF"
-set $BordersActive      "#FFFFFF"
-set $InactiveTextColor  "#666666"
+set $ActiveTextColor    "#ebdbb2"
+set $BordersActive      "#ebdbb2"
+set $InactiveTextColor  "#282828"
 set $UrgentColor        "#883333"
-set $AltInfoColor       "#339955"
+set $AltInfoColor       "#458588"
 set $TitleBarsEtc       "#000000"
 set $TitleBarsInact     "#000000"
 set $TitleBarsActiveUnf "#000000"
-set $Red                "#ff0000"
-set $Green              "#00ff00"
-set $Blue               "#0000ff"
-set $Purple             "#ff00ff"
+set $Red                "#cc241d"
+set $Green              "#98971a"
+set $Blue               "#458588"
+set $Purple             "#b16286"
 
-# Workspace Names 
-set $workspace01 "1" 
-set $workspace02 "2" 
-set $workspace03 "3" 
-set $workspace04 "4" 
-set $workspace05 "5" 
-set $workspace06 "6" 
-set $workspace07 "7" 
-set $workspace08 "8" 
-set $workspace09 "9" 
-set $workspace10 "0" 
+# Workspace Names
+set $workspace01 "1"
+set $workspace02 "2"
+set $workspace03 "3"
+set $workspace04 "4"
+set $workspace05 "5"
+set $workspace06 "6"
+set $workspace07 "7"
+set $workspace08 "8"
+set $workspace09 "9"
+set $workspace10 "0"
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace01
@@ -242,7 +242,7 @@ bar {
 
         # class             border              background          text 
         focused_workspace   $ActiveBGColor      $ActiveBGColor      $ActiveTextColor
-        active_workspace    #000000             #000000             #ffffff
+        active_workspace    $InactiveBGColor    $InactiveBGColor    $InactiveTextColor
         inactive_workspace  $InactiveBGColor    $InactiveBGColor    $InactiveTextColor
         urgent_workspace    $UrgentColor        $InactiveBGColor    $UrgentColor
         binding_mode        $InactiveBGColor    $InactiveBGColor    $AltInfoColor
@@ -257,12 +257,12 @@ new_window pixel $BorderWidth
 new_float pixel $BorderWidth
 #bindsym $mod+i border none
 #bindsym $mod+u border pixel $BorderWidth
-# class                 border              backgr.             text    indicator       child_border
-client.focused          $ActiveTextColor    $TitleBarsEtc       #ffffff $BordersActive  $ActiveTextColor
-client.focused_inactive $InactiveTextColor  $TitleBarsActiveUnf #ffffff #484e50         $InactiveTextColor
-client.unfocused        $InactiveTextColor  $TitleBarsInact     #888888 #292d2e         $InactiveTextColor
-client.urgent           $UrgentColor        $Red                #ffffff #900000         $UrgentColor
-client.placeholder      $Blue               #0c0c0c             #ffffff #000000         #ff0000
+# class                 border              backgr.             text               indicator          child_border
+client.focused          $ActiveTextColor    $TitleBarsEtc       $ActiveTextColor   $BordersActive     $ActiveTextColor
+client.focused_inactive $InactiveTextColor  $TitleBarsActiveUnf $InactiveTextColor $InactiveTextColor $InactiveTextColor
+client.unfocused        $InactiveTextColor  $TitleBarsInact     $InactiveTextColor $InactiveTextColor $InactiveTextColor
+client.urgent           $UrgentColor        $Red                #ffffff            #900000            $UrgentColor
+client.placeholder      $Blue               #0c0c0c             #ffffff            #000000            #ff0000
 
 client.background       #ffffff
 
@@ -286,6 +286,7 @@ bindsym $mod+n exec ~/.scripts/loopbacktoggle.sh
 #gaps inner 10
 #gaps outer 40
 
+bindsym $mod+period exec feh -z --bg-fill /home/ztf/images/wallpapers/favs/
 
 # STARTUP ----------------------------------------------------------------------
 exec xrdb .Xresources
