@@ -221,4 +221,4 @@ rofi.scrollbar-width:                   0
 ! rofi.display-windowcd:               
 ! "The display name of this browser" Set from: Default
 ! rofi.display-combi:                  
-rofi.theme: /home/ztf/.blackbox-rofi-theme.rasi
+!rofi.theme: /home/ztf/.blackbox-rofi-theme.rasi
