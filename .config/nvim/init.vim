@@ -134,7 +134,7 @@
     set list
 
   " set the colorscheme to my preferred colorscheme
-    "colo blackbox
+     colo blackbox
 
 " __________________________________________________________________
 
