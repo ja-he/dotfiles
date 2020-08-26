@@ -186,8 +186,12 @@
 "   Plug 'vim-pandoc/vim-pandoc'
 "   Plug 'vim-pandoc/vim-pandoc-syntax'
     Plug 'rhysd/vim-clang-format'
+    Plug 'rhysd/git-messenger.vim'
 "   Plug 'vim-airline/vim-airline'
     call plug#end()
+
+  " check the commit
+    map <Leader>gm :GitMessenger<CR>
 
 " -----------
 "   VIMWIKI
