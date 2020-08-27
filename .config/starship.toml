@@ -1,7 +1,9 @@
+# reference: https://starship.rs/config
+
 [character]
-#symbol = "❯"
-symbol = ">"
 use_symbol_for_status = true
+symbol        = ">"
+error_symbol  = ">"
 
 [directory]
 truncation_length = 4
