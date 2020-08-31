@@ -1,0 +1,4 @@
+{
+	"clangd.arguments": ["-j=4"],
+	"suggest.autoTrigger" : "none"
+}
