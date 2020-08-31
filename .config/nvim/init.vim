@@ -205,6 +205,9 @@
   " coc switch source and header
     nmap <Tab> :CocCommand clangd.switchSourceHeader<CR>
 
+  " coc autocompletion trigger
+    inoremap <silent><expr> <c-space> coc#refresh()
+
 " -----------
 "   VIMWIKI
 " -----------
