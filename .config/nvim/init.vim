@@ -59,6 +59,13 @@
     set nowb
     set noswapfile
 
+  " open files at last position
+  " (the mark " is the position last closed at)
+      autocmd BufReadPost *
+           \ if line("'\"") > 0 && line("'\"") <= line("$") |
+           \   exe "normal! g`\"" |
+           \ endif
+
 " __________________________________________________________________
 
 " ----------------------
@@ -186,12 +193,17 @@
 "   Plug 'vim-pandoc/vim-pandoc'
 "   Plug 'vim-pandoc/vim-pandoc-syntax'
     Plug 'rhysd/vim-clang-format'
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'clangd/coc-clangd'
     Plug 'rhysd/git-messenger.vim'
 "   Plug 'vim-airline/vim-airline'
     call plug#end()
 
   " check the commit
-    map <Leader>gm :GitMessenger<CR>
+    nmap <Space> :GitMessenger<CR>
+
+  " coc switch source and header
+    nmap <Tab> :CocCommand clangd.switchSourceHeader<CR>
 
 " -----------
 "   VIMWIKI
