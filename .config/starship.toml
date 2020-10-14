@@ -2,8 +2,8 @@
 
 [character]
 use_symbol_for_status = true
-symbol        = ">"
-error_symbol  = ">"
+success_symbol = "[>](bold green)"     # The "success_symbol" segment is being set to "➜" with the color "bold green"
+error_symbol  = "[>](bold red)"
 
 [directory]
 truncation_length = 4
