@@ -193,20 +193,37 @@
 "   Plug 'vim-pandoc/vim-pandoc'
 "   Plug 'vim-pandoc/vim-pandoc-syntax'
     Plug 'rhysd/vim-clang-format'
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'clangd/coc-clangd'
     Plug 'rhysd/git-messenger.vim'
-"   Plug 'vim-airline/vim-airline'
+    Plug 'chrisbra/unicode.vim'
+    Plug 'kylelaker/riscv.vim'
+    Plug 'liuchengxu/vista.vim'
+    Plug 'itchyny/lightline.vim'
+    if has('nvim-0.5')
+      " add the lsp plugins for nvim 0.5
+        Plug 'neovim/nvim-lspconfig'
+        Plug 'nvim-lua/completion-nvim'
+    else
+      " plug coc
+        Plug 'neoclide/coc.nvim', {'branch': 'release'}
+        Plug 'clangd/coc-clangd'
+    endif
     call plug#end()
 
   " check the commit
     nmap <Space> :GitMessenger<CR>
 
-  " coc switch source and header
-    nmap <Tab> :CocCommand clangd.switchSourceHeader<CR>
+  " disable icons (which our font doesnt render right) in vista
+    let g:vista#renderer#enable_icon = 0
 
-  " coc autocompletion trigger
-    inoremap <silent><expr> <c-space> coc#refresh()
+"   let g:fzf_layout = {
+"       \ 'window': {
+"       \     'width': 0.95,
+"       \     'height': 0.6,
+"       \     'xoffset': 0.5,
+"       \     'yoffset': 0.5,
+"       \     'highlight': 'Comment',
+"       \     'border': 'sharp',
+"       \ }}
 
 " -----------
 "   VIMWIKI
@@ -233,3 +250,59 @@
 
   " map \wa to compile the whole wiki
     nmap <Leader>wa :VimwikiAll2HTML<CR>
+
+
+" neovim 0.5 specific (LSP) stuff
+if has('nvim-0.5')
+  " set up lsp
+    lua local nvim_lsp = require('nvim_lsp')
+    lua require'nvim_lsp'.clangd.setup{on_attach=require'completion'.on_attach}
+  " the default keymappings, explicitly:
+    nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
+    nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
+    nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
+    nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+    nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
+    nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
+    nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
+    nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+    nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
+  " set ctrl+space as completion trigger
+    imap <silent> <c-space> <Plug>(completion_trigger)
+  " Set completeopt to have a better completion experience
+    set completeopt=menuone,noinsert,noselect
+  " Avoid showing message extra message when using completion
+    set shortmess+=c
+else
+  " let vista default to coc
+    let g:vista_default_executive = 'coc'
+
+  " map ctrl+space to show doc using coc
+    nnoremap <silent> <c-space> :call <SID>show_documentation()<CR>
+    function! s:show_documentation()
+      if &filetype == 'vim'
+        execute 'h '.expand('<cword>')
+      else
+        call CocActionAsync('doHover')
+      endif
+    endfunction
+
+  " set up lightline (with coc status)
+    let g:lightline = {
+          \ 'colorscheme': 'wombat',
+          \ 'active': {
+          \   'left': [ [ 'mode', 'paste' ],
+          \             [ 'readonly', 'filename', 'modified', 'cocstatus' ] ]
+          \ },
+          \ 'component_function': {
+          \   'cocstatus': 'coc#status',
+          \ },
+          \ }
+
+  " coc switch source and header
+    nmap <Tab> :CocCommand clangd.switchSourceHeader<CR>
+
+  " coc autocompletion trigger
+    inoremap <silent><expr> <c-space> coc#refresh()
+
+endif
