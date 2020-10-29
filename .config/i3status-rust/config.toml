@@ -61,6 +61,7 @@ block = "sound"
 block = "weather"
 format = "{weather} {temp}°C, {wind} m/s {direction}"
 service = { name = "openweathermap", api_key = "<api key>", city_id = "2856500", units = "metric" }
+interval = 600
 
 [[block]]
 block = "time"
