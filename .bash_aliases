@@ -21,3 +21,4 @@ alias setup-notes="~/.scripts/notes_setup"
 alias isvpnup='curl -s https://www.privateinternetaccess.com |grep "You are protected" > /dev/null && echo -e "\e[32myes\e[28m" || echo -e "\e[31mno\e[28m"'
 alias please='echo "of course :)"; sudo $(fc -ln -1)'
 alias urxvtf='~/.scripts/urxvtf'
+alias nnvim='/home/ztf/local/nvim/bin/nvim'
