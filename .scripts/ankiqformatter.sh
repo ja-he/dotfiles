@@ -16,10 +16,10 @@ fi
 
 if [[ $1 == '-c' ]]; then 
   ofile="$2"
-  vim .c.md
+  nvim .c.md
   cstr=$(cat .c.md | pandoc -f markdown -t html --mathjax | tr -d "\n")
   echo "${cstr}" > .c.html
-  vim +"set tw=0" .c.html
+  nvim +"set tw=0" .c.html
   cat .c.html >> "${ofile}"
   exit 0
 fi
@@ -28,9 +28,9 @@ fi
 tmpq=.q.md
 tmpa=.a.md
 
-# open in vim to edit
-vim $tmpq
-vim $tmpa
+# open in nvim to edit
+nvim $tmpq
+nvim $tmpa
 
 # pandoc -> html -> rem newlines -> put into clipboard
 qstr=$(cat $tmpq | pandoc -f markdown -t html --mathjax | tr -d "\n")
