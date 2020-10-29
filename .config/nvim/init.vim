@@ -171,6 +171,9 @@
       set colorcolumn=0
     endif
 
+  " assume latex files are 'latex' not 'plaintex'
+    let g:tex_flavor = "latex"
+
 " __________________________________________________________________
 
 " ---------
@@ -186,7 +189,8 @@
 
     call plug#begin()
     Plug 'vimwiki/vimwiki'
-    Plug 'junegunn/fzf'
+    Plug 'tpope/vim-fugitive'
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
@@ -201,7 +205,9 @@
     if has('nvim-0.5')
       " add the lsp plugins for nvim 0.5
         Plug 'neovim/nvim-lspconfig'
+        Plug 'nvim-lua/diagnostic-nvim'
         Plug 'nvim-lua/completion-nvim'
+        Plug 'nvim-lua/lsp-status.nvim'
     else
       " plug coc
         Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -251,12 +257,70 @@
   " map \wa to compile the whole wiki
     nmap <Leader>wa :VimwikiAll2HTML<CR>
 
-
 " neovim 0.5 specific (LSP) stuff
 if has('nvim-0.5')
   " set up lsp
-    lua local nvim_lsp = require('nvim_lsp')
-    lua require'nvim_lsp'.clangd.setup{on_attach=require'completion'.on_attach}
+lua << EOF
+    local nvim_lsp = require('nvim_lsp')
+
+    local lsp_diagnostic = require('diagnostic')
+
+    local lsp_completion = require('completion')
+
+    local lsp_status = require('lsp-status')
+    lsp_status.register_progress()
+    lsp_status.config{
+      status_symbol = "LSP:";
+      indicator_errors = "E:";
+      indicator_warnings = "W:";
+      indicator_info = "I:";
+      indicator_hint = "H:";
+      indicator_ok = "OK";
+    }
+
+    function attach_stuff (client)
+      lsp_status.on_attach(client)
+      lsp_diagnostic.on_attach(client)
+      lsp_completion.on_attach(client)
+    end
+
+    nvim_lsp.bashls.setup{on_attach = attach_stuff}
+
+    nvim_lsp.jedi_language_server.setup{on_attach = attach_stuff}
+
+    nvim_lsp.clangd.setup{
+      on_attach = attach_stuff,
+      callbacks = lsp_status.extensions.clangd.setup(),
+      init_options = { clangdFileStatus = true },
+      capabilities = lsp_status.capabilities,
+      settings = {
+        cmd = { "clangd", "--background-index", "-j=5", "--clang-tidy" }
+      }
+    }
+
+    nvim_lsp.vimls.setup{on_attach = attach_stuff}
+
+    nvim_lsp.texlab.setup{}
+EOF
+
+  " Statusline function
+    function! LspStatus() abort
+      if luaeval('#vim.lsp.buf_get_clients() > 0')
+        return luaeval("require('lsp-status').status()")
+      endif
+      return ''
+    endfunction
+  " set up lightline (with lsp status)
+    let g:lightline = {
+        \   'colorscheme': 'simpleblack',
+        \   'active': {
+        \     'left': [
+        \       [ 'mode', 'paste' ],
+        \       [ 'readonly', 'modified', 'filename', 'lspstatus' ]
+        \     ],
+        \   },
+        \   'component_function': { 'lspstatus': 'LspStatus' },
+        \ }
   " the default keymappings, explicitly:
     nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
     nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
@@ -269,10 +333,21 @@ if has('nvim-0.5')
     nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
   " set ctrl+space as completion trigger
     imap <silent> <c-space> <Plug>(completion_trigger)
+   "imap <silent> <c-space> <cmd>let g:completion_enable_auto_popup = 1<CR>
+    nnoremap <silent> <c-space> <cmd>lua vim.lsp.buf.hover()<CR>
+  " map ctrl+n/p to jump through diagnostics
+    nnoremap <silent> <c-n> <cmd>NextDiagnosticCycle<CR>
+    nnoremap <silent> <c-p> <cmd>PrevDiagnosticCycle<CR>
   " Set completeopt to have a better completion experience
     set completeopt=menuone,noinsert,noselect
   " Avoid showing message extra message when using completion
     set shortmess+=c
+  " avoid automatic completion popup
+    let g:completion_enable_auto_popup = 0
+    let g:completion_enable_auto_hover = 1
+    let g:completion_enable_auto_signature = 1
+  " disable inline diagnostic text
+    let g:diagnostic_enable_virtual_text = 0
 else
   " let vista default to coc
     let g:vista_default_executive = 'coc'
@@ -289,7 +364,7 @@ else
 
   " set up lightline (with coc status)
     let g:lightline = {
-          \ 'colorscheme': 'wombat',
+          \ 'colorscheme': 'simpleblack',
           \ 'active': {
           \   'left': [ [ 'mode', 'paste' ],
           \             [ 'readonly', 'filename', 'modified', 'cocstatus' ] ]
@@ -300,9 +375,10 @@ else
           \ }
 
   " coc switch source and header
-    nmap <Tab> :CocCommand clangd.switchSourceHeader<CR>
-
   " coc autocompletion trigger
     inoremap <silent><expr> <c-space> coc#refresh()
 
 endif
+
+nmap <Tab> :tabnext<CR>
+nmap <S-Tab> :tabprev<CR>
