@@ -6,7 +6,7 @@ set vi-cmd-mode-string "\1\e[2 q\2"
 set vi-ins-mode-string "\1\e[6 q\2"
 
 # cycling, case-insensitive completion
-TAB: menu-complete
+#TAB: menu-complete #commented out to break habit
 Control-n: menu-complete
 Control-p: menu-complete-backward
 set show-all-if-ambiguous on
