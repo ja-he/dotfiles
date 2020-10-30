@@ -202,6 +202,7 @@
     Plug 'kylelaker/riscv.vim'
     Plug 'liuchengxu/vista.vim'
     Plug 'itchyny/lightline.vim'
+    Plug 'norcalli/nvim-colorizer.lua'
     if has('nvim-0.5')
       " add the lsp plugins for nvim 0.5
         Plug 'neovim/nvim-lspconfig'
@@ -214,6 +215,8 @@
         Plug 'clangd/coc-clangd'
     endif
     call plug#end()
+
+    lua require'colorizer'.setup()
 
   " check the commit
     nmap <Space> :GitMessenger<CR>
