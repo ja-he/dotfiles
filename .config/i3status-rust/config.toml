@@ -2,10 +2,16 @@
 name = "gruvbox-dark"
 [theme.overrides]
 idle_bg = "#000000"
+separator = ""
 
 [icons]
-name = "none"
+name = "awesome"
 
+
+[[block]]
+block = "custom"
+command = "echo Worked: $(.scripts/convertsecs.sh $(cat /home/ztf/.worktime/$(date +%Y-%m-%d).timelog))"
+interval = 1
 
 [[block]]
 block = "disk_space"
@@ -25,7 +31,8 @@ format_swap = "{SUp}%"
 
 [[block]]
 block = "cpu"
-interval = 1
+interval = 0.25
+format = "{barchart} ({frequency}GHz)"
 
 [[block]]
 block = "load"
@@ -44,7 +51,7 @@ block = "temperature"
 collapsed = false
 interval = 10
 format = "{average}°C (GPU)"
-chip = "amdgpu-pci-0300"
+chip = "amdgpu-pci-0900"
 
 [[block]]
 block = "networkmanager"
