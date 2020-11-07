@@ -94,7 +94,7 @@
     set ruler
 
   " command bar height
-    set cmdheight=1
+    set cmdheight=2
 
   " adjusting backspace behaviour
     set backspace=eol,start,indent  "allows backspacing over these
@@ -183,6 +183,22 @@
   " more accessible move-to-mark key
     map ß `
 
+  " 
+    let g:mapleader = "\<space>"
+
+  " terminal mappings and settings
+    nnoremap <leader>tmc :split <Bar> terminal make clean<CR>
+    nnoremap <leader>tma :split <Bar> terminal make<CR>
+    autocmd TermOpen term://* startinsert
+
+  " spell mappings
+    nnoremap <leader>ss :set spell<CR>
+    nnoremap <leader>s- :set nospell<CR>
+    nnoremap <leader>sd :set spelllang=de<CR>
+    nnoremap <leader>se :set spelllang=en<CR>
+    nnoremap <leader>se :set spelllang=en<CR>
+    nnoremap <leader>sn ]s<CR>
+
 " ---------
 "   PLUG
 " ---------
@@ -200,6 +216,8 @@
     Plug 'rhysd/git-messenger.vim'
     Plug 'chrisbra/unicode.vim'
     Plug 'kylelaker/riscv.vim'
+    Plug 'aklt/plantuml-syntax'
+    Plug 'liuchengxu/vim-which-key'
     Plug 'liuchengxu/vista.vim'
     Plug 'itchyny/lightline.vim'
     Plug 'norcalli/nvim-colorizer.lua'
@@ -216,10 +234,14 @@
     endif
     call plug#end()
 
+  " which-key settings
+    nnoremap <leader> :WhichKey '<space>'<CR>
+    set timeoutlen=10 " if you don't use which-key, this makes leader unusable
+
     lua require'colorizer'.setup()
 
-  " check the commit
-    nmap <Space> :GitMessenger<CR>
+  " git-messenger settings
+    let g:git_messenger_always_into_popup = v:true
 
   " disable icons (which our font doesnt render right) in vista
     let g:vista#renderer#enable_icon = 0
@@ -233,6 +255,11 @@
 "       \     'highlight': 'Comment',
 "       \     'border': 'sharp',
 "       \ }}
+
+  " fzf binds
+    nnoremap <leader>ff :Files<CR>
+    nnoremap <leader>fc :Colors<CR>
+    nnoremap <leader>fh :Helptags<CR>
 
 " -----------
 "   VIMWIKI
@@ -303,7 +330,6 @@ lua << EOF
 
     nvim_lsp.vimls.setup{on_attach = attach_stuff}
 
-    nvim_lsp.texlab.setup{}
 EOF
 
   " Statusline function
@@ -319,34 +345,33 @@ EOF
         \   'active': {
         \     'left': [
         \       [ 'mode', 'paste' ],
-        \       [ 'readonly', 'modified', 'filename', 'lspstatus' ]
+        \       [ 'readonly', 'modified', 'filename' ]
         \     ],
         \   },
-        \   'component_function': { 'lspstatus': 'LspStatus' },
         \ }
-  " the default keymappings, explicitly:
-    nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
-    nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
-    nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
-    nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
-    nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
-    nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
-    nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
-    nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
-    nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
+  " keymappings (per example, adjusted by me)
+    nnoremap <silent> gD        <cmd>lua vim.lsp.buf.definition()<CR>
+    nnoremap <silent> K         <cmd>lua vim.lsp.buf.hover()<CR>
+    nnoremap <silent> <c-space> <cmd>lua vim.lsp.buf.hover()<CR>
+    nnoremap <silent> gi        <cmd>lua vim.lsp.buf.implementation()<CR>
+    nnoremap <silent> <c-k>     <cmd>lua vim.lsp.buf.signature_help()<CR>
+    nnoremap <silent> <c-K>     <cmd>lua vim.lsp.buf.type_definition()<CR>
+    nnoremap <silent> gr        <cmd>lua vim.lsp.buf.references()<CR>
+    nnoremap <silent> gw        <cmd>lua vim.lsp.buf.document_symbol()<CR>
+    nnoremap <silent> gW        <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+    nnoremap <silent> gd        <cmd>lua vim.lsp.buf.declaration()<CR>
   " set ctrl+space as completion trigger
     imap <silent> <c-space> <Plug>(completion_trigger)
-   "imap <silent> <c-space> <cmd>let g:completion_enable_auto_popup = 1<CR>
-    nnoremap <silent> <c-space> <cmd>lua vim.lsp.buf.hover()<CR>
   " map ctrl+n/p to jump through diagnostics
     nnoremap <silent> <c-n> <cmd>NextDiagnosticCycle<CR>
     nnoremap <silent> <c-p> <cmd>PrevDiagnosticCycle<CR>
   " Set completeopt to have a better completion experience
     set completeopt=menuone,noinsert,noselect
+    let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy', 'all']
   " Avoid showing message extra message when using completion
     set shortmess+=c
   " avoid automatic completion popup
-    let g:completion_enable_auto_popup = 0
+    let g:completion_enable_auto_popup = 1
     let g:completion_enable_auto_hover = 1
     let g:completion_enable_auto_signature = 1
   " disable inline diagnostic text
@@ -383,5 +408,5 @@ else
 
 endif
 
-nmap <Tab> :tabnext<CR>
-nmap <S-Tab> :tabprev<CR>
+nnoremap L :tabnext<CR>
+nnoremap H :tabprev<CR>
