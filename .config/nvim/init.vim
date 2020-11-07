@@ -197,7 +197,6 @@
     nnoremap <leader>sd :set spelllang=de<CR>
     nnoremap <leader>se :set spelllang=en<CR>
     nnoremap <leader>se :set spelllang=en<CR>
-    nnoremap <leader>sn ]s<CR>
 
 " ---------
 "   PLUG
@@ -242,6 +241,11 @@
 
   " git-messenger settings
     let g:git_messenger_always_into_popup = v:true
+
+  " vim-fugitive bindings
+    nnoremap <leader>gs :Gstatus<CR>
+    nnoremap <leader>gb :Gblame<CR>
+    nnoremap <leader>gc :Gcommit<CR>
 
   " disable icons (which our font doesnt render right) in vista
     let g:vista#renderer#enable_icon = 0
