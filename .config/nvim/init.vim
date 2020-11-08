@@ -189,6 +189,7 @@
   " terminal mappings and settings
     nnoremap <leader>tmc :split <Bar> terminal make clean<CR>
     nnoremap <leader>tma :split <Bar> terminal make<CR>
+    nnoremap <leader>tn  :split <Bar> terminal<CR>
     autocmd TermOpen term://* startinsert
 
   " spell mappings
@@ -259,6 +260,8 @@
     nnoremap <leader>fF :Files!<CR>
     nnoremap <leader>fa :Ag<CR>
     nnoremap <leader>fA :Ag!<CR>
+    nnoremap <leader>fl :BLines<CR>
+    nnoremap <leader>fL :BLines!<CR>
     nnoremap <leader>fc :Colors<CR>
     nnoremap <leader>fh :Helptags<CR>
 
