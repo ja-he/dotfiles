@@ -26,6 +26,13 @@ running=true
 warned=false
 worktime=0
 
+if [[ -d ${timepath} ]]; then
+  echo "directory '${timepath}' found"
+else
+  echo "directory '${timepath}' not found, creating..."
+  mkdir "${timepath}"
+fi
+
 trap 'notify-send "work-time paused"; running=false' SIGUSR1
 trap 'notify-send "work-time continued"; running=true' SIGUSR2
 

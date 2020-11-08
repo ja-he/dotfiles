@@ -1,5 +1,15 @@
 #!/bin/bash
 
+if [[ "$1" == "-h" ]]; then
+  echo "a handler script for my work-time.sh script"
+  echo "usage:"
+  echo '  `work-time-manager.sh continue` to continue'
+  echo '  `work-time-manager.sh pause` to pause'
+  echo '  `work-time-manager.sh` without args only starts the process'
+  echo ''
+  exit 0
+fi
+
 if ps -e | grep -q 'work-time.sh'
 then
   echo "process already exists"
