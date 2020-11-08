@@ -5,6 +5,9 @@ use_symbol_for_status = true
 success_symbol = "[>](bold green)"     # The "success_symbol" segment is being set to "➜" with the color "bold green"
 error_symbol  = "[>](bold red)"
 
+[jobs]
+symbol = "+"
+
 [directory]
 truncation_length = 4
 truncate_to_repo = true
