@@ -10,6 +10,12 @@ name = "awesome"
 
 [[block]]
 block = "custom"
+command = "/home/ztf/.scripts/is_muted.sh"
+json = true
+interval = 1
+
+[[block]]
+block = "custom"
 command = "echo Worked: $(.scripts/convertsecs.sh $(cat /home/ztf/.worktime/$(date +%Y-%m-%d).timelog))"
 interval = 1
 
