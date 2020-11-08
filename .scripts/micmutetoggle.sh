@@ -10,20 +10,20 @@ mutestatusfile='/home/ztf/.scripts/.vars/mic'
 # This is the quick-and-dirty solution and it relies on it being the
 # first input device. If this is not the case, simply replug the
 # higher-ranked devices until it is the first. (or improve the
-# script i guess...) 
-if [[ "$(cat "${mutestatusfile}")" == *hot* ]]; then 
+# script i guess...)
+if [[ "$(cat "${mutestatusfile}")" == *hot* ]]; then
   echo "mic was hot"
   # flash a short notification
-  notify-send -t 1000 "mic muted" & 
-  # play the unplug sound 
-  mpv /usr/share/sounds/freedesktop/stereo/device-removed.oga & 
+  notify-send -t 1000 "mic muted" "device name: \'${devname}\'" &
+  # play the unplug sound
+  mpv /usr/share/sounds/freedesktop/stereo/device-removed.oga &
   pactl set-source-mute "${devname}" true
   echo "muted" > "${mutestatusfile}"
-else 
+else
   # flash a short notification
-  notify-send -t 1000 "mic hot" & 
-  # play the unplug sound 
-  mpv /usr/share/sounds/freedesktop/stereo/device-added.oga & 
+  notify-send -t 1000 "mic hot" "device name: \'${devname}\'" &
+  # play the unplug sound
+  mpv /usr/share/sounds/freedesktop/stereo/device-added.oga &
   pactl set-source-mute "${devname}" false
   echo "hot" > "${mutestatusfile}"
 fi
