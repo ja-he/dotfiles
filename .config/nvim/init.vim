@@ -198,6 +198,9 @@
     nnoremap <leader>se :set spelllang=en<CR>
     nnoremap <leader>se :set spelllang=en<CR>
 
+  " editing certain files binds
+    nnoremap <leader>ec :edit /home/ztf/.config/nvim/init.vim<CR>
+
 " ---------
 "   PLUG
 " ---------
@@ -251,20 +254,15 @@
   " disable icons (which our font doesnt render right) in vista
     let g:vista#renderer#enable_icon = 0
 
-"   let g:fzf_layout = {
-"       \ 'window': {
-"       \     'width': 0.95,
-"       \     'height': 0.6,
-"       \     'xoffset': 0.5,
-"       \     'yoffset': 0.5,
-"       \     'highlight': 'Comment',
-"       \     'border': 'sharp',
-"       \ }}
-
   " fzf binds
     nnoremap <leader>ff :Files<CR>
+    nnoremap <leader>fF :Files!<CR>
+    nnoremap <leader>fa :Ag<CR>
+    nnoremap <leader>fA :Ag!<CR>
     nnoremap <leader>fc :Colors<CR>
     nnoremap <leader>fh :Helptags<CR>
+
+let g:fzf_preview_window = [ 'up:75%', 'ctrl-/']
 
 " -----------
 "   VIMWIKI
@@ -289,8 +287,9 @@
         \ }
       \ ]
 
-  " map \wa to compile the whole wiki
+  " vimwiki mappings
     nmap <Leader>wa :VimwikiAll2HTML<CR>
+    nnoremap <leader>ew :VimwikiIndex<CR>
 
 " neovim 0.5 specific (LSP) stuff
 if has('nvim-0.5')
@@ -359,11 +358,13 @@ EOF
     nnoremap <leader>lD   <cmd>lua vim.lsp.buf.definition()<CR>
     nnoremap <leader>lh   <cmd>lua vim.lsp.buf.hover()<CR>
     nnoremap <leader>li   <cmd>lua vim.lsp.buf.implementation()<CR>
-    nnoremap <leader>ls   <cmd>lua vim.lsp.buf.signature_help()<CR>
+    nnoremap <leader>lS   <cmd>lua vim.lsp.buf.signature_help()<CR>
     nnoremap <leader>lt   <cmd>lua vim.lsp.buf.type_definition()<CR>
     nnoremap <leader>lr   <cmd>lua vim.lsp.buf.references()<CR>
     nnoremap <leader>lw   <cmd>lua vim.lsp.buf.document_symbol()<CR>
     nnoremap <leader>lW   <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+    nnoremap <leader>ls   <cmd>:echo LspStatus()<CR>
+
   " set ctrl+space as completion trigger
     imap <silent> <c-space> <Plug>(completion_trigger)
   " map ctrl+n/p to jump through diagnostics
