@@ -234,7 +234,7 @@
     call plug#end()
 
   " which-key settings
-    nnoremap <leader> :WhichKey '<space>'<CR>
+    nnoremap <silent> <leader> :WhichKey '<space>'<CR>
     set timeoutlen=10 " if you don't use which-key, this makes leader unusable
 
     lua require'colorizer'.setup()
@@ -244,6 +244,7 @@
 
   " vim-fugitive bindings
     nnoremap <leader>gs :Gstatus<CR>
+    nnoremap <leader>gS :tab Gstatus<CR>
     nnoremap <leader>gb :Gblame<CR>
     nnoremap <leader>gc :Gcommit<CR>
 
@@ -354,16 +355,15 @@ EOF
         \   },
         \ }
   " keymappings (per example, adjusted by me)
-    nnoremap <silent> gD        <cmd>lua vim.lsp.buf.definition()<CR>
-    nnoremap <silent> K         <cmd>lua vim.lsp.buf.hover()<CR>
-    nnoremap <silent> <c-space> <cmd>lua vim.lsp.buf.hover()<CR>
-    nnoremap <silent> gi        <cmd>lua vim.lsp.buf.implementation()<CR>
-    nnoremap <silent> <c-k>     <cmd>lua vim.lsp.buf.signature_help()<CR>
-    nnoremap <silent> <c-K>     <cmd>lua vim.lsp.buf.type_definition()<CR>
-    nnoremap <silent> gr        <cmd>lua vim.lsp.buf.references()<CR>
-    nnoremap <silent> gw        <cmd>lua vim.lsp.buf.document_symbol()<CR>
-    nnoremap <silent> gW        <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
-    nnoremap <silent> gd        <cmd>lua vim.lsp.buf.declaration()<CR>
+    nnoremap <leader>ld   <cmd>lua vim.lsp.buf.declaration()<CR>
+    nnoremap <leader>lD   <cmd>lua vim.lsp.buf.definition()<CR>
+    nnoremap <leader>lh   <cmd>lua vim.lsp.buf.hover()<CR>
+    nnoremap <leader>li   <cmd>lua vim.lsp.buf.implementation()<CR>
+    nnoremap <leader>ls   <cmd>lua vim.lsp.buf.signature_help()<CR>
+    nnoremap <leader>lt   <cmd>lua vim.lsp.buf.type_definition()<CR>
+    nnoremap <leader>lr   <cmd>lua vim.lsp.buf.references()<CR>
+    nnoremap <leader>lw   <cmd>lua vim.lsp.buf.document_symbol()<CR>
+    nnoremap <leader>lW   <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
   " set ctrl+space as completion trigger
     imap <silent> <c-space> <Plug>(completion_trigger)
   " map ctrl+n/p to jump through diagnostics
@@ -385,7 +385,7 @@ else
     let g:vista_default_executive = 'coc'
 
   " map ctrl+space to show doc using coc
-    nnoremap <silent> <c-space> :call <SID>show_documentation()<CR>
+    nnoremap <silent> <leader>lh :call <SID>show_documentation()<CR>
     function! s:show_documentation()
       if &filetype == 'vim'
         execute 'h '.expand('<cword>')
@@ -406,7 +406,6 @@ else
           \ },
           \ }
 
-  " coc switch source and header
   " coc autocompletion trigger
     inoremap <silent><expr> <c-space> coc#refresh()
 
