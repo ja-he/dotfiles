@@ -1,5 +1,7 @@
 #!/bin/bash
 
+exit 0
+
 wait_time=1
 start_time=800
 end_time=2000
