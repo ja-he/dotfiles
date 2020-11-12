@@ -117,57 +117,19 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# to make __git_ps1 work
-source /usr/share/git/git-prompt.sh
-# Custom bash prompt 
-PS1=\
-'\n\
-\[$(tput bold)\]\[$(tput setaf 7)\][\w]\
-\[$(tput setaf 8)\]$(__git_ps1)\
- [\A] \
-\[$(tput sgr0)\]\n$ '
-
-# Import colorscheme from 'wal' asynchronously
-# &   # Run the process in the background.
-# ( ) # Hide shell job control messages.
-#(cat ~/.cache/wal/sequences &)
-
-# Alternative (blocks terminal for 0-3ms)
-#cat ~/.cache/wal/sequences
-
-# To add support for TTYs this line can be optionally added.
-#source ~/.cache/wal/colors-tty.sh
-
-# Term setting for vim according to arch-forum 
-TERM='rxvt-unicode'
-COLORTERM='rxvt-unicode-256-color'
-
 # Pandoc autocompletion 
-eval "$(pandoc --bash-completion)"
+#eval "$(pandoc --bash-completion)"
 
 # PATH extension for PE... riscvtools
-export PATH=$PATH:/home/ztf/documents/studium/sem7/PEidmSmCpp/ex/riscv/riscv-gnu-toolchain/riscv/bin/riscv/bin:/home/ztf/gits/riscv-gnu-toolchain/riscv/bin
-export PATH=$PATH:/home/ztf/gits/riscv-vp/vp/build/bin
-
-# PATH for higan
-export PATH=$PATH:/home/ztf/.local/bin
+export PATH=$PATH:/home/ztf/repositories/riscv-gnu-toolchain-dist-rv32imac-ilp32/bin
+export PATH=$PATH:/home/ztf/repositories/riscv-vp/vp/build/bin
 
 # sets mode to vi mode instead of emacs mode, meaning escape puts me in normal
 # mode and i can navigate the line with vim keybinds from there, getting back 
 # to insert mode with 'i'
 set -o vi
 
-export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
-
-export QSYS_ROOTDIR="/home/ztf/.cache/yay/quartus-free/pkg/quartus-free/opt/altera/19.1/quartus/sopc_builder/bin"
-
 # starship
 eval "$(starship init bash)"
 
-# powerline
-# powerline-daemon -q
-# POWERLINE_BASH_CONTINUATION=1
-# POWERLINE_BASH_SELECT=1
-# . /usr/lib/python3.8/site-packages/powerline/bindings/bash/powerline.sh
+export EDITOR=/usr/bin/nvim
