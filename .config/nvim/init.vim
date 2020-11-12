@@ -185,11 +185,15 @@
 
   " 
     let g:mapleader = "\<space>"
+    let g:maplocalleader = "\\"
 
   " terminal mappings and settings
     nnoremap <leader>tmc :split <Bar> terminal make clean<CR>
     nnoremap <leader>tma :split <Bar> terminal make<CR>
     nnoremap <leader>tn  :split <Bar> terminal<CR>
+    nnoremap <leader>tp  :split <Bar> terminal python3<CR>
+   "nnoremap <leader>tc  :split <Bar> terminal $(xclip -o -sel clipboard)<CR>
+    nnoremap <leader>tc  :split <Bar> execute "terminal $(echo " . shellescape(getreg("+")) . ")"<CR>
     autocmd TermOpen term://* startinsert
 
   " spell mappings
@@ -215,7 +219,6 @@
     Plug 'honza/vim-snippets'
 "   Plug 'vim-pandoc/vim-pandoc'
 "   Plug 'vim-pandoc/vim-pandoc-syntax'
-    Plug 'rhysd/vim-clang-format'
     Plug 'rhysd/git-messenger.vim'
     Plug 'chrisbra/unicode.vim'
     Plug 'kylelaker/riscv.vim'
@@ -234,12 +237,15 @@
       " plug coc
         Plug 'neoclide/coc.nvim', {'branch': 'release'}
         Plug 'clangd/coc-clangd'
+      " plug clang-format
+        Plug 'rhysd/vim-clang-format'
     endif
     call plug#end()
 
   " which-key settings
-    nnoremap <silent> <leader> :WhichKey '<space>'<CR>
-    set timeoutlen=10 " if you don't use which-key, this makes leader unusable
+    nnoremap <silent> <leader>      :WhichKey '<space>'<CR>
+    nnoremap <silent> <localleader> :WhichKey '\'<CR>
+    set timeoutlen=100 " if you don't use which-key, this makes leader unusable
 
     lua require'colorizer'.setup()
 
@@ -291,8 +297,9 @@ let g:fzf_preview_window = [ 'up:75%', 'ctrl-/']
       \ ]
 
   " vimwiki mappings
-    nmap <Leader>wa :VimwikiAll2HTML<CR>
+    nmap <LocalLeader>wa :VimwikiAll2HTML<CR>
     nnoremap <leader>ew :VimwikiIndex<CR>
+    nnoremap <LocalLeader>wT :VimwikiTOC<CR>
 
 " neovim 0.5 specific (LSP) stuff
 if has('nvim-0.5')
@@ -316,14 +323,12 @@ lua << EOF
     }
 
     function attach_stuff (client)
+      print("lsp started, attaching...")
       lsp_status.on_attach(client)
       lsp_diagnostic.on_attach(client)
       lsp_completion.on_attach(client)
+      print("done attaching.")
     end
-
-    nvim_lsp.bashls.setup{on_attach = attach_stuff}
-
-    nvim_lsp.jedi_language_server.setup{on_attach = attach_stuff}
 
     nvim_lsp.clangd.setup{
       on_attach = attach_stuff,
@@ -335,7 +340,20 @@ lua << EOF
       }
     }
 
+    nvim_lsp.bashls.setup{on_attach = attach_stuff}
+
+    nvim_lsp.jedi_language_server.setup{on_attach = attach_stuff}
+
     nvim_lsp.vimls.setup{on_attach = attach_stuff}
+
+    nvim_lsp.jdtls.setup{
+      on_attach = attach_stuff
+      -- note: 'nvim-lspconfig' has a default setting here called
+      --  root_dir = root_pattern(".git")
+      -- but it doesn't work (nil value)
+    }
+
+    nvim_lsp.texlab.setup{on_attach = attach_stuff}
 
 EOF
 
@@ -356,7 +374,7 @@ EOF
         \     ],
         \   },
         \ }
-  " keymappings (per example, adjusted by me)
+  " lsp keymappings (per example, adjusted by me)
     nnoremap <leader>ld   <cmd>lua vim.lsp.buf.declaration()<CR>
     nnoremap <leader>lD   <cmd>lua vim.lsp.buf.definition()<CR>
     nnoremap <leader>lh   <cmd>lua vim.lsp.buf.hover()<CR>
@@ -366,6 +384,7 @@ EOF
     nnoremap <leader>lr   <cmd>lua vim.lsp.buf.references()<CR>
     nnoremap <leader>lw   <cmd>lua vim.lsp.buf.document_symbol()<CR>
     nnoremap <leader>lW   <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+    nnoremap <leader>lf   <cmd>lua vim.lsp.buf.formatting()<CR>
     nnoremap <leader>ls   <cmd>:echo LspStatus()<CR>
 
   " set ctrl+space as completion trigger
@@ -397,6 +416,7 @@ else
         call CocActionAsync('doHover')
       endif
     endfunction
+    nnoremap <leader>lf   :ClangFormat<CR>
 
   " set up lightline (with coc status)
     let g:lightline = {
