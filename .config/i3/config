@@ -292,3 +292,4 @@ exec xrdb .Xresources
 exec dunst
 exec xrandr --rate 144
 exec /home/ztf/.scripts/work-time.sh
+exec redshift
