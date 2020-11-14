@@ -1,7 +1,8 @@
 [theme]
-name = "gruvbox-dark"
+name = "gruvbox-light"
 [theme.overrides]
-idle_bg = "#000000"
+idle_bg = "#ffffff"
+idle_fg = "#000000"
 separator = ""
 
 [icons]

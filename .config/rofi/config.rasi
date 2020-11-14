@@ -1,0 +1,15 @@
+configuration {
+	width: 20;
+	lines: 6;
+	columns: 1;
+	font: "Iosevka 11";
+	bw: 1;
+	padding: 4;
+	hide-scrollbar: false;
+	scrollbar-width: 0;
+	color-normal: "#000000,#282828,#000000,#000000,#ebdbb2";
+	color-urgent: "#ffff00,#cc241d,#ffff00,#cc241d,#ffff00";
+	color-active: "#ff0000,#458588,#00ffff,#458588,#ff00ff";
+	color-window: "#000000,#ebdbb2";
+}
+@import "/usr/share/rofi/themes/paper-float.rasi"
