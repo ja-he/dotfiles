@@ -72,13 +72,13 @@
 "   INTERFACE SETTINGS
 " ----------------------
 
-  " use 24-bit RGB colors
-    set termguicolors
-
   " show line numbers (relative w/ current line showing actual
   " number)
     set number
     set relativenumber
+" Presentation Settings 
+set mouse=a
+"set norelativenumber
 
   " color columns at the 69th and 81st column thanks to Damian
   " Conway
@@ -140,8 +140,11 @@
   " show spaces, tabs, etc with other characters
     set list
 
+
+  " use 24-bit RGB colors
+    set termguicolors
   " set the colorscheme to my preferred colorscheme
-     colo blackbox
+  "  colorscheme monochrome-light
 
 " __________________________________________________________________
 
@@ -171,8 +174,13 @@
       set colorcolumn=0
     endif
 
+
   " assume latex files are 'latex' not 'plaintex'
     let g:tex_flavor = "latex"
+
+function! SyntaxItem()
+  return synIDattr(synID(line("."),col("."),1),"name")
+endfunction
 
 " __________________________________________________________________
 
@@ -194,14 +202,15 @@
     nnoremap <leader>tp  :split <Bar> terminal python3<CR>
    "nnoremap <leader>tc  :split <Bar> terminal $(xclip -o -sel clipboard)<CR>
     nnoremap <leader>tc  :split <Bar> execute "terminal $(echo " . shellescape(getreg("+")) . ")"<CR>
+    nnoremap <leader>tt  :split <Bar> terminal $(pwd)/%<CR>
     autocmd TermOpen term://* startinsert
 
   " spell mappings
-    nnoremap <leader>ss :set spell<CR>
-    nnoremap <leader>s- :set nospell<CR>
-    nnoremap <leader>sd :set spelllang=de<CR>
-    nnoremap <leader>se :set spelllang=en<CR>
-    nnoremap <leader>se :set spelllang=en<CR>
+    nnoremap <leader>ss :setlocal spell<CR>
+    nnoremap <leader>s- :setlocal nospell<CR>
+    nnoremap <leader>sd :setlocal spelllang=de<CR>
+    nnoremap <leader>se :setlocal spelllang=en<CR>
+    nnoremap <leader>se :setlocal spelllang=en<CR>
 
   " editing certain files binds
     nnoremap <leader>ec :edit /home/ztf/.config/nvim/init.vim<CR>
@@ -211,6 +220,8 @@
 " ---------
 
     call plug#begin()
+    Plug 'lifepillar/vim-colortemplate'
+    Plug 'lifepillar/vim-wwdc17-theme'
     Plug 'vimwiki/vimwiki'
     Plug 'tpope/vim-fugitive'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -230,7 +241,6 @@
     if has('nvim-0.5')
       " add the lsp plugins for nvim 0.5
         Plug 'neovim/nvim-lspconfig'
-        Plug 'nvim-lua/diagnostic-nvim'
         Plug 'nvim-lua/completion-nvim'
         Plug 'nvim-lua/lsp-status.nvim'
     else
@@ -242,12 +252,28 @@
     endif
     call plug#end()
 
+" let wwdc17_transp_bg = 1
+" colorscheme wwdc17-custom
+let mono_transp_bg = 1
+colorscheme mono
+
+
   " which-key settings
     nnoremap <silent> <leader>      :WhichKey '<space>'<CR>
     nnoremap <silent> <localleader> :WhichKey '\'<CR>
     set timeoutlen=100 " if you don't use which-key, this makes leader unusable
 
-    lua require'colorizer'.setup()
+lua << EOF
+  require 'colorizer'.setup(
+    {
+      '*'; -- Highlight all files
+    },
+    {
+      mode = 'background',
+      rgb_fn = true,
+    }
+  )
+EOF
 
   " git-messenger settings
     let g:git_messenger_always_into_popup = v:true
@@ -306,8 +332,13 @@ if has('nvim-0.5')
   " set up lsp
 lua << EOF
     local nvim_lsp = require('nvim_lsp')
-
-    local lsp_diagnostic = require('diagnostic')
+    vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+      vim.lsp.diagnostic.on_publish_diagnostics, {
+        virtual_text = true,
+        signs = false,
+        update_in_insert = true,
+      }
+    )
 
     local lsp_completion = require('completion')
 
@@ -325,7 +356,6 @@ lua << EOF
     function attach_stuff (client)
       print("lsp started, attaching...")
       lsp_status.on_attach(client)
-      lsp_diagnostic.on_attach(client)
       lsp_completion.on_attach(client)
       print("done attaching.")
     end
@@ -346,13 +376,6 @@ lua << EOF
 
     nvim_lsp.vimls.setup{on_attach = attach_stuff}
 
-    nvim_lsp.jdtls.setup{
-      on_attach = attach_stuff
-      -- note: 'nvim-lspconfig' has a default setting here called
-      --  root_dir = root_pattern(".git")
-      -- but it doesn't work (nil value)
-    }
-
     nvim_lsp.texlab.setup{on_attach = attach_stuff}
 
 EOF
@@ -364,16 +387,6 @@ EOF
       endif
       return ''
     endfunction
-  " set up lightline (with lsp status)
-    let g:lightline = {
-        \   'colorscheme': 'simpleblack',
-        \   'active': {
-        \     'left': [
-        \       [ 'mode', 'paste' ],
-        \       [ 'readonly', 'modified', 'filename' ]
-        \     ],
-        \   },
-        \ }
   " lsp keymappings (per example, adjusted by me)
     nnoremap <leader>ld   <cmd>lua vim.lsp.buf.declaration()<CR>
     nnoremap <leader>lD   <cmd>lua vim.lsp.buf.definition()<CR>
@@ -386,12 +399,12 @@ EOF
     nnoremap <leader>lW   <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
     nnoremap <leader>lf   <cmd>lua vim.lsp.buf.formatting()<CR>
     nnoremap <leader>ls   <cmd>:echo LspStatus()<CR>
+    nnoremap <leader>len <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
+    nnoremap <leader>lep <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
+    nnoremap <leader>lel <cmd>lua vim.lsp.diagnostic.set_loclist()<CR>
 
   " set ctrl+space as completion trigger
     imap <silent> <c-space> <Plug>(completion_trigger)
-  " map ctrl+n/p to jump through diagnostics
-    nnoremap <silent> <c-n> <cmd>NextDiagnosticCycle<CR>
-    nnoremap <silent> <c-p> <cmd>PrevDiagnosticCycle<CR>
   " Set completeopt to have a better completion experience
     set completeopt=menuone,noinsert,noselect
     let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy', 'all']
@@ -401,8 +414,6 @@ EOF
     let g:completion_enable_auto_popup = 1
     let g:completion_enable_auto_hover = 1
     let g:completion_enable_auto_signature = 1
-  " disable inline diagnostic text
-    let g:diagnostic_enable_virtual_text = 0
 else
   " let vista default to coc
     let g:vista_default_executive = 'coc'
@@ -418,22 +429,24 @@ else
     endfunction
     nnoremap <leader>lf   :ClangFormat<CR>
 
-  " set up lightline (with coc status)
-    let g:lightline = {
-          \ 'colorscheme': 'simpleblack',
-          \ 'active': {
-          \   'left': [ [ 'mode', 'paste' ],
-          \             [ 'readonly', 'filename', 'modified', 'cocstatus' ] ]
-          \ },
-          \ 'component_function': {
-          \   'cocstatus': 'coc#status',
-          \ },
-          \ }
-
   " coc autocompletion trigger
     inoremap <silent><expr> <c-space> coc#refresh()
 
 endif
+
+" set up lightline
+let g:lightline = {
+    \   'colorscheme': 'ayu_light',
+    \   'active': {
+    \     'left': [
+    \       [ 'mode', 'paste' ],
+    \       [ 'readonly', 'modified', 'filename', 'syn_hl_group']
+    \     ],
+    \   },
+      \ 'component_function': {
+      \   'syn_hl_group': 'SyntaxItem',
+      \ },
+    \ }
 
 nnoremap L :tabnext<CR>
 nnoremap H :tabprev<CR>
