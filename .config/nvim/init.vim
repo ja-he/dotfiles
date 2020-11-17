@@ -186,36 +186,6 @@ endfunction
 
 " __________________________________________________________________
 
-" ---------
-"   BINDS
-" ---------
-
-  " more accessible move-to-mark key
-    map ß `
-
-  " 
-    let g:mapleader = "\<space>"
-    let g:maplocalleader = "\\"
-
-  " terminal mappings and settings
-    nnoremap <leader>tmc :split <Bar> terminal make clean<CR>
-    nnoremap <leader>tma :split <Bar> terminal make<CR>
-    nnoremap <leader>tn  :split <Bar> terminal<CR>
-    nnoremap <leader>tp  :split <Bar> terminal python3<CR>
-   "nnoremap <leader>tc  :split <Bar> terminal $(xclip -o -sel clipboard)<CR>
-    nnoremap <leader>tc  :split <Bar> execute "terminal $(echo " . shellescape(getreg("+")) . ")"<CR>
-    nnoremap <leader>tt  :split <Bar> terminal $(pwd)/%<CR>
-    autocmd TermOpen term://* startinsert
-
-  " spell mappings
-    nnoremap <leader>ss :setlocal spell<CR>
-    nnoremap <leader>s- :setlocal nospell<CR>
-    nnoremap <leader>sd :setlocal spelllang=de<CR>
-    nnoremap <leader>se :setlocal spelllang=en<CR>
-    nnoremap <leader>se :setlocal spelllang=en<CR>
-
-  " editing certain files binds
-    nnoremap <leader>ec :edit /home/ztf/.config/nvim/init.vim<CR>
 
 " ---------
 "   PLUG
@@ -259,12 +229,6 @@ endfunction
 let mono_transp_bg = 1
 colorscheme mono
 
-
-  " which-key settings
-    nnoremap <silent> <leader>      :WhichKey '<space>'<CR>
-    nnoremap <silent> <localleader> :WhichKey '\'<CR>
-    set timeoutlen=100 " if you don't use which-key, this makes leader unusable
-
 lua << EOF
   require 'colorizer'.setup(
     {
@@ -280,24 +244,8 @@ EOF
   " git-messenger settings
     let g:git_messenger_always_into_popup = v:true
 
-  " vim-fugitive bindings
-    nnoremap <leader>gs :Gstatus<CR>
-    nnoremap <leader>gS :tab Gstatus<CR>
-    nnoremap <leader>gb :Gblame<CR>
-    nnoremap <leader>gc :Gcommit<CR>
-
   " disable icons (which our font doesnt render right) in vista
     let g:vista#renderer#enable_icon = 0
-
-  " fzf binds
-    nnoremap <leader>ff :Files<CR>
-    nnoremap <leader>fF :Files!<CR>
-    nnoremap <leader>fa :Ag<CR>
-    nnoremap <leader>fA :Ag!<CR>
-    nnoremap <leader>fl :BLines<CR>
-    nnoremap <leader>fL :BLines!<CR>
-    nnoremap <leader>fc :Colors<CR>
-    nnoremap <leader>fh :Helptags<CR>
 
 let g:fzf_preview_window = [ 'up:75%', 'ctrl-/']
 
@@ -324,10 +272,6 @@ let g:fzf_preview_window = [ 'up:75%', 'ctrl-/']
         \ }
       \ ]
 
-  " vimwiki mappings
-    nmap <LocalLeader>wa :VimwikiAll2HTML<CR>
-    nnoremap <leader>ew :VimwikiIndex<CR>
-    nnoremap <LocalLeader>wT :VimwikiTOC<CR>
 
 " neovim 0.5 specific (LSP) stuff
 if has('nvim-0.5')
@@ -389,39 +333,11 @@ EOF
       endif
       return ''
     endfunction
-  " lsp keymappings (per example, adjusted by me)
-    nnoremap <leader>ld   <cmd>lua vim.lsp.buf.declaration()<CR>
-    nnoremap <leader>lD   <cmd>lua vim.lsp.buf.definition()<CR>
-    nnoremap <leader>lh   <cmd>lua vim.lsp.buf.hover()<CR>
-    nnoremap <leader>li   <cmd>lua vim.lsp.buf.implementation()<CR>
-    nnoremap <leader>lS   <cmd>lua vim.lsp.buf.signature_help()<CR>
-    nnoremap <leader>lt   <cmd>lua vim.lsp.buf.type_definition()<CR>
-    nnoremap <leader>lr   <cmd>lua vim.lsp.buf.references()<CR>
-    nnoremap <leader>lw   <cmd>lua vim.lsp.buf.document_symbol()<CR>
-    nnoremap <leader>lW   <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
-    nnoremap <leader>lf   <cmd>lua vim.lsp.buf.formatting()<CR>
-    nnoremap <leader>ls   <cmd>:echo LspStatus()<CR>
-    nnoremap <leader>len <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
-    nnoremap <leader>lep <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
-    nnoremap <leader>lel <cmd>lua vim.lsp.diagnostic.set_loclist()<CR>
-
-  " set ctrl+space as completion trigger
-    imap <silent> <c-space> <Plug>(completion_trigger)
-  " Set completeopt to have a better completion experience
-    set completeopt=menuone,noinsert,noselect
-    let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy', 'all']
-  " Avoid showing message extra message when using completion
-    set shortmess+=c
-  " avoid automatic completion popup
-    let g:completion_enable_auto_popup = 1
-    let g:completion_enable_auto_hover = 1
-    let g:completion_enable_auto_signature = 1
 else
   " let vista default to coc
     let g:vista_default_executive = 'coc'
 
   " map ctrl+space to show doc using coc
-    nnoremap <silent> <leader>lh :call <SID>show_documentation()<CR>
     function! s:show_documentation()
       if &filetype == 'vim'
         execute 'h '.expand('<cword>')
@@ -429,10 +345,6 @@ else
         call CocActionAsync('doHover')
       endif
     endfunction
-    nnoremap <leader>lf   :ClangFormat<CR>
-
-  " coc autocompletion trigger
-    inoremap <silent><expr> <c-space> coc#refresh()
 
 endif
 
@@ -450,6 +362,85 @@ let g:lightline = {
       \ },
     \ }
 
+" ---------
+"   BINDS
+" ---------
+" leaders
+let g:mapleader = "\<space>"
+let g:maplocalleader = "\\"
+" which-key settings
+nnoremap <silent> <leader>      :WhichKey '<space>'<CR>
+nnoremap <silent> <localleader> :WhichKey '\'<CR>
+set timeoutlen=100 " if you don't use which-key, this makes leader unusable
+
+" terminal mappings and settings
+nnoremap <leader>tmc :split <Bar> terminal make clean<CR>
+nnoremap <leader>tma :split <Bar> terminal make<CR>
+nnoremap <leader>tn  :split <Bar> terminal<CR>
+nnoremap <leader>tp  :split <Bar> terminal python3<CR>
+"nnoremap <leader>tc  :split <Bar> terminal $(xclip -o -sel clipboard)<CR>
+nnoremap <leader>tc  :split <Bar> execute "terminal $(echo " . shellescape(getreg("+")) . ")"<CR>
+nnoremap <leader>tt  :split <Bar> terminal $(pwd)/%<CR>
+autocmd TermOpen term://* startinsert
+
 autocmd FileType markdown,vimwiki,tex,text,gitcommit set textwidth=80
+
+nnoremap <leader>nt :tabnew<CR>
+
+nnoremap <leader>vm :mkview<CR>
+nnoremap <leader>vl :loadview<CR>
+
+" spell mappings
+nnoremap <leader>ss :setlocal spell<CR>
+nnoremap <leader>s- :setlocal nospell<CR>
+nnoremap <leader>sd :setlocal spelllang=de<CR>
+nnoremap <leader>se :setlocal spelllang=en<CR>
+nnoremap <leader>se :setlocal spelllang=en<CR>
+
+" editing certain files binds
+nnoremap <leader>ecv :edit /home/ztf/repositories/dotfiles/.config/nvim/init.vim<CR>
+nnoremap <leader>ecc :edit /home/ztf/repositories/dotfiles/.config/nvim/plugged/vim-colortemplate/templates/mono.colortemplate<CR>
+nnoremap <leader>eci :edit /home/ztf/repositories/dotfiles/.config/i3/config<CR>
+nnoremap <leader>ecs :edit /home/ztf/repositories/dotfiles/.config/i3status-rust/config.toml<CR>
+
+" vim-fugitive bindings
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gS :tab Gstatus<CR>
+nnoremap <leader>gb :Gblame<CR>
+nnoremap <leader>gc :Gcommit<CR>
+nnoremap <leader>gf :Gfetch<CR>
+" signify bindings
+
+" fzf binds
+nnoremap <leader>ff :Files<CR>
+nnoremap <leader>fF :Files!<CR>
+nnoremap <leader>fa :Ag<CR>
+nnoremap <leader>fA :Ag!<CR>
+nnoremap <leader>fl :BLines<CR>
+nnoremap <leader>fL :BLines!<CR>
+nnoremap <leader>fc :Colors<CR>
+nnoremap <leader>fh :Helptags<CR>
+
+" vimwiki mappings
+nmap <LocalLeader>wa :VimwikiAll2HTML<CR>
+nnoremap <leader>ew :VimwikiIndex<CR>
+nnoremap <LocalLeader>wT :VimwikiTOC<CR>
+
+" lsp keymappings (per example, adjusted by me)
+nnoremap <leader>ld   <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <leader>lD   <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <leader>lh   <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <leader>li   <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <leader>lS   <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <leader>lt   <cmd>lua vim.lsp.buf.type_definition()<CR>
+nnoremap <leader>lr   <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <leader>lw   <cmd>lua vim.lsp.buf.document_symbol()<CR>
+nnoremap <leader>lW   <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+nnoremap <leader>lf   <cmd>lua vim.lsp.buf.formatting()<CR>
+nnoremap <leader>ls   <cmd>:echo LspStatus()<CR>
+nnoremap <leader>len <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
+nnoremap <leader>lep <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
+nnoremap <leader>lel <cmd>lua vim.lsp.diagnostic.set_loclist()<CR>
+
 nnoremap L :tabnext<CR>
 nnoremap H :tabprev<CR>
