@@ -132,4 +132,6 @@ set -o vi
 # starship
 eval "$(starship init bash)"
 
-export EDITOR=/usr/bin/nvim
+export EDITOR=/usr/local/bin/nvim
+
+export STUDIP_USER=ja_he
