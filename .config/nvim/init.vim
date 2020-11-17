@@ -198,8 +198,8 @@ endfunction
     Plug 'tpope/vim-fugitive'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
-    Plug 'SirVer/ultisnips'
-    Plug 'honza/vim-snippets'
+"   Plug 'SirVer/ultisnips'
+"   Plug 'honza/vim-snippets'
 "   Plug 'vim-pandoc/vim-pandoc'
 "   Plug 'vim-pandoc/vim-pandoc-syntax'
     Plug 'rhysd/git-messenger.vim'
