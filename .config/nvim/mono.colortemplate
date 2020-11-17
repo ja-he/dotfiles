@@ -48,6 +48,16 @@ Tag               -> Special
 Typedef           -> Type
 ; See `:help lCursor`
 lCursor           -> Cursor
+; mine --------------------------------------------------
+; fugitive
+diffRemoved                         -> DiffDelete
+diffAdded                           -> DiffAdd
+gitcommitOverflow                   -> DiffDelete
+fugitiveUntrackedModifier           -> DiffChange
+fugitiveUnstagedModifier            -> DiffDelete
+fugitiveStagedModifier              -> DiffAdd
+; search
+IncSearch                           -> Search
 ; }}}
 
 Background: light
@@ -56,10 +66,12 @@ Neovim:     yes
 ; Color palette {{{
 ; Color name         GUI                     Base256     Base16 (optional)
 Color: black         #000000                   ~         Black
-Color: red           #ff0000                   ~         DarkRed
-Color: green         #00ff00                   ~         DarkGreen
+Color: red           #cc0000                   ~         DarkRed
+Color: green         #00aa00                   ~         DarkGreen
+Color: orange        #ee9900                   ~         DarkYellow
 Color: yellow        #ffff00                   ~         DarkYellow
 Color: blue          #0000ff                   ~         DarkBlue
+Color: darkblue      #000099                   ~         DarkBlue
 Color: magenta       #ff00ff                   ~         DarkMagenta
 Color: cyan          #00ffff                   ~         DarkCyan
 Color: white         #eeeeee                   ~         LightGrey
@@ -67,11 +79,14 @@ Color: brightblack   #bbbbbb                   ~         DarkGrey
 Color: brightred     #ffcccc                   ~         LightRed
 Color: brightgreen   #ccffcc                   ~         LightGreen
 Color: brightyellow  #ffffcc                   ~         LightYellow
+Color: brightorange  #ffe5cc                   ~         LightYellow
 Color: brightblue    #ccccff                   ~         LightBlue
 Color: brightmagenta #ffccff                   ~         LightMagenta
 Color: brightcyan    #ccffff                   ~         LightCyan
 ; You may use hexadecimal values, too, and you may provide an explicit base-256 color:
 Color: brightwhite   #ffffff                  231        White
+Color: undefined     #ff0088                   ~         Magenta
+Color: special       #004488                   ~         DarkCyan
 ; }}}
 
 ; Terminal colors {{{
@@ -94,70 +109,78 @@ Variant: gui 256 8
 #endif
 
 ; Group              Foreground        Background        Attributes
-ColorColumn          fg                white
+ColorColumn          none              white
 Conceal              none              none
 Cursor               none              none              t=reverse
 CursorColumn         none              none
 CursorLine           none              white
-CursorLineNr         brightblack       white             bold
-DiffAdd              black             brightwhite       reverse
-DiffChange           black             brightwhite       reverse
-DiffDelete           black             brightwhite       reverse
-DiffText             black             brightwhite       bold,reverse
-Directory            black             brightwhite
-EndOfBuffer          black             brightwhite
-ErrorMsg             black             brightwhite       reverse
-FoldColumn           black             brightwhite
+CursorLineNr         none              white             bold
+DiffAdd              none              brightgreen
+DiffChange           none              brightorange
+DiffDelete           none              brightred
+DiffText             none              brightcyan        bold,reverse
+Directory            special           none              bold underline
+EndOfBuffer          none              none
+ErrorMsg             red               none
+WarningMsg           orange            none
+FoldColumn           undefined         brightcyan
 Folded               brightblack       none              italic
-IncSearch            black             brightwhite       t=reverse g=standout
-LineNr               brightblack       brightwhite
-MatchParen           black             brightwhite
-ModeMsg              black             brightwhite
-MoreMsg              black             brightwhite
+LineNr               brightblack       none
+MatchParen           none              brightblue
+ModeMsg              brightblack       none
+MoreMsg              undefined         brightyellow
 NonText              brightblack       none
-Pmenu                black             brightwhite
-PmenuSbar            black             brightwhite
-PmenuSel             black             brightwhite       reverse
-PmenuThumb           black             brightwhite
-Question             black             brightwhite
-Search               none              brightgreen
-SignColumn           black             brightwhite
-SpecialKey           black             brightwhite
+Pmenu                none              brightcyan
+PmenuSbar            undefined         brightcyan
+PmenuSel             undefined         brightcyan        reverse
+PmenuThumb           undefined         brightcyan
+Question             undefined         brightcyan
+Search               none              brightblue
+SignColumn           none              none
+SpecialKey           undefined         brightcyan
 SpellBad             none              brightred
 SpellCap             none              brightyellow
 SpellLocal           none              brightmagenta
 SpellRare            none              brightcyan
-StatusLine           black             brightwhite
-StatusLineNC         black             brightwhite
-TabLine              black             brightwhite
-TabLineFill          black             brightwhite
-TabLineSel           black             brightwhite
-Title                black             brightwhite
-VertSplit            black             brightwhite
+StatusLine           undefined         brightcyan
+StatusLineNC         undefined         brightcyan
+TabLine              undefined         brightcyan
+TabLineFill          undefined         brightcyan
+TabLineSel           undefined         brightcyan
+Title                undefined         brightcyan
+VertSplit            none              none
 Visual               none              brightyellow
-VisualNOS            black             brightwhite
-WarningMsg           black             brightwhite
-WildMenu             black             brightwhite
+VisualNOS            undefined         brightcyan
+WildMenu             undefined         brightcyan
 Comment              brightblack       none              italic
-Constant             black             none
-Error                black             brightwhite       reverse
-Identifier           black             none
-Ignore               black             none
-PreProc              black             none
-Special              black             none
+Constant             darkblue          none              bold
+Error                none              brightred
+Identifier           none              none              bold
+Ignore               undefined         brightred
+PreProc              none              none              bold
+Special              none              none              bold
 Statement            none              none              bold
-Todo                 black             none
-Type                 black             none              underline
-Underlined           black             none
+Todo                 undefined         brightred
+Type                 none              none              underline
+Underlined           none              none              underline
 ; See `:help CursorIM`
 CursorIM             none              fg
 ; See `:help window-toolbar`
 ToolbarLine          none              brightwhite
-ToolbarButton        black             brightwhite       bold
+ToolbarButton        undefined         brightcyan        bold
 ; }}}
 
 ; Additional highlight groups {{{
 ; Add additional highlight groups here if you want
+; help menu
+helpOption                             special           none              underline
+helpHyperTextJump                      special           none              underline bold
+helpHyperTextEntry                     special           none              bold
+; lsp
+LspDiagnosticsDefaultError             red               none
+LspDiagnosticsDefaultHint              undefined         brightcyan
+LspDiagnosticsDefaultInformation       green             none
+LspDiagnosticsDefaultWarning           orange            none
 ; }}}
 
 ; B/W variant {{{
