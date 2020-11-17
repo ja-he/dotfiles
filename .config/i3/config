@@ -133,17 +133,17 @@ bindsym XF86AudioLowerVolume exec ~/.scripts/audiosettings.sh --decrease
 bindsym $mod+numbersign exec pactl set-sink-volume $PrimaryOutput 100%
 
 # Basic colors 
-set $Foundation         "#ffffff"
-set $ActiveBGColor      "#ffffff"
-set $InactiveBGColor    "#ffffff"
-set $ActiveTextColor    "#000000"
-set $BordersActive      "#000000"
-set $InactiveTextColor  "#eeeeee"
+set $Foundation         "#000000"
+set $ActiveBGColor      "#000000"
+set $InactiveBGColor    "#000000"
+set $ActiveTextColor    "#ffffff"
+set $BordersActive      "#98971a"
+set $InactiveTextColor  "#444444"
 set $UrgentColor        "#cc241d"
 set $AltInfoColor       "#458588"
-set $TitleBarsEtc       "#ffffff"
-set $TitleBarsInact     "#ffffff"
-set $TitleBarsActiveUnf "#ffffff"
+set $TitleBarsEtc       "#000000"
+set $TitleBarsInact     "#000000"
+set $TitleBarsActiveUnf "#000000"
 set $Red                "#cc241d"
 set $Green              "#98971a"
 set $Blue               "#458588"
@@ -255,7 +255,7 @@ new_float pixel $BorderWidth
 #bindsym $mod+i border none
 #bindsym $mod+u border pixel $BorderWidth
 # class                 border              backgr.             text               indicator          child_border
-client.focused          $ActiveTextColor    $TitleBarsEtc       $ActiveTextColor   $BordersActive     $ActiveTextColor
+client.focused          $BordersActive      $TitleBarsEtc       $ActiveTextColor   $BordersActive     $BordersActive
 client.focused_inactive $InactiveTextColor  $TitleBarsActiveUnf $InactiveTextColor $InactiveTextColor $InactiveTextColor
 client.unfocused        $InactiveTextColor  $TitleBarsInact     $InactiveTextColor $InactiveTextColor $InactiveTextColor
 client.urgent           $UrgentColor        $Red                #ffffff            #900000            $UrgentColor
