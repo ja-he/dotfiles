@@ -224,8 +224,6 @@ endfunction
     endif
     call plug#end()
 
-" let wwdc17_transp_bg = 1
-" colorscheme wwdc17-custom
 let mono_transp_bg = 1
 colorscheme mono
 
