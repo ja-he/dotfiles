@@ -174,6 +174,8 @@ set mouse=a
       set colorcolumn=0
     endif
 
+set omnifunc=v:lua.vim.lsp.omnifunc
+set completeopt=menuone,noselect
 
   " assume latex files are 'latex' not 'plaintex'
     let g:tex_flavor = "latex"
