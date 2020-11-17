@@ -277,7 +277,7 @@ endfunction
 
 " set up lightline
 let g:lightline = {
-    \   'colorscheme': 'ayu_light',
+    \   'colorscheme': 'one',
     \   'active': {
     \     'left': [
     \       [ 'mode', 'paste' ],
@@ -295,6 +295,7 @@ let g:lightline = {
 " leaders
 let g:mapleader = "\<space>"
 let g:maplocalleader = "\\"
+
 " which-key settings
 nnoremap <silent> <leader>      :WhichKey '<space>'<CR>
 nnoremap <silent> <localleader> :WhichKey '\'<CR>
