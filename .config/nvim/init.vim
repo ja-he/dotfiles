@@ -337,6 +337,7 @@ nnoremap <leader>gb :Gblame<CR>
 nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gf :Gfetch<CR>
 " signify bindings
+nnoremap <silent> <leader>gh :SignifyToggle<CR>
 
 " fzf binds
 nnoremap <leader>ff :Files<CR>
