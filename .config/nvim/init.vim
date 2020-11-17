@@ -165,8 +165,8 @@ set mouse=a
   " UTF-8 standard encoding
     set encoding=utf8
 
-  " set a max textwidth of 68 characters
-    set tw=80
+  " set no max textwidth by default (for coding)
+    set textwidth=0
 
   " enable the mouse in diff mode
     if &diff
@@ -448,5 +448,6 @@ let g:lightline = {
       \ },
     \ }
 
+autocmd FileType markdown,vimwiki,tex,text,gitcommit set textwidth=80
 nnoremap L :tabnext<CR>
 nnoremap H :tabprev<CR>
