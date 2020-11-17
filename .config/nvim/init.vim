@@ -195,6 +195,7 @@ endfunction
     Plug 'lifepillar/vim-colortemplate'
     Plug 'lifepillar/vim-wwdc17-theme'
     Plug 'vimwiki/vimwiki'
+    Plug 'mhinz/vim-signify'
     Plug 'tpope/vim-fugitive'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
