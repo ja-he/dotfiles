@@ -160,7 +160,7 @@ Ignore               undefined         brightred
 PreProc              none              none              bold
 Special              none              none              bold
 Statement            none              none              bold
-Todo                 undefined         brightred
+Todo                 red               brightred         italic
 Type                 none              none              underline
 Underlined           none              none              underline
 ; See `:help CursorIM`
