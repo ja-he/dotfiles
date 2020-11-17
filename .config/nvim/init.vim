@@ -210,18 +210,10 @@ endfunction
     Plug 'liuchengxu/vista.vim'
     Plug 'itchyny/lightline.vim'
     Plug 'norcalli/nvim-colorizer.lua'
-    if has('nvim-0.5')
-      " add the lsp plugins for nvim 0.5
-        Plug 'neovim/nvim-lspconfig'
-        Plug 'nvim-lua/completion-nvim'
-        Plug 'nvim-lua/lsp-status.nvim'
-    else
-      " plug coc
-        Plug 'neoclide/coc.nvim', {'branch': 'release'}
-        Plug 'clangd/coc-clangd'
-      " plug clang-format
-        Plug 'rhysd/vim-clang-format'
-    endif
+    " add the lsp plugins for nvim 0.5
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'nvim-lua/lsp-status.nvim'
+    Plug 'nvim-lua/completion-nvim'
     call plug#end()
 
 let mono_transp_bg = 1
@@ -271,12 +263,9 @@ let g:fzf_preview_window = [ 'up:75%', 'ctrl-/']
         \ }
       \ ]
 
-
-" neovim 0.5 specific (LSP) stuff
-if has('nvim-0.5')
-  " set up lsp
+" set up lsp
 lua << EOF
-    local nvim_lsp = require('nvim_lsp')
+    local lspconfig = require('lspconfig')
     vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
       vim.lsp.diagnostic.on_publish_diagnostics, {
         virtual_text = true,
@@ -285,7 +274,7 @@ lua << EOF
       }
     )
 
-    local lsp_completion = require('completion')
+    local completion = require('completion')
 
     local lsp_status = require('lsp-status')
     lsp_status.register_progress()
@@ -301,13 +290,12 @@ lua << EOF
     function attach_stuff (client)
       print("lsp started, attaching...")
       lsp_status.on_attach(client)
-      lsp_completion.on_attach(client)
+      completion.on_attach(client)
       print("done attaching.")
     end
 
-    nvim_lsp.clangd.setup{
+    lspconfig.clangd.setup{
       on_attach = attach_stuff,
-      callbacks = lsp_status.extensions.clangd.setup(),
       init_options = { clangdFileStatus = true },
       capabilities = lsp_status.capabilities,
       settings = {
@@ -315,37 +303,24 @@ lua << EOF
       }
     }
 
-    nvim_lsp.bashls.setup{on_attach = attach_stuff}
+    lspconfig.bashls.setup{on_attach = attach_stuff}
 
-    nvim_lsp.jedi_language_server.setup{on_attach = attach_stuff}
+ -- lspconfig.jedi_language_server.setup{on_attach = attach_stuff}
+    lspconfig.pyls.setup{on_attach = attach_stuff} -- FUCK PALANTIR!
 
-    nvim_lsp.vimls.setup{on_attach = attach_stuff}
+    lspconfig.vimls.setup{on_attach = attach_stuff}
 
-    nvim_lsp.texlab.setup{on_attach = attach_stuff}
+    lspconfig.texlab.setup{on_attach = attach_stuff}
 
 EOF
 
-  " Statusline function
-    function! LspStatus() abort
-      if luaeval('#vim.lsp.buf_get_clients() > 0')
-        return luaeval("require('lsp-status').status()")
-      endif
-      return ''
-    endfunction
-else
-  " let vista default to coc
-    let g:vista_default_executive = 'coc'
-
-  " map ctrl+space to show doc using coc
-    function! s:show_documentation()
-      if &filetype == 'vim'
-        execute 'h '.expand('<cword>')
-      else
-        call CocActionAsync('doHover')
-      endif
-    endfunction
-
-endif
+" Statusline function
+function! LspStatus() abort
+  if luaeval('#vim.lsp.buf_get_clients() > 0')
+    return luaeval("require('lsp-status').status()")
+  endif
+  return ''
+endfunction
 
 " set up lightline
 let g:lightline = {
