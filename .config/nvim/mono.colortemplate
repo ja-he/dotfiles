@@ -58,6 +58,8 @@ fugitiveUnstagedModifier            -> DiffDelete
 fugitiveStagedModifier              -> DiffAdd
 ; search
 IncSearch                           -> Search
+; help
+helpExample                         -> helpCommand
 ; }}}
 
 Background: light
@@ -176,6 +178,7 @@ ToolbarButton        undefined         brightcyan        bold
 helpOption                             special           none              underline
 helpHyperTextJump                      special           none              underline bold
 helpHyperTextEntry                     special           none              bold
+helpCommand                            none              white
 ; lsp
 LspDiagnosticsDefaultError             red               none
 LspDiagnosticsDefaultHint              undefined         brightcyan
