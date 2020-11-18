@@ -296,6 +296,19 @@ let g:lightline = {
 let g:mapleader = "\<space>"
 let g:maplocalleader = "\\"
 
+call which_key#register('<Space>', "g:which_key_map")
+
+let g:which_key_map = {
+      \ 'e' : {  'name' : 'edit...' } ,
+      \ 'g' : {  'name' : 'git...' } ,
+      \ 'f' : {  'name' : 'find...' } ,
+      \ 'v' : {  'name' : 'views...' } ,
+      \ 'n' : {  'name' : 'new...' } ,
+      \ 't' : {  'name' : 'terminal...' } ,
+      \ 'l' : {  'name' : 'lsp...' } ,
+      \ 's' : {  'name' : 'set...' } ,
+      \ }
+
 " which-key settings
 nnoremap <silent> <leader>      :WhichKey '<space>'<CR>
 nnoremap <silent> <localleader> :WhichKey '\'<CR>
