@@ -193,20 +193,18 @@ endfunction
 
     call plug#begin()
     Plug 'lifepillar/vim-colortemplate'
-    Plug 'lifepillar/vim-wwdc17-theme'
     Plug 'vimwiki/vimwiki'
     Plug 'mhinz/vim-signify'
     Plug 'tpope/vim-fugitive'
+    Plug 'rhysd/git-messenger.vim'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
 "   Plug 'SirVer/ultisnips'
 "   Plug 'honza/vim-snippets'
 "   Plug 'vim-pandoc/vim-pandoc'
 "   Plug 'vim-pandoc/vim-pandoc-syntax'
-    Plug 'rhysd/git-messenger.vim'
     Plug 'chrisbra/unicode.vim'
     Plug 'kylelaker/riscv.vim'
-    Plug 'aklt/plantuml-syntax'
     Plug 'liuchengxu/vim-which-key'
     Plug 'liuchengxu/vista.vim'
     Plug 'itchyny/lightline.vim'
