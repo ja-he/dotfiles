@@ -184,6 +184,11 @@ LspDiagnosticsDefaultError             red               none
 LspDiagnosticsDefaultHint              undefined         brightcyan
 LspDiagnosticsDefaultInformation       green             none
 LspDiagnosticsDefaultWarning           orange            none
+; whichkey
+WhichKeySeperator                      red               none
+WhichKeyGroup                          none              none              bold
+WhichKey                               none              none
+WhichKeyDesc                           none              none
 ; }}}
 
 ; B/W variant {{{
