@@ -312,7 +312,7 @@ let g:which_key_map = {
 " which-key settings
 nnoremap <silent> <leader>      :WhichKey '<space>'<CR>
 nnoremap <silent> <localleader> :WhichKey '\'<CR>
-set timeoutlen=100 " if you don't use which-key, this makes leader unusable
+set timeoutlen=250 " if you don't use which-key, this makes leader unusable
 
 " terminal mappings and settings
 nnoremap <leader>tmc :split <Bar> terminal make clean<CR>
