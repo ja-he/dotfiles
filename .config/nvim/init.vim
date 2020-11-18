@@ -217,6 +217,8 @@ endfunction
     Plug 'nvim-lua/completion-nvim'
     call plug#end()
 
+let g:colortemplate_no_mappings = 1
+
 let mono_transp_bg = 1
 colorscheme mono
 
