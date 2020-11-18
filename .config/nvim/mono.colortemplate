@@ -132,7 +132,7 @@ MatchParen           none              brightblue
 ModeMsg              brightblack       none
 MoreMsg              undefined         brightyellow
 NonText              brightblack       none
-Pmenu                none              brightcyan
+Pmenu                none              white
 PmenuSbar            undefined         brightcyan
 PmenuSel             undefined         brightcyan        reverse
 PmenuThumb           undefined         brightcyan
