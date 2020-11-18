@@ -149,7 +149,7 @@ StatusLineNC         undefined         brightcyan
 TabLine              undefined         brightcyan
 TabLineFill          undefined         brightcyan
 TabLineSel           undefined         brightcyan
-Title                undefined         brightcyan
+Title                darkblue          none              bold
 VertSplit            none              none
 Visual               none              brightyellow
 VisualNOS            undefined         brightcyan
