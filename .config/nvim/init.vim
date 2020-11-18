@@ -362,6 +362,7 @@ nnoremap <leader>fl :BLines<CR>
 nnoremap <leader>fL :BLines!<CR>
 nnoremap <leader>fc :Colors<CR>
 nnoremap <leader>fh :Helptags<CR>
+nnoremap <leader>fn :cd /home/ztf/notes/wiki/vimwiki <bar> Ag<CR>
 
 " vimwiki mappings
 nmap <LocalLeader>wa :VimwikiAll2HTML<CR>
