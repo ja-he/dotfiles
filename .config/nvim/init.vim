@@ -300,7 +300,7 @@ let g:maplocalleader = "\\"
 call which_key#register('<Space>', "g:which_key_map")
 
 let g:which_key_map = {
-      \ 'e' : {  'name' : 'edit...' } ,
+      \ 'e' : {  'name' : 'edit...' , 'c' : { 'name' : 'configs...' } } ,
       \ 'g' : {  'name' : 'git...' } ,
       \ 'f' : {  'name' : 'find...' } ,
       \ 'v' : {  'name' : 'views...' } ,
