@@ -60,6 +60,12 @@ fugitiveStagedModifier              -> DiffAdd
 IncSearch                           -> Search
 ; help
 helpExample                         -> helpCommand
+; vimwiki
+VimwikiPre                          -> CodeListing
+VimwikiCode                         -> CodeListing
+VimwikiCodeChar                     -> Comment
+VimwikiPreChar                      -> Comment
+VimwikiHeaderChar                   -> Comment
 ; }}}
 
 Background: light
@@ -155,6 +161,7 @@ Visual               none              brightyellow
 VisualNOS            undefined         brightcyan
 WildMenu             undefined         brightcyan
 Comment              brightblack       none              italic
+CodeListing          none              white
 Constant             darkblue          none              bold
 Error                none              brightred
 Identifier           none              none              bold
