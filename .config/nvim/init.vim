@@ -213,6 +213,7 @@ endfunction
     Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-lua/lsp-status.nvim'
     Plug 'nvim-lua/completion-nvim'
+    Plug 'tweekmonster/startuptime.vim'
     call plug#end()
 
 let g:colortemplate_no_mappings = 1
