@@ -139,6 +139,8 @@ set mouse=a
 
   " show spaces, tabs, etc with other characters
     set list
+    set listchars=tab:\>\ ,trail:·,extends:…
+   "set listchars=tab:│\ ,trail:·,extends:…,nbsp=+
 
 
   " use 24-bit RGB colors
