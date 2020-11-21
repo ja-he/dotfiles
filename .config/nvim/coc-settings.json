@@ -1,8 +1,0 @@
-{
-	"clangd.arguments": ["-j=4"],
-	"suggest.autoTrigger" : "none",
-	"suggest.maxPreviewWidth" : "68",
-	"suggest.detailMaxLength" : "12",
-	"suggest.labelMaxLength" : "40",
-	"suggest.detailField" : "menu"
-}
