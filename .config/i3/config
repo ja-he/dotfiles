@@ -104,7 +104,7 @@ bindsym $mod+shift+a focus child
 
 # screenshot (select)
 #bindsym --release   $mod+z  exec scrot -f
-bindsym --release   $mod+z  exec scrot -s -q 100 && notify-send "screenshot saved" || notify-send "screenshot aborted"
+bindsym --release   $mod+z  exec scrot -s -f -q 100 && notify-send "screenshot saved" || notify-send "screenshot aborted"
 
 #bindsym --release   $mod+z  exec pactl set-source-mute bluez_source.4C_87_5D_0A_68_6C.headset_head_unit true
 #bindsym             $mod+z  exec pactl set-source-mute bluez_source.4C_87_5D_0A_68_6C.headset_head_unit false
