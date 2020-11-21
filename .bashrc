@@ -135,3 +135,6 @@ eval "$(starship init bash)"
 export EDITOR=/usr/local/bin/nvim
 
 export STUDIP_USER=ja_he
+
+source /usr/share/fzf/key-bindings.bash
+source /usr/share/fzf/completion.bash
