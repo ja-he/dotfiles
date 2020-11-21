@@ -161,7 +161,7 @@ VertSplit            none              none
 Visual               none              brightyellow
 VisualNOS            undefined         brightcyan
 WildMenu             undefined         brightcyan
-Comment              brightblack       none              italic
+Comment              brightblack       none
 CodeListing          none              white
 Constant             darkblue          none              bold
 Error                none              brightred
