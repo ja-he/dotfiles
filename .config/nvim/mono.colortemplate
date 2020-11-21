@@ -66,6 +66,7 @@ VimwikiCode                         -> CodeListing
 VimwikiCodeChar                     -> Comment
 VimwikiPreChar                      -> Comment
 VimwikiHeaderChar                   -> Comment
+VimwikiMarkers                      -> Comment
 ; }}}
 
 Background: light
