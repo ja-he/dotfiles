@@ -243,6 +243,7 @@ EOF
   " disable icons (which our font doesnt render right) in vista
     let g:vista#renderer#enable_icon = 0
 
+" ... [ <size> , <contents preview toggle keymapping> ]
 let g:fzf_preview_window = [ 'up:75%', 'ctrl-/']
 
 " -----------
