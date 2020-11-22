@@ -239,7 +239,7 @@ let g:fzf_preview_window = [ 'up:75%', 'ctrl-/']
 
     let g:vimwiki_list =
       \ [
-        \ {'path': '~/md_notes/'
+        \ {'path': '~/notes/mdwiki/'
           \ ,'syntax': 'markdown'
           \ ,'ext': '.md'
           \ ,'custom_wiki2html': 'vimwiki_markdown'
