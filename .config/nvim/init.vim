@@ -94,7 +94,7 @@ set mouse=a
     set ruler
 
   " command bar height
-    set cmdheight=2
+    set cmdheight=1
 
   " adjusting backspace behaviour
     set backspace=eol,start,indent  "allows backspacing over these
