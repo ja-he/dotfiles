@@ -197,6 +197,13 @@ WhichKeySeperator                      red               none
 WhichKeyGroup                          none              none              bold
 WhichKey                               none              none
 WhichKeyDesc                           none              none
+; statusline
+StatusLine                             black             brightblack
+StatusLineNC                           brightblack       white
+; tabline
+TabLine                                brightblack       white
+TabLineSel                             black             brightblack
+TabLineFill                            none              white
 ; }}}
 
 ; B/W variant {{{
