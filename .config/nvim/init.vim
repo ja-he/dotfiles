@@ -382,5 +382,7 @@ nnoremap <leader>lel  <cmd>lua vim.lsp.diagnostic.set_loclist()<CR>
 nnoremap <leader>lo   <cmd>lua vim.lsp.stop_client(vim.lsp.get_active_clients())<CR>
 "nnoremap <leader>lO "[turn on lsp again, somehow]
 
+nnoremap <leader>h?   <cmd>echo SyntaxItem()<CR>
+
 nnoremap L :tabnext<CR>
 nnoremap H :tabprev<CR>
