@@ -224,19 +224,6 @@ let g:colortemplate_no_mappings = 1
 let mono_transp_bg = 1
 colorscheme mono
 
-lua << EOF
-  require 'colorizer'.setup(
-    {
-      '*'; -- Highlight all files
-      '!bib'
-    },
-    {
-      mode = 'background',
-      rgb_fn = true,
-    }
-  )
-EOF
-
   " git-messenger settings
     let g:git_messenger_always_into_popup = v:true
 
@@ -269,8 +256,9 @@ let g:fzf_preview_window = [ 'up:75%', 'ctrl-/']
         \ }
       \ ]
 
-" set up lsp
+" set up stuff that's configured via lua
 lua require('set_up_nvim_lsp')
+lua require('set_up_colorizer')
 
 " Statusline function
 function! LspStatus() abort
