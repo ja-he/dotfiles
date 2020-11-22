@@ -32,7 +32,13 @@ lspconfig.clangd.setup{
   init_options = { clangdFileStatus = true },
   capabilities = lsp_status.capabilities,
   settings = {
-    cmd = { "clangd", "--background-index", "-j=10", "--clang-tidy" }
+    cmd = { "clangd", 
+              "--background-index",
+              "-j=10",
+              "--clang-tidy" ,
+              "--suggest-missing-includes" ,
+              "--cross-file-rename"
+          }
   }
 }
 
