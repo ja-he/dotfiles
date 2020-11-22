@@ -238,21 +238,22 @@ let g:fzf_preview_window = [ 'up:75%', 'ctrl-/']
 " -----------
 
     let g:vimwiki_list =
-      \ [ {'path': '~/notes/wiki/vimwiki/'
-        \ ,'template_path': '~/notes/wiki/'
-        \ ,'template_default': 'ztf-template'
-        \ ,'template_ext': '.html'
-        \ }
-      \ , {'path': '~/notes/wiki/vimwiki/thesis/'
-        \ ,'path_html':'~/notes/wiki/vimwiki_html/thesis/'
-        \ ,'template_path': '~/notes/'
-        \ ,'template_default': 'thesis-template'
-        \ ,'template_ext': '.html'
-        \ }
-      \ , {'path': '~/mdtest/'
-        \ ,'syntax': 'markdown'
-        \ ,'ext': '.md'
-        \ ,'custom_wiki2html': 'vimwiki_markdown'
+      \ [
+        \ {'path': '~/md_notes/'
+          \ ,'syntax': 'markdown'
+          \ ,'ext': '.md'
+          \ ,'custom_wiki2html': 'vimwiki_markdown'
+        \ },
+        \ {'path': '~/notes/wiki/vimwiki/'
+          \ ,'template_path': '~/notes/wiki/'
+          \ ,'template_default': 'ztf-template'
+          \ ,'template_ext': '.html'
+        \ },
+        \ {'path': '~/notes/wiki/vimwiki/thesis/'
+          \ ,'path_html':'~/notes/wiki/vimwiki_html/thesis/'
+          \ ,'template_path': '~/notes/'
+          \ ,'template_default': 'thesis-template'
+          \ ,'template_ext': '.html'
         \ }
       \ ]
 
