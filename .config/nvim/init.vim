@@ -373,6 +373,7 @@ nnoremap <leader>lr   <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <leader>lw   <cmd>lua vim.lsp.buf.document_symbol()<CR>
 nnoremap <leader>lW   <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap <leader>lf   <cmd>lua vim.lsp.buf.formatting()<CR>
+nnoremap <leader>lR   <cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <leader>ls   <cmd>:echo LspStatus()<CR>
 nnoremap <leader>len  <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 nnoremap <leader>lep  <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
