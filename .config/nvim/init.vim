@@ -194,7 +194,7 @@ endfunction
 " ---------
 
     call plug#begin()
-    Plug 'lifepillar/vim-colortemplate'
+"   Plug 'lifepillar/vim-colortemplate'
     Plug 'vimwiki/vimwiki'
     Plug 'mhinz/vim-signify'
     Plug 'tpope/vim-fugitive'
