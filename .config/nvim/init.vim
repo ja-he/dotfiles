@@ -320,7 +320,7 @@ nnoremap <leader>tn  :split <Bar> terminal<CR>
 nnoremap <leader>tp  :split <Bar> terminal python3<CR>
 "nnoremap <leader>tc  :split <Bar> terminal $(xclip -o -sel clipboard)<CR>
 nnoremap <leader>tc  :split <Bar> execute "terminal $(echo " . shellescape(getreg("+")) . ")"<CR>
-nnoremap <leader>tt  :split <Bar> terminal $(pwd)/%<CR>
+nnoremap <leader>tt  :split <Bar> terminal %<CR>
 autocmd TermOpen term://* startinsert
 
 autocmd FileType markdown,vimwiki,tex,text,gitcommit set textwidth=80
