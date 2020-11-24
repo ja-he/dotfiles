@@ -274,18 +274,18 @@ function! LspStatus() abort
 endfunction
 
 " set up lightline
-let g:lightline = {
-    \   'colorscheme': 'one',
-    \   'active': {
-    \     'left': [
-    \       [ 'mode', 'paste' ],
-    \       [ 'readonly', 'modified', 'filename', 'syn_hl_group']
-    \     ],
-    \   },
-      \ 'component_function': {
-      \   'syn_hl_group': 'SyntaxItem',
-      \ },
-    \ }
+ let g:lightline = {
+     \   'colorscheme': 'one',
+     \   'active': {
+     \     'left': [
+     \       [ 'mode', 'paste' ],
+     \       [ 'readonly', 'modified', 'filename', 'syn_hl_group']
+     \     ],
+     \   },
+       \ 'component_function': {
+       \   'syn_hl_group': 'SyntaxItem',
+       \ },
+     \ }
 
 " ---------
 "   BINDS
