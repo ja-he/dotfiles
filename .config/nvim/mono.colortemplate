@@ -67,6 +67,17 @@ VimwikiCodeChar                     -> Comment
 VimwikiPreChar                      -> Comment
 VimwikiHeaderChar                   -> Comment
 VimwikiMarkers                      -> Comment
+; tex
+texZoneListings                     -> CodeListing
+texZone                             -> CodeListing
+texInputFile                        -> helpHyperTextJump
+texRefZone                          -> helpHyperTextJump
+texBeginEndModifier                 -> Comment
+texInputFileOpt                     -> Comment
+texItalStyle                        -> Italic
+texTypeStyle                        -> Comment
+texStatement                        -> Comment
+texBeginEnd                         -> Comment
 ; }}}
 
 Background: light
@@ -88,6 +99,7 @@ Color: brightblack   #bbbbbb                   ~         DarkGrey
 Color: brightred     #ffcccc                   ~         LightRed
 Color: brightgreen   #ccffcc                   ~         LightGreen
 Color: brightyellow  #ffffcc                   ~         LightYellow
+Color: bbrightyellow #ffffee                   ~         LightYellow
 Color: brightorange  #ffe5cc                   ~         LightYellow
 Color: brightblue    #ccccff                   ~         LightBlue
 Color: brightmagenta #ffccff                   ~         LightMagenta
@@ -118,6 +130,7 @@ Variant: gui 256 8
 #endif
 
 ; Group              Foreground        Background        Attributes
+Italic               none              none              italic
 ColorColumn          none              white
 Conceal              none              none
 Cursor               none              none              t=reverse
@@ -139,7 +152,7 @@ MatchParen           none              brightblue
 ModeMsg              brightblack       none
 MoreMsg              undefined         brightyellow
 NonText              brightblack       none
-Pmenu                none              white
+Pmenu                none              bbrightyellow
 PmenuSbar            undefined         brightcyan
 PmenuSel             undefined         brightcyan        reverse
 PmenuThumb           undefined         brightcyan
