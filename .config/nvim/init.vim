@@ -223,8 +223,13 @@ endfunction
 
 let g:colortemplate_no_mappings = 1
 
-let mono_transp_bg = 1
-colorscheme mono
+if empty($DISPLAY)
+  colorscheme fahrenheit
+else
+  set background=light
+  let mono_transp_bg = 1
+  colorscheme mono
+endif
 
   " git-messenger settings
     let g:git_messenger_always_into_popup = v:true
