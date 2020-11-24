@@ -154,6 +154,8 @@ set mouse=a
 "   BEHAVIOUR
 " -------------
 
+let g:netrw_browsex_viewer="feh"
+
   " indenting behaviour
     set autoindent  " automatically indent based on pre-/successors
     set smartindent " indent smartly (in C style langs)
