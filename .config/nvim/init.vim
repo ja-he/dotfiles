@@ -391,3 +391,4 @@ nnoremap <leader>h?   <cmd>echo SyntaxItem()<CR>
 
 nnoremap L :tabnext<CR>
 nnoremap H :tabprev<CR>
+vnoremap <leader>x c<C-R>=system("IFS='\n' read input; python -c \"print($input,end='')\"",@+)<CR><ESC>
