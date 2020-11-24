@@ -310,6 +310,7 @@ let g:which_key_map = {
 " which-key settings
 nnoremap <silent> <leader>      :WhichKey '<space>'<CR>
 nnoremap <silent> <localleader> :WhichKey '\'<CR>
+vnoremap <silent> <leader>      :WhichKeyVisual '<space>'<CR>
 set timeoutlen=500 " if you don't use which-key, this makes leader unusable
 
 " terminal mappings and settings
