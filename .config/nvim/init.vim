@@ -314,6 +314,9 @@ vnoremap <silent> <leader>      :WhichKeyVisual '<space>'<CR>
 set timeoutlen=500 " if you don't use which-key, this makes leader unusable
 
 " terminal mappings and settings
+nnoremap <leader>mc  :!make clean<CR>
+nnoremap <leader>ma  :!make<CR>
+nnoremap <leader>mp  :!pandoc "%" -f markdown -t pdf --citeproc -s -o ~/out.pdf<CR>
 nnoremap <leader>tmc :split <Bar> terminal make clean<CR>
 nnoremap <leader>tma :split <Bar> terminal make<CR>
 nnoremap <leader>tn  :split <Bar> terminal<CR>
