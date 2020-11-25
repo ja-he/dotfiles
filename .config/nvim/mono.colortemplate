@@ -60,6 +60,9 @@ fugitiveStagedModifier              -> DiffAdd
 IncSearch                           -> Search
 ; help
 helpExample                         -> helpCommand
+; markdown
+markdownCode                        -> CodeListing
+markdownCodeDelimiter               -> Comment
 ; vimwiki
 VimwikiPre                          -> CodeListing
 VimwikiCode                         -> CodeListing
