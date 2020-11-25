@@ -347,6 +347,8 @@ nnoremap <leader>s- :setlocal nospell<CR>
 nnoremap <leader>sd :setlocal spelllang=de<CR>
 nnoremap <leader>se :setlocal spelllang=en<CR>
 nnoremap <leader>se :setlocal spelllang=en<CR>
+nnoremap <leader>sc0 :setlocal conceallevel=0<CR>
+nnoremap <leader>sc2 :setlocal conceallevel=2<CR>
 
 " editing certain files binds
 nnoremap <leader>ecv :edit /home/ztf/repositories/dotfiles/.config/nvim/init.vim<CR>
