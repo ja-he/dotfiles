@@ -200,7 +200,8 @@ endfunction
 
     call plug#begin()
 "   Plug 'lifepillar/vim-colortemplate'
-    Plug 'vimwiki/vimwiki'
+"   Plug 'vimwiki/vimwiki'
+    Plug 'fcpg/vim-waikiki'
     Plug 'mhinz/vim-signify'
     Plug 'tpope/vim-fugitive'
     Plug 'rhysd/git-messenger.vim'
@@ -247,27 +248,31 @@ let g:fzf_preview_window = [ 'up:75%', 'ctrl-/']
 "   VIMWIKI
 " -----------
 
-    let g:vimwiki_list =
-      \ [
-        \ {  'path': '~/notes/mdwiki/'
-          \ ,'syntax': 'markdown'
-          \ ,'ext': '.md'
-          \ ,'custom_wiki2html': 'vimwiki_markdown'
-          \ ,'nested_syntaxes': {}
-          \ ,'automatic_nested_syntaxes': 0
-        \ },
-        \ {'path': '~/notes/wiki/vimwiki/'
-          \ ,'template_path': '~/notes/wiki/'
-          \ ,'template_default': 'ztf-template'
-          \ ,'template_ext': '.html'
-        \ },
-        \ {'path': '~/notes/wiki/vimwiki/thesis/'
-          \ ,'path_html':'~/notes/wiki/vimwiki_html/thesis/'
-          \ ,'template_path': '~/notes/'
-          \ ,'template_default': 'thesis-template'
-          \ ,'template_ext': '.html'
-        \ }
-      \ ]
+let g:waikiki_roots = ['~/notes/mdwiki']
+let maplocalleader = "\<F7>"
+let g:waikiki_default_maps = 1
+
+"   let g:vimwiki_list =
+"     \ [
+"       \ {  'path': '~/notes/mdwiki/'
+"         \ ,'syntax': 'markdown'
+"         \ ,'ext': '.md'
+"         \ ,'custom_wiki2html': 'vimwiki_markdown'
+"         \ ,'nested_syntaxes': {}
+"         \ ,'automatic_nested_syntaxes': 0
+"       \ },
+"       \ {'path': '~/notes/wiki/vimwiki/'
+"         \ ,'template_path': '~/notes/wiki/'
+"         \ ,'template_default': 'ztf-template'
+"         \ ,'template_ext': '.html'
+"       \ },
+"       \ {'path': '~/notes/wiki/vimwiki/thesis/'
+"         \ ,'path_html':'~/notes/wiki/vimwiki_html/thesis/'
+"         \ ,'template_path': '~/notes/'
+"         \ ,'template_default': 'thesis-template'
+"         \ ,'template_ext': '.html'
+"       \ }
+"     \ ]
 
 " set up stuff that's configured via lua
 lua require('set_up_nvim_lsp')
@@ -375,7 +380,8 @@ nnoremap <leader>fl :BLines<CR>
 nnoremap <leader>fL :BLines!<CR>
 nnoremap <leader>fc :Colors<CR>
 nnoremap <leader>fh :Helptags<CR>
-nnoremap <leader>fn :cd /home/ztf/notes/wiki/vimwiki <bar> Ag<CR>
+nnoremap <leader>fw :cd /home/ztf/notes/wiki/vimwiki <bar> Ag<CR>
+nnoremap <leader>fn :cd /home/ztf/notes/mdwiki <bar> Ag<CR>
 
 " vimwiki mappings
 nmap <LocalLeader>wa :VimwikiAll2HTML<CR>
