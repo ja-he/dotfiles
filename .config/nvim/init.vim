@@ -207,8 +207,8 @@ endfunction
     Plug 'rhysd/git-messenger.vim'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
-"   Plug 'SirVer/ultisnips'
-"   Plug 'honza/vim-snippets'
+    Plug 'SirVer/ultisnips'
+    Plug 'honza/vim-snippets'
 "   Plug 'vim-pandoc/vim-pandoc'
 "   Plug 'vim-pandoc/vim-pandoc-syntax'
     Plug 'chrisbra/unicode.vim'
@@ -380,6 +380,7 @@ nnoremap <leader>fl :BLines<CR>
 nnoremap <leader>fL :BLines!<CR>
 nnoremap <leader>fc :Colors<CR>
 nnoremap <leader>fh :Helptags<CR>
+nnoremap <leader>fh :Snippets<CR>
 nnoremap <leader>fw :cd /home/ztf/notes/wiki/vimwiki <bar> Ag<CR>
 nnoremap <leader>fn :cd /home/ztf/notes/mdwiki <bar> Ag<CR>
 
