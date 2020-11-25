@@ -342,6 +342,15 @@ autocmd TermOpen term://* startinsert
 autocmd FileType markdown,vimwiki,tex set textwidth=80
 autocmd FileType gitcommit,text       set textwidth=68
 
+function! WaikikiSetup()
+  nmap <Tab>    <Plug>(waikikiNextLink)
+  nmap <S-Tab>  <Plug>(waikikiPrevLink)
+  nmap <CR>     <Plug>(waikikiFollowLink)
+  nmap <BS>     <Plug>(waikikiGoUp)
+endfunction
+
+autocmd FileType markdown call WaikikiSetup()
+
 nnoremap <leader>nt :tabnew<CR>
 
 nnoremap <leader>vm :mkview<CR>
@@ -353,14 +362,25 @@ nnoremap <leader>s- :setlocal nospell<CR>
 nnoremap <leader>sd :setlocal spelllang=de<CR>
 nnoremap <leader>se :setlocal spelllang=en<CR>
 nnoremap <leader>se :setlocal spelllang=en<CR>
-nnoremap <leader>sc0 :setlocal conceallevel=0<CR>
-nnoremap <leader>sc2 :setlocal conceallevel=2<CR>
+
+function! Conceal()
+  setlocal conceallevel=2
+  setlocal concealcursor-=n
+endfunction
+
+function! NoConceal()
+  setlocal conceallevel=0
+endfunction
+
+nnoremap <leader>sc :call Conceal()<CR>
+nnoremap <leader>sC :call NoConceal()<CR>
 
 " editing certain files binds
 nnoremap <leader>ecv :edit /home/ztf/repositories/dotfiles/.config/nvim/init.vim<CR>
 nnoremap <leader>ecc :edit /home/ztf/repositories/dotfiles/.config/nvim/plugged/vim-colortemplate/templates/mono.colortemplate<CR>
 nnoremap <leader>eci :edit /home/ztf/repositories/dotfiles/.config/i3/config<CR>
 nnoremap <leader>ecs :edit /home/ztf/repositories/dotfiles/.config/i3status-rust/config.toml<CR>
+nnoremap <leader>ew  :edit /home/ztf/notes/mdwiki/index.md<CR>
 
 " vim-fugitive bindings
 nnoremap <leader>gs :Gstatus<CR>
@@ -385,9 +405,9 @@ nnoremap <leader>fw :cd /home/ztf/notes/wiki/vimwiki <bar> Ag<CR>
 nnoremap <leader>fn :cd /home/ztf/notes/mdwiki <bar> Ag<CR>
 
 " vimwiki mappings
-nmap <LocalLeader>wa :VimwikiAll2HTML<CR>
-nnoremap <leader>ew :VimwikiIndex<CR>
-nnoremap <LocalLeader>wT :VimwikiTOC<CR>
+"nmap <LocalLeader>wa :VimwikiAll2HTML<CR>
+"nnoremap <leader>ew :VimwikiIndex<CR>
+"nnoremap <LocalLeader>wT :VimwikiTOC<CR>
 
 " lsp keymappings (per example, adjusted by me)
 nnoremap <leader>ld   <cmd>lua vim.lsp.buf.declaration()<CR>
