@@ -148,6 +148,9 @@ set mouse=a
   " set the colorscheme to my preferred colorscheme
   "  colorscheme monochrome-light
 
+" don't apply conceallevel on cursor line in normal mode
+set concealcursor-=n
+
 " __________________________________________________________________
 
 " -------------
