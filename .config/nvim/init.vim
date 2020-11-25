@@ -404,11 +404,12 @@ nnoremap <leader>ls   <cmd>:echo LspStatus()<CR>
 nnoremap <leader>len  <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 nnoremap <leader>lep  <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 nnoremap <leader>lel  <cmd>lua vim.lsp.diagnostic.set_loclist()<CR>
-nnoremap <leader>lo   <cmd>lua vim.lsp.stop_client(vim.lsp.get_active_clients())<CR>
+"nnoremap <leader>lo   <cmd>lua vim.lsp.stop_client(vim.lsp.get_active_clients())<CR>
 "nnoremap <leader>lO "[turn on lsp again, somehow]
 
 nnoremap <leader>h?   <cmd>echo SyntaxItem()<CR>
 
 nnoremap L :tabnext<CR>
 nnoremap H :tabprev<CR>
+
 vnoremap <leader>x c<C-R>=system("IFS='\n' read input; python -c \"print($input,end='')\"",@+)<CR><ESC>
