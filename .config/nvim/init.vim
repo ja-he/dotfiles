@@ -334,7 +334,8 @@ nnoremap <leader>tc  :split <Bar> execute "terminal $(echo " . shellescape(getre
 nnoremap <leader>tt  :split <Bar> terminal %<CR>
 autocmd TermOpen term://* startinsert
 
-autocmd FileType markdown,vimwiki,tex,text,gitcommit set textwidth=80
+autocmd FileType markdown,vimwiki,tex set textwidth=80
+autocmd FileType gitcommit,text       set textwidth=68
 
 nnoremap <leader>nt :tabnew<CR>
 
