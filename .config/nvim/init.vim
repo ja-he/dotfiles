@@ -434,3 +434,8 @@ nnoremap L :tabnext<CR>
 nnoremap H :tabprev<CR>
 
 vnoremap <leader>x c<C-R>=system("IFS='\n' read input; python -c \"print($input,end='')\"",@+)<CR><ESC>
+
+augroup highlight_yank
+    autocmd!
+    au TextYankPost * silent! lua vim.highlight.on_yank { higroup='DiffAdd', timeout=200 }
+augroup END
