@@ -400,7 +400,7 @@ nnoremap <leader>fl :BLines<CR>
 nnoremap <leader>fL :BLines!<CR>
 nnoremap <leader>fc :Colors<CR>
 nnoremap <leader>fh :Helptags<CR>
-nnoremap <leader>fh :Snippets<CR>
+nnoremap <leader>fs :Snippets<CR>
 nnoremap <leader>fw :cd /home/ztf/notes/wiki/vimwiki <bar> Ag<CR>
 nnoremap <leader>fn :cd /home/ztf/notes/mdwiki <bar> Ag<CR>
 
