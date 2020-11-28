@@ -210,7 +210,7 @@ endfunction
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
 "   Plug 'vim-pandoc/vim-pandoc'
-"   Plug 'vim-pandoc/vim-pandoc-syntax'
+    Plug 'vim-pandoc/vim-pandoc-syntax'
     Plug 'chrisbra/unicode.vim'
     Plug 'kylelaker/riscv.vim'
     Plug 'liuchengxu/vim-which-key'
