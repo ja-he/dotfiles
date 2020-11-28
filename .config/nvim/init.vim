@@ -222,6 +222,7 @@ endfunction
     Plug 'nvim-lua/lsp-status.nvim'
     Plug 'nvim-lua/completion-nvim'
     Plug 'tweekmonster/startuptime.vim'
+    Plug 'voldikss/vim-floaterm'
 "   Plug 'lervag/vimtex'
     call plug#end()
 
@@ -330,13 +331,14 @@ set timeoutlen=500 " if you don't use which-key, this makes leader unusable
 nnoremap <leader>mc  :!make clean<CR>
 nnoremap <leader>ma  :!make<CR>
 nnoremap <leader>mp  :!pandoc "%" -f markdown -t pdf --citeproc -s -o ~/out.pdf<CR>
-nnoremap <leader>tmc :split <Bar> terminal make clean<CR>
-nnoremap <leader>tma :split <Bar> terminal make<CR>
-nnoremap <leader>tn  :split <Bar> terminal<CR>
-nnoremap <leader>tp  :split <Bar> terminal python3<CR>
+nnoremap <leader>tmc :FloatermNew make clean<CR>
+nnoremap <leader>tma :FloatermNew make<CR>
+nnoremap <leader>tmp :FloatermNew pandoc "%" -f markdown -t pdf --citeproc -s -o ~/out.pdf<CR>
+nnoremap <leader>tn  :FloatermNew<CR>
+nnoremap <leader>tp  :FloatermNew python3<CR>
 "nnoremap <leader>tc  :split <Bar> terminal $(xclip -o -sel clipboard)<CR>
 nnoremap <leader>tc  :split <Bar> execute "terminal $(echo " . shellescape(getreg("+")) . ")"<CR>
-nnoremap <leader>tt  :split <Bar> terminal ./%<CR>
+nnoremap <leader>tt  :FloatermNew ./%<CR>
 autocmd TermOpen term://* startinsert
 
 autocmd FileType markdown,vimwiki,tex set textwidth=80
