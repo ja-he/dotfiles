@@ -386,6 +386,11 @@ nnoremap <leader>eci :edit /home/ztf/repositories/dotfiles/.config/i3/config<CR>
 nnoremap <leader>ecs :edit /home/ztf/repositories/dotfiles/.config/i3status-rust/config.toml<CR>
 nnoremap <leader>ew  :edit /home/ztf/notes/mdwiki/index.md<CR>
 
+let g:floaterm_autoclose = 1
+let g:floaterm_title = 'shell'
+let g:floaterm_width = 0.8
+let g:floaterm_height = 0.7
+
 " vim-fugitive bindings
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gS :tab Gstatus<CR>
