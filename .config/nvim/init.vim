@@ -224,6 +224,7 @@ endfunction
     Plug 'tweekmonster/startuptime.vim'
     Plug 'voldikss/vim-floaterm'
 "   Plug 'lervag/vimtex'
+    Plug 'metakirby5/codi.vim'
     call plug#end()
 
 let g:colortemplate_no_mappings = 1
