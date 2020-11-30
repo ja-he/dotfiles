@@ -337,8 +337,6 @@ nnoremap <leader>tma :FloatermNew make<CR>
 nnoremap <leader>tmp :FloatermNew pandoc "%" -f markdown -t pdf --citeproc -s -o ~/out.pdf<CR>
 nnoremap <leader>tn  :FloatermNew<CR>
 nnoremap <leader>tp  :FloatermNew python3<CR>
-"nnoremap <leader>tc  :split <Bar> terminal $(xclip -o -sel clipboard)<CR>
-nnoremap <leader>tc  :split <Bar> execute "terminal $(echo " . shellescape(getreg("+")) . ")"<CR>
 nnoremap <leader>tt  :FloatermNew ./%<CR>
 autocmd TermOpen term://* startinsert
 
