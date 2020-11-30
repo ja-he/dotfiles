@@ -397,6 +397,7 @@ nnoremap <leader>gS :tab Gstatus<CR>
 nnoremap <leader>gb :Gblame<CR>
 nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gf :Gfetch<CR>
+nnoremap <leader>gd :FloatermNew --width=0.9 git diff %<CR>
 " signify bindings
 nnoremap <silent> <leader>gh :SignifyToggle<CR>
 
