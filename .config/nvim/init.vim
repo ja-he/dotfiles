@@ -340,6 +340,7 @@ nnoremap <leader>tce :FloatermNew --autoclose=0 g++ % -o %< && ./%<<CR>
 nnoremap <leader>tt  :FloatermNew ./%<CR>
 nnoremap <leader>tpf :FloatermNew ipython<CR>
 nnoremap <leader>tps :FloatermNew --wintype=normal ipython<CR>
+vnoremap <leader>ts  :FloatermSend<CR>
 autocmd TermOpen term://* startinsert
 
 autocmd FileType markdown,vimwiki,tex set textwidth=80
