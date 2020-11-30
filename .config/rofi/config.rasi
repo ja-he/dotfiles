@@ -2,7 +2,7 @@ configuration {
 	width: 20;
 	lines: 6;
 	columns: 1;
-	font: "Iosevka 11";
+	font: "Sarasa Mono SC 11";
 	bw: 1;
 	padding: 4;
 	hide-scrollbar: false;
