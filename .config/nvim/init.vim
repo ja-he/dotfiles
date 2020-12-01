@@ -381,7 +381,7 @@ nnoremap <leader>sC :call NoConceal()<CR>
 
 " editing certain files binds
 nnoremap <leader>ecv :edit /home/ztf/repositories/dotfiles/.config/nvim/init.vim<CR>
-nnoremap <leader>ecc :edit /home/ztf/repositories/dotfiles/.config/nvim/plugged/vim-colortemplate/templates/mono.colortemplate<CR>
+nnoremap <leader>ecc :edit /home/ztf/repositories/dotfiles/.config/nvim/colors/mono.vim<CR>
 nnoremap <leader>eci :edit /home/ztf/repositories/dotfiles/.config/i3/config<CR>
 nnoremap <leader>ecs :edit /home/ztf/repositories/dotfiles/.config/i3status-rust/config.toml<CR>
 nnoremap <leader>ew  :edit /home/ztf/notes/mdwiki/index.md<CR>
