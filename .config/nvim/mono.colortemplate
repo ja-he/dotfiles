@@ -23,7 +23,7 @@ Character         -> Constant
 Conditional       -> Statement
 Debug             -> Special
 Define            -> PreProc
-Delimiter         -> Special
+Delimiter         -> Comment
 Exception         -> Statement
 Float             -> Constant
 Function          -> Identifier
@@ -63,6 +63,7 @@ helpExample                         -> helpCommand
 ; markdown
 markdownCode                        -> CodeListing
 markdownCodeDelimiter               -> Comment
+markdownItalic                      -> Italic
 ; vimwiki
 VimwikiPre                          -> CodeListing
 VimwikiCode                         -> CodeListing
@@ -70,6 +71,20 @@ VimwikiCodeChar                     -> Comment
 VimwikiPreChar                      -> Comment
 VimwikiHeaderChar                   -> Comment
 VimwikiMarkers                      -> Comment
+; pandoc
+pandocNoFormatted                   -> CodeListing
+pandocDelimitedCodeBlock            -> CodeListing
+pandocDelimitedCodeBlockStart       -> Comment
+pandocDelimitedCodeBlockEnd         -> Comment
+pandocOperator                      -> Comment
+pandocEmphasis                      -> Italic
+pandocStrong                        -> Bold
+pandocAtxStart                      -> Comment
+pandocFootnoteBlock                 -> Normal
+pandocFootnoteBlockSeparator        -> Comment
+pandocFootnoteID                    -> Link
+pandocFootnoteIDHead                -> Comment
+pandocFootnoteIDTail                -> Comment
 ; tex
 texZoneListings                     -> CodeListing
 texZone                             -> CodeListing
@@ -81,6 +96,12 @@ texItalStyle                        -> Italic
 texTypeStyle                        -> Comment
 texStatement                        -> Comment
 texBeginEnd                         -> Comment
+texMath                             -> Math
+texMathZoneX                        -> Math
+texMathZoneY                        -> Math
+texSubscript                        -> Math
+texSubscripts                       -> Math
+texMathOper                         -> Comment
 ; }}}
 
 Background: light
@@ -134,8 +155,10 @@ Variant: gui 256 8
 
 ; Group              Foreground        Background        Attributes
 Italic               none              none              italic
+Bold                 none              none              bold
+Math                 red               none
 ColorColumn          none              white
-Conceal              none              none
+Conceal              red               none
 Cursor               none              none              t=reverse
 CursorColumn         none              none
 CursorLine           none              white
