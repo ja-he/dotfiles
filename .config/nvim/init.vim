@@ -359,7 +359,7 @@ function! WaikikiSetup()
   nmap <BS>     <Plug>(waikikiGoUp)
 endfunction
 
-autocmd FileType markdown,pandoc call WaikikiSetup()
+autocmd FileType pandoc call WaikikiSetup()
 
 nnoremap <leader>nt :tabnew<CR>
 
