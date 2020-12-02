@@ -347,8 +347,10 @@ nnoremap <leader>tps :FloatermNew --wintype=normal ipython<CR>
 vnoremap <leader>ts  :FloatermSend<CR>
 autocmd TermOpen term://* startinsert
 
-autocmd FileType markdown,vimwiki,tex set textwidth=80
+autocmd FileType pandoc,tex  set textwidth=80
 autocmd FileType gitcommit,text       set textwidth=68
+autocmd FileType markdown             set filetype=pandoc
+autocmd FileType pandoc               colo mono
 
 function! WaikikiSetup()
   nmap <Tab>    <Plug>(waikikiNextLink)
