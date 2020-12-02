@@ -227,6 +227,10 @@ endfunction
     Plug 'metakirby5/codi.vim'
     call plug#end()
 
+let g:pandoc#syntax#conceal#use = 1
+let g:pandoc#syntax#conceal#blacklist = ['atx','footnote','subscript']
+let g:pandoc#syntax#conceal#cchar_overrides = {}
+
 let g:colortemplate_no_mappings = 1
 
 if empty($DISPLAY)
