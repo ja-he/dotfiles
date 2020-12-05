@@ -340,8 +340,8 @@ nnoremap <leader>tmc :FloatermNew make clean<CR>
 nnoremap <leader>tma :FloatermNew make<CR>
 nnoremap <leader>tmp :FloatermNew pandoc "%" -f markdown -t pdf --citeproc -s -o ~/out.pdf<CR>
 nnoremap <leader>tn  :FloatermNew<CR>
-nnoremap <leader>tce :FloatermNew --autoclose=0 g++ % -o %< && ./%<<CR>
-nnoremap <leader>tt  :FloatermNew ./%<CR>
+nnoremap <leader>tce :FloatermNew --autoclose=0 g++ "%" -o %< && "./%<"<CR>
+nnoremap <leader>tt  :FloatermNew "./%"<CR>
 nnoremap <leader>tpf :FloatermNew ipython<CR>
 nnoremap <leader>tps :FloatermNew --wintype=normal ipython<CR>
 vnoremap <leader>ts  :FloatermSend<CR>
