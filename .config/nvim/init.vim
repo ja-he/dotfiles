@@ -352,7 +352,7 @@ nnoremap <F1>           :FloatermToggle<CR>
 
 autocmd FileType pandoc,tex  set textwidth=80
 autocmd FileType gitcommit,text       set textwidth=68
-autocmd FileType markdown             set filetype=pandoc
+"autocmd FileType markdown             set filetype=pandoc
 autocmd FileType pandoc               colo mono
 
 function! WaikikiSetup()
@@ -362,7 +362,7 @@ function! WaikikiSetup()
   nmap <BS>     <Plug>(waikikiGoUp)
 endfunction
 
-autocmd FileType pandoc call WaikikiSetup()
+"autocmd FileType pandoc call WaikikiSetup()
 
 nnoremap <leader>nt :tabnew<CR>
 
