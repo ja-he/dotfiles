@@ -347,6 +347,9 @@ nnoremap <leader>tps :FloatermNew --wintype=normal ipython<CR>
 vnoremap <leader>ts  :FloatermSend<CR>
 autocmd TermOpen term://* startinsert
 
+tnoremap <F1> <c-\><c-n>:FloatermToggle<CR>
+nnoremap <F1>           :FloatermToggle<CR>
+
 autocmd FileType pandoc,tex  set textwidth=80
 autocmd FileType gitcommit,text       set textwidth=68
 autocmd FileType markdown             set filetype=pandoc
