@@ -228,8 +228,9 @@ endfunction
     call plug#end()
 
 let g:pandoc#syntax#conceal#use = 1
-let g:pandoc#syntax#conceal#blacklist = ['atx','footnote','subscript']
+let g:pandoc#syntax#conceal#blacklist = ['atx','footnote','subscript',"codeblock_delim"]
 let g:pandoc#syntax#conceal#cchar_overrides = {}
+let g:pandoc#syntax#codeblocks#embeds#use = 0
 
 let g:colortemplate_no_mappings = 1
 
@@ -350,10 +351,9 @@ autocmd TermOpen term://* startinsert
 tnoremap <F1> <c-\><c-n>:FloatermToggle<CR>
 nnoremap <F1>           :FloatermToggle<CR>
 
-autocmd FileType pandoc,tex  set textwidth=80
 autocmd FileType gitcommit,text       set textwidth=68
-"autocmd FileType markdown             set filetype=pandoc
-autocmd FileType pandoc               colo mono
+autocmd FileType markdown             set filetype=pandoc
+autocmd FileType tex                  set textwidth=80
 
 function! WaikikiSetup()
   nmap <Tab>    <Plug>(waikikiNextLink)
@@ -362,7 +362,8 @@ function! WaikikiSetup()
   nmap <BS>     <Plug>(waikikiGoUp)
 endfunction
 
-"autocmd FileType pandoc call WaikikiSetup()
+autocmd FileType pandoc call WaikikiSetup()
+autocmd FileType pandoc               set textwidth=80
 
 nnoremap <leader>nt :tabnew<CR>
 
@@ -375,6 +376,8 @@ nnoremap <leader>s- :setlocal nospell<CR>
 nnoremap <leader>sd :setlocal spelllang=de<CR>
 nnoremap <leader>se :setlocal spelllang=en<CR>
 nnoremap <leader>se :setlocal spelllang=en<CR>
+
+nnoremap <leader>c :colo mono<CR>
 
 function! Conceal()
   setlocal conceallevel=2
