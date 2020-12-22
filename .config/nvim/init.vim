@@ -215,7 +215,7 @@ endfunction
     Plug 'kylelaker/riscv.vim'
     Plug 'liuchengxu/vim-which-key'
     Plug 'liuchengxu/vista.vim'
-    Plug 'itchyny/lightline.vim'
+"   Plug 'itchyny/lightline.vim'
     Plug 'norcalli/nvim-colorizer.lua'
     " add the lsp plugins for nvim 0.5
     Plug 'neovim/nvim-lspconfig'
@@ -294,18 +294,18 @@ function! LspStatus() abort
 endfunction
 
 " set up lightline
- let g:lightline = {
-     \   'colorscheme': 'one',
-     \   'active': {
-     \     'left': [
-     \       [ 'mode', 'paste' ],
-     \       [ 'readonly', 'modified', 'filename', 'syn_hl_group']
-     \     ],
-     \   },
-       \ 'component_function': {
-       \   'syn_hl_group': 'SyntaxItem',
-       \ },
-     \ }
+"let g:lightline = {
+"    \   'colorscheme': 'one',
+"    \   'active': {
+"    \     'left': [
+"    \       [ 'mode', 'paste' ],
+"    \       [ 'readonly', 'modified', 'filename', 'syn_hl_group']
+"    \     ],
+"    \   },
+"      \ 'component_function': {
+"      \   'syn_hl_group': 'SyntaxItem',
+"      \ },
+"    \ }
 
 " ---------
 "   BINDS
