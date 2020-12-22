@@ -336,10 +336,11 @@ set timeoutlen=500 " if you don't use which-key, this makes leader unusable
 " terminal mappings and settings
 nnoremap <leader>mc  :!make clean<CR>
 nnoremap <leader>ma  :!make<CR>
-nnoremap <leader>mp  :!pandoc "%" -f markdown -t pdf --citeproc -s -o ~/out.pdf<CR>
+nnoremap <leader>mpp :!pandoc "%" -f markdown -t pdf --citeproc -s -o ~/out.pdf<CR>
+nnoremap <leader>mph :!pandoc "%" -f markdown+emoji -t html --citeproc -s -o ~/out.html<CR>
 nnoremap <leader>tmc :FloatermNew make clean<CR>
 nnoremap <leader>tma :FloatermNew make<CR>
-nnoremap <leader>tmp :FloatermNew pandoc "%" -f markdown -t pdf --citeproc -s -o ~/out.pdf<CR>
+nnoremap <leader>tmpp :FloatermNew pandoc "%" -f markdown -t pdf --citeproc -s -o ~/out.pdf<CR>
 nnoremap <leader>tn  :FloatermNew<CR>
 nnoremap <leader>tce :FloatermNew --autoclose=0 g++ "%" -o %< && "./%<"<CR>
 nnoremap <leader>tt  :FloatermNew --autoclose=0 "./%"<CR>
