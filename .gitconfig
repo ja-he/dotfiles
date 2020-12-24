@@ -3,7 +3,7 @@
     name = Jan Hensel
 
 [core]
-    pager = delta
+    pager = delta --light
 
 [interactive]
     diffFilter = delta --color-only
