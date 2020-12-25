@@ -225,6 +225,7 @@ endfunction
     Plug 'voldikss/vim-floaterm'
 "   Plug 'lervag/vimtex'
     Plug 'metakirby5/codi.vim'
+    Plug 'tjdevries/colorbuddy.vim'
     call plug#end()
 
 let g:pandoc#syntax#conceal#use = 1
