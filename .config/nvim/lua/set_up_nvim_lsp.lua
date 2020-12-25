@@ -33,7 +33,6 @@ lspconfig.clangd.setup{
   capabilities = lsp_status.capabilities,
   settings = {
     cmd = { "clangd", 
-              "--background-index",
               "-j=10",
               "--clang-tidy" ,
               "--suggest-missing-includes" ,
