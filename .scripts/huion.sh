@@ -1,5 +1,15 @@
 #!/bin/bash
 
+get_huion_monitor() {
+  # NOTE: assumes only one HDMI output connected (the Huion)
+  xrandr | grep ' connected' | grep HDMI | cut -d' ' -f1 | xargs
+}
+
+get_main_monitor() {
+  # NOTE: assumes only exactly one more output connected (besides the Huion)
+  xrandr | grep ' connected' | grep -v HDMI | cut -d' ' -f1 | xargs
+}
+
 print_help() {
   echo "a script to map the Huion Kamvas 13 (2020) pen tablet input to its display"
   echo "|"
@@ -19,19 +29,21 @@ if [ -z $1 ]; then
 fi
 
 dev="$(xinput | grep "Tablet Monitor Pen Pen" | cut -f2 | cut -c4- | xargs)"
-monitor=
+echo "found device '$dev'"
+
+huion_monitor=$(get_huion_monitor)
+echo "found huion output '$huion_monitor'"
+main_monitor=$(get_main_monitor)
+echo "found other output '$main_monitor'"
 
 if   [ "$1" == "landscape" ]; then
-  monitor=HDMI1
-  xrandr --output HDMI1 --mode 1920x1080 --rotate normal
+  xrandr --output $huion_monitor --mode 1920x1080 --rotate normal
 elif [ "$1" == "portrait" ]; then
-  monitor=HDMI1
-  xrandr --output HDMI1 --mode 1920x1080 --rotate left
+  xrandr --output $huion_monitor --mode 1920x1080 --rotate left
 elif [ "$1" == "tablet" ]; then
-  monitor=eDP1
-  xrandr --output HDMI1 --off
+  xrandr --output $huion_monitor --off
 elif [ "$1" == "off" ]; then
-  xrandr --output HDMI1 --off
+  xrandr --output $huion_monitor --off
   exit 0
 else
   echo "error: unknown command \"$1\""
@@ -39,5 +51,5 @@ else
   exit -1
 fi
 
-xinput map-to-output $dev $monitor
+xinput map-to-output $dev $huion_monitor
 exit 0
