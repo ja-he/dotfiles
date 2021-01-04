@@ -88,7 +88,7 @@ while true; do
     sleep 1790
     notify-send "shutting down..." "good night :)"
     sleep   10
-    shutdown 0
+    systemctl suspend
   fi
 
   # if we were signaled to not run, then skip the checks
