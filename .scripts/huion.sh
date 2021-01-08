@@ -2,11 +2,13 @@
 
 get_huion_monitor() {
   # NOTE: assumes only one HDMI output connected (the Huion)
+  #       because it takes the first connected HDMI monitor
   xrandr | grep ' connected' | grep HDMI | cut -d' ' -f1 | xargs
 }
 
 get_main_monitor() {
   # NOTE: assumes only exactly one more output connected (besides the Huion)
+  #       because it takes the first connected non-HDMI monitor
   xrandr | grep ' connected' | grep -v HDMI | cut -d' ' -f1 | xargs
 }
 
@@ -38,6 +40,12 @@ echo "found other output '$main_monitor'"
 
 if   [ "$1" == "landscape" ]; then
   xrandr --output $huion_monitor --mode 1920x1080 --rotate normal
+elif [ "$1" == "dual" ]; then
+  xrandr --output $main_monitor  --mode 1920x1080 --rotate normal
+  xrandr --output $huion_monitor --mode 1920x1080 --rotate normal --left-of $main_monitor
+elif [ "$1" == "mirror" ]; then
+  xrandr --output $huion_monitor --mode 1920x1080 --rotate normal
+  xrandr --output $main_monitor  --same-as $huion_monitor
 elif [ "$1" == "portrait" ]; then
   xrandr --output $huion_monitor --mode 1920x1080 --rotate left
 elif [ "$1" == "tablet" ]; then
