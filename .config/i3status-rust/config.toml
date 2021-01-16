@@ -58,11 +58,6 @@ interval = 0.25
 format = "{barchart} ({frequency}GHz)"
 
 [[block]]
-block = "load"
-interval = 1
-format = "{1m}"
-
-[[block]]
 block = "temperature"
 collapsed = false
 interval = 10
