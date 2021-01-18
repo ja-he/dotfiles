@@ -3,7 +3,7 @@
     name = Jan Hensel
 
 [core]
-    pager = delta --light
+    pager = delta
 
 [interactive]
     diffFilter = delta --color-only
@@ -11,6 +11,8 @@
 [delta]
     features = side-by-side line-numbers decorations
     whitespace-error-style = 22 reverse
+    side-by-side = false
+    light = true
 
 [delta "decorations"]
     commit-decoration-style = bold yellow box ul
