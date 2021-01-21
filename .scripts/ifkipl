@@ -1,5 +1,0 @@
-#!/bin/bash
-
-clear
-cat ~/.scripts/variables/ifkipl
-mpv --volume=33 --no-video ~/.scripts/variables/ifkipl.mp3 > /dev/null
