@@ -9,7 +9,7 @@
 # that into
 #   '12:34|Asdf Jkl'.
 # (Here the single quotes are not part of the content.)
-parse_timestamp_line() {
+parse_timestamp_line_a() {
   # Takes format
   #  '<tracknum> [<timestamp>] <title>' e.g. '11 [43:30] Quiet and Falling'
   # and turns it into
@@ -20,6 +20,18 @@ parse_timestamp_line() {
         title="$(echo "${title}" | xargs)"
         echo "${timestamp}|${title}"
       done
+}
+parse_timestamp_line_b() {
+  # Takes format
+  #  '<timestamp> - <title>' e.g. '17:24 - Dawn'
+  # and turns it into
+  #  '<timestamp>|<title>'              e.g. '17:24|Dawn'.
+  while IFS='-' read timestamp title
+  do
+    title="${title# }"
+    timestamp="${timestamp% }"
+    echo "${timestamp}|${title}"
+  done
 }
 
 get_filename() {
@@ -55,7 +67,7 @@ prev_timestamp=''
 prev_title=''
 cat ${description_file} \
   | grep -P '[0-9]{2}:[0-9]{2}' \
-  | parse_timestamp_line \
+  | parse_timestamp_line_b \
   | while IFS='|' read timestamp title
     do
       if [[ -n ${prev_timestamp} ]]
