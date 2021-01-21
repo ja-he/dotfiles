@@ -56,7 +56,9 @@ youtube-dl --extract-audio --audio-quality 0 --audio-format mp3 ${url}
 
 # move to where i want it
 ytdl_filename="$(youtube-dl --get-filename ${url})"
-ytdl_filename="${ytdl_filename%.webm}.mp3"
+ytdl_filename="${ytdl_filename%.webm}"
+ytdl_filename="${ytdl_filename%.mp4}"
+ytdl_filename="${ytdl_filename}.mp3"
 mv "${ytdl_filename}" ${big_file}
 
 # get description into file
