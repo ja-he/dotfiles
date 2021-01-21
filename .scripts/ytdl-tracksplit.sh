@@ -68,7 +68,7 @@ youtube-dl --get-description ${url} > ${description_file}
 prev_timestamp=''
 prev_title=''
 cat ${description_file} \
-  | grep -P '[0-9]{2}:[0-9]{2}' \
+  | grep -P '[0-9]{1,2}:[0-9]{2}' \
   | parse_timestamp_line_b \
   | while IFS='|' read timestamp title
     do
