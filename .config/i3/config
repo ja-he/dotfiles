@@ -34,7 +34,7 @@ bindsym $mod+shift+Return exec alacritty -e nvim
 bindsym $mod+Shift+q kill
 
 # create and show a QR code for the current clipboard contents
-bindsym $mod+q exec xclip -selection clipboard -o | qrencode -o - |  feh --force-aliasing -
+bindsym $mod+q exec xclip -selection clipboard -o | qrencode -o - |  feh --zoom fill --geometry 800x800 --force-aliasing -
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec dmenu_run
@@ -105,6 +105,8 @@ bindsym $mod+a focus parent
 
 # focus the child container
 bindsym $mod+shift+a focus child
+
+for_window [class="feh"] floating enable
 
 # screenshot (select)
 #bindsym --release   $mod+z  exec scrot -f
