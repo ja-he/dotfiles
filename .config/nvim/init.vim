@@ -353,6 +353,7 @@ autocmd TermOpen term://* startinsert
 
 tnoremap <F1> <c-\><c-n>:FloatermToggle<CR>
 nnoremap <F1>           :FloatermToggle<CR>
+nnoremap <F12>          :FloatermNew --wintype=float --position=right --width=0.5 --height=1.0<CR>
 
 autocmd FileType gitcommit,text       set textwidth=68
 autocmd FileType markdown             set filetype=pandoc
