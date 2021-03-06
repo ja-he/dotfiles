@@ -55,7 +55,7 @@ format_swap = "{SUp}%"
 [[block]]
 block = "cpu"
 interval = 0.25
-format = "{barchart} ({frequency}GHz)"
+format = "{barchart} ({frequency})"
 
 [[block]]
 block = "temperature"
