@@ -341,7 +341,7 @@ nnoremap <leader>ma  :!make<CR>
 nnoremap <leader>mpp :!pandoc "%" -f markdown -t pdf --citeproc -s -o ~/out.pdf<CR>
 nnoremap <leader>mph :!pandoc "%" -f markdown+emoji -t html --citeproc -s -o ~/out.html<CR>
 nnoremap <leader>tmc :FloatermNew make clean<CR>
-nnoremap <leader>tma :FloatermNew make<CR>
+nnoremap <leader>tma :FloatermNew make -j8<CR>
 nnoremap <leader>tmpp :FloatermNew pandoc "%" -f markdown -t pdf --citeproc -s -o ~/out.pdf<CR>
 nnoremap <leader>tn  :FloatermNew<CR>
 nnoremap <leader>tce :FloatermNew --autoclose=0 g++ "%" -o %< && "./%<"<CR>
