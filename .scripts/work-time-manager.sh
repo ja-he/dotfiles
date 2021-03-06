@@ -26,8 +26,8 @@ if [[ "$1" == "continue" ]]; then
   kill '-SIGUSR2' "$pid"
   notify-send "mgr: continued"
 elif [[ "$1" == "pause" ]]; then
-  kill '-SIGUSR1' "$pid"
-  notify-send "mgr: paused"
+  kill "$pid"
+  notify-send "mgr: paused (killed)"
 elif [[ "$1" == "" ]]; then
   echo "no args given, simply ensured process is running"
 else
