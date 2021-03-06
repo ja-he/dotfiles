@@ -243,6 +243,8 @@ StatusLineNC                           brightblack       white
 TabLine                                brightblack       white
 TabLineSel                             black             brightblack
 TabLineFill                            none              white
+; ScrollView
+Scrollview                             black             black
 ; }}}
 
 ; B/W variant {{{

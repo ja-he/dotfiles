@@ -226,6 +226,7 @@ endfunction
 "   Plug 'lervag/vimtex'
     Plug 'metakirby5/codi.vim'
     Plug 'tjdevries/colorbuddy.vim'
+    Plug 'dstein64/nvim-scrollview'
     call plug#end()
 
 let g:pandoc#syntax#conceal#use = 1
