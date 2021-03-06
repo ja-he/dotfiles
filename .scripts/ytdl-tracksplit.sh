@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# usage:
+# TODO
+
 # You might have to do some legwork and implement this function yourself.
 # This is supposed to take the description timestamp format and convert it to
 # the format
