@@ -80,13 +80,13 @@ while true; do
   # get time
   timestr="$(date +%H%M)"
   timestr=${timestr#0*} # trim leading 0s
-  if [[ ${timestr} -ge 2330 ]]; then
+  if [[ ${timestr} -ge 2230 ]]; then
     notify-send "Past 23:30, initiating evening routine" \
                 "seriously, go to sleep soon :)"
     redshift -O 1400
     killall -q steam
-    sleep 1790
-    notify-send "shutting down..." "good night :)"
+    sleep $((30*60-10))
+    notify-send "suspending..." "good night :)"
     sleep   10
     systemctl suspend
   fi
