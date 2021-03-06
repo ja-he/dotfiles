@@ -18,10 +18,13 @@ print_help() {
   echo "| usage:"
   echo "|   ./huion.sh <command>"
   echo "| commands:"
-  echo "|   landscape : map to pen display in landscape mode"
-  echo "|   portrait  : map to pen display in portrait mode (buttons on top)"
-  echo "|   tablet    : map to main display, use only as drawing tablet"
-  echo "|   off       : turn off"
+  echo "|   landscape        map to pen display in landscape mode"
+  echo "|   dual             map to pen display in dual-screen mode"
+  echo "|   mirror           map to pen display in mirrored mode"
+  echo "|   portrait         map to pen display in portrait mode (buttons on top)"
+  echo "|   portrait_flipped map to pen display in portrait mode (buttons on bottom)"
+  echo "|   tablet           map to main display, use only as drawing tablet"
+  echo "|   off              turn off"
 }
 
 if [ -z $1 ]; then
@@ -42,12 +45,14 @@ if   [ "$1" == "landscape" ]; then
   xrandr --output $huion_monitor --mode 1920x1080 --rotate normal
 elif [ "$1" == "dual" ]; then
   xrandr --output $main_monitor  --mode 1920x1080 --rotate normal
-  xrandr --output $huion_monitor --mode 1920x1080 --rotate normal --left-of $main_monitor
+  xrandr --output $huion_monitor --mode 1920x1080 --rotate normal --below $main_monitor
 elif [ "$1" == "mirror" ]; then
   xrandr --output $huion_monitor --mode 1920x1080 --rotate normal
   xrandr --output $main_monitor  --same-as $huion_monitor
 elif [ "$1" == "portrait" ]; then
   xrandr --output $huion_monitor --mode 1920x1080 --rotate left
+elif [ "$1" == "portrait_flipped" ]; then
+  xrandr --output $huion_monitor --mode 1920x1080 --rotate right
 elif [ "$1" == "tablet" ]; then
   xrandr --output $huion_monitor --off
 elif [ "$1" == "off" ]; then
