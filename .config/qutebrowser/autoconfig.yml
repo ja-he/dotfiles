@@ -14,7 +14,26 @@ settings:
         K: forward
         L: tab-next
         h: tab-prev
+  content.desktop_capture:
+    https://bbb-2.elearning.uni-bremen.de: true
+    https://bbb-5.elearning.uni-bremen.de: true
+  content.geolocation:
+    https://www.google.com: false
+  content.media.audio_capture:
+    https://bbb-2.elearning.uni-bremen.de: true
+    https://bbb-4.elearning.uni-bremen.de: true
+    https://bbb-6.elearning.uni-bremen.de: true
+    https://bbb.zfn.uni-bremen.de: true
+  content.media.video_capture:
+    https://bbb-5.elearning.uni-bremen.de: true
   content.notifications:
     https://elearning.uni-bremen.de: true
     https://gitlab.informatik.uni-bremen.de: true
+    https://www.csoonline.com: false
+    https://www.pcwelt.de: false
     https://www.reddit.com: false
+    https://www.youtube.com: false
+  content.register_protocol_handler:
+    https://mail.google.com?extsrc=mailto&url=%25s: false
+  scrolling.bar:
+    global: always
