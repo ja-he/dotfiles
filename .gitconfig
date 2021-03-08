@@ -21,6 +21,7 @@
 
 [alias]
     graph = log --all --decorate --oneline --graph
+    ui = "!f() { nvim -c ':Gedit :'; }; f"
 [merge]
 	tool = meld
 [pull]
