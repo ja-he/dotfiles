@@ -115,7 +115,7 @@ if (has('termguicolors') && &termguicolors) || has('gui_running')
     let g:terminal_color_15 = '#ffffff'
   endif
   if get(g:, 'mono_transp_bg', 0) && !has('gui_running')
-    hi Normal guifg=#000000 guibg=NONE gui=NONE cterm=NONE
+    hi Normal guifg=#000000 guibg=#ffffff gui=NONE cterm=NONE
     hi Terminal guifg=#000000 guibg=NONE gui=NONE cterm=NONE
   else
     hi Normal guifg=#000000 guibg=#ffffff gui=NONE cterm=NONE
