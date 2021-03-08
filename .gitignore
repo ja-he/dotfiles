@@ -8,3 +8,13 @@
 *.html
 .scripts/variables/
 .scripts/quicktexfiles/content.tex
+/.config/cef_user_data/
+/.templates/cpp/.build/
+/.templates/cpp/myproj
+/.config/xfce4/
+/.config/pavucontrol.ini
+/.config/pulse/
+/.config/nvim/plugged/
+/.config/QtProject.conf
+/.config/discordcanary/
+/.config/gtk-3.0/bookmarks
