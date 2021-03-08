@@ -242,8 +242,7 @@ if empty($DISPLAY)
   colorscheme fahrenheit
 else
   set background=light
-  let mono_transp_bg = 1
-  colorscheme mono
+  colorscheme mono_lush
 endif
 
   " git-messenger settings
@@ -393,8 +392,6 @@ nnoremap <leader>sd :setlocal spelllang=de<CR>
 nnoremap <leader>se :setlocal spelllang=en<CR>
 nnoremap <leader>se :setlocal spelllang=en<CR>
 
-nnoremap <leader>c :colo mono<CR>
-
 function! Conceal()
   setlocal conceallevel=2
   setlocal concealcursor-=n
@@ -409,10 +406,13 @@ nnoremap <leader>sC :call NoConceal()<CR>
 
 " editing certain files binds
 nnoremap <leader>ecv :edit /home/ztf/repositories/dotfiles/.config/nvim/init.vim<CR>
-nnoremap <leader>ecc :edit /home/ztf/repositories/dotfiles/.config/nvim/colors/mono.vim<CR>
+nnoremap <leader>ecc :edit /home/ztf/repositories/dotfiles/.config/nvim/lua/mono_lush.lua<CR>
 nnoremap <leader>eci :edit /home/ztf/repositories/dotfiles/.config/i3/config<CR>
 nnoremap <leader>ecs :edit /home/ztf/repositories/dotfiles/.config/i3status-rust/config.toml<CR>
 nnoremap <leader>ew  :edit /home/ztf/notes/mdwiki/index.md<CR>
+
+nnoremap <leader>c :lua require'lush'.export_to_buffer(require'mono_lush')<CR>
+
 
 let g:floaterm_autoclose = 1
 let g:floaterm_title = 'shell'
