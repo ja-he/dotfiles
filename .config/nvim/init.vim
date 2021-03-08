@@ -228,6 +228,7 @@ endfunction
     Plug 'tjdevries/colorbuddy.vim'
     Plug 'dstein64/nvim-scrollview'
     Plug 'rktjmp/lush.nvim'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     call plug#end()
 
 let g:pandoc#syntax#conceal#use = 1
@@ -287,6 +288,16 @@ let g:waikiki_default_maps = 1
 " set up stuff that's configured via lua
 lua require('set_up_nvim_lsp')
 lua require('set_up_colorizer')
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    disable = { },  -- list of language that will be disabled
+  },
+}
+EOF
 
 " Statusline function
 function! LspStatus() abort
