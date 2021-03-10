@@ -15,6 +15,11 @@ local black  = hsl(0, 0, 0)  -- Vim has a mapping, <n>C-a and <n>C-x to
 local theme = lush(function()
   return {
 
+    VibrantRedText { fg = pale_red.darken(30) },
+    VibrantGreenText {  fg = pale_green.darken(30) },
+    VibrantBlueText {  fg = pale_blue.darken(30) },
+    VibrantYellowText {  fg = pale_yellow.darken(30) },
+
     Normal { bg = white, fg = black }, -- normal text
 
     CursorLine { bg = Normal.bg.darken(2) }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
@@ -37,6 +42,7 @@ local theme = lush(function()
     VertSplit { bg = StatusLineNC.bg, fg = StatusLineNC.bg },
 
     Comment { Whitespace, gui="italic" },
+    Todo { fg = VibrantRedText.fg , bg = pale_red, gui="italic" }, -- TODO: this should be highlighted, if it ain't we might have to wait on nvim-treesitter/issues/236 a bit longer...
     Constant { fg = dark_red },
     String { Comment, gui="bold" },
     Statement { fg = Normal.fg, gui="bold" },
@@ -70,11 +76,6 @@ local theme = lush(function()
     diffAdded { DiffAdd },
     diffRemoved { DiffDelete },
 
-    VibrantRedText { fg = pale_red.darken(30) },
-    VibrantGreenText {  fg = pale_green.darken(30) },
-    VibrantBlueText {  fg = pale_blue.darken(30) },
-    VibrantYellowText {  fg = pale_yellow.darken(30) },
-
     LspDiagnosticsDefaultError { VibrantRedText },
     LspDiagnosticsDefaultHint { VibrantGreenText },
     LspDiagnosticsDefaultInformation { VibrantBlueText },
@@ -83,6 +84,12 @@ local theme = lush(function()
     fugitiveUntrackedModifier { VibrantYellowText , gui = "bold"},
     fugitiveUnstagedModifier { VibrantRedText , gui = "bold"},
     fugitiveStagedModifier { VibrantGreenText, gui = "bold" },
+
+    Conceal { Special },
+
+    pandocAtxHeader { Identifier, gui = "bold,underline" },
+    pandocAtxStart  { pandocAtxHeader },
+    pandocEmphasis  { gui = "italic" },
 
   -- Math guifg=#cc0000 guibg=NONE gui=NONE cterm=NONE
   -- Conceal guifg=#cc0000 guibg=NONE gui=NONE cterm=NONE
