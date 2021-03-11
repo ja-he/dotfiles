@@ -22,3 +22,4 @@ alias isvpnup='curl -s https://www.privateinternetaccess.com |grep "You are prot
 alias please='echo "of course :)"; sudo $(fc -ln -1)'
 alias urxvtf='~/.scripts/urxvtf'
 alias nnvim='/home/ztf/local/nvim/bin/nvim'
+alias fn='nvim  -c ":cd /home/ztf/notes/mdwiki" -c ":Ag"'
