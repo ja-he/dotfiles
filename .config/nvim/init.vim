@@ -368,8 +368,12 @@ nnoremap <F1>           :FloatermToggle<CR>
 nnoremap <F12>          :FloatermNew --wintype=float --position=right --width=0.5 --height=1.0<CR>
 
 autocmd FileType gitcommit,text       set textwidth=68
-autocmd FileType markdown             set filetype=pandoc
+"autocmd FileType markdown             set filetype=pandoc
 autocmd FileType tex                  set textwidth=80
+
+augroup pandoc_syntax
+    au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
+augroup END
 
 function! WaikikiSetup()
   nmap <Tab>    <Plug>(waikikiNextLink)
@@ -378,8 +382,8 @@ function! WaikikiSetup()
   nmap <BS>     <Plug>(waikikiGoUp)
 endfunction
 
-autocmd FileType pandoc call WaikikiSetup()
-autocmd FileType pandoc               set textwidth=80
+autocmd FileType markdown.pandoc call WaikikiSetup()
+autocmd FileType markdown.pandoc               set textwidth=80
 
 nnoremap <leader>nt :tabnew<CR>
 
@@ -413,7 +417,7 @@ nnoremap <leader>ecs :edit /home/ztf/repositories/dotfiles/.config/i3status-rust
 nnoremap <leader>ew  :edit /home/ztf/notes/mdwiki/index.md<CR>
 
 nnoremap <leader>c :lua require'lush'.export_to_buffer(require'mono_lush')<CR>
-
+nnoremap <leader>C :edit /home/ztf/repositories/dotfiles/.config/nvim/colors/mono_lush.vim<CR>
 
 let g:floaterm_autoclose = 1
 let g:floaterm_title = 'shell'
