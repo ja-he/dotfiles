@@ -11,6 +11,7 @@ local dark_red = hsl(0,80,35)
 
 local white  = hsl(2, 50, 100)  -- Vim has a mapping, <n>C-a and <n>C-x to
 local black  = hsl(0, 0, 0)  -- Vim has a mapping, <n>C-a and <n>C-x to
+local light_grey = white.darken(2)
 
 local theme = lush(function()
   return {
@@ -20,9 +21,11 @@ local theme = lush(function()
     VibrantBlueText {  fg = pale_blue.darken(30) },
     VibrantYellowText {  fg = pale_yellow.darken(30) },
 
+    Code { fg = black, bg = light_grey },
+
     Normal { bg = white, fg = black }, -- normal text
 
-    CursorLine { bg = Normal.bg.darken(2) }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
+    CursorLine { bg = light_grey }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
     CursorColumn { CursorLine },
 
     Whitespace { fg = Normal.fg.lighten(85) },
@@ -85,11 +88,20 @@ local theme = lush(function()
     fugitiveUnstagedModifier { VibrantRedText , gui = "bold"},
     fugitiveStagedModifier { VibrantGreenText, gui = "bold" },
 
-    Conceal { Special },
+    Conceal { Constant },
 
     pandocAtxHeader { Identifier, gui = "bold,underline" },
     pandocAtxStart  { pandocAtxHeader },
+    pandocDefinitionBlockTerm { Special },
+    pandocDefinitionBlockMark { Special },
     pandocEmphasis  { gui = "italic" },
+    pandocListItemBulletId  { Conceal },
+    pandocNoFormatted  { Code },
+    pandocNoFormattedInEmphasis  { pandocNoFormatted , gui = "italic" },
+    pandocDelimitedCodeBlock  { pandocNoFormatted },
+
+    helpExample { Code },
+    helpCommand { Code },
 
   -- Math guifg=#cc0000 guibg=NONE gui=NONE cterm=NONE
   -- Conceal guifg=#cc0000 guibg=NONE gui=NONE cterm=NONE
