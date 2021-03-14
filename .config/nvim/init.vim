@@ -253,6 +253,7 @@ endif
 
 " ... [ <size> , <contents preview toggle keymapping> ]
 let g:fzf_preview_window = [ 'up:75%', 'ctrl-/']
+let g:fzf_layout = { 'window': { 'width': 1.0, 'height': 1.0 } }
 
 " -----------
 "   VIMWIKI
