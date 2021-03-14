@@ -397,6 +397,8 @@ nnoremap <leader>sd :setlocal spelllang=de<CR>
 nnoremap <leader>se :setlocal spelllang=en<CR>
 nnoremap <leader>se :setlocal spelllang=en<CR>
 
+nnoremap <leader>snh :nohlsearch<CR>
+
 function! Conceal()
   setlocal conceallevel=2
   setlocal concealcursor-=n
