@@ -151,6 +151,9 @@ set mouse=a
 " don't apply conceallevel on cursor line in normal mode
 set concealcursor-=n
 
+" let the foldcolumn expand with fold automatically up to 3 levels of nesting
+set foldcolumn=auto:3
+
 " __________________________________________________________________
 
 " -------------
