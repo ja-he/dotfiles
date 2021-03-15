@@ -232,6 +232,7 @@ endfunction
     Plug 'dstein64/nvim-scrollview'
     Plug 'rktjmp/lush.nvim'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'ja-he/kurzzug'
     call plug#end()
 
 let g:pandoc#syntax#conceal#use = 1
@@ -245,7 +246,13 @@ if empty($DISPLAY)
   colorscheme fahrenheit
 else
   set background=light
-  colorscheme mono_lush
+  "colorscheme kurzzug
+lua << EOF
+    local lush = require('lush')
+    local parsed = require('kurzzug')
+    local compiled = lush.compile(parsed, {force_clean = true })
+    lush.apply(compiled)
+EOF
 endif
 
   " git-messenger settings
@@ -416,13 +423,13 @@ nnoremap <leader>sC :call NoConceal()<CR>
 
 " editing certain files binds
 nnoremap <leader>ecv :edit /home/ztf/repositories/dotfiles/.config/nvim/init.vim<CR>
-nnoremap <leader>ecc :edit /home/ztf/repositories/dotfiles/.config/nvim/lua/mono_lush.lua<CR>
+nnoremap <leader>ecc :edit /home/ztf/repositories/dotfiles/.config/nvim/lua/kurzzug-dev.lua<CR>
 nnoremap <leader>eci :edit /home/ztf/repositories/dotfiles/.config/i3/config<CR>
 nnoremap <leader>ecs :edit /home/ztf/repositories/dotfiles/.config/i3status-rust/config.toml<CR>
 nnoremap <leader>ew  :edit /home/ztf/notes/mdwiki/index.md<CR>
 
-nnoremap <leader>c :lua require'lush'.export_to_buffer(require'mono_lush')<CR>
-nnoremap <leader>C :edit /home/ztf/repositories/dotfiles/.config/nvim/colors/mono_lush.vim<CR>
+nnoremap <leader>c :lua require'lush'.export_to_buffer(require'kurzzug-dev')<CR>
+nnoremap <leader>C :edit /home/ztf/repositories/dotfiles/.config/nvim/colors/kurzzug-dev.vim<CR>
 
 let g:floaterm_autoclose = 1
 let g:floaterm_title = 'shell'

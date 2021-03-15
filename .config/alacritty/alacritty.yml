@@ -163,8 +163,8 @@ font:
 colors:
   # Default colors
   primary:
-    background: '#ffffff'
-    foreground: '#000000'
+    background: '#000000'
+    foreground: '#ffffff'
    #background: '#000000'
    #foreground: '#ebdbb2'
 
@@ -293,7 +293,7 @@ bell:
   duration: 200
 
   # Visual bell animation color.
-  color: '#ffffff'
+  color: '#000000'
 
   # Bell Command
   #
