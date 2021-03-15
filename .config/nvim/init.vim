@@ -202,8 +202,6 @@ endfunction
 " ---------
 
     call plug#begin()
-"   Plug 'lifepillar/vim-colortemplate'
-"   Plug 'vimwiki/vimwiki'
     Plug 'fcpg/vim-waikiki'
     Plug 'mhinz/vim-signify'
     Plug 'tpope/vim-fugitive'
@@ -220,7 +218,6 @@ endfunction
     Plug 'liuchengxu/vista.vim'
 "   Plug 'itchyny/lightline.vim'
     Plug 'norcalli/nvim-colorizer.lua'
-    " add the lsp plugins for nvim 0.5
     Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-lua/lsp-status.nvim'
     Plug 'nvim-lua/completion-nvim'
@@ -228,7 +225,6 @@ endfunction
     Plug 'voldikss/vim-floaterm'
 "   Plug 'lervag/vimtex'
     Plug 'metakirby5/codi.vim'
-    Plug 'tjdevries/colorbuddy.vim'
     Plug 'dstein64/nvim-scrollview'
     Plug 'rktjmp/lush.nvim'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
