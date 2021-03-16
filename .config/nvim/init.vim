@@ -216,7 +216,6 @@ endfunction
     Plug 'kylelaker/riscv.vim'
     Plug 'liuchengxu/vim-which-key'
     Plug 'liuchengxu/vista.vim'
-"   Plug 'itchyny/lightline.vim'
     Plug 'norcalli/nvim-colorizer.lua'
     Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-lua/lsp-status.nvim'
@@ -269,28 +268,6 @@ let g:waikiki_roots = ['~/notes/mdwiki']
 let maplocalleader = "\<F7>"
 let g:waikiki_default_maps = 1
 
-"   let g:vimwiki_list =
-"     \ [
-"       \ {  'path': '~/notes/mdwiki/'
-"         \ ,'syntax': 'markdown'
-"         \ ,'ext': '.md'
-"         \ ,'custom_wiki2html': 'vimwiki_markdown'
-"         \ ,'nested_syntaxes': {}
-"         \ ,'automatic_nested_syntaxes': 0
-"       \ },
-"       \ {'path': '~/notes/wiki/vimwiki/'
-"         \ ,'template_path': '~/notes/wiki/'
-"         \ ,'template_default': 'ztf-template'
-"         \ ,'template_ext': '.html'
-"       \ },
-"       \ {'path': '~/notes/wiki/vimwiki/thesis/'
-"         \ ,'path_html':'~/notes/wiki/vimwiki_html/thesis/'
-"         \ ,'template_path': '~/notes/'
-"         \ ,'template_default': 'thesis-template'
-"         \ ,'template_ext': '.html'
-"       \ }
-"     \ ]
-
 " set up stuff that's configured via lua
 lua require('set_up_nvim_lsp')
 lua require('set_up_colorizer')
@@ -312,20 +289,6 @@ function! LspStatus() abort
   endif
   return ''
 endfunction
-
-" set up lightline
-"let g:lightline = {
-"    \   'colorscheme': 'one',
-"    \   'active': {
-"    \     'left': [
-"    \       [ 'mode', 'paste' ],
-"    \       [ 'readonly', 'modified', 'filename', 'syn_hl_group']
-"    \     ],
-"    \   },
-"      \ 'component_function': {
-"      \   'syn_hl_group': 'SyntaxItem',
-"      \ },
-"    \ }
 
 " ---------
 "   BINDS
