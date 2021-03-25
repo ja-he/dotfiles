@@ -1,2 +1,7 @@
 [Added Associations]
 application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;
+image/jpeg=feh.desktop;
+image/png=feh.desktop;
+
+[Default Applications]
+application/pdf=org.pwmt.zathura.desktop
