@@ -48,9 +48,8 @@ alert = 10.0
 
 [[block]]
 block = "memory"
+format_mem = "{mem_avail_percents} avail."
 display_type = "memory"
-format_mem = "{Mup}%"
-format_swap = "{SUp}%"
 
 [[block]]
 block = "cpu"
@@ -61,14 +60,14 @@ format = "{barchart} ({frequency})"
 block = "temperature"
 collapsed = false
 interval = 10
-format = "{average}°C (CPU)"
+format = "{average}C (CPU)"
 chip = "k10temp-pci-00c3"
 
 [[block]]
 block = "temperature"
 collapsed = false
 interval = 10
-format = "{average}°C (GPU)"
+format = "{average}C (GPU)"
 chip = "amdgpu-pci-0900"
 
 [[block]]
@@ -87,7 +86,7 @@ format = "{percentage}% {time}"
 
 [[block]]
 block = "weather"
-format = "{weather} {temp}°C, {wind} m/s {direction}"
+format = "{weather} {temp}C, {wind} m/s {direction}"
 service = { name = "openweathermap", api_key = "<api key>", city_id = "2856500", units = "metric" }
 interval = 600
 
