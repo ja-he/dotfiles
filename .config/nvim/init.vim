@@ -59,6 +59,9 @@
     set nowb
     set noswapfile
 
+  " undo across closing/reopening
+    set undofile
+
   " open files at last position
   " (the mark " is the position last closed at)
       autocmd BufReadPost *
