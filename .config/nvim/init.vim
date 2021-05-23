@@ -446,6 +446,7 @@ nnoremap <leader>lel  <cmd>lua vim.lsp.diagnostic.set_loclist()<CR>
 "nnoremap <leader>lO "[turn on lsp again, somehow]
 
 nnoremap <leader>h?   <cmd>echo SyntaxItem()<CR>
+nnoremap <leader>hh   <cmd>:ColorizerAttachToBuffer<CR>
 
 nnoremap L :tabnext<CR>
 nnoremap H :tabprev<CR>
