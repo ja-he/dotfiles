@@ -17,4 +17,4 @@ fi
 
 # for some reason i can't get $icon to work as the actual icon in the JSON even
 # trying different font awesome versions...
-echo "{\"icon\": \"\", \"state\": \"${state}\", \"text\": \" ${icon}\"}"
+echo "{\"icon\": \"\", \"state\": \"${state}\", \"text\": \"${icon}\"}"
