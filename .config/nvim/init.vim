@@ -206,7 +206,7 @@ endfunction
 
     call plug#begin()
     Plug 'fcpg/vim-waikiki'
-    Plug 'mhinz/vim-signify'
+    Plug 'mhinz/vim-signify' " TODO: replace with 'lewis6991/gitsigns.nvim'
     Plug 'tpope/vim-fugitive'
     Plug 'rhysd/git-messenger.vim'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -222,7 +222,8 @@ endfunction
     Plug 'norcalli/nvim-colorizer.lua'
     Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-lua/lsp-status.nvim'
-    Plug 'nvim-lua/completion-nvim'
+    Plug 'nvim-lua/completion-nvim' " TODO(ztf): replace with nvim-compe (below)
+"   Plug 'hrsh7th/nvim-compe'
     Plug 'tweekmonster/startuptime.vim'
     Plug 'voldikss/vim-floaterm'
 "   Plug 'lervag/vimtex'
