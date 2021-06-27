@@ -41,10 +41,11 @@ block = "disk_space"
 path = "/"
 alias = "/"
 info_type = "available"
+format = "{icon} {available}"
 unit = "GB"
 interval = 20
-warning = 20.0
-alert = 10.0
+warning =  2.0
+alert =  1.0
 
 [[block]]
 block = "memory"
