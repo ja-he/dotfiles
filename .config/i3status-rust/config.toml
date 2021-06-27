@@ -81,9 +81,9 @@ on_click = ""
 
 [[block]]
 block = "battery"
+format = "{percentage} {time}"
 interval = 10
 device = "BAT1"
-format = "{percentage}% {time}"
 
 [[block]]
 block = "weather"
