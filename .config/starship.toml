@@ -15,3 +15,11 @@ disabled = false
 [cmd_duration]
 min_time = 2000
 show_milliseconds=true
+
+[battery]
+full_symbol        = "  "
+charging_symbol    = "  "
+discharging_symbol = "  "
+empty_symbol       = "  "
+[[battery.display]]
+threshold = 10
