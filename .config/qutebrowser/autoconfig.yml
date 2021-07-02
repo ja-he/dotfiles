@@ -26,9 +26,14 @@ settings:
     https://bbb.zfn.uni-bremen.de: true
   content.media.video_capture:
     https://bbb-5.elearning.uni-bremen.de: true
-  content.notifications:
+  content.notifications.enabled:
+    https://0.makethenvoiceforme.me: false
+    https://1.makethenvoiceforme.me: false
     https://elearning.uni-bremen.de: true
     https://gitlab.informatik.uni-bremen.de: true
+    https://gitter.im: true
+    https://hillownotcountonight.me: false
+    https://makethenvoiceforme.me: false
     https://www.csoonline.com: false
     https://www.pcwelt.de: false
     https://www.reddit.com: false
