@@ -81,7 +81,7 @@ while true; do
   timestr="$(date +%H%M)"
   timestr=${timestr#0*} # trim leading 0s
   if [[ ${timestr} -ge 2230 ]]; then
-    notify-send "Past 23:30, initiating evening routine" \
+    notify-send "Past 22:30, initiating evening routine" \
                 "seriously, go to sleep soon :)"
     redshift -O 1400
     killall -q steam
