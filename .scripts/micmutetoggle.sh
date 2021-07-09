@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # the name of the device to be muted
-devname='alsa_input.usb-C-Media_Electronics_Inc._USB_Advanced_Audio_Device-00.analog-stereo'
+devname='alsa_input.usb-C-Media_Electronics_Inc._USB_Advanced_Audio_Device-00.iec958-stereo'
 
 mutestatusfile='/home/ztf/.scripts/.vars/mic'
 
