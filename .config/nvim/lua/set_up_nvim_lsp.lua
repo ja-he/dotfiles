@@ -49,3 +49,7 @@ lspconfig.pyls.setup{on_attach = attach_stuff} -- FUCK PALANTIR!
 lspconfig.vimls.setup{on_attach = attach_stuff}
 
 lspconfig.texlab.setup{on_attach = attach_stuff}
+
+lspconfig.gopls.setup{
+  on_attach = attach_stuff,
+}
