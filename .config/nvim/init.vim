@@ -92,6 +92,11 @@ set mouse=a
 
   " predictive command menu (visualization)
     set wildmenu
+    " complete til longest common string, using wildmenu
+    set wildmode=longest:full
+    set wildchar=<tab> 
+    set wildignorecase
+    set wildignore=
 
   " show current position
     set ruler
