@@ -1,0 +1,14 @@
+snippet #! "skeleton (safety and debug options)"
+#!/usr/bin/bash
+set -euo pipefail
+set -x # for initial debugging print commands
+
+endsnippet
+
+snippet x "definition with default value"
+${1:varA}=\$\{${2:varB}:-${3:default_value}\}
+endsnippet
+
+snippet rand "random number (quick and dirty)"
+$(( $RANDOM % ${1:N_values} + ${2:lowest_value} ))
+endsnippet

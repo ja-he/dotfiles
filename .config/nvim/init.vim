@@ -216,7 +216,7 @@ endfunction
     Plug 'rhysd/git-messenger.vim'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
-"   Plug 'SirVer/ultisnips'
+    Plug 'SirVer/ultisnips'
 "   Plug 'honza/vim-snippets'
 "   Plug 'vim-pandoc/vim-pandoc'
     Plug 'vim-pandoc/vim-pandoc-syntax'
@@ -240,6 +240,9 @@ endfunction
     Plug 'nvim-lua/plenary.nvim'
     Plug 'folke/todo-comments.nvim'
     call plug#end()
+
+" Ultisnips
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "ztf-snippets"]
 
 lua << EOF
   require("todo-comments").setup {
