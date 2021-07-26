@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+
+set -euo pipefail
+
+repo=${1}
+pr_id=${2}
+
+curl "https://patch-diff.githubusercontent.com/raw/${repo}/pull/${pr_id}.diff"
