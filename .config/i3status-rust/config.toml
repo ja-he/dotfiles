@@ -69,7 +69,7 @@ chip = "amdgpu-pci-0900"
 block = "networkmanager"
 primary_only = true
 ap_format = "{strength}"
-device_format = "{icon} {typename}"
+device_format = "{icon}"
 #               "{icon}{ap} {ips}"
 on_click = ""
 
