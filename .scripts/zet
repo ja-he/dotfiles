@@ -1,0 +1,9 @@
+#!/usr/bin/bash
+set -euo pipefail
+
+zettelkasten_path=${HOME}/notes/zettelkasten
+daily_path=${zettelkasten_path}/`date '+%Y-%m-%d'`
+filename=${1:-todo}
+
+mkdir -p ${daily_path}
+nvim ${daily_path}/${filename}
