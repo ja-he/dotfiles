@@ -407,6 +407,9 @@ nnoremap <F12>          :FloatermNew --wintype=float --position=right --width=0.
 autocmd FileType gitcommit,text       set textwidth=68
 "autocmd FileType markdown             set filetype=pandoc
 autocmd FileType tex                  set textwidth=80
+autocmd BufRead,BufNewfile */zettelkasten/** set filetype=markdown.pandoc |
+                                          \  set spell                    |
+                                          \  set spelllang=en,de
 
 augroup pandoc_syntax
     au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
