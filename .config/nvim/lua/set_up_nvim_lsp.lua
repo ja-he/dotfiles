@@ -44,7 +44,7 @@ lspconfig.clangd.setup{
 lspconfig.bashls.setup{on_attach = attach_stuff}
 
 -- lspconfig.jedi_language_server.setup{on_attach = attach_stuff}
-lspconfig.pyls.setup{on_attach = attach_stuff} -- FUCK PALANTIR!
+-- lspconfig.pyls.setup{on_attach = attach_stuff} -- FUCK PALANTIR!
 
 lspconfig.vimls.setup{on_attach = attach_stuff}
 
