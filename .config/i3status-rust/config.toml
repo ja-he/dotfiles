@@ -13,12 +13,6 @@ name = "awesome5"
 
 
 [[block]]
-block = "custom"
-command = "/home/ztf/.scripts/is_muted.sh"
-json = true
-interval = 1
-
-[[block]]
 block = "sound"
 driver = "pulseaudio"
 device_kind = "source"
