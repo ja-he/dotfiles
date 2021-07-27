@@ -2,14 +2,13 @@ configuration {
 	width: 40;
 	lines: 6;
 	columns: 1;
-	font: "Sarasa Mono SC 11";
+	font: "Sarasa Mono SC 14";
 	bw: 1;
 	padding: 4;
 	hide-scrollbar: false;
 	scrollbar-width: 0;
-	color-normal: "#000000,#282828,#000000,#000000,#ebdbb2";
+	color-normal: "#000000,#5b4d34,#000000,#000000,#f2a926";
 	color-urgent: "#ffff00,#cc241d,#ffff00,#cc241d,#ffff00";
 	color-active: "#ff0000,#458588,#00ffff,#458588,#ff00ff";
-	color-window: "#000000,#ebdbb2";
+	color-window: "#000000,#f2a926,#f2a926";
 }
-@import "/usr/share/rofi/themes/paper-float.rasi"

@@ -1,11 +1,20 @@
-[theme]
-name = "gruvbox-light"
 [theme.overrides]
+
 idle_bg = "#000000"
-idle_fg = "#ffffff"
-warning_fg = "#ffffff"
-critical_fg = "#ffffff"
-good_fg = "#ffffff"
+idle_fg = "#5b4d34"
+
+warning_fg = "#f2a926"
+warning_bg = "#5b4d34"
+
+critical_fg = "#000000"
+critical_bg = "#f2a926"
+
+good_fg = "#96d27a"
+good_bg = "#000000"
+
+info_fg = "#f2a926"
+info_bg = "#000000"
+
 separator = ""
 
 [icons]

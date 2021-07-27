@@ -1,7 +1,7 @@
 # reference: https://starship.rs/config
 
 [character]
-success_symbol = "[>](bold green)"     # The "success_symbol" segment is being set to "➜" with the color "bold green"
+success_symbol = "[>](bold bright-black)"     # The "success_symbol" segment is being set to "➜" with the color "bold green"
 error_symbol  = "[>](bold red)"
 
 [jobs]
@@ -11,10 +11,31 @@ symbol = "+"
 truncation_length = 4
 truncate_to_repo = true
 disabled = false
+style = "bold yellow"
+read_only = " [RO]"
+read_only_style = "italic red"
+
+
+[git_branch]
+format = "[on](bright-black) [$symbol$branch]($style) "
+style = "cyan"
+
+[git_commit]
+style = "italic bright-cyan"
+format = "[$hash]($style) "
+
+[git_state]
+style = "bold bright-cyan"
+
+[git_status]
+style = "bold bright-cyan"
+disabled = true
 
 [cmd_duration]
-min_time = 2000
+min_time = 500
+format = "[took](bright-black) [$duration]($style) "
 show_milliseconds=true
+style = "italic white"
 
 [battery]
 full_symbol        = "  "
@@ -23,3 +44,6 @@ discharging_symbol = "  "
 empty_symbol       = "  "
 [[battery.display]]
 threshold = 10
+
+[package]
+disabled = true
