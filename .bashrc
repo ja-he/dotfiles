@@ -133,7 +133,7 @@ set -o vi
 # starship
 eval "$(starship init bash)"
 
-export EDITOR="alacritty -e /usr/local/bin/nvim"
+export EDITOR="nvim"
 export MANPAGER='nvim +Man!'
 
 export STUDIP_USER=ja_he
