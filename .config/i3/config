@@ -47,8 +47,9 @@ bindsym $mod+shift+d exec rofi -show window
 # you could add a rofi window switcher as well... 
 
 # moving workspaces to other display 
-bindsym $mod+p move workspace to output $RightDisplay
-bindsym $mod+o move workspace to output $LeftDisplay
+bindsym $mod+i move workspace to output $Display0
+bindsym $mod+o move workspace to output $Display1
+bindsym $mod+p move workspace to output $Display2
 
 # scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -193,8 +194,9 @@ bindsym $mod+Shift+9 move container to workspace $workspace09
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
 # Display Details 
-set $LeftDisplay    DisplayPort-2
-set $RightDisplay   HDMI-A-0
+set $Display0    DisplayPort-0
+set $Display1    DisplayPort-2
+set $Display2    HDMI-A-0
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -237,7 +239,7 @@ bar {
         #status_command i3blocks -c ~/.config/i3blocks.conf
         #status_command i3status
         status_command i3status-rs ~/.config/i3status-rust/config.toml
-	tray_output $LeftDisplay
+	tray_output $Display1
 
 	colors {
         background          $Foundation
