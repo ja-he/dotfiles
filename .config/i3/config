@@ -278,8 +278,8 @@ client.background       #ffffff
 
 bindsym $mod+c       exec alacritty -e python3
 
-bindsym $mod+i       exec xinput --disable "SynPS/2 Synaptics TouchPad"
-bindsym $mod+shift+i exec xinput --enable  "SynPS/2 Synaptics TouchPad"
+#bindsym $mod+i       exec xinput --disable "SynPS/2 Synaptics TouchPad"
+#bindsym $mod+shift+i exec xinput --enable  "SynPS/2 Synaptics TouchPad"
 
 #bindsym XF86AudioPlay exec ~/.scripts/micmutetoggle.sh
 bindsym XF86AudioMicMute exec ~/.scripts/micmutetoggle.sh
