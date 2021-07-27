@@ -1,3 +1,8 @@
 #!/bin/bash
 
-feh --bg-fill --randomize ~/Pictures/wallpapers/favs/*.{jpg,jpeg,png}
+img_path=${1:-${HOME}/Pictures/wallpapers}
+
+image="`find ${img_path} -iname "*.jpeg" -o -iname "*.jpg" -o -iname "*.png" \
+  | shuf | head -n 1`"
+
+feh --bg-fill "${image}"
