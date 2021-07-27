@@ -42,3 +42,5 @@ settings:
     https://mail.google.com?extsrc=mailto&url=%25s: false
   scrolling.bar:
     global: always
+  zoom.default:
+    global: 150%
