@@ -468,9 +468,9 @@ let g:floaterm_width = 0.8
 let g:floaterm_height = 0.7
 
 " vim-fugitive bindings
-nnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>gS :tab Gstatus<CR>
-nnoremap <leader>gb :Gblame<CR>
+nnoremap <leader>gs :Git<CR>
+nnoremap <leader>gS :tab Git<CR>
+nnoremap <leader>gb :Git blame<CR>
 nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gf :Gfetch<CR>
 nnoremap <leader>gd :FloatermNew --width=0.9 git diff %<CR>
