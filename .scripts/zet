@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 set -euo pipefail
 
-zettelkasten_path=${HOME}/notes/zettelkasten
+zettelkasten_path=${HOME}/zettelkasten
 daily_path=${zettelkasten_path}/`date '+%Y-%m-%d'`
 filename=${1:-todo}
 
