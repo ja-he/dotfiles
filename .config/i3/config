@@ -290,7 +290,7 @@ bindsym $mod+n exec ~/.scripts/loopbacktoggle.sh
 #gaps inner 10
 #gaps outer 40
 
-bindsym $mod+period  exec feh -z --bg-fill /home/ztf/Pictures/wallpapers/favs/
+bindsym $mod+period  exec /home/ztf/.scripts/randomwp /home/ztf/Pictures/wallpapers/favs
 bindsym $mod+u       exec /home/ztf/.scripts/work-time-manager.sh pause
 bindsym $mod+shift+u exec /home/ztf/.scripts/work-time-manager.sh continue
 
