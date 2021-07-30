@@ -47,3 +47,8 @@ threshold = 10
 
 [package]
 disabled = true
+
+[cmake]
+format = "[via](bright-black) [$symbol($version)]($style)"
+symbol = "△ "
+style = "bold blue"
