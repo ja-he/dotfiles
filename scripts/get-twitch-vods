@@ -1,0 +1,67 @@
+#!/usr/bin/bash
+set -euo pipefail
+set -x # for initial debugging print commands
+
+TWITCHDL_PATH="${HOME}/Downloads/twitch-dl.1.16.1.pyz"
+
+
+
+# Gets the VODs in which a certain game is played.
+# @param game_name: the game name
+# @param channel: the channel name
+# @return the video URLs of matching VODs
+get_vods_for_game() {
+  local game="${1}"
+  local channel="${2}"
+  ${TWITCHDL_PATH} videos --limit 100 --no-color --game "${game}" ${channel} \
+    | grep https # TODO: improve search reliability, what if somebody has url in title
+}
+
+# Gets the segments information in JSON form from the video's HTML
+# @param video_url: the video URL string
+# @return the JSON-formatted segment informations
+get_segments() {
+  local video_url="${1}"
+  local game="${2}"
+  segments="$(curl -s ${video_url} \
+              | sed 's/^.*application\/ld+json">//' \
+              | sed 's/<\/script.*$//' \
+              | jq '.[0].hasPart' -c)"
+  if [[ -z "${segments}" || "${segments}" == "null" ]]; then
+    echo "FULL"
+  else
+    echo "${segments}" | jq -c '.[]' | grep "${game}"
+  fi
+}
+
+# Formats the segments in which a game was played on a channel as
+# '<url> <start> <end>', which can then be formatted into a valid
+# FFMPEG command.
+# @param game: the game
+# @param channel: the channel
+# @return <VOD-URL> <start-time> <end-time>
+format_vods() {
+  local game="${1}"
+  local channel="${2}"
+  for vod in `get_vods_for_game "${game}" "${channel}"`; do
+    (
+    IFS=$'\n'
+    for segment in `get_segments "${vod}" "${game}"`; do
+      if [ "${segment}" == "FULL" ]; then
+        vod_start="0"
+        vod_end="$(${TWITCHDL_PATH} info -j "${vod}" \
+                      | jq '.lengthSeconds')"
+      else
+        vod_start="$(echo "${segment}" | jq '.startOffset')"
+        vod_end="$(echo "${segment}" | jq '.endOffset')"
+      fi
+      echo "${vod} ${vod_start} ${vod_end}"
+    done
+    )
+  done
+}
+
+game="${1}"
+channel="${2}"
+
+format_vods "${game}" "${channel}"
