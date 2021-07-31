@@ -385,12 +385,10 @@ vnoremap <silent> <leader>      :WhichKeyVisual '<space>'<CR>
 set timeoutlen=500 " if you don't use which-key, this makes leader unusable
 
 " terminal mappings and settings
-nnoremap <leader>mc  :!make clean<CR>
-nnoremap <leader>ma  :!make -j8<CR>
+nnoremap <leader>ma  :FloatermNew --wintype=split make -j8 <CR>
+nnoremap <leader>mc  :FloatermNew --wintype=split make clean<CR>
 nnoremap <leader>mpp :!pandoc "%" -f markdown+implicit_figures -t pdf --citeproc -s -o ~/out.pdf<CR>
 nnoremap <leader>mph :!pandoc "%" -f markdown+emoji -t html --citeproc -s -o ~/out.html<CR>
-nnoremap <leader>tmc :FloatermNew make clean<CR>
-nnoremap <leader>tma :FloatermNew make -j8<CR>
 nnoremap <leader>tmpp :FloatermNew pandoc "%" -f markdown -t pdf --citeproc -s -o ~/out.pdf<CR>
 nnoremap <leader>tn  :FloatermNew<CR>
 nnoremap <leader>tce :FloatermNew --autoclose=0 g++ "%" -o %< && "./%<"<CR>
@@ -402,11 +400,12 @@ autocmd TermOpen term://* startinsert
 
 tnoremap <F1> <c-\><c-n>:FloatermToggle<CR>
 nnoremap <F1>           :FloatermToggle<CR>
-nnoremap <F12>          :FloatermNew --wintype=float --position=right --width=0.5 --height=1.0<CR>
+nnoremap <F12>          :FloatermNew --wintype=split<CR>
 
 autocmd FileType gitcommit,text       set textwidth=68
 "autocmd FileType markdown             set filetype=pandoc
 autocmd FileType tex                  set textwidth=80
+autocmd FileType floaterm set nonumber norelativenumber
 autocmd BufRead,BufNewfile */zettelkasten/2[0-1][0-9][0-9]-[0-1][0-9]-[0-3][0-9]/*
                                           \  set filetype=markdown.pandoc |
                                           \  set spell                    |
@@ -463,9 +462,12 @@ nnoremap <leader>c :lua require'lush'.export_to_buffer(require'kurzzug-dev')<CR>
 nnoremap <leader>C :edit /home/ztf/repositories/dotfiles/.config/nvim/colors/kurzzug-dev.vim<CR>
 
 let g:floaterm_autoclose = 1
-let g:floaterm_title = 'shell'
+" disable title
+let g:floaterm_title = ''
 let g:floaterm_width = 0.8
 let g:floaterm_height = 0.7
+" no visible border
+let g:floaterm_borderchars = '        '
 
 " vim-fugitive bindings
 nnoremap <leader>gs :Git<CR>
