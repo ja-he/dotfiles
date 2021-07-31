@@ -1,6 +1,6 @@
 #!/bin/bash
 
-varfile='/home/ztf/.scripts/.vars/lbt'
+varfile='/home/ztf/scripts/.vars/lbt'
 
 if [[ $(cat "${varfile}") == *on* ]]; then
   echo -n 'off' > "${varfile}"

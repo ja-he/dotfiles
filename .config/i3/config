@@ -19,7 +19,7 @@ font pango:Sarasa Mono J 12
 floating_modifier $mod
 
 # locking
-bindsym $mod+t exec ~/.scripts/lockscript.sh
+bindsym $mod+t exec ~/scripts/lockscript.sh
 #bindsym $mod+t exec i3lock -c 8f0032
 
 # stickyness 
@@ -82,7 +82,7 @@ bindsym $mod+Right  focus right
 bindsym $mod+b split h
 
 # bluetooth audio quickfix 
-bindsym $mod+shift+b exec ~/.scripts/bt-toggle.sh
+bindsym $mod+shift+b exec ~/scripts/bt-toggle.sh
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -120,8 +120,8 @@ bindsym $mod+shift+z        exec feh $(find Pictures/screenshots/ -name "`date '
 # music
 bindsym XF86AudioPlay exec mpc toggle
 bindsym XF86Launch1   exec mpc toggle
-bindsym XF86AudioNext exec ~/.scripts/nextsong.sh
-bindsym XF86AudioPrev exec ~/.scripts/prevsong.sh
+bindsym XF86AudioNext exec ~/scripts/nextsong.sh
+bindsym XF86AudioPrev exec ~/scripts/prevsong.sh
 
 # videos
 bindsym $mod+shift+m exec notify-send "playing $(xclip -o -selection clipboard)" & mpv --volume=39 $(xclip -o -selection clipboard)
@@ -133,10 +133,10 @@ bindsym XF86MonBrightnessDown   exec xbacklight -dec 20
 # Volume Changing 
 set $PrimaryOutput alsa_output.usb-FiiO_FiiO_USB_DAC_K1-01.analog-stereo
 # Mute Toggle 
-bindsym XF86AudioMute exec ~/.scripts/audiosettings.sh --toggle
+bindsym XF86AudioMute exec ~/scripts/audiosettings.sh --toggle
 # Volume up / down 
-bindsym XF86AudioRaiseVolume exec ~/.scripts/audiosettings.sh --increase
-bindsym XF86AudioLowerVolume exec ~/.scripts/audiosettings.sh --decrease
+bindsym XF86AudioRaiseVolume exec ~/scripts/audiosettings.sh --increase
+bindsym XF86AudioLowerVolume exec ~/scripts/audiosettings.sh --decrease
 # Set Volume = 100%
 bindsym $mod+numbersign exec pactl set-sink-volume $PrimaryOutput 100%
 
@@ -283,22 +283,22 @@ bindsym $mod+c       exec alacritty -e python3
 #bindsym $mod+i       exec xinput --disable "SynPS/2 Synaptics TouchPad"
 #bindsym $mod+shift+i exec xinput --enable  "SynPS/2 Synaptics TouchPad"
 
-#bindsym XF86AudioPlay exec ~/.scripts/micmutetoggle.sh
-bindsym XF86AudioMicMute exec ~/.scripts/micmutetoggle.sh
-bindsym $mod+m exec ~/.scripts/micmutetoggle.sh
-bindsym $mod+n exec ~/.scripts/loopbacktoggle.sh
+#bindsym XF86AudioPlay exec ~/scripts/micmutetoggle.sh
+bindsym XF86AudioMicMute exec ~/scripts/micmutetoggle.sh
+bindsym $mod+m exec ~/scripts/micmutetoggle.sh
+bindsym $mod+n exec ~/scripts/loopbacktoggle.sh
 
 # Gaps 
 #gaps inner 10
 #gaps outer 40
 
-bindsym $mod+period  exec /home/ztf/.scripts/randomwp /home/ztf/Pictures/wallpapers/favs
-bindsym $mod+u       exec /home/ztf/.scripts/work-time-manager.sh pause
-bindsym $mod+shift+u exec /home/ztf/.scripts/work-time-manager.sh continue
+bindsym $mod+period  exec /home/ztf/scripts/randomwp /home/ztf/Pictures/wallpapers/favs
+bindsym $mod+u       exec /home/ztf/scripts/work-time-manager.sh pause
+bindsym $mod+shift+u exec /home/ztf/scripts/work-time-manager.sh continue
 
 # STARTUP ----------------------------------------------------------------------
 exec xrdb .Xresources
 exec dunst
 exec xrandr --rate 144
-exec /home/ztf/.scripts/work-time.sh
+exec /home/ztf/scripts/work-time.sh
 exec redshift

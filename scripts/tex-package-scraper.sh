@@ -5,8 +5,8 @@ if [[ $1 == "-h" ]]; then
   echo "        (you have to have \\listfiles in the preamble for the packages"
   echo "         to show up in the log file)"
   echo
-  echo "usage:    <scriptname>                       <logfilename>"
-  echo "example:   /home/ztf/.scripts/package-finder  main.log"
+  echo "usage:    <scriptname>   <logfilename>"
+  echo "example:  package-finder main.log"
   echo
   exit 0
 fi

@@ -6,8 +6,8 @@
 *.aux
 *.fdb_latexmk
 *.html
-.scripts/variables/
-.scripts/quicktexfiles/content.tex
+scripts/variables/
+scripts/quicktexfiles/content.tex
 /.config/cef_user_data/
 /.templates/cpp/.build/
 /.templates/cpp/myproj
@@ -50,7 +50,7 @@
 /.config/keepassxc/
 /.config/libreoffice/
 /.config/neofetch/
-/.scripts/.vars/
+/scripts/.vars/
 /.config/configstore/
 /.config/weechat/alias.conf
 /.config/weechat/buflist.conf

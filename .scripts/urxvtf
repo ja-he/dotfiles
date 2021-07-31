@@ -1,4 +1,0 @@
-#!/bin/bash
-urxvt \
-    --font          "xft:$1:size=$2" \
-    --letterSpace   0 

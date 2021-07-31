@@ -51,8 +51,8 @@ turn_pdf_to_png() {
 #       this should streamline the script somewhat.
 #TODO: refactor the variable names to be more sensible and in tune with changes 
 
-pre="/home/ztf/.scripts/quicktexfiles/pre.tex"
-post="/home/ztf/.scripts/quicktexfiles/post.tex"
+pre="/home/ztf/scripts/quicktexfiles/pre.tex"
+post="/home/ztf/scripts/quicktexfiles/post.tex"
 
 # what kind of rendered file will be saved
 output_type=".png"

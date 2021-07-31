@@ -1,6 +1,6 @@
 #!/bin/bash
 
-micstate="$(cat /home/ztf/.scripts/.vars/mic)"
+micstate="$(cat /home/ztf/scripts/.vars/mic)"
 icon=""
 state=""
 icon=""

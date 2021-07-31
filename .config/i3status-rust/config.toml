@@ -26,7 +26,7 @@ block = "sound"
 driver = "pulseaudio"
 device_kind = "source"
 show_volume_when_muted = true
-on_click = "/home/ztf/.scripts/micmutetoggle.sh"
+on_click = "/home/ztf/scripts/micmutetoggle.sh"
 
 [[block]]
 block = "sound"

@@ -3,7 +3,7 @@
 # the name of the device to be muted
 devname='alsa_input.usb-C-Media_Electronics_Inc._USB_Advanced_Audio_Device-00.iec958-stereo'
 
-mutestatusfile='/home/ztf/.scripts/.vars/mic'
+mutestatusfile='/home/ztf/scripts/.vars/mic'
 
 # This statement simply checks whether the FIRST(!) source found is
 # muted by checking whether the string contains the substring "yes"
