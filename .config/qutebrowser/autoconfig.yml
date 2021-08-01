@@ -13,7 +13,6 @@ settings:
         J: back
         K: forward
         L: tab-next
-        h: tab-prev
   content.desktop_capture:
     https://bbb-2.elearning.uni-bremen.de: true
     https://bbb-5.elearning.uni-bremen.de: true
@@ -35,6 +34,7 @@ settings:
     https://hillownotcountonight.me: false
     https://makethenvoiceforme.me: false
     https://www.csoonline.com: false
+    https://www.networkworld.com: false
     https://www.pcwelt.de: false
     https://www.reddit.com: false
     https://www.youtube.com: false
