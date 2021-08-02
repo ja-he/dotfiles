@@ -194,9 +194,9 @@ bindsym $mod+Shift+9 move container to workspace $workspace09
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
 # Display Details 
-set $Display0    DisplayPort-0
+set $Display0    HDMI-A-0
 set $Display1    DisplayPort-2
-set $Display2    HDMI-A-0
+set $Display2    DisplayPort-0
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
