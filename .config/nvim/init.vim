@@ -475,7 +475,9 @@ nnoremap <leader>gS :tab Git<CR>
 nnoremap <leader>gb :Git blame<CR>
 nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gf :Gfetch<CR>
+" other git-binds
 nnoremap <leader>gd :FloatermNew --width=0.9 git diff %<CR>
+nnoremap <leader>gg :FloatermNew --wintype=split --autoclose=0 git graph<CR>
 " signify bindings
 nnoremap <silent> <leader>gh :SignifyToggle<CR>
 
