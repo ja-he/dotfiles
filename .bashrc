@@ -123,7 +123,8 @@ fi
 # PATH extension for PE... riscvtools
 export PATH=$PATH:/home/ztf/repositories/riscv-gnu-toolchain-dist-rv32imac-ilp32/bin
 export PATH=$PATH:/home/ztf/repositories/riscv-vp/vp/build/bin
-export PATH=$PATH:${HOME}/.local/share/bin
+
+export PATH=$PATH:${HOME}/scripts
 
 # sets mode to vi mode instead of emacs mode, meaning escape puts me in normal
 # mode and i can navigate the line with vim keybinds from there, getting back 
