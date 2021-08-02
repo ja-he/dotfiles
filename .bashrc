@@ -125,6 +125,9 @@ export PATH=$PATH:/home/ztf/repositories/riscv-gnu-toolchain-dist-rv32imac-ilp32
 export PATH=$PATH:/home/ztf/repositories/riscv-vp/vp/build/bin
 
 export PATH=$PATH:${HOME}/scripts
+for completion_spec in ${HOME}/scripts/.completions/*; do
+  source ${completion_spec}
+done
 
 # sets mode to vi mode instead of emacs mode, meaning escape puts me in normal
 # mode and i can navigate the line with vim keybinds from there, getting back 
