@@ -73,3 +73,16 @@ scripts/quicktexfiles/content.tex
 /.config/weechat/tcl.conf
 /.config/weechat/trigger.conf
 /.config/weechat/xfer.conf
+/.config/GIMP/
+/.config/Mousepad/
+/.config/asciinema/
+/.config/audacious/
+/.config/autokey/
+/.config/dconf/
+/.config/gnuplot/
+/.config/gpick/
+/.config/gtk-2.0/
+/.config/kwalletrc
+/.config/manjaro/
+/.config/pamac/
+/.config/yuzu/
