@@ -140,23 +140,6 @@ bindsym XF86AudioLowerVolume exec ~/scripts/audiosettings.sh --decrease
 # Set Volume = 100%
 bindsym $mod+numbersign exec pactl set-sink-volume $PrimaryOutput 100%
 
-# Basic colors 
-set $Foundation         "#000000"
-set $ActiveBGColor      "#000000"
-set $InactiveBGColor    "#000000"
-set $ActiveTextColor    "#f2a926"
-set $BordersActive      "#f2a926"
-set $InactiveTextColor  "#5b4d34"
-set $UrgentColor        "#b34d4d"
-set $AltInfoColor       "#4d80b3"
-set $TitleBarsEtc       "#000000"
-set $TitleBarsInact     "#000000"
-set $TitleBarsActiveUnf "#000000"
-set $Red                "#b34d4d"
-set $Green              "#6eb34d"
-set $Blue               "#4d80b3"
-set $Purple             "#b16286"
-
 # Workspace Names
 set $workspace01 "1"
 set $workspace02 "2"
@@ -231,6 +214,18 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# COLOR DEFS
+set $cBG        "#ffffff"
+set $cFG        "#000000"
+set $cPop       "#ffb915"
+set $cDeemph    "#cccccc"
+set $cWarnBG    "#ffcccc"
+set $cWarnFG    "#a30000"
+set $cInfoBG    "#ccebff"
+set $cInfoFG    "#0065a3"
+set $cStatusBG  "#c2edab"
+set $cStatusFG  "#3a751a"
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
@@ -242,18 +237,19 @@ bar {
 	tray_output $Display1
 
 	colors {
-        background          $Foundation
-        statusline          $ActiveTextColor
-        separator           $InactiveTextColor
+        background          $cBG
+        statusline          $cFG
+        separator           $cDeemph
 
-        # class             border              background          text 
-        focused_workspace   $ActiveBGColor      $ActiveBGColor      $ActiveTextColor
-        active_workspace    $InactiveBGColor    $InactiveBGColor    $InactiveTextColor
-        inactive_workspace  $InactiveBGColor    $InactiveBGColor    $InactiveTextColor
-        urgent_workspace    $UrgentColor        $InactiveBGColor    $UrgentColor
-        binding_mode        $InactiveBGColor    $InactiveBGColor    $AltInfoColor
+        # class             border      background  text
+        focused_workspace   $cPop       $cPop       $cFG
+        # (yes, this is on purpose. "active" means active on its workspace but
+        #  the workspace isn't the focused one, so we consider it "inactive")
+        active_workspace    $cDeemph    $cDeemph    $cFG
+        inactive_workspace  $cBG        $cBG        $cDeemph
+        urgent_workspace    $cWarnBG    $cWarnBG    $cWarnFG
+        binding_mode        $cStatusBG  $cStatusBG  $cStatusFG
     }
-
 }
 
 # Window Settings 
@@ -262,15 +258,16 @@ hide_edge_borders none
 new_window pixel $BorderWidth
 new_float pixel $BorderWidth
 #bindsym $mod+i border none
-#bindsym $mod+u border pixel $BorderWidth
-# class                 border              backgr.             text               indicator          child_border
-client.focused          $BordersActive      $TitleBarsEtc       $ActiveTextColor   $BordersActive     $BordersActive
-client.focused_inactive $InactiveTextColor  $TitleBarsActiveUnf $InactiveTextColor $InactiveTextColor $InactiveTextColor
-client.unfocused        $InactiveTextColor  $TitleBarsInact     $InactiveTextColor $InactiveTextColor $InactiveTextColor
-client.urgent           $UrgentColor        $Red                #ffffff            #900000            $UrgentColor
-client.placeholder      $Blue               #0c0c0c             #ffffff            #000000            #ff0000
+bindsym $mod+u border pixel $BorderWidth
 
-client.background       #ffffff
+# class                  border    backgr.   text      indicator child_border
+client.focused           $cPop     $cPop     $cFG      $cPop     $cPop
+client.focused_inactive  $cDeemph  $cDeemph  $cFG      $cDeemph  $cDeemph
+client.unfocused         $cDeemph  $cDeemph  $cFG      $cDeemph  $cDeemph
+client.urgent            $cWarnBG  $cWarnBG  $cWarnFG  $cWarnBG  $cWarnBG
+client.placeholder       $cInfoBG  $cInfoBG  $cInfoFG  $cInfoBG  $cInfoBG
+
+client.background $cBG
 
 
 
