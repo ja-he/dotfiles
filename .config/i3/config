@@ -286,8 +286,8 @@ bindsym $mod+m exec ~/scripts/micmutetoggle.sh
 bindsym $mod+n exec ~/scripts/loopbacktoggle.sh
 
 # Gaps 
-#gaps inner 10
-#gaps outer 40
+gaps inner  8
+gaps outer 16
 
 bindsym $mod+period  exec /home/ztf/scripts/randomwp /home/ztf/Pictures/wallpapers/favs
 bindsym $mod+u       exec /home/ztf/scripts/work-time-manager.sh pause
