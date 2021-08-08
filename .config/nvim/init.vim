@@ -239,7 +239,43 @@ endfunction
     Plug 'ja-he/kurzzug'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'folke/todo-comments.nvim'
+    Plug 'kyazdani42/nvim-tree.lua'
     call plug#end()
+
+let g:nvim_tree_side = 'right' "left by default
+let g:nvim_tree_width = 60 "30 by default, can be width_in_columns or 'width_in_percent%'
+let g:nvim_tree_ignore = [] "empty by default
+let g:nvim_tree_gitignore = 0 "0 by default
+let g:nvim_tree_auto_open = 0 "0 by default, opens the tree when typing `vim $DIR` or `vim`
+let g:nvim_tree_auto_close = 0 " <TODO (doesn't seem to work?)> "0 by default, closes the tree when it's the last window
+let g:nvim_tree_auto_ignore_ft = [] "empty by default, don't auto open tree on specific filetypes.
+let g:nvim_tree_quit_on_open = 1 " <TODO> " 0 by default, closes the tree when you open a file
+let g:nvim_tree_follow = 1 "0 by default, this option allows the cursor to be updated when entering a buffer
+let g:nvim_tree_indent_markers = 1 "0 by default, this option shows indent markers when folders are open
+let g:nvim_tree_hide_dotfiles = 0 "0 by default, this option hides files and folders starting with a dot `.`
+let g:nvim_tree_git_hl = 1 "0 by default, will enable file highlight for git attributes (can be used without the icons).
+let g:nvim_tree_highlight_opened_files = 1 "0 by default, will enable folder and file icon highlight for opened files/directories.
+let g:nvim_tree_root_folder_modifier = ':~' "This is the default. See :help filename-modifiers for more options
+let g:nvim_tree_tab_open = 0 "0 by default, will open the tree when entering a new tab and the tree was previously open
+let g:nvim_tree_auto_resize = 1 "1 by default, will resize the tree to its saved width when opening a file
+let g:nvim_tree_disable_netrw = 1 "1 by default, disables netrw
+let g:nvim_tree_hijack_netrw = 1 "1 by default, prevents netrw from automatically opening when opening directories (but lets you keep its other utilities)
+let g:nvim_tree_add_trailing = 0 "0 by default, append a trailing slash to folder names
+let g:nvim_tree_group_empty = 0 " 0 by default, compact folders that only contain a single folder into one node in the file tree
+let g:nvim_tree_lsp_diagnostics = 0 "0 by default, will show lsp diagnostics in the signcolumn. See :help nvim_tree_lsp_diagnostics
+let g:nvim_tree_disable_window_picker = 0 "0 by default, will disable the window picker.
+let g:nvim_tree_hijack_cursor = 1 "1 by default, when moving cursor in the tree, will position the cursor at the start of the file on the current line
+let g:nvim_tree_icon_padding = ' ' "one space by default, used for rendering the space between the icon and the filename. Use with caution, it could break rendering if you set an empty string depending on your font.
+let g:nvim_tree_symlink_arrow = ' -> ' " defaults to ' ➛ '. used as a separator between symlinks' source and target.
+let g:nvim_tree_update_cwd = 0 "0 by default, will update the tree cwd when changing nvim's directory (DirChanged event). Behaves strangely with autochdir set.
+let g:nvim_tree_window_picker_exclude = {} " Dictionary of buffer option names mapped to a list of option values that indicates to the window picker that the buffer's window should not be selectable.
+let g:nvim_tree_special_files = {} " List of filenames that gets highlighted with NvimTreeSpecialFile
+let g:nvim_tree_show_icons = {
+    \ 'git': 0,
+    \ 'folders': 0,
+    \ 'files': 0,
+    \ 'folder_arrows': 0,
+    \ }
 
 " Ultisnips
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "ztf-snippets"]
@@ -383,6 +419,8 @@ nnoremap <silent> <leader>      :WhichKey '<space>'<CR>
 nnoremap <silent> <localleader> :WhichKey '\'<CR>
 vnoremap <silent> <leader>      :WhichKeyVisual '<space>'<CR>
 set timeoutlen=500 " if you don't use which-key, this makes leader unusable
+
+nnoremap <leader>d :NvimTreeToggle<CR>
 
 " terminal mappings and settings
 nnoremap <leader>ma  :FloatermNew --wintype=split make -j8 <CR>
