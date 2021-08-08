@@ -1,6 +1,16 @@
 local lush = require('lush')
 local hsl = lush.hsl
 
+-- CONVERTED RGB HEX COLOR CODES
+--
+--               PALE    VIBRANT DARK
+--     red       #ffcccc #ff1414 #a30000
+--     green     #c2edab #61c52b #3a751a
+--     yellow    #fff0cc #ffb914 #cc8f00
+--     blue      #ccebff #14a5ff #0065a3
+--     pink      #ffccf7 #f500d0 #a3008b
+--     turquoise #ccffe6 #00f57e #00a354
+
 local pale_yellow       = hsl(42, 100, 90)  -- Vim has a mapping, <n>C-a and <n>C-x to
 local pale_red          = hsl(0, 100, 90)  -- Vim has a mapping, <n>C-a and <n>C-x to
 local pale_green        = hsl(99, 64, 80)  -- Vim has a mapping, <n>C-a and <n>C-x to
@@ -8,7 +18,7 @@ local pale_blue         = hsl(203, 100, 90)  -- Vim has a mapping, <n>C-a and <n
 local pale_pink         = hsl(309, 100, 90)  -- Vim has a mapping, <n>C-a and <n>C-x to
 local pale_turquoise    = hsl(151, 100, 90)  -- Vim has a mapping, <n>C-a and <n>C-x to
 
-local vibrant_yellow    = pale_yellow.darken(55)
+local vibrant_yellow    = pale_yellow.darken(40)
 local vibrant_red       = pale_red.darken(40)
 local vibrant_green     = pale_green.darken(41)
 local vibrant_blue      = pale_blue.darken(40)
@@ -33,6 +43,25 @@ local theme = lush(function()
   return {
 
     -- Pre
+
+    PaleYellowBlock        {  fg  =  pale_yellow       ,bg  =  pale_yellow        },
+    PaleRedBlock           {  fg  =  pale_red          ,bg  =  pale_red           },
+    PaleGreenBlock         {  fg  =  pale_green        ,bg  =  pale_green         },
+    PaleBlueBlock          {  fg  =  pale_blue         ,bg  =  pale_blue          },
+    PalePinkBlock          {  fg  =  pale_pink         ,bg  =  pale_pink          },
+    PaleTurquoiseBlock     {  fg  =  pale_turquoise    ,bg  =  pale_turquoise     },
+    VibrantYellowBlock     {  fg  =  vibrant_yellow    ,bg  =  vibrant_yellow     },
+    VibrantRedBlock        {  fg  =  vibrant_red       ,bg  =  vibrant_red        },
+    VibrantGreenBlock      {  fg  =  vibrant_green     ,bg  =  vibrant_green      },
+    VibrantBlueBlock       {  fg  =  vibrant_blue      ,bg  =  vibrant_blue       },
+    VibrantPinkBlock       {  fg  =  vibrant_pink      ,bg  =  vibrant_pink       },
+    VibrantTurquoiseBlock  {  fg  =  vibrant_turquoise ,bg  =  vibrant_turquoise  },
+    DarkYellowBlock        {  fg  =  dark_yellow       ,bg  =  dark_yellow        },
+    DarkRedBlock           {  fg  =  dark_red          ,bg  =  dark_red           },
+    DarkGreenBlock         {  fg  =  dark_green        ,bg  =  dark_green         },
+    DarkBlueBlock          {  fg  =  dark_blue         ,bg  =  dark_blue          },
+    DarkPinkBlock          {  fg  =  dark_pink         ,bg  =  dark_pink          },
+    DarkTurquoiseBlock     {  fg  =  dark_turquoise    ,bg  =  dark_turquoise     },
 
     PaleYellowText        {  fg  =  pale_yellow        },
     PaleRedText           {  fg  =  pale_red           },
@@ -306,16 +335,58 @@ local theme = lush(function()
       -- fugitiveStagedHeading    {},
       -- fugitiveStagedSection    {},
 
+      -- signify
+      SignifySignAdd             { bg = pale_green  , fg = dark_green   },
+      SignifySignChange          { bg = pale_yellow , fg = dark_yellow  },
+      SignifySignDelete          { bg = pale_red    , fg = dark_red     },
+      SignifySignChangeDelete    { SignifySignChange },
+      SignifySignDeleteFirstLine { SignifySignDelete },
+
       -- WhichKey
-      WhichKey          { gui = "bold" },
-      WhichKeySeperator { Pmenu },
-      WhichKeyGroup     { Pmenu , gui = "italic" },
-      WhichKeyDesc      { PmenuSel , gui = "italic" },
-      WhichKeyFloating  { PmenuSel },
+      WhichKey          { SpecialKey , gui = "bold" },
+      WhichKeySeperator { fg = dark_grey },
+      WhichKeyGroup     { Operator       , gui = "" },
+      WhichKeyDesc      { WhichKeyGroup , gui = "bold" },
+      WhichKeyFloating  { NormalFloat },
 
       -- Floaterm
       Floaterm { bg = NormalFloat.bg },
       FloatermBorder { NormalFloat },
+
+      -- nvim-tree
+      -- NOTE: these are undocumented in the help
+      NvimTreeNormal { bg = off_white },
+      NvimTreeGitIgnored { fg = dark_grey },
+      NvimTreeCursorLine { bg = light_grey },
+      NvimTreeStatusLine { StatusLine },
+      NvimTreeStatusLineNC { StatusLineNC },
+      -- NOTE: these ones are documented
+      NvimTreeSymlink { VibrantTurquoiseText },
+      NvimTreeFolderName { VibrantBlueText, gui = "bold" },
+      NvimTreeRootFolder { },
+      NvimTreeFolderIcon { },
+      NvimTreeEmptyFolderName { NvimTreeFolderName },
+      NvimTreeOpenedFolderName { NvimTreeFolderName },
+      NvimTreeExecFile { VibrantGreenText },
+      NvimTreeOpenedFile { },
+      NvimTreeSpecialFile { },
+      NvimTreeImageFile { },
+      NvimTreeMarkdownFile { },
+      NvimTreeIndentMarker { Whitespace },
+      -- NOTE: I believe these next few are only for icons
+      --NvimTreeGitDirty {},
+      --NvimTreeGitStaged {},
+      --NvimTreeGitMerge { },
+      --NvimTreeGitRenamed { },
+      --NvimTreeGitNew { },
+      --NvimTreeGitDeleted { },
+      -- NOTE: I believe these next ones are for the filenames
+      NvimTreeFileDirty { DiffChange },
+      NvimTreeFileStaged { DiffAdd },
+      NvimTreeFileNew { DiffDelete},
+      NvimTreeFileMerge { DiffText },
+      NvimTreeFileRenamed { NvimTreeFileDirty },
+      NvimTreeFileDeleted { NvimTreeFileDirty },
 
   }
 end)
