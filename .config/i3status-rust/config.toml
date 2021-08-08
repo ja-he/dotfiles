@@ -1,19 +1,19 @@
 [theme.overrides]
 
-idle_bg = "#000000"
-idle_fg = "#5b4d34"
+idle_fg = "#aaaaaa"
+idle_bg = "#ffffff"
 
-warning_fg = "#f2a926"
-warning_bg = "#5b4d34"
+info_fg = "#000000"
+info_bg = "#ffffff"
+
+warning_fg = "#000000"
+warning_bg = "#fff0cc"
 
 critical_fg = "#000000"
-critical_bg = "#f2a926"
+critical_bg = "#ffcccc"
 
-good_fg = "#96d27a"
-good_bg = "#000000"
-
-info_fg = "#f2a926"
-info_bg = "#000000"
+good_fg = "#000000"
+good_bg = "#c2edab"
 
 separator = ""
 
