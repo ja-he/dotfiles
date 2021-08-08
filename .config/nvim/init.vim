@@ -348,7 +348,7 @@ else
   "colorscheme kurzzug
 lua << EOF
     local lush = require('lush')
-    local parsed = require('kurzzug')
+    local parsed = require('mono_lush')
     local compiled = lush.compile(parsed, {force_clean = true })
     lush.apply(compiled)
 EOF
