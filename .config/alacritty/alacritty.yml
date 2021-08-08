@@ -198,7 +198,45 @@ colors:
         cyan:    '#5c8482'
         white:   '#828282'
 
-colors: *kurzzug
+    # TODO: incomplete
+    bright: &bright
+      primary:
+        background:        '#ffffff'
+        foreground:        '#000000'
+        dim_foreground:    '#c0c0c0'
+        bright_foreground: '#f0f0f0'
+      cursor:
+        text:   CellBackground
+        cursor: CellForeground
+      normal:
+        black:   '#000000'
+        red:     '#a30000'
+        green:   '#3a751a'
+        yellow:  '#cc8f00'
+        blue:    '#0065a3'
+        magenta: '#a3008b' # purple, really
+        cyan:    '#00a354' # turquoise or teal really
+        white:   '#f0f0f0'
+      bright:
+        black:   '#353535'
+        red:     '#ff1414'
+        green:   '#61c52b'
+        yellow:  '#ffb914'
+        blue:    '#14a5ff'
+        magenta: '#f500d0'
+        cyan:    '#00f57e'
+        white:   '#ffffff'
+      dim:
+        black:   '#828282'
+        red:     '#ffcccc'
+        green:   '#c2edab'
+        yellow:  '#fff0cc'
+        blue:    '#ccebff'
+        magenta: '#ffccf7'
+        cyan:    '#ccffe6'
+        white:   '#cccccc'
+
+colors: *bright
 
 # Bell
 #
