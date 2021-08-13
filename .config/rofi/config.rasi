@@ -12,3 +12,4 @@ configuration {
 	color-active: "#ff0000,#458588,#00ffff,#458588,#ff00ff";
 	color-window: "#000000,#f2a926,#f2a926";
 }
+@import "/usr/share/rofi/themes/paper-float.rasi"
