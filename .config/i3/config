@@ -253,7 +253,7 @@ bar {
 }
 
 # Window Settings 
-set $BorderWidth 2
+set $BorderWidth 4
 hide_edge_borders none
 new_window pixel $BorderWidth
 new_float pixel $BorderWidth
