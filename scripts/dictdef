@@ -1,0 +1,10 @@
+#!/usr/bin/bash
+
+if [ -z "${1}" ]; then
+  echo "Error, no word provided"
+  exit
+fi
+
+term=${1}
+
+curl --silent "dict://dict.org/d:${term}" | sed '/^[0-9]\{3\}.*$/d'
