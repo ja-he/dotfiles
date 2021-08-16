@@ -295,4 +295,4 @@ bindsym $mod+period  exec /home/ztf/scripts/randomwp /home/ztf/Pictures/wallpape
 exec dunst
 exec redshift
 exec /home/ztf/.screenlayout/default-vert.sh
-exec picom
+exec picom --experimental-backends
