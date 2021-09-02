@@ -11,12 +11,15 @@ local hsl = lush.hsl
 --     pink      #ffccf7 #f500d0 #a3008b
 --     turquoise #ccffe6 #00f57e #00a354
 
-local pale_yellow       = hsl(42, 100, 90)  -- Vim has a mapping, <n>C-a and <n>C-x to
-local pale_red          = hsl(0, 100, 90)  -- Vim has a mapping, <n>C-a and <n>C-x to
-local pale_green        = hsl(99, 64, 80)  -- Vim has a mapping, <n>C-a and <n>C-x to
-local pale_blue         = hsl(203, 100, 90)  -- Vim has a mapping, <n>C-a and <n>C-x to
-local pale_pink         = hsl(309, 100, 90)  -- Vim has a mapping, <n>C-a and <n>C-x to
-local pale_turquoise    = hsl(151, 100, 90)  -- Vim has a mapping, <n>C-a and <n>C-x to
+local bg_lightness = 100
+local marker_lightness = bg_lightness * 0.9
+
+local pale_yellow       = hsl(42, 100, marker_lightness)  -- Vim has a mapping, <n>C-a and <n>C-x to
+local pale_red          = hsl(0, 100, marker_lightness)  -- Vim has a mapping, <n>C-a and <n>C-x to
+local pale_green        = hsl(99, 64, marker_lightness)  -- Vim has a mapping, <n>C-a and <n>C-x to
+local pale_blue         = hsl(203, 100, marker_lightness)  -- Vim has a mapping, <n>C-a and <n>C-x to
+local pale_pink         = hsl(309, 100, marker_lightness)  -- Vim has a mapping, <n>C-a and <n>C-x to
+local pale_turquoise    = hsl(151, 100, marker_lightness)  -- Vim has a mapping, <n>C-a and <n>C-x to
 
 local vibrant_yellow    = pale_yellow.darken(40)
 local vibrant_red       = pale_red.darken(40)
@@ -32,7 +35,7 @@ local dark_blue         = pale_blue.darken(65)
 local dark_pink         = pale_pink.darken(65)
 local dark_turquoise    = pale_turquoise.darken(65)
 
-local white             = hsl(0, 0, 100)  -- Vim has a mapping, <n>C-a and <n>C-x to
+local white             = hsl(0, 0, bg_lightness)  -- Vim has a mapping, <n>C-a and <n>C-x to
 local black             = hsl(0, 0, 0)  -- Vim has a mapping, <n>C-a and <n>C-x to
 local off_white         = white.darken(3)
 local light_grey        = white.darken(10)
@@ -50,12 +53,14 @@ local theme = lush(function()
     PaleBlueBlock          {  fg  =  pale_blue         ,bg  =  pale_blue          },
     PalePinkBlock          {  fg  =  pale_pink         ,bg  =  pale_pink          },
     PaleTurquoiseBlock     {  fg  =  pale_turquoise    ,bg  =  pale_turquoise     },
+
     VibrantYellowBlock     {  fg  =  vibrant_yellow    ,bg  =  vibrant_yellow     },
     VibrantRedBlock        {  fg  =  vibrant_red       ,bg  =  vibrant_red        },
     VibrantGreenBlock      {  fg  =  vibrant_green     ,bg  =  vibrant_green      },
     VibrantBlueBlock       {  fg  =  vibrant_blue      ,bg  =  vibrant_blue       },
     VibrantPinkBlock       {  fg  =  vibrant_pink      ,bg  =  vibrant_pink       },
     VibrantTurquoiseBlock  {  fg  =  vibrant_turquoise ,bg  =  vibrant_turquoise  },
+
     DarkYellowBlock        {  fg  =  dark_yellow       ,bg  =  dark_yellow        },
     DarkRedBlock           {  fg  =  dark_red          ,bg  =  dark_red           },
     DarkGreenBlock         {  fg  =  dark_green        ,bg  =  dark_green         },
@@ -242,7 +247,7 @@ local theme = lush(function()
     -- TSError -> Error for example, so you do not have to define these unless
     -- you explicitly want to support Treesitter's improved syntax awareness.
 
-    TSError              { Error }, -- For syntax/parser errors.
+    TSError              {  }, -- For syntax/parser errors.
     TSPunctDelimiter     { Delimiter }, -- For delimiters ie: `.`
     TSPunctBracket       { Delimiter }, -- For brackets and parens.
     TSPunctSpecial       { Delimiter }, -- For special punctutation that does not fall in the catagories before.
