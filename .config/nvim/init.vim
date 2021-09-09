@@ -396,9 +396,9 @@ autocmd BufRead,BufNewfile */zettelkasten/2[0-1][0-9][0-9]-[0-1][0-9]-[0-3][0-9]
                                           \  set filetype=markdown.pandoc |
                                           \  set spell                    |
                                           \  set spelllang=en,de
-autocmd FileType mail
-  \  set spell |
-  \  set spelllang=en,de
+autocmd FileType mail,tex
+  \  setlocal spell |
+  \  setlocal spelllang=en,de
 
 augroup pandoc_syntax
     au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
