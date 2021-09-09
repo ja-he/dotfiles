@@ -381,6 +381,7 @@ nnoremap <leader>tt  :FloatermNew --autoclose=0 "./%"<CR>
 nnoremap <leader>tpf :FloatermNew ipython<CR>
 nnoremap <leader>tps :FloatermNew --wintype=normal ipython<CR>
 vnoremap <leader>ts  :FloatermSend<CR>
+vnoremap <leader>td  y:FloatermNew --autoclose=0 dictdef '<c-r>"'<CR>
 autocmd TermOpen term://* startinsert
 
 tnoremap <F1> <c-\><c-n>:FloatermToggle<CR>
