@@ -462,6 +462,7 @@ let g:floaterm_borderchars = '        '
 nnoremap <leader>gs :Git<CR>
 nnoremap <leader>gS :tab Git<CR>
 nnoremap <leader>gb :Git blame<CR>
+nnoremap <leader>gl :Gclog<CR>
 nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gf :Gfetch<CR>
 " other git-binds
