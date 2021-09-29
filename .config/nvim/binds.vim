@@ -65,11 +65,11 @@ nnoremap <silent> <leader>gh :SignifyToggle<CR>
 " fzf binds
 nnoremap <leader>ff :Files<CR>
 nnoremap <leader>fF :Files!<CR>
+nnoremap <leader>fc :Files /home/ztf/.config/<CR>
 nnoremap <leader>fa :Ag<CR>
 nnoremap <leader>fA :Ag!<CR>
 nnoremap <leader>fl :BLines<CR>
 nnoremap <leader>fL :BLines!<CR>
-nnoremap <leader>fc :Colors<CR>
 nnoremap <leader>fh :Helptags<CR>
 nnoremap <leader>fs :Snippets<CR>
 nnoremap <leader>fw :cd /home/ztf/notes/wiki/vimwiki <bar> Ag<CR>
