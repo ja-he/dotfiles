@@ -96,7 +96,9 @@ nnoremap <leader>lel  <cmd>lua vim.lsp.diagnostic.set_loclist()<CR>
 "nnoremap <leader>lo   <cmd>lua vim.lsp.stop_client(vim.lsp.get_active_clients())<CR>
 "nnoremap <leader>lO "[turn on lsp again, somehow]
 
-nnoremap L :tabnext<CR>
 nnoremap H :tabprev<CR>
+nnoremap L :tabnext<CR>
+nnoremap <c-h> :-tabmove<CR>
+nnoremap <c-l> :+tabmove<CR>
 
 vnoremap <leader>x c<C-R>=system("IFS='\n' read input; python -c \"print($input,end='')\"",@+)<CR><ESC>
