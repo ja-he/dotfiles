@@ -2,7 +2,7 @@ configuration {
 	width: 40;
 	lines: 6;
 	columns: 1;
-	font: "Sarasa Mono SC 14";
+	font: "Jetbrains Mono 12";
 	bw: 1;
 	padding: 4;
 	hide-scrollbar: false;

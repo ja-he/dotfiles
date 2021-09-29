@@ -41,9 +41,9 @@ settings:
   content.register_protocol_handler:
     https://mail.google.com?extsrc=mailto&url=%25s: false
   fonts.default_family:
-    global: Sarasa Mono K
+    global: Jetbrains Mono
   fonts.web.family.fixed:
-    global: Sarasa Mono K
+    global: Jetbrains Mono
   fonts.web.family.sans_serif:
     global: Cantarell
   fonts.web.family.serif:
