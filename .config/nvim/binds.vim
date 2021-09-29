@@ -68,6 +68,8 @@ nnoremap <leader>fF :Files!<CR>
 nnoremap <leader>fc :Files /home/ztf/.config/<CR>
 nnoremap <leader>fa :Ag<CR>
 nnoremap <leader>fA :Ag!<CR>
+nnoremap <leader>fg :GitFiles<CR>
+nnoremap <leader>fG :GitFiles!<CR>
 nnoremap <leader>fl :BLines<CR>
 nnoremap <leader>fL :BLines!<CR>
 nnoremap <leader>fh :Helptags<CR>
