@@ -127,3 +127,4 @@ set foldcolumn=auto:3
 set omnifunc=v:lua.vim.lsp.omnifunc
 set completeopt=menuone,noselect
 
+set virtualedit=block
