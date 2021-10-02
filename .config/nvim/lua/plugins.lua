@@ -34,5 +34,6 @@ return require('packer').startup(function()
   use 'ja-he/kurzzug'
   use 'nvim-lua/plenary.nvim'
   use 'kyazdani42/nvim-tree.lua'
+  use 'Shatur/neovim-ayu'
   use { 'iamcco/markdown-preview.nvim' , run = ':call mkdp#util#install()' }
 end)
