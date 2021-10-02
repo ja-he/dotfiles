@@ -258,7 +258,7 @@ hide_edge_borders none
 new_window pixel $BorderWidth
 new_float pixel $BorderWidth
 #bindsym $mod+i border none
-bindsym $mod+u border pixel $BorderWidth
+bindsym $mod+u       [window_type="normal"] border pixel $BorderWidth
 
 # class                  border    backgr.   text      indicator child_border
 client.focused           $cPop     $cPop     $cFG      $cPop     $cPop
