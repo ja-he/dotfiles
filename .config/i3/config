@@ -26,7 +26,7 @@ bindsym $mod+t exec ~/scripts/lockscript.sh
 bindsym $mod+s sticky toggle 
 
 # start a terminal
-bindsym $mod+Return       exec alacritty
+bindsym $mod+Return       exec kitty
 bindsym $mod+shift+Return exec alacritty -e nvim
 #bindsym $mod+shift+Return exec i3-sensible-terminal
 
