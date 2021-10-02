@@ -38,6 +38,18 @@ parse_timestamp_line_b() {
     echo "${timestamp}|${title}"
   done
 }
+parse_timestamp_line_c() {
+  # Takes format
+  #  '<tracknum> <title> <timestamp>' e.g. '十一 A conversation with the blacksmith 40:53'
+  # and turns it into
+  #  '<timestamp>|<title>' e.g. '40:53|A conversation with the blacksmith'.
+  sed 's/^\(\S\+\)\s\+\(\(\S\+\s\+\)*\S\+\)\s\+\(\([0-9]\+:\)\+[0-9]\+\)\s*$/\4|\2/'
+  #         ^^^^        ^^^^^^^^^^^^^^^^^        ^^^^^^^^^^^^^^^^^^^^^
+  #         |           |                        3: Any number of 'D:' or 'DD:' prefixes to a
+  #         |           |                           'DD' (seconds) suffix makes the timestamp
+  #         |           2: Anything in the middle here as Title
+  #         1: Nonspaces as track-ID
+}
 
 get_filename() {
   tracknum="$1"
