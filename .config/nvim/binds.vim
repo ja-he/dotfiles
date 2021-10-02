@@ -10,6 +10,7 @@ nnoremap <leader>mc  :FloatermNew --wintype=split make clean<CR>
 nnoremap <leader>mpp :!pandoc "%" -f markdown+implicit_figures -t pdf --citeproc -s -o ~/out.pdf<CR>
 nnoremap <leader>mph :!pandoc "%" -f markdown+emoji -t html --citeproc -s -o ~/out.html<CR>
 nnoremap <leader>tmpp :FloatermNew pandoc "%" -f markdown -t pdf --citeproc -s -o ~/out.pdf<CR>
+nnoremap <leader>mv  :MarkdownPreview<CR>
 nnoremap <leader>tn  :FloatermNew<CR>
 nnoremap <leader>tce :FloatermNew --autoclose=0 g++ "%" -o %< && "./%<"<CR>
 nnoremap <leader>tt  :FloatermNew --autoclose=0 "./%"<CR>

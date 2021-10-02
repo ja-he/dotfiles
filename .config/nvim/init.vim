@@ -37,6 +37,7 @@ source ~/.config/nvim/configure/ultisnips.vim
 source ~/.config/nvim/configure/fzf.vim
 source ~/.config/nvim/configure/git-messenger.vim
 source ~/.config/nvim/configure/pandoc.vim
+source ~/.config/nvim/configure/markdown-preview.vim
 
 
 " ----- TODO: place somewhere sensible: ----------------------------------------
