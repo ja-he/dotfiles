@@ -184,10 +184,10 @@ local theme = lush(function()
     Operator    { fg = dark_blue }, -- "sizeof", "+", "*", etc.
     Exception   { Keyword }, --  try, catch, throw
 
-    Type        { fg = dark_red, gui = "bold" },
+    Type        { gui = "underline" },
     StorageClass{ Type }, -- static, register, volatile, etc.
     Typedef     { Type }, --  A typedef
-    Structure   { Delimiter }, --  struct, union, enum, etc.
+    Structure   { gui = "italic" }, --  struct, union, enum, etc.
 
     PreProc     { gui = "italic" },
     Include     { PreProc }, --  preprocessor #include
@@ -269,7 +269,7 @@ local theme = lush(function()
     TSMethod             { Function }, -- For method calls and definitions.
     -- TSField              { }, -- For fields.
     -- TSProperty           { }, -- Same as `TSField`.
-    -- TSConstructor        { }, -- For constructor calls and definitions: `{ }` in Lua, and Java constructors.
+    TSConstructor        { TSMethod , gui = "italic" }, -- For constructor calls and definitions: `{ }` in Lua, and Java constructors.
     -- TSConditional        { }, -- For keywords related to conditionnals.
     -- TSRepeat             { }, -- For keywords related to loops.
     -- TSLabel              { }, -- For labels: `label:` in C and `:label:` in Lua.
