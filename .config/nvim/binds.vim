@@ -41,14 +41,14 @@ nnoremap <leader>sc :call Conceal()<CR>
 nnoremap <leader>sC :call NoConceal()<CR>
 
 " editing certain files binds
-nnoremap <leader>ecv :edit /home/ztf/repositories/dotfiles/.config/nvim/init.vim<CR>
-nnoremap <leader>ecc :edit /home/ztf/repositories/dotfiles/.config/nvim/lua/kurzzug-dev.lua<CR>
-nnoremap <leader>eci :edit /home/ztf/repositories/dotfiles/.config/i3/config<CR>
-nnoremap <leader>ecs :edit /home/ztf/repositories/dotfiles/.config/i3status-rust/config.toml<CR>
-nnoremap <leader>ew  :edit /home/ztf/notes/mdwiki/index.md<CR>
+nnoremap <leader>ecv :edit $HOME/repositories/dotfiles/.config/nvim/init.vim<CR>
+nnoremap <leader>ecc :edit $HOME/repositories/dotfiles/.config/nvim/lua/kurzzug-dev.lua<CR>
+nnoremap <leader>eci :edit $HOME/repositories/dotfiles/.config/i3/config<CR>
+nnoremap <leader>ecs :edit $HOME/repositories/dotfiles/.config/i3status-rust/config.toml<CR>
+nnoremap <leader>ew  :edit $HOME/notes/mdwiki/index.md<CR>
 
 nnoremap <leader>c :lua require'lush'.export_to_buffer(require'kurzzug-dev')<CR>
-nnoremap <leader>C :edit /home/ztf/repositories/dotfiles/.config/nvim/colors/kurzzug-dev.vim<CR>
+nnoremap <leader>C :edit $HOME/repositories/dotfiles/.config/nvim/colors/kurzzug-dev.vim<CR>
 
 " vim-fugitive bindings
 nnoremap <leader>gs :Git<CR>
@@ -66,7 +66,7 @@ nnoremap <silent> <leader>gh :SignifyToggle<CR>
 " fzf binds
 nnoremap <leader>ff :Files<CR>
 nnoremap <leader>fF :Files!<CR>
-nnoremap <leader>fc :Files /home/ztf/.config/<CR>
+nnoremap <leader>fc :Files $HOME/.config/<CR>
 nnoremap <leader>fa :Ag<CR>
 nnoremap <leader>fA :Ag!<CR>
 nnoremap <leader>fg :GitFiles<CR>
@@ -75,8 +75,8 @@ nnoremap <leader>fl :BLines<CR>
 nnoremap <leader>fL :BLines!<CR>
 nnoremap <leader>fh :Helptags<CR>
 nnoremap <leader>fs :Snippets<CR>
-nnoremap <leader>fw :cd /home/ztf/notes/wiki/vimwiki <bar> Ag<CR>
-nnoremap <leader>fn :cd /home/ztf/notes/mdwiki <bar> Ag<CR>
+nnoremap <leader>fw :cd $HOME/notes/wiki/vimwiki <bar> Ag<CR>
+nnoremap <leader>fn :cd $HOME/notes/mdwiki <bar> Ag<CR>
 
 " lsp keymappings (per example, adjusted by me)
 nnoremap <leader>ld   <cmd>lua vim.lsp.buf.declaration()<CR>
