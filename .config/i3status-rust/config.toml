@@ -33,12 +33,6 @@ block = "sound"
 driver = "pulseaudio"
 device_kind = "sink"
 
-
-[[block]]
-block = "custom"
-command = "echo Worked: $(.scripts/convertsecs.sh $(cat /home/ztf/.worktime/$(date +%Y-%m-%d).timelog))"
-interval = 1
-
 [[block]]
 block = "disk_space"
 path = "/"
