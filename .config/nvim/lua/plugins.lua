@@ -31,9 +31,13 @@ return require('packer').startup(function()
   use 'dstein64/nvim-scrollview'
   use 'rktjmp/lush.nvim'
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-  use 'ja-he/kurzzug'
   use 'nvim-lua/plenary.nvim'
   use 'kyazdani42/nvim-tree.lua'
-  use 'Shatur/neovim-ayu'
+
   use { 'iamcco/markdown-preview.nvim' , run = ':call mkdp#util#install()' }
+
+  -- colorschemes
+  use 'ja-he/kurzzug'
+  use 'Shatur/neovim-ayu'
+  use 'fcpg/vim-fahrenheit'
 end)
