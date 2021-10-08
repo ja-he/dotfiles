@@ -45,6 +45,8 @@ set wildchar=<tab>
 set wildignorecase
 set wildignore=
 
+set notimeout
+
 " show current position
 set ruler
 
