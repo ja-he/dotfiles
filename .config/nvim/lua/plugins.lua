@@ -17,6 +17,7 @@ return require('packer').startup(function()
   -- use 'liuchengxu/vim-which-key'
   use 'liuchengxu/vista.vim'
   use 'norcalli/nvim-colorizer.lua'
+  use 'numToStr/Comment.nvim'
 
   use 'neovim/nvim-lspconfig'
 
