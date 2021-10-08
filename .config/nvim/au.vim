@@ -11,11 +11,7 @@ autocmd FileType gitcommit,text       set textwidth=68
 "autocmd FileType markdown             set filetype=pandoc
 autocmd FileType tex                  set textwidth=80
 autocmd FileType floaterm set nonumber norelativenumber
-autocmd BufRead,BufNewfile */zettelkasten/2[0-1][0-9][0-9]-[0-1][0-9]-[0-3][0-9]/*
-                                          \  set filetype=markdown.pandoc |
-                                          \  set spell                    |
-                                          \  set spelllang=en,de
-autocmd FileType mail,tex
+autocmd FileType mail,tex,markdown.pandoc
   \  setlocal spell |
   \  setlocal spelllang=en,de
 
