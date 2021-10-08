@@ -1,0 +1,16 @@
+#!/bin/bash
+set -euo pipefail
+
+action=${1}
+subdir=${2:-public}
+
+if [ "${action}" == "a" ] ; then
+  fzfcmd=":Ag"
+elif [ "${action}" == "f" ] ; then
+  fzfcmd=":Files"
+else
+  echo "ERROR: invalid action"
+  exit 1
+fi
+
+nvim  -c ":cd ${HOME}/zettelkasten/${subdir}" -c "${fzfcmd}"
