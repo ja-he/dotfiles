@@ -126,6 +126,8 @@ export PATH=$PATH:/home/ztf/repositories/riscv-vp/vp/build/bin
 
 export PATH=$PATH:${HOME}/.local/share/bin
 
+export PATH=$PATH:${HOME}/go/bin
+
 export PATH=$PATH:${HOME}/scripts
 for completion_spec in ${HOME}/scripts/.completions/*; do
   source ${completion_spec}
