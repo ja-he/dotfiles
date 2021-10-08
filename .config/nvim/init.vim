@@ -31,7 +31,7 @@ lua require('ztf.treesitter')
 lua require("ztf.configure.nvim-cmp")
 lua require('ztf.configure.nvim-colorizer')
 lua require('ztf.configure.nvim-tree')
-source ~/.config/nvim/configure/which-key.vim
+" source ~/.config/nvim/configure/which-key.vim
 source ~/.config/nvim/configure/floaterm.vim
 source ~/.config/nvim/configure/ultisnips.vim
 source ~/.config/nvim/configure/fzf.vim

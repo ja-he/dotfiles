@@ -14,7 +14,7 @@ return require('packer').startup(function()
   use 'vim-pandoc/vim-pandoc-syntax'
   use 'chrisbra/unicode.vim'
   use 'kylelaker/riscv.vim'
-  use 'liuchengxu/vim-which-key'
+  -- use 'liuchengxu/vim-which-key'
   use 'liuchengxu/vista.vim'
   use 'norcalli/nvim-colorizer.lua'
 
