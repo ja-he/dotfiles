@@ -83,12 +83,6 @@ interval = 10
 device = "BAT1"
 
 [[block]]
-block = "weather"
-format = "{weather} {temp}C, {wind} m/s {direction}"
-service = { name = "openweathermap", api_key = "<api key>", city_id = "2856500", units = "metric" }
-interval = 600
-
-[[block]]
 block = "time"
 interval = 1
 format = "%a %d.%m. %R"
