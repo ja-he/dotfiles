@@ -3,9 +3,20 @@ set -euo pipefail
 
 zettelkasten_path=${HOME}/zettelkasten
 day=`date '+%Y-%m-%d'`
-filename=$1
 category=${2:-public}
 
+if [ $1 == "update" ]; then
+  (
+    set -x
+    cd "${zettelkasten_path}/${category}"
+    git add .
+    git commit -m "$day Update"
+    git push
+  )
+  exit 0
+fi
+
+filename=$1
 path_full=${zettelkasten_path}/${category}/${day}
 mkdir -p ${path_full}
 nvim ${path_full}/${filename}
