@@ -9,7 +9,7 @@
     --color-text-link: #4078c0;
     --color-bg-primary: #fff;
     --color-bg-secondary: #fafbfc;
-    --color-bg-tertiary: #ccebff;
+    --color-bg-tertiary: #eeeeee;
     --color-border-primary: #ddd;
     --color-border-secondary: #eaecef;
     --color-border-tertiary: #d1d5da;
@@ -17,7 +17,7 @@
     --color-markdown-blockquote-border: #dfe2e5;
     --color-markdown-table-border: #dfe2e5;
     --color-markdown-table-tr-border: #c6cbd1;
-    --color-markdown-code-bg: #ccebff;
+    --color-markdown-code-bg: #eeeeee;
 }
 [data-theme="dark"] {
     --color-text-primary: #c9d1d9;
