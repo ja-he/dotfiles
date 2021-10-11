@@ -90,12 +90,12 @@ nnoremap <leader>lw   <cmd>lua vim.lsp.buf.document_symbol()<CR>
 nnoremap <leader>lW   <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap <leader>lf   <cmd>lua vim.lsp.buf.formatting()<CR>
 nnoremap <leader>lR   <cmd>lua vim.lsp.buf.rename()<CR>
-nnoremap <leader>ls   <cmd>:echo LspStatus()<CR>
+nnoremap <leader>ls   :LspInfo<CR>
 nnoremap <leader>len  <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 nnoremap <leader>lep  <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 nnoremap <leader>lel  <cmd>lua vim.lsp.diagnostic.set_loclist()<CR>
-"nnoremap <leader>lo   <cmd>lua vim.lsp.stop_client(vim.lsp.get_active_clients())<CR>
-"nnoremap <leader>lO "[turn on lsp again, somehow]
+nnoremap <leader>lo   :LspStop<CR>
+nnoremap <leader>lO   :LspStart<CR>
 
 nnoremap H :tabprev<CR>
 nnoremap L :tabnext<CR>
