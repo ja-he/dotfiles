@@ -127,8 +127,8 @@ bindsym XF86AudioPrev exec ~/scripts/prevsong.sh
 bindsym $mod+shift+m exec notify-send "playing $(xclip -o -selection clipboard)" & mpv --volume=39 $(xclip -o -selection clipboard)
 
 # backlight
-bindsym XF86MonBrightnessUp     exec xbacklight -inc 20
-bindsym XF86MonBrightnessDown   exec xbacklight -dec 20
+bindsym XF86MonBrightnessUp     exec change_brightness.sh +
+bindsym XF86MonBrightnessDown   exec change_brightness.sh -
 
 # Volume Changing 
 set $PrimaryOutput alsa_output.usb-FiiO_FiiO_USB_DAC_K1-01.analog-stereo
