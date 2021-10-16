@@ -9,6 +9,7 @@ if [ $1 == "update" ]; then
   (
     set -x
     cd "${zettelkasten_path}/${category}"
+    git pull
     git add .
     git commit -m "$day Update"
     git push
