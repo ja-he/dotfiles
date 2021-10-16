@@ -253,7 +253,7 @@ bar {
 }
 
 # Window Settings 
-set $BorderWidth 0
+set $BorderWidth 4
 hide_edge_borders none
 new_window pixel $BorderWidth
 new_float pixel $BorderWidth
@@ -286,8 +286,8 @@ bindsym $mod+m exec ~/scripts/micmutetoggle.sh
 bindsym $mod+n exec ~/scripts/loopbacktoggle.sh
 
 # Gaps 
-gaps inner  8
-gaps outer 16
+gaps inner  0
+gaps outer  0
 
 bindsym $mod+period  exec /home/ztf/scripts/randomwp /home/ztf/Pictures/wallpapers/favs
 
@@ -295,4 +295,4 @@ bindsym $mod+period  exec /home/ztf/scripts/randomwp /home/ztf/Pictures/wallpape
 exec dunst
 exec redshift
 exec /home/ztf/.screenlayout/default-vert.sh
-exec picom --experimental-backends
+# exec picom --experimental-backends
