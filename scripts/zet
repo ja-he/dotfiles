@@ -18,6 +18,7 @@ if [ $1 == "update" ]; then
 fi
 
 filename=$1
-path_full=${zettelkasten_path}/${category}/${day}
+path_full=${zettelkasten_path}/${category}
+if [ ${category} == "private" ]; then path_full=${path_full}/${day}; fi
 mkdir -p ${path_full}
 nvim ${path_full}/${filename}
