@@ -86,3 +86,5 @@ scripts/quicktexfiles/content.tex
 /.config/manjaro/
 /.config/pamac/
 /.config/yuzu/
+/.config/dayplan/days/
+/.config/nvim/plugin/
