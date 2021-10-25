@@ -1,11 +1,9 @@
 #!/usr/bin/bash
 set -euo pipefail
 
-zettelkasten_path=${HOME}/zettelkasten
-day=`date '+%Y-%m-%d'`
-category=${2:-public}
-
-if [ $1 == "update" ]; then
+update_kasten()
+{
+  local category=${1}
   (
     set -x
     cd "${zettelkasten_path}/${category}"
@@ -14,11 +12,65 @@ if [ $1 == "update" ]; then
     git commit -m "$day Update"
     git push
   )
-  exit 0
-fi
+}
 
-filename=$1
-path_full=${zettelkasten_path}/${category}
-if [ ${category} == "private" ]; then path_full=${path_full}/${day}; fi
-mkdir -p ${path_full}
-nvim ${path_full}/${filename}
+edit_zettel()
+{
+  local kasten=${1}
+  local zettel=${2}
+
+  local zettel_dir
+  case ${kasten} in
+    public | namib | work)
+      zettel_dir=${zettelkasten_path}/${kasten}
+      ;;
+    private)
+      zettel_dir=${zettelkasten_path}/${kasten}/${day}
+      ;;
+    *)
+      echo "ERROR: kasten ${kasten} not known"
+      exit 1
+      ;;
+  esac
+
+  mkdir -p ${zettel_dir}
+  nvim ${zettel_dir}/${zettel}
+}
+
+nvim_fzf_cmd()
+{
+  local kasten=${1}
+  local fzfcmd=${2}
+  nvim -c ":cd ${zettelkasten_path}/${kasten}" -c "${fzfcmd}"
+}
+
+# usage sketch:
+# $ zet <subcommand> [<kasten>] [<note>]
+# $ zet update       [<kasten>]
+# $ zet edit          <kasten>   <note>
+# $ zet filesearch   [<kasten>]
+# $ zet textsearch   [<kasten>]
+
+zettelkasten_path=${HOME}/zettelkasten
+day=`date '+%Y-%m-%d'`
+
+command=${1}
+
+case ${command} in
+  update)
+    update_kasten ${2:-public}
+    exit 0
+    ;;
+  edit)
+    edit_zettel ${2} ${3}
+    ;;
+  filesearch)
+    nvim_fzf_cmd ${2:-public} ':Files'
+    ;;
+  textsearch)
+    nvim_fzf_cmd ${2:-public} ':Ag'
+    ;;
+  *)
+    echo "ERROR: unrecognized command '${command}'"
+    exit 1
+esac

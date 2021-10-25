@@ -17,10 +17,13 @@ _zet()
 
   case ${COMP_CWORD} in
     1)
-      COMPREPLY=($(compgen -W "update edit latest" -- ${cur}))
+      COMPREPLY=($(compgen -W "update edit filesearch textsearch" -- ${cur}))
       ;;
     2)
       COMPREPLY=($(compgen -W "$(get_zet_dirs)" -- ${cur}))
+      ;;
+    3)
+      # TODO: for `edit` only, suggest present filenames in that kasten
       ;;
     *)
       COMPREPLY=()
