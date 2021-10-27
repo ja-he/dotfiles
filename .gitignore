@@ -88,3 +88,5 @@ scripts/quicktexfiles/content.tex
 /.config/yuzu/
 /.config/dayplan/days/
 /.config/nvim/plugin/
+/.local/lib/
+/.local/bin/
