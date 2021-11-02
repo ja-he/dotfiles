@@ -18,6 +18,9 @@ return require('packer').startup(function()
   use 'liuchengxu/vista.vim'
   use 'norcalli/nvim-colorizer.lua'
   use 'numToStr/Comment.nvim'
+  use 'tpope/vim-surround'
+  use 'tpope/vim-characterize'
+  use 'tommcdo/vim-lion'
 
   use 'neovim/nvim-lspconfig'
 
