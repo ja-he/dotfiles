@@ -1,0 +1,7 @@
+#!/bin/bash
+
+cat ~/.unicode                        \
+  | fzf                               \
+  | cut -d" " -f1                     \
+  | xclip -i -sel clipboard -r -f     \
+  | xclip -i -sel primary -r -f && echo
