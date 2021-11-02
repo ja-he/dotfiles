@@ -94,6 +94,7 @@ nnoremap <leader>ls   :LspInfo<CR>
 nnoremap <leader>len  <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 nnoremap <leader>lep  <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 nnoremap <leader>lel  <cmd>lua vim.lsp.diagnostic.set_loclist()<CR>
+nnoremap <leader>lea  <cmd>lua vim.lsp.buf.code_action()<CR>
 nnoremap <leader>lo   :LspStop<CR>
 nnoremap <leader>lO   :LspStart<CR>
 
