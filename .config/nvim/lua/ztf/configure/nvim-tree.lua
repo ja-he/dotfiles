@@ -1,9 +1,7 @@
-vim.g.nvim_tree_ignore = {}
 vim.g.nvim_tree_gitignore = 0
 vim.g.nvim_tree_auto_ignore_ft = {}
 vim.g.nvim_tree_quit_on_open = 1
 vim.g.nvim_tree_indent_markers = 1
-vim.g.nvim_tree_hide_dotfiles = 0
 vim.g.nvim_tree_git_hl = 1
 vim.g.nvim_tree_highlight_opened_files = 1
 vim.g.nvim_tree_root_folder_modifier = ':~'
@@ -78,4 +76,8 @@ require("nvim-tree").setup{
   tab_open = 0,
   auto_open = 0,
   follow = 1,
+  filters = {
+    dotfiles = false,
+    custom = {}
+  }
 }
