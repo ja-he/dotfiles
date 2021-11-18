@@ -146,5 +146,7 @@ export MANPAGER='nvim +Man!'
 
 export STUDIP_USER=ja_he
 
+export ZETTELKASTENPATH=${HOME}/zettelkasten
+
 source /usr/share/fzf/key-bindings.bash
 source /usr/share/fzf/completion.bash

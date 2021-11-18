@@ -1,8 +1,12 @@
 #!/bin/bash
 
+default_path=${HOME}/zettelkasten
+zettelkasten_path=${ZETTELKASTENPATH:-${default_path}}
+zettelkasten_path="$(readlink -m ${zettelkasten_path})"
+
 _get_zet_dirs()
 {
-  for dir in $(find ${HOME}/zettelkasten/ -mindepth 1 -maxdepth 1 -type d -iname '[^.]*')
+  for dir in $(find "${zettelkasten_path}" -mindepth 1 -maxdepth 1 -type d -iname '[^.]*')
   do
     basename "${dir}"
   done
@@ -11,7 +15,7 @@ _get_zet_dirs()
 _get_zettel()
 {
   local kasten=${1}
-  for filepath in `find ${HOME}/zettelkasten/${kasten} -type f -not -iname 'readme*'`
+  for filepath in `find "${zettelkasten_path}/${kasten}" -type f -not -iname 'readme*'`
   do
     basename "${filepath}"
   done

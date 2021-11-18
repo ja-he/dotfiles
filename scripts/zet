@@ -1,6 +1,22 @@
 #!/usr/bin/bash
 set -euo pipefail
 
+_init_with_submodules() {
+  (
+    set -x
+    submodules="${1}"
+    git clone "${main_repo}" "${zettelkasten_path}"
+    cd "${zettelkasten_path}"
+    for submodule_dir in ${submodules}; do
+      (
+        cd "${submodule_dir}"
+        git submodule update --init .
+        git checkout main
+      )
+    done
+  )
+}
+
 _update_toplevel()
 {
   (
@@ -72,12 +88,18 @@ _get_kaesten() {
 # $ zet filesearch   [<kasten>]
 # $ zet textsearch   [<kasten>]
 
-zettelkasten_path=${HOME}/zettelkasten
+main_repo='git@gitlab.informatik.uni-bremen.de:ja_he/zettelkasten.git'
+default_path=${HOME}/zettelkasten
+zettelkasten_path=${ZETTELKASTENPATH:-${default_path}}
+zettelkasten_path="$(readlink -m ${zettelkasten_path})"
 day=`date '+%Y-%m-%d'`
 
 command=${1}
 
 case ${command} in
+  init)
+    _init_with_submodules "namib private"
+    ;;
   update)
     update_kasten ${2:-public}
     _update_toplevel
