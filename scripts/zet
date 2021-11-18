@@ -1,6 +1,20 @@
 #!/usr/bin/bash
 set -euo pipefail
 
+_update_toplevel()
+{
+  (
+    set -x
+    cd "${zettelkasten_path}"
+    git pull
+    for submodule_dir in `_get_kaesten`; do
+      git add ${submodule_dir}
+    done
+    git commit -m "Update to submodule(s)"
+    git push
+  )
+}
+
 update_kasten()
 {
   local category=${1}
@@ -44,6 +58,13 @@ nvim_fzf_cmd()
   nvim -c ":cd ${zettelkasten_path}/${kasten}" -c "${fzfcmd}"
 }
 
+_get_kaesten() {
+  (
+    cd "${zettelkasten_path}"
+    git submodule status | while read hash repo branch; do echo $repo ; done 
+  )
+}
+
 # usage sketch:
 # $ zet <subcommand> [<kasten>] [<note>]
 # $ zet update       [<kasten>]
@@ -59,6 +80,7 @@ command=${1}
 case ${command} in
   update)
     update_kasten ${2:-public}
+    _update_toplevel
     exit 0
     ;;
   edit)
