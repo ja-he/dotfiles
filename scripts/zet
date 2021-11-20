@@ -23,7 +23,7 @@ _update_toplevel()
     set -x
     cd "${zettelkasten_path}"
     git pull
-    for submodule_dir in `_get_kaesten`; do
+    for submodule_dir in ${ZETTELKASTEN_KAESTEN}; do
       git add ${submodule_dir}
     done
     git commit -m "Update to submodule(s)"
@@ -74,12 +74,12 @@ nvim_fzf_cmd()
   nvim -c ":cd ${zettelkasten_path}/${kasten}" -c "${fzfcmd}"
 }
 
-_get_kaesten() {
-  (
-    cd "${zettelkasten_path}"
-    git submodule status | while read hash repo branch; do echo $repo ; done 
-  )
-}
+# _get_kaesten() {
+#   (
+#     cd "${zettelkasten_path}"
+#     git submodule status | while read hash repo branch; do echo $repo ; done 
+#   )
+# }
 
 # usage sketch:
 # $ zet <subcommand> [<kasten>] [<note>]
@@ -92,16 +92,26 @@ main_repo='git@gitlab.informatik.uni-bremen.de:ja_he/zettelkasten.git'
 default_path=${HOME}/zettelkasten
 zettelkasten_path=${ZETTELKASTENPATH:-${default_path}}
 zettelkasten_path="$(readlink -m ${zettelkasten_path})"
+zettelkasten_kaesten="${ZETTELKASTEN_KAESTEN:-"namib private"}"
 day=`date '+%Y-%m-%d'`
 
 command=${1}
 
 case ${command} in
   init)
-    _init_with_submodules "namib private"
+    _init_with_submodules "${zettelkasten_kaesten}"
     ;;
   update)
-    update_kasten ${2:-public}
+    kasten_arg="${2:-""}"
+    if [ -n "${kasten_arg}" ]; then
+      # update specified kasten
+      update_kasten "${kasten_arg}"
+    else
+      # update all kaesten
+      for kasten in ${zettelkasten_kaesten}; do
+        update_kasten "${kasten}"
+      done
+    fi
     _update_toplevel
     exit 0
     ;;
