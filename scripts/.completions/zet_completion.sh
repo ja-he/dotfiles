@@ -30,7 +30,7 @@ _zet()
 
   case ${COMP_CWORD} in
     1)
-      COMPREPLY=($(compgen -W "update edit filesearch textsearch" -- ${cur}))
+      COMPREPLY=($(compgen -W "init update edit filesearch textsearch" -- ${cur}))
       ;;
     2)
       COMPREPLY=($(compgen -W "$(_get_zet_dirs)" -- ${cur}))
