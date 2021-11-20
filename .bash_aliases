@@ -9,3 +9,6 @@ alias findvid='find . -type f \( -iname "*.mp4" -o -iname "*.mkv" -o -iname "*.a
 alias myip='curl --silent ipinfo.io/ip'
 alias pomodoro='termdown $((25 * 60)); read -p "press [return] when you are ready to take a 5 minute break"; termdown $((5 * 60))'
 alias last_screenshot='find ${HOME}/Pictures/screenshots/ -regextype sed -type f -regex ".*/[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}_[0-9]\{6\}.*\.png" | sort -r | head -n1'
+alias clera='clear'
+alias claer='clear'
+alias celar='clear'
