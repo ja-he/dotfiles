@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-set -euo pipefail
+set -uo pipefail
 
 _init_with_submodules() {
   (
@@ -83,6 +83,7 @@ nvim_fzf_cmd()
 
 # usage sketch:
 # $ zet <subcommand> [<kasten>] [<note>]
+# $ zet init
 # $ zet update       [<kasten>]
 # $ zet edit          <kasten>   <note>
 # $ zet filesearch   [<kasten>]
@@ -119,10 +120,14 @@ case ${command} in
     edit_zettel ${2} ${3}
     ;;
   filesearch)
-    nvim_fzf_cmd ${2:-public} ':Files'
+    nvim \
+      -c ":cd ${zettelkasten_path}/${2:-""}" \
+      -c ':Files'
     ;;
   textsearch)
-    nvim_fzf_cmd ${2:-public} ':Ag'
+    nvim \
+      -c ":cd ${zettelkasten_path}/${2:-""}" \
+      -c ':Ag'
     ;;
   *)
     echo "ERROR: unrecognized command '${command}'"
