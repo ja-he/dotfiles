@@ -8,21 +8,6 @@ cmp.setup{
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     },
-    -- Tab and Shift-Tab to do what ctrl-n and ctrl-p do
-    ['<Tab>'] = function(fallback)
-      if vim.fn.pumvisible() == 1 then
-        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-n>', true, true, true), 'n')
-      else
-        fallback()
-      end
-    end,
-    ['<S-Tab>'] = function(fallback)
-      if vim.fn.pumvisible() == 1 then
-        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-p>', true, true, true), 'n')
-      else
-        fallback()
-      end
-    end,
   },
   sources = {
     { name = 'nvim_lsp' },
