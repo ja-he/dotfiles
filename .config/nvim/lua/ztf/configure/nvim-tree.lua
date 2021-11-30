@@ -1,4 +1,3 @@
-vim.g.nvim_tree_gitignore = 0
 vim.g.nvim_tree_auto_ignore_ft = {}
 vim.g.nvim_tree_quit_on_open = 1
 vim.g.nvim_tree_indent_markers = 1
@@ -69,6 +68,11 @@ require("nvim-tree").setup{
       -- list of mappings to set on the tree manually
       list = {}
     }
+  },
+  
+  git = {
+    enable = true,
+    ignore = true,
   },
 
   -- Options the plugin yelled at me for having is `vim.g.…` but they're  not
