@@ -9,6 +9,8 @@ settings:
   bindings.commands:
     global:
       normal:
+        <Ctrl+h>: tab-move -
+        <Ctrl+l>: tab-move +
         H: tab-prev
         J: back
         K: forward
