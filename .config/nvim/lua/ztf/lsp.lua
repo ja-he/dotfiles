@@ -30,3 +30,5 @@ lspconfig.clangd.setup{
           }
   }
 }
+
+require('rust-tools').setup({})
