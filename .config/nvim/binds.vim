@@ -5,7 +5,7 @@ let maplocalleader = "\\"
 nnoremap <leader>d :NvimTreeToggle<CR>
 
 " terminal mappings and settings
-nnoremap <leader>ma  :FloatermNew --wintype=split make -j8 <CR>
+nnoremap <leader>ma  :FloatermNew --autoclose=0 --wintype=split make -j8 <CR>
 nnoremap <leader>mc  :FloatermNew --wintype=split make clean<CR>
 nnoremap <leader>mpp :!pandoc "%" -f markdown+implicit_figures -t pdf --citeproc -s -o ~/out.pdf<CR>
 nnoremap <leader>mph :!pandoc "%" -f markdown+emoji -t html --citeproc -s -o ~/out.html<CR>
