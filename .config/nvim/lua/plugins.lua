@@ -24,7 +24,6 @@ return require('packer').startup(function()
 
   use 'neovim/nvim-lspconfig'
   -- rust
-  use 'neovim/nvim-lspconfig'
   use 'simrat39/rust-tools.nvim'
 
   use 'hrsh7th/nvim-cmp'
