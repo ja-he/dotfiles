@@ -50,6 +50,10 @@ nnoremap <leader>ew  :edit $HOME/notes/mdwiki/index.md<CR>
 nnoremap <leader>c :lua require'lush'.export_to_buffer(require'kurzzug-dev')<CR>
 nnoremap <leader>C :edit $HOME/repositories/dotfiles/.config/nvim/colors/kurzzug-dev.vim<CR>
 
+" zettelkasten
+nnoremap <leader>zff :Files $ZETTELKASTENPATH<CR>
+nnoremap <leader>zfa :cd $ZETTELKASTENPATH<CR>:Ag<CR>
+
 " vim-fugitive bindings
 nnoremap <leader>gs :Git<CR>
 nnoremap <leader>gS :tab Git<CR>
