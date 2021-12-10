@@ -22,6 +22,10 @@ source ~/.config/nvim/binds.vim
 source ~/.config/nvim/au.vim
 
 lua require("plugins")
+augroup packer_user_config
+  autocmd!
+  autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+augroup end
 
 source ~/.config/nvim/colorscheme.vim
 
