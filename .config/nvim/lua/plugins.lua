@@ -10,7 +10,6 @@ return require('packer').startup(function()
   use 'rhysd/git-messenger.vim'
   use 'junegunn/fzf' -- TODO: how do I do this: `{ 'do': { -> fzf#install() } }`
   use 'junegunn/fzf.vim'
-  use 'SirVer/ultisnips'
   use 'vim-pandoc/vim-pandoc-syntax'
   use 'chrisbra/unicode.vim'
   use 'kylelaker/riscv.vim'
