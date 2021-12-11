@@ -101,6 +101,7 @@ nnoremap <leader>lel  <cmd>lua vim.lsp.diagnostic.set_loclist()<CR>
 nnoremap <leader>lea  <cmd>lua vim.lsp.buf.code_action()<CR>
 nnoremap <leader>lo   :LspStop<CR>
 nnoremap <leader>lO   :LspStart<CR>
+autocmd FileType rust nnoremap <leader>lt :RustToggleInlayHints<CR>
 
 nnoremap H :tabprev<CR>
 nnoremap L :tabnext<CR>
