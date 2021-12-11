@@ -37,7 +37,7 @@ require('rust-tools').setup{
   -- Rust Tools Configuration (from default options) {{{
     tools = { -- rust-tools options
         -- Automatically set inlay hints (type hints)
-        autoSetHints = true,
+        autoSetHints = false,
 
         -- Whether to show hover actions inside the hover window
         -- This overrides the default hover handler 
