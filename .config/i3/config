@@ -176,6 +176,8 @@ bindsym $mod+Shift+8 move container to workspace $workspace08
 bindsym $mod+Shift+9 move container to workspace $workspace09
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
+assign [class="Xournalpp"] $workspace05
+
 # Display Details 
 set $Display0    HDMI-A-0
 set $Display1    DisplayPort-2
