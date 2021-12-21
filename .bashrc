@@ -149,6 +149,7 @@ export STUDIP_USER=ja_he
 
 export ZETTELKASTENPATH=${HOME}/zettelkasten
 export ZETTELKASTEN_KAESTEN="public private namib"
+export DAYPLAN_HOME="${HOME}/.config/dayplan"
 
 source /usr/share/fzf/key-bindings.bash
 source /usr/share/fzf/completion.bash
