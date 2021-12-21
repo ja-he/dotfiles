@@ -65,7 +65,8 @@ nnoremap <leader>gf :Gfetch<CR>
 nnoremap <leader>gd :FloatermNew --width=0.9 git diff %<CR>
 nnoremap <leader>gg :FloatermNew --wintype=split --autoclose=0 git graph<CR>
 " signify bindings
-nnoremap <silent> <leader>gh :SignifyToggle<CR>
+nnoremap <leader>gh :Gitsigns toggle_numhl<CR>
+nnoremap <leader>gH :Gitsigns toggle_word_diff<CR>
 
 " fzf binds
 nnoremap <leader>ff :Files<CR>

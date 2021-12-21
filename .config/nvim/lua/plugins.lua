@@ -5,7 +5,7 @@ return require('packer').startup(function()
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
-  use 'mhinz/vim-signify' -- TODO: replace with 'lewis6991/gitsigns.nvim'
+  use 'lewis6991/gitsigns.nvim' -- TODO: replace with 'lewis6991/gitsigns.nvim'
   use 'tpope/vim-fugitive'
   use 'rhysd/git-messenger.vim'
   use 'junegunn/fzf' -- TODO: how do I do this: `{ 'do': { -> fzf#install() } }`

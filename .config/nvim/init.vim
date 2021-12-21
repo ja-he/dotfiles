@@ -36,6 +36,7 @@ lua require("ztf.configure.nvim-cmp")
 lua require('ztf.configure.nvim-colorizer')
 lua require('ztf.configure.nvim-tree')
 lua require("ztf.configure.comment")
+lua require("ztf.configure.gitsigns")
 " source ~/.config/nvim/configure/which-key.vim
 source ~/.config/nvim/configure/floaterm.vim
 source ~/.config/nvim/configure/ultisnips.vim
