@@ -36,6 +36,7 @@ return require('packer').startup(function()
   use 'dstein64/nvim-scrollview'
   use 'rktjmp/lush.nvim'
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use 'nvim-treesitter/playground'
   use 'nvim-lua/plenary.nvim'
   use 'kyazdani42/nvim-tree.lua'
 
