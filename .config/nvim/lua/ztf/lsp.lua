@@ -37,7 +37,7 @@ require('rust-tools').setup{
   -- Rust Tools Configuration (from default options) {{{
     tools = { -- rust-tools options
         -- Automatically set inlay hints (type hints)
-        autoSetHints = false,
+        autoSetHints = true,
 
         -- Whether to show hover actions inside the hover window
         -- This overrides the default hover handler 
@@ -65,14 +65,14 @@ require('rust-tools').setup{
         inlay_hints = {
 
             -- Only show inlay hints for the current line
-            only_current_line = false,
+            only_current_line = true,
 
             -- Event which triggers a refersh of the inlay hints.
             -- You can make this "CursorMoved" or "CursorMoved,CursorMovedI" but
             -- not that this may cause  higher CPU usage.
             -- This option is only respected when only_current_line and
             -- autoSetHints both are true.
-            only_current_line_autocmd = "CursorHold",
+            only_current_line_autocmd = "CursorMoved",
 
             -- wheter to show parameter hints with the inlay hints or not
             show_parameter_hints = true,
