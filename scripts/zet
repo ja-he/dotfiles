@@ -51,15 +51,13 @@ edit_zettel()
 
   local zettel_dir
   case ${kasten} in
-    public | namib | work)
-      zettel_dir=${zettelkasten_path}/${kasten}
-      ;;
+    # TODO: restructure private, remove this
     private)
       zettel_dir=${zettelkasten_path}/${kasten}/${day}
       ;;
     *)
-      echo "ERROR: kasten ${kasten} not known"
-      exit 1
+      zettel_dir=${zettelkasten_path}/${kasten}
+      # TODO: error if not found as dir in path, probably
       ;;
   esac
 
