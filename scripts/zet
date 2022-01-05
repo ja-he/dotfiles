@@ -100,6 +100,27 @@ case ${command} in
   init)
     _init_with_submodules "${zettelkasten_kaesten}"
     ;;
+  add-kasten)
+    kasten_arg="${2}" # TODO: sanitize for no spaces etc?
+    assumed_remote_url="git@gitlab.informatik.uni-bremen.de:ja_he/zettelkasten-${kasten_arg}"
+    cd /tmp
+    mkdir "zettelkasten-${kasten_arg}"
+    git init -b main
+    echo "# ${kasten_arg}" > README.md
+    git add README.md
+    git commit -m "initial commit"
+    git push --set-upstream "${assumed_remote_url}" main 
+    cd "${zettelkasten_path}"
+    git pull
+    git submodule add -b main "${assumed_remote_url}" "${kasten_arg}"
+    git commit -m "add kasten '${kasten_arg}'"
+    git push
+    echo ""
+    echo "---"
+    echo "REMINDER: "
+    echo "  don't forget to add this kasten to your '.bashrc' or similar"
+    echo "---"
+    ;;
   update)
     kasten_arg="${2:-""}"
     if [ -n "${kasten_arg}" ]; then
