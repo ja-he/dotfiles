@@ -148,7 +148,7 @@ export MANPAGER='nvim +Man!'
 export STUDIP_USER=ja_he
 
 export ZETTELKASTENPATH=${HOME}/zettelkasten
-export ZETTELKASTEN_KAESTEN="public private namib"
+export ZETTELKASTEN_KAESTEN="public private namib cooking misc"
 export DAYPLAN_HOME="${HOME}/.config/dayplan"
 
 source /usr/share/fzf/key-bindings.bash
