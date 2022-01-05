@@ -1,0 +1,49 @@
+- name: work::notrack
+  fg: '#800000'
+  bg: '#ffcccc'
+
+- name: work
+  fg: '#000000'
+  bg: '#ffcccc'
+  priority: 20
+
+- name: uni
+  fg: '#000000'
+  bg: '#ffdccc'
+  priority: 10
+
+- name: fitness
+  fg: '#000000'
+  bg: '#ccebff'
+
+- name: hygiene
+  fg: '#000000'
+  bg: '#efafff'
+
+- name: leisure
+  fg: '#000000'
+  bg: '#ffccf7'
+
+- name: eating
+  fg: '#000000'
+  bg: '#c2edab'
+
+- name: cooking
+  fg: '#000000'
+  bg: '#ccffe6'
+
+- name: programming
+  fg: '#000000'
+  bg: '#fff0cc'
+
+- name: household
+  fg: '#000000'
+  bg: '#cccccc'
+
+- name: default
+  fg: '#888888'
+  bg: '#eeeeee'
+
+- name: wasted
+  fg: '#a30000'
+  bg: '#eeeeee'
