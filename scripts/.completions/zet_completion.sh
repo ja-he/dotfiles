@@ -30,7 +30,7 @@ _zet()
 
   case ${COMP_CWORD} in
     1)
-      COMPREPLY=($(compgen -W "init update edit filesearch textsearch" -- ${cur}))
+      COMPREPLY=($(compgen -W "init update edit filesearch textsearch new-kasten add-image" -- ${cur}))
       ;;
     2)
       COMPREPLY=($(compgen -W "$(_get_zet_dirs)" -- ${cur}))
@@ -42,6 +42,9 @@ _zet()
       case ${action} in
         edit)
           COMPREPLY=($(compgen -W "$(_get_zettel ${kasten})" -- ${cur}))
+          ;;
+        add-image)
+          _filedir '@(png|jpg|jpeg)'
           ;;
       esac
       ;;

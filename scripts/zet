@@ -100,7 +100,8 @@ case ${command} in
   init)
     _init_with_submodules "${zettelkasten_kaesten}"
     ;;
-  add-kasten)
+  new-kasten)
+    # TODO: warn and ask for [y/n] confirmation before executing
     kasten_arg="${2}" # TODO: sanitize for no spaces etc?
     assumed_remote_url="git@gitlab.informatik.uni-bremen.de:ja_he/zettelkasten-${kasten_arg}"
     cd /tmp
@@ -137,6 +138,31 @@ case ${command} in
     ;;
   edit)
     edit_zettel ${2} ${3}
+    ;;
+  add-image)
+    kasten="${2}"
+    img_src_path="${3}"
+    name="${4}"
+    source="${5}"
+    comment="${6}"
+
+    src_ext=${3#*.}
+    dest_ext=${name#*.}
+    if [ $src_ext != $dest_ext ]; then
+      echo "source extension ($src_ext) does not match destination extension ($dest_ext), aborting..."
+      exit 1
+    fi
+
+    img_dest_path="${zettelkasten_path}/${kasten}/${name}"
+    cp "${img_src_path}" "${img_dest_path}"
+    exiv2 -c "${source}|${comment}" "${img_dest_path}"
+
+    echo "added image at '${img_dest_path}' with the following metadata:"
+    exiv2 -pc "${img_dest_path}" | (
+      IFS='|' read src comment;
+      echo "  source:  '${src}'";
+      echo "  comment: '${comment}'"
+    )
     ;;
   filesearch)
     nvim \
