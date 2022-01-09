@@ -40,6 +40,10 @@
   fg: '#000000'
   bg: '#cccccc'
 
+- name: important
+  fg: '#000000'
+  bg: '#cc9999'
+
 - name: default
   fg: '#888888'
   bg: '#eeeeee'
