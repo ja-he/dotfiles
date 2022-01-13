@@ -180,9 +180,65 @@ case ${command} in
     esac
     ;;
   filesearch)
-    nvim \
-      -c ":cd ${zettelkasten_path}/${2:-""}" \
-      -c ':Files'
+    kasten_arg="${2:-""}"
+
+    search_root=""
+    if [ -n "${kasten_arg}" ]; then
+      search_root="${zettelkasten_path}/${kasten_arg}/"
+    else
+      search_root="${zettelkasten_path}/"
+    fi
+
+    filepath="${search_root}/$(
+      cd "${search_root}"
+      rg --files \
+        | fzf --preview 'zet preview {}'
+    )"
+
+    extension="${filepath#*.}"
+
+    case "${extension}" in
+      png | jpg | jpeg)
+        echo "due to extension '${extension}' assuming image file."
+        echo -n "open with [g]imp, [f]eh, [c]atimg or [a]bort?"
+        read input
+        case "${input}" in
+          g)
+            gimp "${filepath}"
+            ;;
+          f)
+            feh "${filepath}"
+            ;;
+          c)
+            catimg "${filepath}"
+            ;;
+          a)
+            echo "aborting."
+            ;;
+          *)
+            echo "unrecognized input: '${input}'"
+            ;;
+        esac
+        ;;
+      md | txt)
+        nvim "${filepath}"
+        ;;
+      *)
+        echo -n "extension '${extension}' unknown, let's try nvim? [y/n]"
+        read input
+        case "${input}" in
+          y)
+            nvim "${filepath}"
+            ;;
+          n)
+            echo "aborting then."
+            ;;
+          *)
+            echo "unrecognized input"
+            ;;
+        esac
+        ;;
+    esac
     ;;
   textsearch)
     nvim \
