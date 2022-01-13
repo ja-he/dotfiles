@@ -30,10 +30,15 @@ _zet()
 
   case ${COMP_CWORD} in
     1)
-      COMPREPLY=($(compgen -W "init update edit filesearch textsearch new-kasten add-image" -- ${cur}))
+      COMPREPLY=($(compgen -W "init update edit preview filesearch textsearch new-kasten add-image" -- ${cur}))
       ;;
     2)
-      COMPREPLY=($(compgen -W "$(_get_zet_dirs)" -- ${cur}))
+      local action="${COMP_WORDS[1]}"
+      if [ "${action}" == "preview" ]; then
+        _filedir
+      else
+        COMPREPLY=($(compgen -W "$(_get_zet_dirs)" -- ${cur}))
+      fi
       ;;
     3)
       local action="${COMP_WORDS[1]}"

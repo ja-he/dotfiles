@@ -164,6 +164,21 @@ case ${command} in
       echo "  comment: '${comment}'"
     )
     ;;
+  preview)
+    filepath="${2}"
+    extension="${filepath#*.}"
+    case "${extension}" in
+      png | jpg | jpeg)
+        catimg -w "$(( $(tput cols) - 4))" "${filepath}"
+        ;;
+      txt | md)
+        bat "${filepath}"
+        ;;
+      *)
+        echo "[extension ${extension} unknown, ignoring...]"
+        ;;
+    esac
+    ;;
   filesearch)
     nvim \
       -c ":cd ${zettelkasten_path}/${2:-""}" \
