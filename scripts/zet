@@ -191,7 +191,7 @@ case ${command} in
 
     filepath="${search_root}/$(
       cd "${search_root}"
-      rg --files \
+      rg --files --glob '!README.md' \
         | fzf --preview 'zet preview {}'
     )"
 
