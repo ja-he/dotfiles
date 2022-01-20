@@ -15,6 +15,8 @@ autocmd FileType mail,tex,markdown.pandoc
   \  setlocal spell |
   \  setlocal spelllang=en,de
 
+autocmd FileType rust                 let termdebugger="rust-gdb"
+
 augroup pandoc_syntax
     au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
 augroup END

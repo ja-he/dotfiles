@@ -122,3 +122,5 @@ set completeopt=menuone,noselect
 
 " in visual block mode, allow selection to move outside text
 set virtualedit=block
+
+packadd termdebug
