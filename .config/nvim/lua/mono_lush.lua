@@ -291,7 +291,7 @@ local theme = lush(function()
     -- Plugins
 
       -- scrollview
-      ScrollView { bg = light_grey },
+      ScrollView { bg = pale_blue },
 
       -- fugitive
       diffRemoved               { DiffDelete },
