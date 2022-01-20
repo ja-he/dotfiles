@@ -118,7 +118,7 @@ set encoding=utf8
 set textwidth=0
 
 set omnifunc=v:lua.vim.lsp.omnifunc
-set completeopt=menuone,noselect
+set completeopt=menu,menuone,noselect
 
 " in visual block mode, allow selection to move outside text
 set virtualedit=block
