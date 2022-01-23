@@ -111,3 +111,6 @@ nnoremap <c-h> :-tabmove<CR>
 nnoremap <c-l> :+tabmove<CR>
 
 vnoremap <leader>x c<C-R>=system("IFS='\n' read input; python -c \"print($input,end='')\"",@+)<CR><ESC>
+
+inoremap <c-l> <cmd>lua require'luasnip'.jump(1)<CR>
+inoremap <c-h> <cmd>lua require'luasnip'.jump(-1)<CR>
