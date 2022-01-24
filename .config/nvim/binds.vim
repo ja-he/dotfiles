@@ -54,6 +54,7 @@ nnoremap <leader>C :edit $HOME/repositories/dotfiles/.config/nvim/colors/kurzzug
 nnoremap <leader>zff :Files $ZETTELKASTENPATH<CR>
 nnoremap <leader>zfa :cd $ZETTELKASTENPATH<CR>:Ag<CR>
 nnoremap <leader>ze :tabe $ZETTELKASTENPATH/
+nnoremap <leader>zu :FloatermNew --wintype=split zet update<CR>
 
 " vim-fugitive bindings
 nnoremap <leader>gs :Git<CR>
