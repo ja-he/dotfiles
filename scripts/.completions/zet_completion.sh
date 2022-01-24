@@ -6,10 +6,14 @@ zettelkasten_path="$(readlink -m ${zettelkasten_path})"
 
 _get_zet_dirs()
 {
-  for dir in $(find "${zettelkasten_path}" -mindepth 1 -maxdepth 1 -type d -iname '[^.]*')
-  do
-    basename "${dir}"
-  done
+  if [ -z "${ZETTELKASTEN_KAESTEN}" ]; then
+    for dir in $(find "${zettelkasten_path}" -mindepth 1 -maxdepth 1 -type d -iname '[^.]*')
+    do
+      basename "${dir}"
+    done
+  else
+    echo "${ZETTELKASTEN_KAESTEN}"
+  fi
 }
 
 _get_zettel()
