@@ -1,6 +1,7 @@
 alias ..='cd ..'
 alias showclock='tty-clock -cC 3'
 alias timestamp="date '+%Y-%m-%d %H:%M:%S'"
+alias today="date '+%Y-%m-%d'"
 alias mpv_music='mpv --geometry=200-12+10 --loop-playlist --volume=30'
 alias mpv_img='mpv --image-display-duration=inf --geometry=1280'
 alias please='echo "of course :)"; sudo $(fc -ln -1)'
