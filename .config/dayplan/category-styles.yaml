@@ -36,6 +36,10 @@
   fg: '#000000'
   bg: '#fff0cc'
 
+- name: reading
+  fg: '#000000'
+  bg: '#f3ffcc'
+
 - name: 'security/pentesting practice'
   fg: '#000000'
   bg: '#aacae3'
