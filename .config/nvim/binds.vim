@@ -98,9 +98,9 @@ nnoremap <leader>lW   <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap <leader>lf   <cmd>lua vim.lsp.buf.formatting()<CR>
 nnoremap <leader>lR   <cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <leader>ls   :LspInfo<CR>
-nnoremap <leader>len  <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
-nnoremap <leader>lep  <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
-nnoremap <leader>lel  <cmd>lua vim.lsp.diagnostic.set_loclist()<CR>
+nnoremap <leader>len  <cmd>lua vim.diagnostic.goto_next()<CR>
+nnoremap <leader>lep  <cmd>lua vim.diagnostic.goto_prev()<CR>
+nnoremap <leader>lel  <cmd>lua vim.diagnostic.set_loclist()<CR>
 nnoremap <leader>lea  <cmd>lua vim.lsp.buf.code_action()<CR>
 nnoremap <leader>lo   :LspStop<CR>
 nnoremap <leader>lO   :LspStart<CR>
