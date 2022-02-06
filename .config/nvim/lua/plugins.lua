@@ -46,6 +46,11 @@ return require('packer').startup(function()
   use 'nvim-lua/plenary.nvim'
   use 'kyazdani42/nvim-tree.lua'
 
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+
   use { 'iamcco/markdown-preview.nvim' , run = ':call mkdp#util#install()' }
 
   -- colorschemes
