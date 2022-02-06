@@ -89,6 +89,27 @@ local theme = lush(function()
     DarkPinkText          {  fg  =  dark_pink          },
     DarkTurquoiseText     {  fg  =  dark_turquoise     },
 
+    PaleYellowBackground        {  bg  =  pale_yellow        },
+    PaleRedBackground           {  bg  =  pale_red           },
+    PaleGreenBackground         {  bg  =  pale_green         },
+    PaleBlueBackground          {  bg  =  pale_blue          },
+    PalePinkBackground          {  bg  =  pale_pink          },
+    PaleTurquoiseBackground     {  bg  =  pale_turquoise     },
+
+    VibrantYellowBackground     {  bg  =  vibrant_yellow     },
+    VibrantRedBackground        {  bg  =  vibrant_red        },
+    VibrantGreenBackground      {  bg  =  vibrant_green      },
+    VibrantBlueBackground       {  bg  =  vibrant_blue       },
+    VibrantPinkBackground       {  bg  =  vibrant_pink       },
+    VibrantTurquoiseBackground  {  bg  =  vibrant_turquoise  },
+
+    DarkYellowBackground        {  bg  =  dark_yellow        },
+    DarkRedBackground           {  bg  =  dark_red           },
+    DarkGreenBackground         {  bg  =  dark_green         },
+    DarkBlueBackground          {  bg  =  dark_blue          },
+    DarkPinkBackground          {  bg  =  dark_pink          },
+    DarkTurquoiseBackground     {  bg  =  dark_turquoise     },
+
     -- Defs
 
     Normal        { fg = black , bg = white },
