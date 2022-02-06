@@ -410,6 +410,25 @@ local theme = lush(function()
       NvimTreeFileRenamed { NvimTreeFileDirty },
       NvimTreeFileDeleted { NvimTreeFileDirty },
 
+      -- telescope
+      TelescopeNormal         { fg = Normal.fg, bg = diffChanged.bg },
+      TelescopeBorder         { fg = TelescopeNormal.bg, bg = TelescopeNormal.bg },
+      TelescopeNormalBorder   { TelescopeNormal },
+      TelescopeSelection      { TelescopeNormal, bg = TelescopeNormal.bg.darken(10) },
+      TelescopeSelectionCaret { TelescopeSelection, fg = TelescopeSelection.bg.darken(60) , gui = 'bold' },
+      TelescopeTitle          { fg = TelescopeNormal.bg.darken(70), bg = TelescopeNormal.bg.darken(20) , gui = "italic"},
+      TelescopeMatching       { fg = TelescopeNormal.bg.darken(70), bg = TelescopeSelection.bg.darken(10) , gui = "bold"},
+
+      TelescopePromptNormal   { fg = black, bg = pale_green },
+      TelescopePromptBorder   { fg = TelescopePromptNormal.bg, bg = TelescopePromptNormal.bg },
+      TelescopePromptTitle    { fg = TelescopePromptNormal.bg.darken(70), bg = TelescopePromptNormal.bg.darken(20), gui = "italic" },
+      TelescopePromptCounter  { fg = TelescopePromptNormal.bg.darken(70) },
+      TelescopePromptPrefix   { TelescopePromptCounter, gui = 'bold' },
+
+      TelescopePreviewNormal  { fg = Normal.fg, bg = off_white },
+      TelescopePreviewBorder  { TelescopePreviewNormal },
+      TelescopePreviewTitle   { fg = TelescopePreviewNormal.bg.darken(70), bg = TelescopePreviewNormal.bg.darken(20), gui = "italic" },
+      TelescopePreviewMessage { fg = TelescopePreviewNormal.bg.darken(40) },
   }
 end)
 
