@@ -51,7 +51,7 @@ nnoremap <leader>c :lua require'lush'.export_to_buffer(require'kurzzug-dev')<CR>
 nnoremap <leader>C :edit $HOME/repositories/dotfiles/.config/nvim/colors/kurzzug-dev.vim<CR>
 
 " zettelkasten
-nnoremap <leader>zff :Files $ZETTELKASTENPATH<CR>
+nnoremap <silent> <leader>zff :lua require'telescope.builtin'.find_files({cwd = "$ZETTELKASTENPATH", find_command = {'rg', '--files', '--glob', '!README.md'}})<cr>
 nnoremap <leader>zfa :cd $ZETTELKASTENPATH<CR>:Ag<CR>
 nnoremap <leader>ze :tabe $ZETTELKASTENPATH/
 nnoremap <leader>zu :FloatermNew --wintype=split zet update<CR>
@@ -71,9 +71,9 @@ nnoremap <leader>gh :Gitsigns toggle_numhl<CR>
 nnoremap <leader>gH :Gitsigns toggle_word_diff<CR>
 
 " fzf binds
-nnoremap <leader>ff :Files<CR>
+nnoremap <silent> <leader>ff :lua require'telescope.builtin'.find_files()<CR>
 nnoremap <leader>fF :Files!<CR>
-nnoremap <leader>fc :Files $HOME/.config/<CR>
+nnoremap <silent> <leader>fc :lua require'telescope.builtin'.find_files({cwd = "$HOME/.config/"})<cr>
 nnoremap <leader>fa :Ag<CR>
 nnoremap <leader>fA :Ag!<CR>
 nnoremap <leader>fg :GitFiles<CR>
