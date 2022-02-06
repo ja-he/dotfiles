@@ -15,3 +15,23 @@ let g:fzf_action = {
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
 let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
+
+let g:fzf_colors = {
+      \ 'fg':         [ 'fg', 'TelescopeNormal' ],
+      \ 'bg':         [ 'bg', 'TelescopeNormal' ],
+      \ 'fg+':        [ 'fg', 'TelescopeSelection' ],
+      \ 'bg+':        [ 'bg', 'TelescopeSelection' ],
+      \ 'preview-fg': [ 'fg', 'TelescopePreviewNormal' ],
+      \ 'preview-bg': [ 'bg', 'TelescopePreviewNormal' ],
+      \ 'border':     [ 'bg', 'TelescopePreviewNormal' ],
+      \ 'hl':         [ 'fg', 'Conceal' ],
+      \ 'hl+':        [ 'fg', 'Conceal' ],
+      \ 'gutter':     [ 'bg', 'TelescopeNormal' ],
+      \ 'query':      [ 'fg', 'TelescopeNormal' ],
+      \ 'disabled':   [ 'bg', 'TelescopeNormal' ],
+      \ 'prompt':     [ 'fg', 'TelescopeTitle' ],
+      \ 'pointer':    [ 'fg', 'TelescopeTitle' ],
+      \ 'info':       [ 'fg', 'TelescopeTitle' ],
+      \ 'spinner':    [ 'fg', 'TelescopeTitle' ],
+      \ 'header':     [ 'fg', 'TelescopeTitle' ],
+      \ }
