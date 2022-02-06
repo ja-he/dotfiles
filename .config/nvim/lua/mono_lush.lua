@@ -157,7 +157,7 @@ local theme = lush(function()
     DiffText      { bg = DiffDelete.bg.darken(15) }, -- diff mode: Changed text within a changed line |diff.txt|
     EndOfBuffer   { }, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
     Ignore        { Whitespace }, -- (preferred) left blank, hidden  |hl-Ignore|
-    Error         { fg = white , bg = vibrant_red }, -- (preferred) any erroneous construct
+    Error         { fg = dark_red , bg = pale_red }, -- (preferred) any erroneous construct
     ErrorMsg      { Error }, -- error messages on the command line
     FoldColumn    { Whitespace }, -- 'foldcolumn'
     SignColumn    { }, -- column where |signs| are displayed
