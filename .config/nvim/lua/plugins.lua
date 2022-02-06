@@ -46,6 +46,7 @@ return require('packer').startup(function()
   use 'nvim-lua/plenary.nvim'
   use 'kyazdani42/nvim-tree.lua'
 
+  use 'stevearc/dressing.nvim'
   use {
     'nvim-telescope/telescope.nvim',
     requires = { {'nvim-lua/plenary.nvim'} }
