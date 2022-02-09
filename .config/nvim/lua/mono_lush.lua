@@ -364,6 +364,14 @@ local theme = lush(function()
       SignifySignChangeDelete    { SignifySignChange },
       SignifySignDeleteFirstLine { SignifySignDelete },
 
+      -- gitsigns
+      GitSignsAdd                { SignifySignAdd },
+      GitSignsChange             { SignifySignChange },
+      GitSignsDelete             { SignifySignDelete },
+      GitSignsAddFG              { fg = SignifySignAdd.fg },
+      GitSignsChangeFG           { fg = SignifySignChange.fg },
+      GitSignsDeleteFG           { fg = SignifySignDelete.fg },
+
       -- WhichKey
       WhichKey          { SpecialKey , gui = "bold" },
       WhichKeySeperator { fg = dark_grey },
