@@ -139,7 +139,7 @@ local theme = lush(function()
     TablineFill   { VertSplit },
 
     -- "Above the text"
-    Visual        { bg = pale_blue },
+    Visual        { bg = light_grey },
     Search        { bg = pale_pink }, -- TODO: color
     IncSearch     { bg = Search.bg.darken(20) },
 
