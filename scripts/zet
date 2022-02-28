@@ -169,6 +169,11 @@ case ${command} in
     extension="${filepath#*.}"
     case "${extension}" in
       png | jpg | jpeg)
+        exiv2 -pc "${filepath}" | (
+          IFS='|' read src comment;
+          echo "  source:  '${src}'";
+          echo "  comment: '${comment}'"
+        )
         catimg -w "$(( $(tput cols) - 4))" "${filepath}"
         ;;
       txt | md)
