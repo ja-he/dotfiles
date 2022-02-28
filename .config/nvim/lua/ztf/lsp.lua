@@ -14,6 +14,8 @@ lspconfig.gopls.setup{}
 
 lspconfig.vimls.setup{}
 
+lspconfig.pylsp.setup{}
+
 -- local luadev = require("lua-dev").setup{
 --   lspconfig = {
 --     cmd = {"lua-language-server"}
