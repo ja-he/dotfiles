@@ -45,9 +45,9 @@ require('rust-tools').setup{
         -- This overrides the default hover handler 
         hover_with_actions = true,
 
-		-- how to execute terminal commands
-		-- options right now: termopen / quickfix
-		executor = require("rust-tools/executors").termopen,
+    -- how to execute terminal commands
+    -- options right now: termopen / quickfix
+    executor = require("rust-tools/executors").termopen,
 
         runnables = {
             -- whether to use telescope for selection menu or not
@@ -105,10 +105,10 @@ require('rust-tools').setup{
             -- the border that is used for the hover window
             -- see vim.api.nvim_open_win()
             border = {
-                {"╭", "FloatBorder"}, {"─", "FloatBorder"},
-                {"╮", "FloatBorder"}, {"│", "FloatBorder"},
-                {"╯", "FloatBorder"}, {"─", "FloatBorder"},
-                {"╰", "FloatBorder"}, {"│", "FloatBorder"}
+                {" ", "FloatBorder"}, {" ", "FloatBorder"},
+                {" ", "FloatBorder"}, {" ", "FloatBorder"},
+                {" ", "FloatBorder"}, {" ", "FloatBorder"},
+                {" ", "FloatBorder"}, {" ", "FloatBorder"}
             },
 
             -- whether the hover action window gets automatically focused
@@ -136,7 +136,24 @@ require('rust-tools').setup{
     -- all the opts to send to nvim-lspconfig
     -- these override the defaults set by rust-tools.nvim
     -- see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#rust_analyzer
-    server = {}, -- rust-analyer options
+    server = {
+      cmd = { "rust-analyzer" },
+      filetypes = { "rust" },
+      settings = {
+        ["rust-analyzer"] = {
+          checkOnSave = {
+            allFeatures = true,
+            overrideCommand = {
+              "cargo",
+              "clippy",
+              "--workspace",
+              "--all-targets",
+              "--message-format=json",
+            },
+          },
+        },
+      },
+    },
 
     -- debugging stuff
     dap = {
