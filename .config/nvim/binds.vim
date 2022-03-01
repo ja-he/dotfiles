@@ -113,5 +113,11 @@ nnoremap <c-l> :+tabmove<CR>
 
 vnoremap <leader>x c<C-R>=system("IFS='\n' read input; python -c \"print($input,end='')\"",@+)<CR><ESC>
 
+" luasnip
+imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
 inoremap <c-l> <cmd>lua require'luasnip'.jump(1)<CR>
 inoremap <c-h> <cmd>lua require'luasnip'.jump(-1)<CR>
+snoremap <c-l> <cmd>lua require'luasnip'.jump(1)<CR>
+snoremap <c-h> <cmd>lua require'luasnip'.jump(-1)<CR>
+imap <silent><expr> <c-j> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<c-j>'
+smap <silent><expr> <c-j> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<c-j>'
