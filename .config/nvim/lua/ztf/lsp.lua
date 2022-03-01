@@ -165,3 +165,21 @@ require('rust-tools').setup{
     }
     -- }}}
 }
+
+-- spdx-lsp
+local configs = require 'lspconfig.configs'
+
+if not configs.spdx_lsp then
+  configs.spdx_lsp = {
+    default_config = {
+      cmd = {'/home/ztf/repositories/spdx-lsp/target/debug/spdx-lsp'};
+      filetypes = {'spdx'};
+      root_dir = function(fname)
+        return lspconfig.util.path.dirname(fname)
+      end;
+      settings = {};
+    };
+  }
+end
+
+lspconfig.spdx_lsp.setup{}
