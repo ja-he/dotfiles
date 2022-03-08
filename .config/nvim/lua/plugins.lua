@@ -44,7 +44,6 @@ return require('packer').startup(function()
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use 'nvim-treesitter/playground'
   use 'nvim-lua/plenary.nvim'
-  use 'kyazdani42/nvim-tree.lua'
 
   use 'stevearc/dressing.nvim'
   use {

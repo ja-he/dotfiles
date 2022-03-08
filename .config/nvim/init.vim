@@ -34,7 +34,6 @@ lua require('ztf.treesitter')
 
 lua require("ztf.configure.nvim-cmp")
 lua require('ztf.configure.nvim-colorizer')
-lua require('ztf.configure.nvim-tree')
 lua require("ztf.configure.comment")
 lua require("ztf.configure.gitsigns")
 lua require("ztf.configure.telescope")
