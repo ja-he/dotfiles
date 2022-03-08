@@ -38,6 +38,7 @@ lua require("ztf.configure.comment")
 lua require("ztf.configure.gitsigns")
 lua require("ztf.configure.neogit")
 lua require("ztf.configure.telescope")
+lua require("ztf.configure.luasnip")
 " source ~/.config/nvim/configure/which-key.vim
 source ~/.config/nvim/configure/floaterm.vim
 source ~/.config/nvim/configure/ultisnips.vim
