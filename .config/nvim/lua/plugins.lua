@@ -7,6 +7,7 @@ return require('packer').startup(function()
 
   use 'lewis6991/gitsigns.nvim' -- TODO: replace with 'lewis6991/gitsigns.nvim'
   use 'tpope/vim-fugitive'
+  use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
   use 'rhysd/git-messenger.vim'
   use 'junegunn/fzf' -- TODO: how do I do this: `{ 'do': { -> fzf#install() } }`
   use 'junegunn/fzf.vim'
