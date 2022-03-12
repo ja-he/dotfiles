@@ -184,7 +184,7 @@ local theme = lush(function()
     WildMenu      { DiffDelete }, -- current match in 'wildmenu' completion
 
     -- Code and markup
-    Comment     { fg = grey },
+    Comment     { fg = dark_grey },
     Todo        { bg = pale_red },
 
     Constant    { fg = dark_green },
@@ -296,7 +296,7 @@ local theme = lush(function()
     -- TSException          { }, -- For exception related keywords.
     TSType               { Type }, -- For types.
     -- TSTypeBuiltin        { }, -- For builtin types (you guessed it, right ?).
-    TSNamespace          { Delimiter }, -- For identifiers referring to modules and namespaces.
+    TSNamespace          { Type, fg = Comment.fg }, -- For identifiers referring to modules and namespaces.
     -- TSInclude            { }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
     -- TSAnnotation         { }, -- For C++/Dart attributes, annotations that can be attached to the code to denote some kind of meta information.
     -- TSText               { }, -- For strings considered text in a markup language.
@@ -356,6 +356,12 @@ local theme = lush(function()
       -- fugitiveUnstagedSection  {},
       -- fugitiveStagedHeading    {},
       -- fugitiveStagedSection    {},
+
+      -- neogit
+      NeogitUntrackedfiles { fugitiveUntrackedModifier, gui = "bold,underline" },
+      NeogitUnstagedchanges { fugitiveUnstagedModifier, gui = "bold,underline" },
+      NeogitStagedchanges { fugitiveStagedModifier, gui = "bold,underline" },
+      NeogitStashes { Operator, gui = "bold,underline" },
 
       -- signify
       SignifySignAdd             { bg = pale_green  , fg = dark_green   },
