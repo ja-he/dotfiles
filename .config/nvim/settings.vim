@@ -15,9 +15,6 @@ command Q q
 " use the global clipboard
 set clipboard=unnamedplus
 
-" make vim check for a local-directory .vimrc file
-set exrc
-
 " turn off backup, since it's annoying
 set nobackup
 set nowb

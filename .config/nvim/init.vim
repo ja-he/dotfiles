@@ -60,3 +60,7 @@ endfunction
 function! NoConceal()
   setlocal conceallevel=0
 endfunction
+
+" make vim check for a local-directory .vimrc file
+" as I want this to override my default settings (settings.vim), binds, etc. it's at the end here
+set exrc
