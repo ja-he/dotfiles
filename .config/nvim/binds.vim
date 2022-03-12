@@ -57,11 +57,10 @@ nnoremap <leader>ze :tabe $ZETTELKASTENPATH/
 nnoremap <leader>zu :FloatermNew --wintype=split zet update<CR>
 
 " vim-fugitive bindings
-nnoremap <leader>gs :Git<CR>
-nnoremap <leader>gS :tab Git<CR>
+nnoremap <leader>gs :tab Git<CR>
+nnoremap <leader>gS :Neogit kind=tab<CR>
 nnoremap <leader>gb :Git blame<CR>
 nnoremap <leader>gl :Gclog<CR>
-nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gf :Gfetch<CR>
 " other git-binds
 nnoremap <leader>gd :FloatermNew --width=0.9 git diff %<CR>
