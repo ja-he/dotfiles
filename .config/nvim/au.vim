@@ -28,3 +28,7 @@ augroup highlight_yank
     autocmd!
     au TextYankPost * silent! lua vim.highlight.on_yank { higroup='DiffAdd', timeout=200 }
 augroup END
+
+augroup spdx_ft_setting
+    au! BufNewFile,BufFilePre,BufRead *.spdx set filetype=spdx
+augroup END
