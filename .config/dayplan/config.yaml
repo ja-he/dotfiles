@@ -1,0 +1,104 @@
+stylesheet:
+  normal:
+    fg: '#000000'
+    bg: '#ffffff'
+  weather-normal:
+    fg: '#ccebff'
+    bg: '#ffffff'
+  weather-sunny:
+    fg: '#000000'
+    bg: '#ccebff'
+  weather-rainy:
+    fg: '#000000'
+    bg: '#fff0cc'
+  timeline-day:
+    fg: '#c0c0c0'
+    bg: '#ffffff'
+  timeline-night:
+    fg: '#f0f0f0'
+    bg: '#000000'
+  timeline-now:
+    fg: '#ffffff'
+    bg: '#ff0000'
+  status:
+    fg: '#000000'
+    bg: '#f0f0f0'
+  log-default:
+    fg: '#000000'
+    bg: '#ffffff'
+  log-title-box:
+    fg: '#000000'
+    bg: '#f0f0f0'
+    bold: true
+  log-entry-type:
+    fg: '#cccccc'
+    bg: '#ffffff'
+    italic: true
+  log-entry-location:
+    fg: '#cccccc'
+    bg: '#ffffff'
+  log-entry-time:
+    fg: '#f0f0f0'
+    bg: '#ffffff'
+  help:
+    fg: '#000000'
+    bg: '#f0f0f0'
+  editor:
+    fg: '#000000'
+    bg: '#f0f0f0'
+  summary-default:
+    fg: '#000000'
+    bg: '#ffffff'
+  summary-title-box:
+    fg: '#000000'
+    bg: '#f0f0f0'
+    bold: true
+
+categories:
+  - name: work::notrack
+    fg: '#800000'
+    bg: '#ffcccc'
+  - name: work
+    fg: '#000000'
+    bg: '#ffcccc'
+    priority: 20
+  - name: uni
+    fg: '#000000'
+    bg: '#ffdccc'
+    priority: 10
+  - name: fitness
+    fg: '#000000'
+    bg: '#ccebff'
+  - name: hygiene
+    fg: '#000000'
+    bg: '#efafff'
+  - name: leisure
+    fg: '#000000'
+    bg: '#ffccf7'
+  - name: eating
+    fg: '#000000'
+    bg: '#c2edab'
+  - name: cooking
+    fg: '#000000'
+    bg: '#ccffe6'
+  - name: programming
+    fg: '#000000'
+    bg: '#fff0cc'
+  - name: reading
+    fg: '#000000'
+    bg: '#f3ffcc'
+  - name: 'security/pentesting practice'
+    fg: '#000000'
+    bg: '#aacae3'
+  - name: household
+    fg: '#000000'
+    bg: '#cccccc'
+  - name: important
+    fg: '#000000'
+    bg: '#cc9999'
+  - name: default
+    fg: '#888888'
+    bg: '#eeeeee'
+  - name: wasted
+    fg: '#a30000'
+    bg: '#eeeeee'
