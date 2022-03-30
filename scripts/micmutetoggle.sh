@@ -1,7 +1,18 @@
 #!/bin/bash
 
+# gets the current input name by finding the source which has an asterisk ahead
+# of its index and getting it's name (asking for the next few lines, filtering
+# them for 'name' and only taking the first and then filtering out the name).
+get_current_input_name() {
+  pacmd list-sources \
+    | grep '* index' -A4  \
+    | grep name \
+    | head -n1 \
+    | sed 's/\s*name: <\(.*\)>/\1/'
+}
+
 # the name of the device to be muted
-devname='alsa_input.usb-C-Media_Electronics_Inc._USB_Advanced_Audio_Device-00.iec958-stereo'
+devname="$(get_current_input_name)"
 
 mutestatusfile='/home/ztf/scripts/.vars/mic'
 
