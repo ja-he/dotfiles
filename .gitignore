@@ -90,3 +90,5 @@ scripts/quicktexfiles/content.tex
 /.config/nvim/plugin/
 /.local/lib/
 /.local/bin/
+.gitsecret/keys/random_seed
+!*.secret
