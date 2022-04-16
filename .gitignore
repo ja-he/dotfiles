@@ -92,3 +92,4 @@ scripts/quicktexfiles/content.tex
 /.local/bin/
 .gitsecret/keys/random_seed
 !*.secret
+.bash_secrets
