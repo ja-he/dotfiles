@@ -93,3 +93,6 @@ scripts/quicktexfiles/content.tex
 .gitsecret/keys/random_seed
 !*.secret
 .bash_secrets
+.config/qutebrowser/bookmarks/urls
+.config/qutebrowser/autoconfig.yml
+.config/qutebrowser/quickmarks
