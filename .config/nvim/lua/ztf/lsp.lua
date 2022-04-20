@@ -14,6 +14,8 @@ lspconfig.gopls.setup{}
 
 lspconfig.vimls.setup{}
 
+lspconfig.bashls.setup{}
+
 lspconfig.pylsp.setup{}
 
 -- local luadev = require("lua-dev").setup{
