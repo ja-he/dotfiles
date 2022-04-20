@@ -111,7 +111,7 @@ for_window [class="feh"] floating enable
 
 # screenshot (select)
 #bindsym --release   $mod+z  exec scrot -f
-bindsym --release   $mod+z  exec scrot -s -f -q 100 '/home/ztf/Pictures/screenshots/%Y-%m-%d_%H%M%S.png' && notify-send "screenshot saved" || notify-send "screenshot aborted"
+bindsym --release   $mod+z  exec scrot -s -f -q 100 '/home/ztf/Pictures/screenshots/%Y-%m-%d_%H%M%S.jpg' && notify-send "screenshot saved" || notify-send "screenshot aborted"
 bindsym $mod+shift+z        exec feh $(find Pictures/screenshots/ -name "`date '+%Y-%m-%d'`*.png" | sort -r | head -n1)
 
 #bindsym --release   $mod+z  exec pactl set-source-mute bluez_source.4C_87_5D_0A_68_6C.headset_head_unit true
