@@ -297,6 +297,8 @@ local theme = lush(function()
     -- TSVariable           { }, -- Any variable name that does not have another highlight.
     -- TSVariableBuiltin    { }, -- Variable names that are defined by the languages, like `this` or `self`.
 
+    manOptionDesc { Title },
+
     -- Plugins
 
       -- scrollview
