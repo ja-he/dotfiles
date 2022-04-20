@@ -162,7 +162,7 @@ local theme = lush(function()
     FoldColumn    { Whitespace }, -- 'foldcolumn'
     SignColumn    { }, -- column where |signs| are displayed
     Substitute    { }, -- |:substitute| replacement text highlighting
-    Delimiter     { fg = grey },
+    Delimiter     { fg = dark_grey },
     MatchParen    { bg = pale_turquoise, fg = Delimiter.fg.darken(80) }, -- TODO: maybe light bg, darker fg?
     ModeMsg       { fg = grey }, -- 'showmode' message (e.g., "-- INSERT -- ")
     MsgArea       { }, -- Area for messages and cmdline
@@ -187,12 +187,12 @@ local theme = lush(function()
     Comment     { fg = dark_grey },
     Todo        { bg = pale_red },
 
-    Constant    { fg = dark_green },
-    String      { Constant },
-    Character   { Constant }, --  a character constant: 'c', '\n'
-    Number      { Constant }, --   a number constant: 234, 0xff
-    Boolean     { Constant }, --  a boolean constant: TRUE, false
+    String      { fg = dark_green },
+    Character   { String }, --  a character constant: 'c', '\n'
+    Boolean     { String }, --  a boolean constant: TRUE, false
+    Number      { String }, --   a number constant: 234, 0xff
     Float       { Number }, --    a floating point constant: 2.3e10
+    Constant    { String, gui = "underline" },
 
     Identifier  { gui = "bold"},
     Function    { Identifier }, -- function name (also: methods for classes)
