@@ -184,6 +184,9 @@ case ${command} in
         ;;
     esac
     ;;
+  recent)
+      rg "${zettelkasten_path}" --files --glob '!README.md' --sort modified | tail -n5
+      ;;
   filesearch)
     kasten_arg="${2:-""}"
 
