@@ -10,8 +10,16 @@ categories:
     priority: 20
   - name: uni
     fg: '#000000'
-    bg: '#ffdccc'
+    bg: '#eedccc'
     priority: 10
+  - name: uni::pmwk
+    fg: '#000000'
+    bg: '#eeaccc'
+    priority: 10
+  - name: uni::namib
+    fg: '#000000'
+    bg: '#ffdccc'
+    priority: 15
   - name: fitness
     fg: '#000000'
     bg: '#ccebff'
@@ -21,12 +29,18 @@ categories:
   - name: leisure
     fg: '#000000'
     bg: '#ffccf7'
+  - name: gardening
+    fg: '#000000'
+    bg: '#c8e1ab'
   - name: eating
     fg: '#000000'
     bg: '#c2edab'
   - name: cooking
     fg: '#000000'
     bg: '#ccffe6'
+  - name: learning
+    fg: '#000000'
+    bg: '#ccf0cc'
   - name: programming
     fg: '#000000'
     bg: '#fff0cc'
@@ -44,7 +58,7 @@ categories:
     bg: '#cc9999'
   - name: default
     fg: '#888888'
-    bg: '#eeeeee'
+    bg: '#cecece'
   - name: wasted
     fg: '#a30000'
     bg: '#eeeeee'
