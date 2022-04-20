@@ -254,12 +254,12 @@ local theme = lush(function()
 
     TSError              {  }, -- For syntax/parser errors.
     TSPunctDelimiter     { Delimiter }, -- For delimiters ie: `.`
-    TSPunctBracket       { Delimiter }, -- For brackets and parens.
+    TSPunctBracket       { fg = dark_grey }, -- For brackets and parens.
     TSPunctSpecial       { Delimiter }, -- For special punctutation that does not fall in the catagories before.
-    -- TSConstant           { }, -- For constants
+    TSConstant           { Constant }, -- For constants
     -- TSConstBuiltin       { }, -- For constant that are built in the language: `nil` in Lua.
     -- TSConstMacro         { }, -- For constants that are defined by macros: `NULL` in C.
-    -- TSString             { }, -- For strings.
+    TSString             { String }, -- For strings.
     -- TSStringRegex        { }, -- For regexes.
     -- TSStringEscape       { }, -- For escape characters within a string.
     -- TSCharacter          { }, -- For characters.
