@@ -231,32 +231,20 @@ local theme = lush(function()
     -- These groups are for the native LSP client. Some other LSP clients may
     -- use these groups, or use their own. Consult your LSP client's
     -- documentation.
-
     DiagnosticError       { fg = vibrant_red }, -- Used for "Error" diagnostic virtual text
-    DiagnosticWarning     { fg = vibrant_yellow }, -- Used for "Warning" diagnostic virtual text
-    DiagnosticInformation { fg = vibrant_blue }, -- Used for "Information" diagnostic virtual text
+    DiagnosticVirtualTextError { DiagnosticError },
+    DiagnosticSignError { fg = DiagnosticError.fg.darken(40), bg = DiagnosticError.fg.lighten(80) },
+
+
+    DiagnosticWarn        { fg = vibrant_yellow }, -- Used for "Warning" diagnostic virtual text
+    DiagnosticVirtualTextWarn { DiagnosticWarn },
+    DiagnosticFloatingWarn { fg = DiagnosticWarn.fg.darken(40) },
+    DiagnosticSignWarn { fg = DiagnosticWarn.fg.darken(40), bg = DiagnosticWarn.fg.lighten(80) },
+
+
+    DiagnosticInfo        { fg = vibrant_blue }, -- Used for "Information" diagnostic virtual text
+
     DiagnosticHint        { fg = vibrant_pink }, -- Used for "Hint" diagnostic virtual text
-
-    DiagnosticVirtualTextError        { DiagnosticError       }, -- Used for "Error" diagnostic virtual text
-    DiagnosticVirtualTextWarning      { DiagnosticWarning     }, -- Used for "Warning" diagnostic virtual text
-    DiagnosticVirtualTextInformation  { DiagnosticInformation }, -- Used for "Information" diagnostic virtual text
-    DiagnosticVirtualTextHint         { DiagnosticHint        }, -- Used for "Hint" diagnostic virtual text
-
-    DiagnosticUnderlineError         { fg = DiagnosticVirtualTextError.fg.darken(20) , gui = "underline" }, -- Used to underline "Error" diagnostics
-    DiagnosticUnderlineWarning       { fg = DiagnosticVirtualTextWarning.fg.darken(20) , gui = "underline" }, -- Used to underline "Warning" diagnostics
-    DiagnosticUnderlineInformation   { fg = DiagnosticVirtualTextInformation.fg.darken(20) , gui = "underline" }, -- Used to underline "Information" diagnostics
-    DiagnosticUnderlineHint          { fg = DiagnosticVirtualTextHint.fg.darken(20) , gui = "underline" }, -- Used to underline "Hint" diagnostics
-
-    DiagnosticFloatingError          { bg = NormalFloat.bg , fg = DiagnosticVirtualTextError.fg }, -- Used to color "Error" diagnostic messages in diagnostics float
-    DiagnosticFloatingWarning        { bg = NormalFloat.bg , fg = DiagnosticVirtualTextWarning.fg }, -- Used to color "Warning" diagnostic messages in diagnostics float
-    DiagnosticFloatingInformation    { bg = NormalFloat.bg , fg = DiagnosticVirtualTextInformation.fg }, -- Used to color "Information" diagnostic messages in diagnostics float
-    DiagnosticFloatingHint           { bg = NormalFloat.bg , fg = DiagnosticVirtualTextHint.fg }, -- Used to color "Hint" diagnostic messages in diagnostics float
-
-    -- DiagnosticSignError              { }, -- Used for "Error" signs in sign column
-    -- DiagnosticSignWarning            { }, -- Used for "Warning" signs in sign column
-    -- DiagnosticSignInformation        { }, -- Used for "Information" signs in sign column
-    -- DiagnosticSignHint               { }, -- Used for "Hint" signs in sign column
-
 
     -- These groups are for the neovim tree-sitter highlights.
     -- As of writing, tree-sitter support is a WIP, group names may change.
