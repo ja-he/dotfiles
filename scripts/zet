@@ -20,7 +20,7 @@ _init_with_submodules() {
 _update_toplevel()
 {
   (
-    set -x
+    echo "updating at top level..."
     cd "${zettelkasten_path}"
     git pull
     for submodule_dir in ${ZETTELKASTEN_KAESTEN}; do
@@ -28,6 +28,7 @@ _update_toplevel()
     done
     git commit -m "Update to submodule(s)"
     git push
+    echo "done!"
   )
 }
 
@@ -35,12 +36,16 @@ update_kasten()
 {
   local category=${1}
   (
-    set -x
+    echo "updating ${category}..."
     cd "${zettelkasten_path}/${category}"
-    git pull
-    git add .
-    git commit -m "$day Update"
-    git push
+    if [[ $(git fetch) ]]; then
+      git pull --rebase
+    fi
+    if [[ $(git status --porcelain) ]]; then
+      git add .
+      git commit -m "$day Update"
+      git push
+    fi
   )
 }
 
