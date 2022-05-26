@@ -5,7 +5,7 @@ return require('packer').startup(function()
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
-  use 'lewis6991/gitsigns.nvim' -- TODO: replace with 'lewis6991/gitsigns.nvim'
+  use 'lewis6991/gitsigns.nvim'
   use 'tpope/vim-fugitive'
   use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
   use 'rhysd/git-messenger.vim'
