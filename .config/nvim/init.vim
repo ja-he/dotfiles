@@ -39,6 +39,7 @@ lua require("ztf.configure.gitsigns")
 lua require("ztf.configure.neogit")
 lua require("ztf.configure.telescope")
 lua require("ztf.configure.luasnip")
+lua require("ztf.configure.nvim-goc")
 " source ~/.config/nvim/configure/which-key.vim
 source ~/.config/nvim/configure/floaterm.vim
 source ~/.config/nvim/configure/ultisnips.vim

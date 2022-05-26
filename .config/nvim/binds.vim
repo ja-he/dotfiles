@@ -28,6 +28,9 @@ nnoremap <leader>nt :tabnew<CR>
 nnoremap <leader>vm :mkview<CR>
 nnoremap <leader>vl :loadview<CR>
 
+nnoremap <leader>gtc :lua require'nvim-goc'.Coverage()<CR>
+nnoremap <leader>gtC :lua require'nvim-goc'.ClearCoverage()<CR>
+
 " spell mappings
 nnoremap <leader>ss :setlocal spell<CR>
 nnoremap <leader>s- :setlocal nospell<CR>

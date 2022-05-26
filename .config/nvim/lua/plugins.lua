@@ -26,6 +26,8 @@ return require('packer').startup(function()
   -- rust
   use 'simrat39/rust-tools.nvim'
 
+  use 'rafaelsq/nvim-goc.lua'
+
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
