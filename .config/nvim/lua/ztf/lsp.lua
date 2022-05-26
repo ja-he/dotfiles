@@ -1,6 +1,8 @@
 -- vim:foldmethod=marker
 
 local lspconfig = require("lspconfig")
+local configs = require 'lspconfig.configs'
+
 
 -- You can specify the capabilities to exclude snippets explicitly like this
 -- but in my experience it is not necessary:
@@ -169,8 +171,6 @@ require('rust-tools').setup{
 }
 
 -- spdx-lsp
-local configs = require 'lspconfig.configs'
-
 if not configs.spdx_lsp then
   configs.spdx_lsp = {
     default_config = {
@@ -183,5 +183,18 @@ if not configs.spdx_lsp then
     };
   }
 end
-
 lspconfig.spdx_lsp.setup{}
+
+if not configs.muddles then
+  configs.muddles = {
+    default_config = {
+      cmd = {'/home/ztf/repositories/mud-lsp/target/debug/muddles'};
+      filetypes = {'mud'};
+      root_dir = function(fname)
+        return lspconfig.util.path.dirname(fname)
+      end;
+      settings = {};
+    };
+  }
+end
+lspconfig.muddles.setup{}
