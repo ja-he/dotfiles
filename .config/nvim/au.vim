@@ -32,3 +32,7 @@ augroup END
 augroup spdx_ft_setting
     au! BufNewFile,BufFilePre,BufRead *.spdx set filetype=spdx
 augroup END
+
+augroup cmdwin
+  au CmdwinEnter * setlocal nonumber norelativenumber
+augroup END
