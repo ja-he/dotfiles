@@ -433,6 +433,10 @@ local theme = lush(function()
       TelescopePreviewBorder  { TelescopePreviewNormal },
       TelescopePreviewTitle   { fg = TelescopePreviewNormal.bg.darken(70), bg = TelescopePreviewNormal.bg.darken(20), gui = "italic" },
       TelescopePreviewMessage { fg = TelescopePreviewNormal.bg.darken(40) },
+
+			GocNormal    { bg = light_grey },
+			GocUncovered { bg = pale_red },
+			GocCovered   { bg = pale_green },
   }
 end)
 
