@@ -19,9 +19,11 @@ nnoremap <leader>tps :FloatermNew --wintype=normal ipython<CR>
 vnoremap <leader>ts  :FloatermSend<CR>
 vnoremap <leader>td  y:FloatermNew --autoclose=0 dictdef '<c-r>"'<CR>
 
-tnoremap <F1> <c-\><c-n>:FloatermToggle<CR>
-nnoremap <F1>           :FloatermToggle<CR>
-nnoremap <F12>          :FloatermNew --wintype=split<CR>
+tnoremap <F1>  <c-\><c-n>:FloatermToggle<CR>
+nnoremap <F1>            :FloatermToggle<CR>
+tnoremap <F2>  <c-\><c-n>:FloatermHide<CR>
+nnoremap <F2>            :FloatermNext<CR>
+nnoremap <F12>           :FloatermNew --wintype=split<CR>
 
 nnoremap <leader>nt :tabnew<CR>
 
