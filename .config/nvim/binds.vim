@@ -30,8 +30,12 @@ nnoremap <leader>nt :tabnew<CR>
 nnoremap <leader>vm :mkview<CR>
 nnoremap <leader>vl :loadview<CR>
 
-nnoremap <leader>gtc :lua require'nvim-goc'.Coverage()<CR>
-nnoremap <leader>gtC :lua require'nvim-goc'.ClearCoverage()<CR>
+" check test coverage
+nnoremap <leader>ctc :lua require'nvim-goc'.Coverage()<CR>
+" check test CLEAR coverage
+nnoremap <leader>ctC :lua require'nvim-goc'.ClearCoverage()<CR>
+" check lint
+nnoremap <leader>cl  :FloatermNew --wintype=split --autoclose=0 revive -formatter stylish %<CR>
 
 " spell mappings
 nnoremap <leader>ss :setlocal spell<CR>
@@ -52,8 +56,8 @@ nnoremap <leader>eci :edit $HOME/repositories/dotfiles/.config/i3/config<CR>
 nnoremap <leader>ecs :edit $HOME/repositories/dotfiles/.config/i3status-rust/config.toml<CR>
 nnoremap <leader>ew  :edit $HOME/notes/mdwiki/index.md<CR>
 
-nnoremap <leader>c :lua require'lush'.export_to_buffer(require'kurzzug-dev')<CR>
-nnoremap <leader>C :edit $HOME/repositories/dotfiles/.config/nvim/colors/kurzzug-dev.vim<CR>
+" nnoremap <leader>c :lua require'lush'.export_to_buffer(require'kurzzug-dev')<CR>
+" nnoremap <leader>C :edit $HOME/repositories/dotfiles/.config/nvim/colors/kurzzug-dev.vim<CR>
 
 " zettelkasten
 nnoremap <silent> <leader>zff :lua require'telescope.builtin'.find_files({cwd = "$ZETTELKASTENPATH", find_command = {'rg', '--files', '--glob', '!README.md'}})<cr>
