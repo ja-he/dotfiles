@@ -2,63 +2,44 @@ stylesheet:
 
 categories:
   - name: work::notrack
-    fg: '#800000'
-    bg: '#ffcccc'
+    color: '#dfbcbc'
   - name: work
-    fg: '#000000'
-    bg: '#ffcccc'
+    color: '#ffcccc'
     priority: 20
   - name: uni
-    fg: '#000000'
-    bg: '#eedccc'
+    color: '#eedccc'
     priority: 10
   - name: uni::pmwk
-    fg: '#000000'
-    bg: '#eeaccc'
+    color: '#eeaccc'
     priority: 10
   - name: uni::namib
-    fg: '#000000'
-    bg: '#ffdccc'
+    color: '#ffdccc'
     priority: 15
   - name: fitness
-    fg: '#000000'
-    bg: '#ccebff'
+    color: '#ccebff'
   - name: hygiene
-    fg: '#000000'
-    bg: '#efafff'
+    color: '#efafff'
   - name: leisure
-    fg: '#000000'
-    bg: '#ffccf7'
+    color: '#ffccf7'
   - name: gardening
-    fg: '#000000'
-    bg: '#c8e1ab'
+    color: '#c8e1ab'
   - name: eating
-    fg: '#000000'
-    bg: '#c2edab'
+    color: '#c2edab'
   - name: cooking
-    fg: '#000000'
-    bg: '#ccffe6'
+    color: '#ccffe6'
   - name: learning
-    fg: '#000000'
-    bg: '#ccf0cc'
+    color: '#ccf0cc'
   - name: programming
-    fg: '#000000'
-    bg: '#fff0cc'
+    color: '#fff0cc'
   - name: reading
-    fg: '#000000'
-    bg: '#f3ffcc'
+    color: '#f3ffcc'
   - name: 'security/pentesting practice'
-    fg: '#000000'
-    bg: '#aacae3'
+    color: '#aacae3'
   - name: household
-    fg: '#000000'
-    bg: '#cccccc'
+    color: '#cccccc'
   - name: important
-    fg: '#000000'
-    bg: '#cc9999'
+    color: '#cc9999'
   - name: default
-    fg: '#888888'
-    bg: '#cecece'
+    color: '#cecece'
   - name: wasted
-    fg: '#a30000'
-    bg: '#eeeeee'
+    color: '#eeeeee'
