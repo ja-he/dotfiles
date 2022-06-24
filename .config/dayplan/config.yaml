@@ -3,43 +3,75 @@ stylesheet:
 categories:
   - name: work::notrack
     color: '#dfbcbc'
+
   - name: work
     color: '#ffcccc'
     priority: 20
+    goal:
+      workweek:
+        monday:    5h
+        tuesday:   5h
+        wednesday: 5h
+        thursday:  5h
+        friday:    0h
+        saturday:  0h
+        sunday:    0h
+
   - name: uni
     color: '#eedccc'
     priority: 10
+
   - name: uni::pmwk
     color: '#eeaccc'
     priority: 10
+
   - name: uni::namib
     color: '#ffdccc'
     priority: 15
+    goal:
+      ranged:
+        start: 2021-10-01
+        end:   2022-09-30
+        time: 720h
+
   - name: fitness
     color: '#ccebff'
+
   - name: hygiene
     color: '#efafff'
+
   - name: leisure
     color: '#ffccf7'
+
   - name: gardening
     color: '#c8e1ab'
+
   - name: eating
     color: '#c2edab'
+
   - name: cooking
     color: '#ccffe6'
+
   - name: learning
     color: '#ccf0cc'
+
   - name: programming
     color: '#fff0cc'
+
   - name: reading
     color: '#f3ffcc'
+
   - name: 'security/pentesting practice'
     color: '#aacae3'
+
   - name: household
     color: '#cccccc'
+
   - name: important
     color: '#cc9999'
+
   - name: default
     color: '#cecece'
+
   - name: wasted
-    color: '#eeeeee'
+    color: '#feeeee'
