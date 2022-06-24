@@ -1,7 +1,11 @@
 #!/bin/bash
-pactl get-default-source | grep "monitor" && \
-  mpv /usr/share/sounds/freedesktop/stereo/dialog-error.oga > /dev/null & \
-  notify-send -t 1000 -u critical "default source is a monitor?" && exit 1
+_exit_because_monitor() {
+    mpv /usr/share/sounds/freedesktop/stereo/dialog-error.oga > /dev/null &
+    notify-send -t 1000 -u critical "default source is a monitor?"
+    exit 1
+}
+
+pactl get-default-source | grep -i "monitor" && _exit_because_monitor
 
 pactl set-source-mute @DEFAULT_SOURCE@ toggle
 muted="$(pactl get-source-mute @DEFAULT_SOURCE@ | sed 's/Mute:\s*\(\S*\)$/\1/')"
