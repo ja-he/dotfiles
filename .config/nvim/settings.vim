@@ -23,9 +23,9 @@ set noswapfile
 " undo across closing/reopening
 set undofile
 
-" show line numbers (relative w/ current line showing actual number)
+" show line numbers (absolute)
 set number
-set relativenumber
+set norelativenumber
 " Presentation Settings 
 set mouse=a
 
