@@ -227,6 +227,7 @@ local theme = lush(function()
     Bold          { gui = "bold" },
     Italic        { gui = "italic" },
 
+    URI { fg = dark_blue },
 
     -- These groups are for the native LSP client. Some other LSP clients may
     -- use these groups, or use their own. Consult your LSP client's
@@ -293,7 +294,7 @@ local theme = lush(function()
     -- TSUnderline          { }, -- For text to be represented with an underline.
     -- TSTitle              { }, -- Text that is part of a title.
     -- TSLiteral            { }, -- Literal text.
-    TSURI                { fg = dark_blue }, -- Any URI like a link or email.
+    TSURI                { URI }, -- Any URI like a link or email.
     -- TSVariable           { }, -- Any variable name that does not have another highlight.
     -- TSVariableBuiltin    { }, -- Variable names that are defined by the languages, like `this` or `self`.
 
