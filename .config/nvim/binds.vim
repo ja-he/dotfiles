@@ -43,6 +43,7 @@ nnoremap <leader>s- :setlocal nospell<CR>
 nnoremap <leader>sd :setlocal spelllang=de<CR>
 nnoremap <leader>se :setlocal spelllang=en<CR>
 nnoremap <leader>se :setlocal spelllang=en<CR>
+nnoremap <leader>sf :lua require'telescope.builtin'.spell_suggest()<CR>
 
 nnoremap <leader>snh :nohlsearch<CR>
 
@@ -59,12 +60,6 @@ nnoremap <leader>ew  :edit $HOME/notes/mdwiki/index.md<CR>
 " nnoremap <leader>c :lua require'lush'.export_to_buffer(require'kurzzug-dev')<CR>
 " nnoremap <leader>C :edit $HOME/repositories/dotfiles/.config/nvim/colors/kurzzug-dev.vim<CR>
 
-" zettelkasten
-nnoremap <silent> <leader>zff :lua require'telescope.builtin'.find_files({cwd = "$ZETTELKASTENPATH", find_command = {'rg', '--files', '--glob', '!README.md'}})<cr>
-nnoremap <leader>zfa :cd $ZETTELKASTENPATH<CR>:Ag<CR>
-nnoremap <leader>ze :tabe $ZETTELKASTENPATH/
-nnoremap <leader>zu :FloatermNew --wintype=split zet update<CR>
-
 " vim-fugitive bindings
 nnoremap <leader>gs :tab Git<CR>
 nnoremap <leader>gS :Neogit kind=tab<CR>
@@ -78,20 +73,23 @@ nnoremap <leader>gg :FloatermNew --wintype=split --autoclose=0 git graph<CR>
 nnoremap <leader>gh :Gitsigns toggle_numhl<CR>
 nnoremap <leader>gH :Gitsigns toggle_word_diff<CR>
 
-" fzf binds
+" find binds (telescope and fzf)
 nnoremap <silent> <leader>ff :lua require'telescope.builtin'.find_files()<CR>
-nnoremap <leader>fF :Files!<CR>
+nnoremap          <leader>fF :Files<CR>
 nnoremap <silent> <leader>fc :lua require'telescope.builtin'.find_files({cwd = "$HOME/.config/"})<cr>
-nnoremap <leader>fa :Ag<CR>
-nnoremap <leader>fA :Ag!<CR>
-nnoremap <leader>fg :GitFiles<CR>
-nnoremap <leader>fG :GitFiles!<CR>
-nnoremap <leader>fl :BLines<CR>
-nnoremap <leader>fL :BLines!<CR>
-nnoremap <leader>fh :Helptags<CR>
-nnoremap <leader>fs :Snippets<CR>
-nnoremap <leader>fw :cd $HOME/notes/wiki/vimwiki <bar> Ag<CR>
-nnoremap <leader>fn :cd $HOME/notes/mdwiki <bar> Ag<CR>
+nnoremap          <leader>fA :Ag<CR>
+nnoremap <silent> <leader>fgc :lua require'telescope.builtin'.git_commits()<cr>
+nnoremap <silent> <leader>fgb :lua require'telescope.builtin'.git_branches()<cr>
+nnoremap <silent> <leader>fgs :lua require'telescope.builtin'.git_stash()<cr>
+nnoremap          <leader>fl :BLines<CR>
+nnoremap          <leader>fL :BLines!<CR>
+nnoremap <silent> <leader>fh :lua require'telescope.builtin'.help_tags()<CR>
+nnoremap          <leader>fs :Snippets<CR>
+" zettelkasten (some of these also find)
+nnoremap <silent> <leader>zff :lua require'telescope.builtin'.find_files({cwd = "$ZETTELKASTENPATH", find_command = {'rg', '--files', '--glob', '!README.md'}})<cr>
+nnoremap          <leader>zfa :cd $ZETTELKASTENPATH<CR>:Ag<CR>
+nnoremap          <leader>ze :tabe $ZETTELKASTENPATH/
+nnoremap          <leader>zu :FloatermNew --wintype=split zet update<CR>
 
 " lsp keymappings (per example, adjusted by me)
 nnoremap <leader>ld   <cmd>lua vim.lsp.buf.declaration()<CR>
