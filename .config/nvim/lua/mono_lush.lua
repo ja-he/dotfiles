@@ -146,7 +146,7 @@ local theme = lush(function()
     -- Invisible text
     Conceal       { fg = dark_red }, -- placeholder characters substituted for concealed text (see 'conceallevel')
     Whitespace    { fg = pale_blue },
-    Folded        { Whitespace }, -- line used for closed folds
+    Folded        { fg = dark_blue, bg = pale_blue.lighten(90), gui = "bold,italic" }, -- line used for closed folds
     NonText       { Whitespace }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
 
     -- More default stuff:
@@ -159,7 +159,7 @@ local theme = lush(function()
     Ignore        { Whitespace }, -- (preferred) left blank, hidden  |hl-Ignore|
     Error         { fg = dark_red , bg = pale_red }, -- (preferred) any erroneous construct
     ErrorMsg      { Error }, -- error messages on the command line
-    FoldColumn    { Whitespace }, -- 'foldcolumn'
+    FoldColumn    { fg = Folded.fg, gui = "bold" }, -- 'foldcolumn'
     SignColumn    { }, -- column where |signs| are displayed
     Substitute    { }, -- |:substitute| replacement text highlighting
     Delimiter     { fg = dark_grey },
