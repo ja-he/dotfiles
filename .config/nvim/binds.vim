@@ -74,7 +74,7 @@ nnoremap <leader>gh :Gitsigns toggle_numhl<CR>
 nnoremap <leader>gH :Gitsigns toggle_word_diff<CR>
 
 " find binds (telescope and fzf)
-nnoremap <silent> <leader>ff :lua require'telescope.builtin'.find_files()<CR>
+nnoremap <silent> <leader>ff :lua require'telescope.builtin'.find_files({no_ignore = true})<CR>
 nnoremap          <leader>fF :Files<CR>
 nnoremap <silent> <leader>fc :lua require'telescope.builtin'.find_files({cwd = "$HOME/.config/"})<cr>
 nnoremap          <leader>fA :Ag<CR>
