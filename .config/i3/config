@@ -177,6 +177,7 @@ bindsym $mod+Shift+9 move container to workspace $workspace09
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
 assign [class="Xournalpp"] $workspace05
+assign [class="Seafile"] $workspace06
 
 # Display Details 
 set $Display0    HDMI-A-0
