@@ -296,6 +296,6 @@ bindsym $mod+period  exec /home/ztf/scripts/randomwp /home/ztf/Pictures/wallpape
 # STARTUP ----------------------------------------------------------------------
 exec dunst
 exec redshift
-exec seaf-cli start
+exec seafile-applet
 exec hsetroot -solid '#ccebff'
 # exec picom --experimental-backends
