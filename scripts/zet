@@ -38,13 +38,29 @@ update_kasten()
   (
     echo "updating ${category}..."
     cd "${zettelkasten_path}/${category}"
-    if [[ $(git fetch) ]]; then
-      git pull --rebase
-    fi
+    local_update=false
+    remote_update=false
     if [[ $(git status --porcelain) ]]; then
+      local_update=true
+    fi
+    if [[ $(git fetch) ]]; then
+      remote_update=true
+    fi
+
+    if [ "${local_update}" == "true" ]; then
       git add .
       git commit -m "$day Update"
-      git push
+    fi
+    can_push=true
+    if [ "${remote_update}" == "true" ]; then
+      git pull --rebase || can_push=false
+    fi
+    if [ "${local_update}" == "true" ]; then
+      if [ "${can_push}" == "true" ]; then
+        git push
+      else
+        echo "WARN: cannot push update in ${category} yet!"
+      fi
     fi
   )
 }
