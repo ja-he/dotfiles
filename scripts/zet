@@ -282,4 +282,5 @@ case ${command} in
   *)
     echo "ERROR: unrecognized command '${command}'"
     exit 1
+    ;;
 esac
