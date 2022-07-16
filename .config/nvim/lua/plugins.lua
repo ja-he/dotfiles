@@ -26,7 +26,7 @@ return require('packer').startup(function()
   -- rust
   use 'simrat39/rust-tools.nvim'
 
-  use 'rafaelsq/nvim-goc.lua'
+  use { 'ja-he/nvim-goc.lua', branch = 'fix-deprecated-hi-link' }
 
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
