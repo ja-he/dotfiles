@@ -13,9 +13,6 @@ categories:
         tuesday:   5h
         wednesday: 5h
         thursday:  5h
-        friday:    0h
-        saturday:  0h
-        sunday:    0h
 
   - name: uni
     color: '#eedccc'
@@ -30,9 +27,9 @@ categories:
     priority: 15
     goal:
       ranged:
-        start: 2021-10-01
-        end:   2022-09-30
-        time: 720h
+        - start: 2021-10-01
+          end:   2022-09-30
+          time: 720h
 
   - name: fitness
     color: '#ccebff'
