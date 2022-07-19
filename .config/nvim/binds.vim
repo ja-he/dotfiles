@@ -81,8 +81,9 @@ nnoremap          <leader>fA :Ag<CR>
 nnoremap <silent> <leader>fgc :lua require'telescope.builtin'.git_commits()<cr>
 nnoremap <silent> <leader>fgb :lua require'telescope.builtin'.git_branches()<cr>
 nnoremap <silent> <leader>fgs :lua require'telescope.builtin'.git_stash()<cr>
-nnoremap          <leader>fl :BLines<CR>
-nnoremap          <leader>fL :BLines!<CR>
+nnoremap <silent> <leader>fbs :lua require'telescope.builtin'.lsp_document_symbols()<cr>
+nnoremap <silent> <leader>fbl :lua require'telescope.builtin'.current_buffer_fuzzy_find()<cr>
+nnoremap          <leader>fbL :BLines<CR>
 nnoremap <silent> <leader>fh :lua require'telescope.builtin'.help_tags()<CR>
 nnoremap          <leader>fs :Snippets<CR>
 " zettelkasten (some of these also find)
@@ -90,6 +91,7 @@ nnoremap <silent> <leader>zff :lua require'telescope.builtin'.find_files({cwd = 
 nnoremap          <leader>zfa :cd $ZETTELKASTENPATH<CR>:Ag<CR>
 nnoremap          <leader>ze :tabe $ZETTELKASTENPATH/
 nnoremap          <leader>zu :FloatermNew --wintype=split zet update<CR>
+nnoremap <silent> <leader>ftb :lua require'telescope.builtin'.builtin()<cr>
 
 " lsp keymappings (per example, adjusted by me)
 nnoremap <leader>ld   <cmd>lua vim.lsp.buf.declaration()<CR>
@@ -127,3 +129,5 @@ snoremap <c-l> <cmd>lua require'luasnip'.jump(1)<CR>
 snoremap <c-h> <cmd>lua require'luasnip'.jump(-1)<CR>
 imap <silent><expr> <c-j> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<c-j>'
 smap <silent><expr> <c-j> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<c-j>'
+
+nnoremap <leader>h :lua require'hackmd'.hackmd()<CR>
