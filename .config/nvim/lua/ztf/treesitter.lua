@@ -21,7 +21,7 @@ parser_config.spdxtv = {
 }
 parser_config.mud = {
   install_info = {
-    url = "~/repositories/mud-lsp/parser/tree-sitter-mud", -- local path or git repo
+    url = "~/repositories/muddles/parser/tree-sitter-mud", -- local path or git repo
     files = {"src/parser.c"},
     -- optional entries:
     branch = "main", -- default branch in case of git repo if different from master
