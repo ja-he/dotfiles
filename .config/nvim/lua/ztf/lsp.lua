@@ -188,7 +188,7 @@ lspconfig.spdx_lsp.setup{}
 if not configs.muddles then
   configs.muddles = {
     default_config = {
-      cmd = {'/home/ztf/repositories/mud-lsp/target/debug/muddles'};
+      cmd = {'/home/ztf/repositories/muddles/target/debug/muddles'};
       filetypes = {'mud'};
       root_dir = function(fname)
         return lspconfig.util.path.dirname(fname)
