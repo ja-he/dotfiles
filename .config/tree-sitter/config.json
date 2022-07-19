@@ -1,0 +1,58 @@
+{
+  "parser-directories": [
+    "/home/ztf/github",
+    "/home/ztf/src",
+    "/home/ztf/repositories/ts-test/parser",
+    "/home/ztf/repositories/muddles/parser",
+    "/home/ztf/source"
+  ],
+  "theme": {
+    "operator": {
+      "bold": true,
+      "color": 239
+    },
+    "module": 136,
+    "constant.builtin": {
+      "color": 94,
+      "bold": true
+    },
+    "string.special": 30,
+    "embedded": null,
+    "attribute": {
+      "color": 124,
+      "italic": true
+    },
+    "constant": 94,
+    "punctuation.bracket": 239,
+    "tag": 18,
+    "property": 124,
+    "type.builtin": {
+      "color": 23,
+      "bold": true
+    },
+    "constructor": 136,
+    "function": 26,
+    "type": 23,
+    "comment": {
+      "color": 245,
+      "italic": true
+    },
+    "punctuation.delimiter": 239,
+    "string": 28,
+    "variable.builtin": {
+      "bold": true
+    },
+    "variable.parameter": {
+      "underline": true
+    },
+    "keyword": 56,
+    "number": {
+      "color": 94,
+      "bold": true
+    },
+    "function.builtin": {
+      "color": 26,
+      "bold": true
+    }
+  }
+}
