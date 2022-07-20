@@ -20,6 +20,8 @@ return require('packer').startup(function()
   use 'numToStr/Comment.nvim'
   use 'tpope/vim-surround'
   use 'tpope/vim-characterize'
+  use 'tpope/vim-dadbod'
+  use 'kristijanhusak/vim-dadbod-ui'
   use 'tommcdo/vim-lion'
 
   use 'neovim/nvim-lspconfig'
