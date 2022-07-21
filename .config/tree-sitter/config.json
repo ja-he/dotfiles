@@ -5,6 +5,7 @@
     "/home/ztf/repositories/ts-test/parser",
     "/home/ztf/repositories/muddles/parser",
     "/home/ztf/source"
+    "/home/ja_he/repositories/spdx-lsp/silwerboom/parsers/spdx/tree-sitter-spdxtv",
   ],
   "theme": {
     "operator": {
