@@ -26,6 +26,7 @@ require('telescope').setup{
     borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
     file_sorter = require'telescope.sorters'.get_fzy_sorter,
     generic_sorter = require'telescope.sorters'.get_fzy_sorter,
+    file_ignore_patterns = { ".git/" },
   },
   pickers = {
     -- Default configuration for builtin pickers goes here:
