@@ -27,6 +27,13 @@ nnoremap <F12>           :FloatermNew --wintype=split<CR>
 
 nnoremap <leader>nt :tabnew<CR>
 
+" focus
+vnoremap <leader>xn :TZNarrow<CR>
+nnoremap <leader>xn :TZNarrow<CR>
+nnoremap <leader>xf :TZFocus<CR>
+nnoremap <leader>xm :TZMinimalist<CR>
+nnoremap <leader>xa :TZAtaraxis<CR>
+
 nnoremap <leader>vm :mkview<CR>
 nnoremap <leader>vl :loadview<CR>
 
@@ -119,7 +126,7 @@ nnoremap L :tabnext<CR>
 nnoremap <c-h> :-tabmove<CR>
 nnoremap <c-l> :+tabmove<CR>
 
-vnoremap <leader>x c<C-R>=system("IFS='\n' read input; python -c \"print($input,end='')\"",@+)<CR><ESC>
+vnoremap <leader>X c<C-R>=system("IFS='\n' read input; python -c \"print($input,end='')\"",@+)<CR><ESC>
 
 " luasnip
 imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'

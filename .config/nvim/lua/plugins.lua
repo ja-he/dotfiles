@@ -59,6 +59,8 @@ return require('packer').startup(function()
 
   use { 'iamcco/markdown-preview.nvim' , run = ':call mkdp#util#install()' }
 
+  use 'pocco81/true-zen.nvim'
+
   -- colorschemes
   use 'ja-he/kurzzug'
   use 'Shatur/neovim-ayu'
