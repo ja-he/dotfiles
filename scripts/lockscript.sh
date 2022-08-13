@@ -18,7 +18,3 @@ i3lock \
    #--indpos="w-120:h-120" \
    #--verif-font="NimbusSans-Bold" \
    #--wrong-font="NimbusSans-Bold" 
-
-sleep 5
-
-systemctl suspend
