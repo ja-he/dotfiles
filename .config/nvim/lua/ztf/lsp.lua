@@ -62,9 +62,9 @@ require('rust-tools').setup{
         -- Automatically set inlay hints (type hints)
         autoSetHints = true,
 
-        -- Whether to show hover actions inside the hover window
-        -- This overrides the default hover handler 
-        hover_with_actions = true,
+        -- TODO: there used to be a setting here (hover_with_actions=true), but
+        --       it was deprecated in favor of mapping to a command
+        --       :RustHoverActions instead; done yet?
 
     -- how to execute terminal commands
     -- options right now: termopen / quickfix
