@@ -1,4 +1,8 @@
 configuration {
+  kb-accept-entry: "Control+m,Return,KP_Enter";
+  kb-remove-to-eol: "";
+  kb-row-up: "Control+k,Up";
+  kb-row-down: "Control+j,Down";
 	font: "Jetbrains Mono 12";
 }
 @import "/usr/share/rofi/themes/Arc.rasi"
