@@ -1,6 +1,9 @@
 #!/usr/bin/bash
 set -uo pipefail
 
+echo "do not use this"
+exit 1
+
 _init_with_submodules() {
   (
     set -x
