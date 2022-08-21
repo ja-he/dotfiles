@@ -1,0 +1,77 @@
+Ks:
+  public:
+    url: "git@gitlab.informatik.uni-bremen.de:ja_he/zettelkasten-public.git"
+    path: "${HOME}/z/public"
+  private:
+    url: "git@gitlab.informatik.uni-bremen.de:ja_he/private-zettelkasten.git"
+    path: "${HOME}/z/private"
+  misc:
+    url: "git@gitlab.informatik.uni-bremen.de:ja_he/zettelkasten-misc.git"
+    path: "${HOME}/z/misc"
+  cooking:
+    url: "git@gitlab.informatik.uni-bremen.de:ja_he/zettelkasten-cooking.git"
+    path: "${HOME}/z/cooking"
+  namib:
+    url: "git@gitlab.informatik.uni-bremen.de:ja_he/zettelkasten-namib.git"
+    path: "${HOME}/z/namib"
+
+blueprints:
+  md:
+    templates:
+      "{{.Name}}.md": |
+        ---
+        title: {{.Name}}
+        date: {{.Today}}
+        ---
+    open: "nvim {{.Name}}.md"
+  md-zola-with-pdf:
+    subdir: "{{.Name}}"
+    templates:
+      "index.md": |
+        +++
+        title = '{{.Name}}'
+        date = '{{.Today}}'
+        draft = true
+        +++
+    open: "nvim index.md"
+    sources: [ "index.md" ]
+    objects: [ "index.pdf" ]
+    post:
+      - >-
+        (
+        (
+        echo '---';
+        cat index.md
+        | sed -n '/+++/,/+++/p'
+        | sed '1d; $d'
+        | remarshal -if toml -of yaml
+        ; echo '---'
+        )
+        ;
+        (cat index.md | sed -n '/+++/,/+++/!p')
+        )
+        | pandoc -f markdown -t pdf --pdf-engine lualatex -V 'mainfont:Nimbus Roman' -s -o index.pdf
+  xopp: # TODO
+    subdir: "{{.Name}}"
+    open: "xournalpp main.xopp"
+    post:
+      - xournalpp main.xopp --create-img=exported.svg --export-no-ruling --export-no-background
+      - xournalpp main.xopp --create-img=exported.png --export-no-ruling --export-png-dpi=300
+  tex:
+    subdir: "{{.Name}}"
+    templates:
+      "main.tex": |
+        \documentclass[a4paper]{article}
+
+        \begin{document}
+
+        % TODO: content?!
+
+        \end{document}
+      "bibliography.bib": "% TODO\n"
+    open: "nvim main.tex"
+    post: [ "latexmk -pdf main.tex" ]
+    sources: [ "main.tex", "bibliography.bib" ]
+    objects: [ "main.pdf" ]
+  journal:
+    open: "nvim {{.Today}}_{{.Name}}.md"
