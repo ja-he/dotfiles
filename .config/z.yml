@@ -844,7 +844,20 @@ pandoc-tex-template-contents: &pandoc-tex-template-contents |
   \logo{\includegraphics{$logo$}}
   $endif$
   $endif$
-  
+
+  \let\oldTexttt\texttt
+  \renewcommand{\texttt}[1]{\oldTexttt{\textcolor{teal}{#1}}}
+
+  \usepackage{xcolor}
+  \usepackage[skins,breakable]{tcolorbox}
+  \tcbuselibrary{breakable}
+  \usepackage{changepage}
+  \let\oldquote=\quote
+  \let\endoldquote=\endquote
+  \renewenvironment{quote}
+    {\begin{adjustwidth}{2em}{2em}\begin{tcolorbox}[enhanced jigsaw,colframe=Linen,colback=Linen,breakable]}
+    {\end{tcolorbox}\end{adjustwidth}}
+
   \begin{document}
   $if(has-frontmatter)$
   \frontmatter
@@ -1010,11 +1023,15 @@ blueprints:
         link-citations: true
         bibliography: ./bibliography.bib
         csl: ./.ieee.csl
+        colorlinks: true
+        urlcolor: NavyBlue
+        linkcolor: DarkRed
+        links-as-notes: true
         ---
 
+        ::: {#refs}
         # References
 
-        ::: {#refs}
         :::
       "bibliography.bib": "% TODO\n"
       ".ieee.csl": *ieeecsl
