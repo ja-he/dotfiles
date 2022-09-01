@@ -855,7 +855,8 @@ pandoc-tex-template-contents: &pandoc-tex-template-contents |
   \let\oldquote=\quote
   \let\endoldquote=\endquote
   \renewenvironment{quote}
-    {\begin{adjustwidth}{2em}{2em}\begin{tcolorbox}[enhanced jigsaw,colframe=Linen,colback=Linen,breakable]}
+    {\begin{adjustwidth}{2em}{2em}\begin{tcolorbox}[enhanced
+      jigsaw,colframe=NavajoWhite,colback=Linen,breakable]}
     {\end{tcolorbox}\end{adjustwidth}}
 
   \begin{document}
