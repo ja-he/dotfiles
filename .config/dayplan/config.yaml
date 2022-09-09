@@ -64,6 +64,12 @@ categories:
   - name: household
     color: '#cccccc'
 
+  - name: personal
+    color: '#ffdead'
+
+  - name: personal::flat-search
+    color: '#ffdead'
+
   - name: important
     color: '#cc9999'
 
