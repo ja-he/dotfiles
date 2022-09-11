@@ -1100,5 +1100,51 @@ blueprints:
     post: [ "latexmk -pdf main.tex" ]
     sources: [ "main.tex", "bibliography.bib" ]
     objects: [ "main.pdf" ]
+  tex-letter:
+    subdir: "{{.Name}}"
+    templates:
+      "main.tex": |
+        \documentclass[a4paper]{scrlttr2}
+        
+        \usepackage{mathpazo}
+        \usepackage{hyperref}
+        \usepackage[top=1cm,bottom=1cm,left=2.0cm,right=2.0cm]{geometry}
+        
+        % input & font encoding 
+        \usepackage[utf8]{inputenc}
+        % \usepackage[english]{babel}
+        \usepackage[english]{babel}
+        % % no paragraph start indentation 
+        \setlength{\parindent}{0em}
+        % % small gaps between paragraphs 
+        \setlength{\parskip}{0.5em}
+        
+        \setkomavar{fromname}{Jan Hensel}
+        \setkomavar{fromaddress}{My\\Address\\Here}
+        \setkomavar{subject}{Letter Subject}
+        
+        \begin{document}
+        
+        \begin{letter}{Person\\
+                       Street\\
+                       City, Country}
+        
+            \opening{Dear ...,}
+        
+            yada yada yada.
+        
+            \closing{Kind regards,}
+          \end{letter}
+        \end{document}
+      "Makefile": |
+        main.pdf: main.tex
+        	latexmk --quiet --pdf main.tex
+        
+        clean:
+        	latexmk -C
+    open: "nvim main.tex"
+    post: [ "make" ]
+    sources: [ "main.tex", "Makefile" ]
+    objects: [ "main.pdf" ]
   journal:
     open: "nvim {{.Today}}_{{.Name}}.md"
