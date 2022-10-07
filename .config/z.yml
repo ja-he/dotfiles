@@ -1100,6 +1100,189 @@ blueprints:
     post: [ "latexmk -pdf main.tex" ]
     sources: [ "main.tex", "bibliography.bib" ]
     objects: [ "main.pdf" ]
+  tex-paper:
+    subdir: "{{.Name}}"
+    templates:
+      "main.tex": |
+        \documentclass[%
+          a4paper,
+          twocolumn,
+        ]{article}
+
+        \makeatletter
+        \newbox\abstract@box
+        \renewenvironment{abstract}
+          {\global\setbox\abstract@box=\vbox\bgroup
+             \hsize=\textwidth\linewidth=\textwidth
+            \small
+            \begin{center}%
+            {\bfseries \abstractname\vspace{-.5em}\vspace{\z@}}%
+            \end{center}%
+            \quotation}
+          {\endquotation\egroup}
+        \expandafter\def\expandafter\@maketitle\expandafter{\@maketitle
+          \ifvoid\abstract@box\else\unvbox\abstract@box\if@twocolumn\vskip1.5em\fi\fi}
+        \makeatother
+
+        \usepackage[english]{babel}
+
+        \usepackage{mathpazo}
+        \usepackage[%
+          margin=2.5cm,
+          % showframe,
+        ]{geometry}
+        \usepackage[dvipsnames]{xcolor}
+        \usepackage{marginfix}
+        \usepackage{titlesec}
+        \titleformat*{\paragraph}{\scshape}
+
+        \usepackage{hyperref}
+        \hypersetup{
+          colorlinks=true,
+          linkcolor={NavyBlue},
+          anchorcolor={red},
+          citecolor={ForestGreen},
+          filecolor={black},
+          menucolor={red},
+          runcolor={red},
+          urlcolor={black},
+          linktoc=page,
+        }
+        \usepackage{titletoc,tocloft}
+        \setlength{\cftsubsecindent}{0.5em}
+        \setlength{\cftsubsubsecindent}{1em}
+        \dottedcontents{section}[1.5em]{}{1.3em}{.6em}
+
+        \usepackage[%
+          automake,
+          % debug=showtargets,
+          nopostdot=true,
+        ]{glossaries}
+        \usepackage[
+          % showtargets=left,
+        ]{glossaries-extra}
+
+        \usepackage{biblatex}
+        \usepackage{csquotes}
+        \addbibresource{bibliography.bib}
+
+        \usepackage[fulladjust]{marginnote}
+
+        \usepackage{listings}
+        \lstdefinestyle{custom}{
+            backgroundcolor=\color{black!5},
+            commentstyle=\color{black!50},
+            keywordstyle=\bfseries\color{NavyBlue},
+            stringstyle=\color{ForestGreen},
+            basicstyle=\ttfamily\lst@ifdisplaystyle\scriptsize\else\small\fi,
+            breakatwhitespace=false,
+            breaklines=true,
+            captionpos=t,
+            keepspaces=true,
+            numbers=none,
+            numbersep=5pt,
+            showspaces=false,
+            showstringspaces=false,
+            showtabs=false,
+            tabsize=2,
+        }
+        \lstset{style=custom}
+
+        \setabbreviationstyle[acronym]{long-short}
+        \newcommand{\firstuseformat}[1]{\textbf{\color{black}#1}}
+        \newcommand{\otheruseformat}[1]{%
+          {\color{black}#1}%
+        }
+        \renewcommand{\glslinkpresetkeys}{%
+          \ifglsused{\glslabel}%
+            {\let\glstextformat\otheruseformat}%
+            {\let\glstextformat\firstuseformat}%
+        }
+        \input{glossary.tex}
+        \makeglossaries
+
+        \usepackage{blindtext}
+        \newcommand{\missingStyle}[1]{%
+          {\textcolor{black!25}#1}%
+        }
+        \newcommand{\missing}{\missingStyle{\blindtext}}
+        \newcommand{\Missing}{\missingStyle{\Blindtext}}
+
+        \title{%
+          {{.Name}}
+        }
+        \author{%
+          {Jan Hensel}%
+          \thanks{%
+            (org)\\
+            (thanks to ...)
+          }
+        }
+
+        \begin{document}
+
+        \begin{abstract}
+          \missing
+        \end{abstract}
+
+        \maketitle
+
+        \tableofcontents
+
+        \section{Introduction}
+        This is a fake introduction.
+        Think about \gls{tbd}, but also---crucially---consider \gls{example}.
+        We'll draw heavily from~\cite{example}.
+
+        \Missing
+
+        \section{Content A}
+        \missing
+
+        \subsection{A a}
+        \Missing
+
+        \section{Content B}
+        \missing
+
+        \subsection{B b}
+        \Missing
+
+        \section{Conclusion}
+        \Missing
+
+        % \hfill
+        % \begin{center}
+        %   \rule{0.25\textwidth}{0.5pt}
+        % \end{center}
+        % \hfill
+
+
+
+
+        % BACKMATTER
+        \newpage
+        \printglossaries
+        \printbibliography
+
+        \end{document}
+      "bibliography.bib": |
+        @misc{example,
+          shorthand    = {Ex},
+          title        = {Example},
+          author       = {Mustermann, Max},
+          organization = {Generic Institute of Higher Intricacies},
+        }
+      "glossary.tex": |
+        \newglossaryentry{example}{
+          name={Example},
+          description={A thing you should remove after using this template.},
+        }
+        \newacronym{tbd}{TBD}{to be determined}
+    open: "nvim main.tex"
+    post: [ "latexmk -pdf main.tex" ]
+    sources: [ "main.tex", "bibliography.bib", "glossary.tex" ]
+    objects: [ "main.pdf" ]
   tex-letter:
     subdir: "{{.Name}}"
     templates:
