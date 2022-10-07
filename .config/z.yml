@@ -815,7 +815,7 @@ pandoc-tex-template-contents: &pandoc-tex-template-contents |
   $endif$
   $endif$
     pdfcreator={LaTeX via pandoc}}
-  
+
   $if(title)$
   \title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
   $endif$
@@ -875,10 +875,10 @@ pandoc-tex-template-contents: &pandoc-tex-template-contents |
   \end{abstract}
   $endif$
   $endif$
-  
+
   $for(include-before)$
   $include-before$
-  
+
   $endfor$
   $if(toc)$
   $if(toc-title)$
@@ -914,7 +914,7 @@ pandoc-tex-template-contents: &pandoc-tex-template-contents |
   \mainmatter
   $endif$
   $body$
-  
+
   $if(has-frontmatter)$
   \backmatter
   $endif$
@@ -935,7 +935,7 @@ pandoc-tex-template-contents: &pandoc-tex-template-contents |
   $if(beamer)$
   \end{frame}
   $endif$
-  
+
   $endif$
   $endif$
   $if(biblatex)$
@@ -947,11 +947,11 @@ pandoc-tex-template-contents: &pandoc-tex-template-contents |
   $else$
   \printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
   $endif$
-  
+
   $endif$
   $for(include-after)$
   $include-after$
-  
+
   $endfor$
   \end{document}
 
@@ -1288,46 +1288,46 @@ blueprints:
     templates:
       "main.tex": |
         \documentclass[a4paper]{scrlttr2}
-        
+
         \usepackage{mathpazo}
         \usepackage{hyperref}
         \usepackage[top=1cm,bottom=1cm,left=2.0cm,right=2.0cm]{geometry}
-        
-        % input & font encoding 
+
+        % input & font encoding
         \usepackage[utf8]{inputenc}
         % \usepackage[english]{babel}
         \usepackage[english]{babel}
-        % % no paragraph start indentation 
+        % % no paragraph start indentation
         \setlength{\parindent}{0em}
-        % % small gaps between paragraphs 
+        % % small gaps between paragraphs
         \setlength{\parskip}{0.5em}
-        
+
         \setkomavar{fromname}{Jan Hensel}
         \setkomavar{fromaddress}{My\\Address\\Here}
         \setkomavar{subject}{Letter Subject}
-        
+
         \begin{document}
-        
+
         \begin{letter}{Person\\
                        Street\\
                        City, Country}
-        
+
             \opening{Dear ...,}
-        
+
             yada yada yada.
-        
+
             \closing{Kind regards,}
           \end{letter}
         \end{document}
       "Makefile": |
         main.pdf: main.tex
         	latexmk --quiet --pdf main.tex
-        
+
         clean:
         	latexmk -C
     open: "nvim main.tex"
     post: [ "make" ]
-    sources: [ "main.tex", "Makefile" ]
+    sources: [ "main.tex" ]
     objects: [ "main.pdf" ]
   journal:
     open: "nvim {{.Today}}_{{.Name}}.md"
