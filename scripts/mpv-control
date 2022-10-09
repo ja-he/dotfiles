@@ -1,0 +1,54 @@
+#!/bin/bash
+set -euo pipefail
+
+socket="${2:-/tmp/mpv-socket}"
+cmd="${1:-}"
+
+_menu() {
+  echo "next"
+  echo "prev"
+  echo "vup"
+  echo "vdown"
+  echo "play-pause"
+  echo "unknown"
+}
+
+if [ "${cmd}" == "-l" ]; then
+  _menu
+  exit 0
+elif [ "${cmd}" == "" ]; then
+  echo "usage: mpv-control <command>"
+  echo "       where command is one of"
+  _menu | sed 's/^\(.*\)$/        - \1/'
+  exit 0
+fi
+
+case "${cmd}" in
+  next)
+    echo '{ "command": ["playlist-next"] }' | socat - "${socket}"
+    ;;
+  prev)
+    echo '{ "command": ["playlist-prev"] }' | socat - "${socket}"
+    ;;
+  vup)
+    for i in {0..8}; do
+      echo '{ "command": ["keypress", "0"] }' | socat - "${socket}"
+    done
+    ;;
+  vdown)
+    for i in {0..8}; do
+      echo '{ "command": ["keypress", "9"] }' | socat - "${socket}"
+    done
+    ;;
+  vdown)
+    for i in {0..8}; do
+      echo '{ "command": ["keypress", "9"] }' | socat - "${socket}"
+    done
+    ;;
+  play-pause)
+    echo '{ "command": ["keypress", "space"] }' | socat - "${socket}"
+    ;;
+  *)
+    echo "unknown command '${cmd}'"
+    exit -1
+esac

@@ -1,0 +1,39 @@
+#!/bin/bash
+set -euo pipefail
+
+declare -A urls
+urls["lofi-hip-hop-radio-yt"]="https://www.youtube.com/watch?v=jfKfPfyJRdk"
+urls["lofi-hip-hop-radio-streamafrica"]="https://boxradio-edge-06.streamafrica.net/lofi"
+urls["chillhop-zeno"]="https://stream.zeno.fm/fyn8eh3h5f8uv"
+urls["dreamhop-yt"]="https://www.youtube.com/watch?v=A6rK6_VqBls"
+
+_menu() {
+  for k in "${!urls[@]}"; do
+    echo "${k}"
+  done
+}
+
+_select() {
+  local selection="$(_menu | rofi -dmenu)"
+  echo "${urls["${selection}"]}"
+}
+
+_play() {
+  local url="${1}"
+  mpv --title="bg-music" --no-video --input-ipc-server=/tmp/mpv-socket "${url}"
+}
+
+_kill() {
+  local pid="$(ps aux | grep 'mpv --title=bg-music' | grep -v grep | head -n1 | xargs | cut -d' ' -f2)"
+  if [ -n "${pid}" ]; then
+    kill "${pid}"
+  fi
+}
+
+_run() {
+  local url="$(_select)"
+  _kill
+  _play "${url}"
+}
+
+_run

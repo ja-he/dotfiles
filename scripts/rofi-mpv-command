@@ -1,0 +1,19 @@
+#!/bin/bash
+
+_menu() {
+  mpv-control -l
+}
+
+_run() {
+  local selection="$(_menu | rofi -dmenu)"
+  local success=true
+  output="$(mpv-control "${selection}")"
+  es=$?
+  if [ $es -eq 0 ]; then
+    exit 0
+  else
+    notify-send "mpv-control failed" "$output"
+  fi
+}
+
+_run
