@@ -18,12 +18,24 @@ categories:
     color: '#eedccc'
     priority: 10
 
+  - name: uni::shsq
+    color: '#fafaa0'
+    priority: 10
+
+  - name: uni::swre
+    color: '#ebd15e'
+    priority: 10
+
+  - name: uni::krypto
+    color: '#ffd48a'
+    priority: 10
+
   - name: uni::pmwk
-    color: '#eeaccc'
+    color: '#fafaa0'
     priority: 10
 
   - name: uni::namib
-    color: '#ffdccc'
+    color: '#ffd48a'
     priority: 15
     goal:
       ranged:
