@@ -43,17 +43,11 @@ categories:
           end:   2022-09-30
           time: 720h
 
-  - name: fitness
-    color: '#ccebff'
-
-  - name: hygiene
-    color: '#efafff'
-
   - name: leisure
     color: '#ffccf7'
 
-  - name: gardening
-    color: '#c8e1ab'
+  - name: hygiene
+    color: '#efafff'
 
   - name: eating
     color: '#c2edab'
@@ -61,17 +55,23 @@ categories:
   - name: cooking
     color: '#ccffe6'
 
+  - name: fitness
+    color: '#ccebff'
+
   - name: learning
     color: '#ccf0cc'
 
   - name: programming
-    color: '#fff0cc'
+    color: '#8aa0cc'
 
   - name: reading
-    color: '#f3ffcc'
+    color: '#8acccc'
 
   - name: 'security/pentesting practice'
     color: '#aacae3'
+
+  - name: gardening
+    color: '#c8e1fb'
 
   - name: household
     color: '#cccccc'
