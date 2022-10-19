@@ -971,6 +971,15 @@ Ks:
   namib:
     url: "git@gitlab.informatik.uni-bremen.de:ja_he/zettelkasten-namib.git"
     path: "${HOME}/z/namib"
+  shsq:
+    url: "git@gitlab.informatik.uni-bremen.de:ja_he/zettelkasten-shsq"
+    path: "${HOME}/z/shsq"
+  krypt:
+    url: "git@gitlab.informatik.uni-bremen.de:ja_he/zettelkasten-krypt"
+    path: "${HOME}/z/krypt"
+  swre:
+    url: "git@gitlab.informatik.uni-bremen.de:ja_he/zettelkasten-swre"
+    path: "${HOME}/z/swre"
 
 blueprints:
   md:
