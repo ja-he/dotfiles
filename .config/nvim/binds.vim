@@ -1,3 +1,6 @@
+map j gj
+map k gk
+
 " leaders
 let mapleader = "\<space>"
 let maplocalleader = "\\"
