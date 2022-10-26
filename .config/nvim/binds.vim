@@ -115,7 +115,7 @@ nnoremap <leader>lt   <cmd>lua vim.lsp.buf.type_definition()<CR>
 nnoremap <leader>lr   <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <leader>lw   <cmd>lua vim.lsp.buf.document_symbol()<CR>
 nnoremap <leader>lW   <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
-nnoremap <leader>lf   <cmd>lua vim.lsp.buf.formatting()<CR>
+nnoremap <leader>lf   <cmd>lua vim.lsp.buf.format()<CR>
 nnoremap <leader>lR   <cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <leader>ls   :LspInfo<CR>
 nnoremap <leader>len  <cmd>lua vim.diagnostic.goto_next()<CR>
