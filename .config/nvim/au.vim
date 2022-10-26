@@ -7,21 +7,14 @@ autocmd BufReadPost *
 
 autocmd TermOpen term://* startinsert
 
-autocmd FileType gitcommit,text       set textwidth=68
-"autocmd FileType markdown             set filetype=pandoc
-autocmd FileType tex                  set textwidth=80
+autocmd FileType gitcommit set textwidth=68
 autocmd FileType floaterm set nonumber norelativenumber
-autocmd FileType mail,tex,markdown.pandoc
-  \  setlocal spell |
-  \  setlocal spelllang=en,de
 
 autocmd FileType rust                 let termdebugger="rust-gdb"
 
 augroup pandoc_syntax
     au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
 augroup END
-
-autocmd FileType markdown.pandoc               set textwidth=80
 
 " highlight yanked section for a brief moment
 augroup highlight_yank
