@@ -1,0 +1,20 @@
+#!/bin/env bash
+
+set -euo pipefail
+
+_days_in_range() {
+  local date_a="${1}"
+  local date_b="${2}"
+
+  local unix_ts_a=$(date --date="${date_a}" +%s)
+  local unix_ts_b=$(date --date="${date_b}" +%s)
+
+  local seconds_in_day=$(( 24 * 60 * 60 ))
+
+  local days_between=$(( (${unix_ts_b} - ${unix_ts_a}) / ${seconds_in_day} ))
+
+  echo $(( ${days_between} + 1 ))
+}
+
+
+_days_in_range "${1}" "${2}"
