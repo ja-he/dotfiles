@@ -1013,6 +1013,7 @@ blueprints:
       ".ieee.csl": *ieeecsl
       "Makefile": "{{.Name}}-slides.pdf: index.md bibliography.bib\n\tpandoc index.md -f markdown -t beamer --citeproc -s -o {{.Name}}-slides.pdf\n"
     open: "nvim index.md"
+    view: "zathura {{.Name}}-slides.pdf"
     post: [ "make {{.Name}}-slides.pdf" ]
   md-pandoc-for-pdf:
     subdir: "{{.Name}}"
