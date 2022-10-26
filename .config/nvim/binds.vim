@@ -54,6 +54,8 @@ nnoremap <leader>sd :setlocal spelllang=de<CR>
 nnoremap <leader>se :setlocal spelllang=en<CR>
 nnoremap <leader>se :setlocal spelllang=en<CR>
 nnoremap <leader>sf :lua require'telescope.builtin'.spell_suggest()<CR>
+nnoremap <leader>sn ]s
+nnoremap <leader>sp [s
 
 nnoremap <leader>snh :nohlsearch<CR>
 
