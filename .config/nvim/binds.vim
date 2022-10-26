@@ -142,4 +142,6 @@ snoremap <c-h> <cmd>lua require'luasnip'.jump(-1)<CR>
 imap <silent><expr> <c-j> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<c-j>'
 smap <silent><expr> <c-j> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<c-j>'
 
+nnoremap <leader>T :TSBufToggle highlight<CR>
+
 nnoremap <leader>h :lua require'hackmd'.hackmd()<CR>
