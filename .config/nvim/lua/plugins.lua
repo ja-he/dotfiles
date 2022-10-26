@@ -12,6 +12,7 @@ return require('packer').startup(function()
   use 'junegunn/fzf' -- TODO: how do I do this: `{ 'do': { -> fzf#install() } }`
   use 'junegunn/fzf.vim'
   use 'vim-pandoc/vim-pandoc-syntax'
+  use 'lervag/vimtex'
   use 'chrisbra/unicode.vim'
   use 'kylelaker/riscv.vim'
   -- use 'liuchengxu/vim-which-key'
