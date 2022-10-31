@@ -42,7 +42,9 @@ local light_grey        = white.darken(10)
 local grey              = white.darken(20)
 local dark_grey         = white.darken(30)
 
-local theme = lush(function()
+local theme = lush(function(injected_functions)
+  local sym = injected_functions.sym
+
   return {
 
     -- Pre
@@ -253,50 +255,17 @@ local theme = lush(function()
     -- TSError -> Error for example, so you do not have to define these unless
     -- you explicitly want to support Treesitter's improved syntax awareness.
 
-    TSError              {  }, -- For syntax/parser errors.
-    TSPunctDelimiter     { Delimiter }, -- For delimiters ie: `.`
-    TSPunctBracket       { fg = dark_grey }, -- For brackets and parens.
-    TSPunctSpecial       { Delimiter }, -- For special punctutation that does not fall in the catagories before.
-    TSConstant           { Constant }, -- For constants
-    -- TSConstBuiltin       { }, -- For constant that are built in the language: `nil` in Lua.
-    -- TSConstMacro         { }, -- For constants that are defined by macros: `NULL` in C.
-    TSString             { String }, -- For strings.
-    -- TSStringRegex        { }, -- For regexes.
-    -- TSStringEscape       { }, -- For escape characters within a string.
-    -- TSCharacter          { }, -- For characters.
-    -- TSNumber             { }, -- For integers.
-    -- TSBoolean            { }, -- For booleans.
-    -- TSFloat              { }, -- For floats.
-    TSFunction           { Function }, -- For function (calls and definitions).
-    -- TSFuncBuiltin        { }, -- For builtin functions: `table.insert` in Lua.
-    -- TSFuncMacro          { }, -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
-    TSParameter          { Identifier }, -- For parameters of a function.
-    -- TSParameterReference { }, -- For references to parameters of a function.
-    TSMethod             { Function }, -- For method calls and definitions.
-    -- TSField              { }, -- For fields.
-    -- TSProperty           { }, -- Same as `TSField`.
-    TSConstructor        { TSMethod , gui = "italic" }, -- For constructor calls and definitions: `{ }` in Lua, and Java constructors.
-    -- TSConditional        { }, -- For keywords related to conditionnals.
-    -- TSRepeat             { }, -- For keywords related to loops.
-    -- TSLabel              { }, -- For labels: `label:` in C and `:label:` in Lua.
-    -- TSOperator           { }, -- For any operator: `+`, but also `->` and `*` in C.
-    TSKeyword            { Keyword }, -- For keywords that don't fall in previous categories.
-    -- TSKeywordFunction    { }, -- For keywords used to define a fuction.
-    -- TSException          { }, -- For exception related keywords.
-    TSType               { Type }, -- For types.
-    -- TSTypeBuiltin        { }, -- For builtin types (you guessed it, right ?).
-    TSNamespace          { Type, fg = Comment.fg }, -- For identifiers referring to modules and namespaces.
-    -- TSInclude            { }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
-    -- TSAnnotation         { }, -- For C++/Dart attributes, annotations that can be attached to the code to denote some kind of meta information.
-    -- TSText               { }, -- For strings considered text in a markup language.
-    -- TSStrong             { }, -- For text to be represented with strong.
-    -- TSEmphasis           { }, -- For text to be represented with emphasis.
-    -- TSUnderline          { }, -- For text to be represented with an underline.
-    -- TSTitle              { }, -- Text that is part of a title.
-    -- TSLiteral            { }, -- Literal text.
-    TSURI                { URI }, -- Any URI like a link or email.
-    -- TSVariable           { }, -- Any variable name that does not have another highlight.
-    -- TSVariableBuiltin    { }, -- Variable names that are defined by the languages, like `this` or `self`.
+    sym('@punctuation.delimiter') { Delimiter },
+    sym('@puncuation.bracket')    { fg = dark_grey }, -- For brackets and parens.
+    sym('@puncuation.special')    { Delimiter }, -- For special punctutation that does not fall in the catagories before.
+    sym('@constant')              { Constant }, -- For constants
+    sym('@string')                { String }, -- For strings.
+    sym('@function')              { Function }, -- For function (calls and definitions).
+    sym('@parameter')             { Identifier }, -- For parameters of a function.
+    sym('@method')                { Function }, -- For method calls and definitions.
+    sym('@constructor')           { sym('@method') , gui = "italic" }, -- For constructor calls and definitions: `{ }` in Lua, and Java constructors.
+    sym('@keyword')               { Keyword }, -- For keywords that don't fall in previous categories.
+    sym('@type')                  { Type }, -- For types.
 
     manOptionDesc { Title },
 
