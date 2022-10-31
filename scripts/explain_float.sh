@@ -19,6 +19,25 @@ ones_exponent() { for (( i=0; i<$exponent_bits; i++ )); do echo -n '1'; done }
 zero_mantissa() { for (( i=0; i<$mantissa_bits; i++ )); do echo -n '0'; done }
 
 input=${1:-00000000011111111111111111111111}
+if [ "${input}" == "-h" ] ; then
+  echo "explain_float.sh"
+  echo "(a little bash script that explains IEEE floats to you)"
+  echo ""
+  echo "USAGE:"
+  echo "| > explain_float.sh <float number bits, 8, 16, 32, .. bits>"
+  echo "| "
+  echo "|   e.g."
+  echo "|   > explain_float.sh 0101010101010101"
+  echo "|   will tell you about the float representation of 85.3125"
+  echo ""
+  echo "enjoy 🙂"
+  echo "(be aware that its not 100% exact; I can't remember right now what it was,"
+  echo " but between the different ways to convert and mathematically manipulate numbers"
+  echo " I'm pretty sure there was some exactness issues however many places after the"
+  echo " decimal point)"
+  exit 0
+fi
+
 input_len=`echo -n "$input" | wc -c`
 
 if [ $input_len -eq 16 ]; then
