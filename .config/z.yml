@@ -980,6 +980,9 @@ Ks:
   swre:
     url: "git@gitlab.informatik.uni-bremen.de:ja_he/zettelkasten-swre"
     path: "${HOME}/z/swre"
+  legacy:
+    url: "git@gitlab.informatik.uni-bremen.de:ja_he/notes.git"
+    path: "${HOME}/z/legacy"
 
 blueprints:
   md:
