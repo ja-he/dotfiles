@@ -16,6 +16,10 @@ augroup pandoc_syntax
     au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
 augroup END
 
+augroup md_settings
+    au! FileType markdown.pandoc set tw=0 cc=0 wrap
+augroup END
+
 " highlight yanked section for a brief moment
 augroup highlight_yank
     autocmd!
