@@ -66,4 +66,6 @@ return require('packer').startup(function()
   use 'ja-he/kurzzug'
   use 'Shatur/neovim-ayu'
   use 'fcpg/vim-fahrenheit'
+
+  use 'Eandrju/cellular-automaton.nvim'
 end)
