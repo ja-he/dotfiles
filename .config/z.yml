@@ -954,20 +954,261 @@ pandoc-tex-template-contents: &pandoc-tex-template-contents |
 
   $endfor$
   \end{document}
+pandoc-general-css: &pandoc-general-css |
+  html {
+    line-height: 1.5;
+    font-family: sans-serif;
+    font-size: 20px;
+    color: #1a1a1a;
+  }
+  body {
+    margin: 0 auto;
+    max-width: 36em;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    hyphens: auto;
+    overflow-wrap: break-word;
+    text-rendering: optimizeLegibility;
+    font-kerning: normal;
+  }
+  @media (max-width: 600px) {
+    body {
+      font-size: 0.9em;
+      padding: 1em;
+    }
+    h1 {
+      font-size: 1.8em;
+    }
+  }
+  @media print {
+    body {
+      background-color: transparent;
+      color: black;
+      font-size: 12pt;
+    }
+    p, h2, h3 {
+      orphans: 3;
+      widows: 3;
+    }
+    h2, h3, h4 {
+      page-break-after: avoid;
+    }
+  }
+  p {
+    margin: 1em 0;
+  }
+  a {
+    color: #15426b;
+  }
+  a:visited {
+    color: #15426b;
+  }
+  img {
+    max-width: 100%;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 1.4em;
+  }
+  h5, h6 {
+    font-size: 1em;
+    font-style: italic;
+  }
+  h6 {
+    font-weight: normal;
+  }
+  ol, ul {
+    padding-left: 1.7em;
+    margin-top: 1em;
+  }
+  li > ol, li > ul {
+    margin-top: 0;
+  }
+  dl {
+    margin: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    background: #e6f6ff;
+  }
+  dt {
+    text-decoration: underline;
+  }
+  blockquote {
+    margin: 1em 0 1em 1.7em;
+    padding-left: 1em;
+    border-left: 2px solid #e6e6e6;
+    color: #606060;
+  }
+  code {
+    font-family: monospace;
+    font-size: 85%;
+    margin: 0;
+    padding-left: 0.25em;
+    padding-right: 0.25em;
+  }
+  pre {
+    margin: 1em 0;
+    padding-left: 1em;
+    padding-right: 1em;
+    overflow: auto;
+    background: #00000011;
+  }
+  pre code {
+    background: #00000000;
+    padding: 0;
+    overflow: visible;
+    overflow-wrap: normal;
+    white-space: pre;
+  }
+  code {
+    background: #00000011;
+    border-radius: 0.15em;
+  }
+  .sourceCode {
+    background-color: transparent;
+    overflow: visible;
+  }
+  pre.sourceCode {
+    background: #00000011;
+  }
+  code.sourceCode {
+    background: #00000000;
+  }
+  hr {
+    background-color: #1a1a1a;
+    border: none;
+    height: 1px;
+    margin: 1em 0;
+  }
+  table {
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    width: 50%;
+    overflow-x: auto;
+    display: block;
+    font-variant-numeric: lining-nums tabular-nums;
+  }
+  table caption {
+    margin-bottom: 0.75em;
+  }
+  tbody {
+    margin-top: 0.5em;
+    border-top: 1px solid #1a1a1a;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  th {
+    border-top: 1px solid #1a1a1a;
+    padding: 0.25em 0.5em 0.25em 0.5em;
+  }
+  td {
+    padding: 0.125em 0.5em 0.25em 0.5em;
+  }
+  header {
+    margin-bottom: 4em;
+    text-align: center;
+  }
+  #TOC li {
+    list-style: none;
+  }
+  #TOC ul {
+    padding-left: 1.3em;
+  }
+  #TOC > ul {
+    padding-left: 0;
+  }
+  #TOC a:not(:hover) {
+    text-decoration: none;
+  }
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  div.columns{display: flex; gap: min(4vw, 1.5em);}
+  div.column{flex: auto; overflow-x: auto;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+  ul.task-list li input[type="checkbox"] {
+    width: 0.8em;
+    margin: 0 0.8em 0.2em -1.6em;
+    vertical-align: middle;
+  }
+  .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+
+  .assumption {
+    background: #ffe6e6;
+    margin: 1em;
+    font-size: 0.75em;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+  }
+  .sidenote {
+    background: #ecffc6;
+    margin: 1em;
+    font-size: 0.75em;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+  }
+
+  .references {
+    background: #e6e6e6;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-bottom: 1em;
+  }
+  div.csl-bib-body { }
+  div.csl-entry {
+    clear: both;
+    font-size: 0.75em;
+    margin-bottom: 1em;
+  }
+  .hanging div.csl-entry {
+    margin-left:2em;
+    text-indent:-2em;
+  }
+  div.csl-left-margin {
+    color: #888888;
+    font-weight: bold;
+    min-width:2em;
+    float:left;
+  }
+  div.csl-right-inline {
+    margin-left:2em;
+    padding-left:1em;
+  }
+  div.csl-indent {
+    margin-left: 2em;
+  }
+
+  details {
+    background: #f8f8f8;
+    color: #4c4c4c;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    border-radius: 0.25em;
+    border: 1px solid #4c4c4c;
+  }
+
+  .title {
+    text-decoration: underline #000088;
+  }
+  .author {
+  }
+  .date {
+    font-family: monospace;
+    font-size: 0.5em;
+  }
 
 Ks:
   public:
     url: "git@gitlab.informatik.uni-bremen.de:ja_he/zettelkasten-public.git"
     path: "${HOME}/z/public"
-  private:
-    url: "git@gitlab.informatik.uni-bremen.de:ja_he/private-zettelkasten.git"
-    path: "${HOME}/z/private"
   misc:
     url: "git@gitlab.informatik.uni-bremen.de:ja_he/zettelkasten-misc.git"
     path: "${HOME}/z/misc"
-  cooking:
-    url: "git@gitlab.informatik.uni-bremen.de:ja_he/zettelkasten-cooking.git"
-    path: "${HOME}/z/cooking"
   namib:
     url: "git@gitlab.informatik.uni-bremen.de:ja_he/zettelkasten-namib.git"
     path: "${HOME}/z/namib"
@@ -1055,6 +1296,36 @@ blueprints:
         	pandoc index.md -f markdown -t pdf --citeproc --template=.template.tex -s -o index.pdf
     open: "nvim index.md"
     post: [ "make index.pdf" ]
+  md-pandoc-html:
+    subdir: "{{.Name}}"
+    sources: [ "index.md", "bibliography.bib", "style.css" ]
+    objects: [ "index.html" ]
+    templates:
+      "index.md": |
+        ---
+        title: {{.Name}}
+        date: {{.Today}}
+        author: Jan Hensel
+        link-citations: true
+        bibliography: ./bibliography.bib
+        nocite: [ '@*' ]
+        csl: ./.ieee.csl
+        css: style.css
+        ---
+
+        ::: {#refs}
+        # References
+
+        :::
+      "bibliography.bib": "% TODO\n"
+      ".ieee.csl": *ieeecsl
+      "Makefile": |
+        index.html: index.md bibliography.bib
+        	pandoc index.md -f markdown -t html --citeproc --standalone -o index.html
+      "style.css": *pandoc-general-css
+    open: "nvim index.md"
+    view: "qutebrowser index.html"
+    post: [ "make index.html" ]
   md-zola-simple:
     templates:
       "{{.Name}}.md": |
