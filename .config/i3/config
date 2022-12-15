@@ -298,5 +298,5 @@ bindsym $mod+period  exec /home/ztf/scripts/randomwp /home/ztf/Pictures/wallpape
 exec dunst
 exec redshift
 exec seafile-applet
-exec hsetroot -solid '#ccebff'
+exec hsetroot -solid '#f8f8f8'
 # exec picom --experimental-backends
