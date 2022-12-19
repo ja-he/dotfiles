@@ -1362,11 +1362,13 @@ blueprints:
         (cat index.md | sed -n '/+++/,/+++/!p')
         )
         | pandoc -f markdown -t pdf --pdf-engine lualatex -V 'mainfont:Nimbus Roman' -s -o index.pdf
-  xopp: # TODO
+  xopp:
     subdir: "{{.Name}}"
     open: "xournalpp main.xopp"
+    sources: [ "main.xopp" ]
+    objects: 
+      - "exported.png"
     post:
-      - xournalpp main.xopp --create-img=exported.svg --export-no-ruling --export-no-background
       - xournalpp main.xopp --create-img=exported.png --export-no-ruling --export-png-dpi=300
   tex:
     subdir: "{{.Name}}"
