@@ -28,11 +28,11 @@ local z_file_picker = function(opts)
     preview = previewers.cat,
     finder = finders.new_table({
       results = z_files(),
-      entry_maker = function (entry)
+      entry_maker = function(entry)
         return {
           value = entry[4],
-          display = entry[1].."\t"..entry[2].."\t"..entry[3],
-          ordinal = entry[1].."\t"..entry[2].."\t"..entry[3],
+          display = entry[1] .. "\t" .. entry[2] .. "\t" .. entry[3],
+          ordinal = entry[1] .. "\t" .. entry[2] .. "\t" .. entry[3],
         }
       end,
     }),
