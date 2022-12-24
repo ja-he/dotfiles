@@ -1,5 +1,6 @@
 local pickers = require 'telescope.pickers'
 local finders = require 'telescope.finders'
+local previewers = require 'telescope.previewers'
 local conf = require 'telescope.config'.values
 
 local M = {}
@@ -24,6 +25,7 @@ local z_file_picker = function(opts)
 
   pickers.new(opts, {
     prompt_title = "z files",
+    preview = previewers.cat,
     finder = finders.new_table({
       results = z_files(),
       entry_maker = function (entry)
