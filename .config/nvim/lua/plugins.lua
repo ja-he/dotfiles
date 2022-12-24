@@ -26,6 +26,7 @@ return require('packer').startup(function()
   use 'tommcdo/vim-lion'
 
   use 'neovim/nvim-lspconfig'
+  use 'kabouzeid/nvim-lspinstall'
   -- rust
   use 'simrat39/rust-tools.nvim'
 
@@ -36,7 +37,6 @@ return require('packer').startup(function()
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/nvim-cmp'
-  use 'kabouzeid/nvim-lspinstall'
   -- use 'folke/lua-dev.nvim'
 
   use 'L3MON4D3/LuaSnip'
@@ -55,10 +55,10 @@ return require('packer').startup(function()
   use 'stevearc/dressing.nvim'
   use {
     'nvim-telescope/telescope.nvim',
-    requires = { {'nvim-lua/plenary.nvim'} }
+    requires = { { 'nvim-lua/plenary.nvim' } }
   }
 
-  use { 'iamcco/markdown-preview.nvim' , run = ':call mkdp#util#install()' }
+  use { 'iamcco/markdown-preview.nvim', run = ':call mkdp#util#install()' }
 
   use 'pocco81/true-zen.nvim'
 
