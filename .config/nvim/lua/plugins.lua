@@ -55,7 +55,13 @@ return require('packer').startup(function()
   use 'stevearc/dressing.nvim'
   use {
     'nvim-telescope/telescope.nvim',
-    requires = { { 'nvim-lua/plenary.nvim' } }
+    requires = {
+      { 'nvim-lua/plenary.nvim' },
+    },
+  }
+  use {
+    'nvim-telescope/telescope-fzf-native.nvim',
+    run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
   }
 
   use { 'iamcco/markdown-preview.nvim', run = ':call mkdp#util#install()' }
