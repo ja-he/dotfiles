@@ -58,6 +58,10 @@ return require('packer').startup(function()
     config = function()
       require('boole').setup({
         mappings = { increment = '<c-a>', decrement = '<c-x>' },
+        -- User defined loops
+        additions = {
+          { 'feat', 'fix', 'refactor', 'style', 'doc', 'test', 'ci', 'chore' },
+        },
       })
     end
   })
