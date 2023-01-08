@@ -52,6 +52,14 @@ return require('packer').startup(function()
   use 'lewis6991/spellsitter.nvim'
   use 'nvim-lua/plenary.nvim'
 
+  use({ 'https://github.com/nat-418/boole.nvim',
+    config = function()
+      require('boole').setup({
+        mappings = { increment = '<c-a>', decrement = '<c-x>' },
+      })
+    end
+  })
+
   use 'stevearc/dressing.nvim'
   use {
     'nvim-telescope/telescope.nvim',
