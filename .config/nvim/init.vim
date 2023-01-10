@@ -17,9 +17,11 @@
 "               \/_____/   \/_/   \/_/
 " __________________________________________________________________
 
-source ~/.config/nvim/settings.vim
-source ~/.config/nvim/binds.vim
-source ~/.config/nvim/au.vim
+let configpath = stdpath('config')
+
+exec 'source' configpath . '/settings.vim'
+exec 'source' configpath . '/binds.vim'
+exec 'source' configpath . '/au.vim'
 
 lua require("plugins")
 augroup packer_user_config
@@ -27,7 +29,7 @@ augroup packer_user_config
   autocmd BufWritePost plugins.lua source <afile> | PackerCompile
 augroup end
 
-source ~/.config/nvim/colorscheme.vim
+exec 'source' configpath . '/colorscheme.vim'
 
 lua require("ztf.lsp")
 lua require('ztf.treesitter')
@@ -43,13 +45,12 @@ lua require("ztf.configure.nvim-goc")
 lua require("ztf.configure.spellsitter")
 lua require("ztf.configure.true-zen")
 " source ~/.config/nvim/configure/which-key.vim
-source ~/.config/nvim/configure/floaterm.vim
-source ~/.config/nvim/configure/ultisnips.vim
-source ~/.config/nvim/configure/fzf.vim
-source ~/.config/nvim/configure/git-messenger.vim
-source ~/.config/nvim/configure/pandoc.vim
-source ~/.config/nvim/configure/markdown-preview.vim
-
+exec 'source' configpath . '/configure/floaterm.vim'
+exec 'source' configpath . '/configure/ultisnips.vim'
+exec 'source' configpath . '/configure/fzf.vim'
+exec 'source' configpath . '/configure/git-messenger.vim'
+exec 'source' configpath . '/configure/pandoc.vim'
+exec 'source' configpath . '/configure/markdown-preview.vim'
 
 " ----- TODO: place somewhere sensible: ----------------------------------------
 
