@@ -73,9 +73,13 @@ return require('packer').startup(function()
       { 'nvim-lua/plenary.nvim' },
     },
   }
+  tfnCompileCommandString = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build"
+  if vim.fn.has('windows') then
+    tfnCompileCommandString = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release '-DCMAKE_C_COMPILER=gcc.exe' -GNinja && cmake --build build --config Release && cmake --install build --prefix build"
+  end
   use {
     'nvim-telescope/telescope-fzf-native.nvim',
-    run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
+    run = tfnCompileCommandString,
   }
 
   use { 'iamcco/markdown-preview.nvim', run = ':call mkdp#util#install()' }
