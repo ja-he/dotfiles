@@ -19,7 +19,7 @@
 
 source ~/.config/nvim/settings.vim
 source ~/.config/nvim/binds.vim
-source ~/.config/nvim/au.vim
+lua require("ztf.au")
 
 lua require("plugins")
 augroup packer_user_config
