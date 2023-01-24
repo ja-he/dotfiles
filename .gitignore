@@ -96,3 +96,4 @@ scripts/quicktexfiles/content.tex
 .config/qutebrowser/bookmarks/urls
 .config/qutebrowser/autoconfig.yml
 .config/qutebrowser/quickmarks
+.config/dayplan/config.yaml
