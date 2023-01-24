@@ -1209,6 +1209,9 @@ Ks:
   misc:
     url: "git@gitlab.informatik.uni-bremen.de:ja_he/zettelkasten-misc.git"
     path: "${HOME}/z/misc"
+  dayplan:
+    url: "git@github.com:ja-he/zettelkasten-dayplan.git"
+    path: /home/ztf/z/dayplan
   namib:
     url: "git@gitlab.informatik.uni-bremen.de:ja_he/zettelkasten-namib.git"
     path: "${HOME}/z/namib"
