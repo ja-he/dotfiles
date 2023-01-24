@@ -1229,6 +1229,10 @@ Ks:
     path: "${HOME}/z/legacy"
 
 blueprints:
+  eml:
+    templates:
+      "{{.Name}}.eml": ""
+    open: "nvim {{.Name}}.eml"
   md:
     templates:
       "{{.Name}}.md": |
