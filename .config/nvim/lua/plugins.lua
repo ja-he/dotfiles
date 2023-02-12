@@ -88,4 +88,6 @@ return require('packer').startup(function()
   use 'fcpg/vim-fahrenheit'
 
   use 'Eandrju/cellular-automaton.nvim'
+
+  use 'git@github.com:ja-he/mediate.nvim.git'
 end)
