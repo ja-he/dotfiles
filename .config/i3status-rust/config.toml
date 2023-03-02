@@ -18,7 +18,7 @@ good_bg = "#c2edab"
 separator = ""
 
 [icons]
-name = "awesome5"
+icons = "awesome5"
 
 
 [[block]]
@@ -26,7 +26,9 @@ block = "sound"
 driver = "pulseaudio"
 device_kind = "source"
 show_volume_when_muted = true
-on_click = "/home/ztf/scripts/micmutetoggle.sh"
+[[block.click]]
+button = "left"
+cmd = "/home/ztf/scripts/micmutetoggle.sh"
 
 [[block]]
 block = "sound"
@@ -36,53 +38,46 @@ device_kind = "sink"
 [[block]]
 block = "disk_space"
 path = "/"
-alias = "/"
 info_type = "available"
-format = "{icon} {available}"
-unit = "GB"
+format = "$icon $available"
+alert_unit = "GB"
 interval = 20
 warning =  2.0
 alert =  1.0
 
 [[block]]
 block = "memory"
-format_mem = "{mem_avail_percents} avail."
-display_type = "memory"
+format = " $icon $mem_avail.eng(prefix:M)/$mem_total.eng(prefix:M)($mem_total_used_percents.eng(w:2)) "
 
 [[block]]
 block = "cpu"
 interval = 0.25
-format = "{barchart} ({frequency})"
+format = " $icon $barchart ($frequency) "
 
 [[block]]
 block = "temperature"
-collapsed = false
 interval = 10
-format = "{average}C (CPU)"
+format = " $icon[cpu:$average] "
 chip = "k10temp-pci-00c3"
 
 [[block]]
 block = "temperature"
-collapsed = false
 interval = 10
-format = "{average}C (GPU)"
+format = " $icon[gpu:$average] "
 chip = "amdgpu-pci-0900"
 
 [[block]]
-block = "networkmanager"
-primary_only = true
-ap_format = "{strength}"
-device_format = "{icon}"
-#               "{icon}{ap} {ips}"
-on_click = ""
+block = "net"
+format = "  $icon[ ^icon_net_down $speed_down.eng(prefix:K) ^icon_net_up $speed_up.eng(prefix:K)] "
+format_alt = "  $icon[ ^icon_net_down $graph_down$speed_down.eng(prefix:K) ^icon_net_up $graph_up$speed_up.eng(prefix:K)] "
 
 [[block]]
 block = "battery"
-format = "{percentage} {time}"
+format = " $percentage $time "
 interval = 10
 device = "BAT1"
 
 [[block]]
 block = "time"
 interval = 1
-format = "%a %d.%m. %R"
+format = " $icon $timestamp.datetime(f:'%a %Y-%m-%d %R', l:en_US) "
