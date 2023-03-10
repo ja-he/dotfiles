@@ -94,3 +94,23 @@ vim.api.nvim_create_autocmd('CmdwinEnter', {
     vim.wo.relativenumber = false
   end,
 })
+
+vim.api.nvim_create_autocmd('FileType', {
+  group = vim.api.nvim_create_augroup("java-settings", { clear = true }),
+  pattern = {'java'},
+  callback = function()
+    print("[😇] loading jdtls...")
+    local config = {
+        cmd = {'jdtls'},
+        root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1]),
+    }
+    require('jdtls').start_or_attach(config)
+    print("[😇] jdtls is loaded.")
+
+    -- tabs and spaces
+    vim.opt.expandtab = true
+    vim.opt.shiftwidth = 4
+    vim.opt.tabstop = 4
+    vim.opt.softtabstop = 2
+  end,
+})

@@ -31,6 +31,8 @@ return require('packer').startup(function()
   use 'kabouzeid/nvim-lspinstall'
   -- rust
   use 'simrat39/rust-tools.nvim'
+  -- java 🤮
+  use 'mfussenegger/nvim-jdtls'
 
   use { 'ja-he/nvim-goc.lua', branch = 'fix-deprecated-hi-link' }
 
