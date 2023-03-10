@@ -191,7 +191,7 @@ require('rust-tools').setup{
 if not configs.spdx_lsp then
   configs.spdx_lsp = {
     default_config = {
-      cmd = {'/home/ja_he/repositories/spdx-lsp/silwerboom/silwerboom'};
+      cmd = {'/home/jhen/repositories/silwerboom/silwerboom'};
       filetypes = {'spdx'};
       root_dir = function(fname)
         return lspconfig.util.path.dirname(fname)

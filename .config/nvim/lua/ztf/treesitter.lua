@@ -9,7 +9,7 @@ require'nvim-treesitter.configs'.setup {
 local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
 parser_config.spdxtv = {
   install_info = {
-    url = "~/repositories/ts-test/parser/tree-sitter-fakelang", -- local path or git repo
+    url = "~/repositories/silwerboom/parsers/spdx/tree-sitter-spdxtv", -- local path or git repo
     files = {"src/parser.c"},
     -- optional entries:
     branch = "master", -- default branch in case of git repo if different from master
