@@ -22,6 +22,13 @@ lspconfig.pylsp.setup{}
 
 -- lspconfig.jdtls.setup{}
 
+--Enable (broadcasting) snippet capability for completion
+local html_caps = vim.lsp.protocol.make_client_capabilities()
+html_caps.textDocument.completion.completionItem.snippetSupport = true
+require'lspconfig'.html.setup {
+  capabilities = html_caps,
+}
+
 local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
