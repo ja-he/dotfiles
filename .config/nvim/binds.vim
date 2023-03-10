@@ -104,6 +104,7 @@ nnoremap <silent> <leader>ftb :lua require'telescope.builtin'.builtin()<cr>
 "nnoremap <silent> <leader>zff :lua require'telescope.builtin'.find_files({cwd = "$ZETTELKASTENPATH", find_command = {'rg', '--files', '--glob', '!README.md'}})<cr>
 "nnoremap          <leader>zfa :cd $ZETTELKASTENPATH<CR>:Ag<CR>
 "nnoremap          <leader>ze :tabe $ZETTELKASTENPATH/
+nnoremap          <leader>zff :lua require'z'.z_file_picker()<CR>
 nnoremap          <leader>zs :FloatermNew --wintype=split z sync<CR>
 
 " lsp keymappings (per example, adjusted by me)
