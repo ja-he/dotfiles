@@ -114,3 +114,11 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.opt.softtabstop = 2
   end,
 })
+
+vim.api.nvim_create_autocmd('FileType', {
+  group = vim.api.nvim_create_augroup("quickfix-settings", { clear = true }),
+  pattern = {'qf'},
+  callback = function()
+    vim.opt.wrap = false
+  end,
+})
