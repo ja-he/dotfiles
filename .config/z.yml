@@ -1224,6 +1224,15 @@ Ks:
   swre:
     url: "git@gitlab.informatik.uni-bremen.de:ja_he/zettelkasten-swre"
     path: "${HOME}/z/swre"
+  apx:
+    url: "git@gitlab.informatik.uni-bremen.de:ja_he/zettelkasten-apx"
+    path: "${HOME}/z/apx"
+  isps:
+    url: "git@gitlab.informatik.uni-bremen.de:ja_he/zettelkasten-isps"
+    path: "${HOME}/z/isps"
+  gsd:
+    url: "git@gitlab.informatik.uni-bremen.de:ja_he/zettelkasten-gsd"
+    path: "${HOME}/z/gsd"
   legacy:
     url: "git@gitlab.informatik.uni-bremen.de:ja_he/notes.git"
     path: "${HOME}/z/legacy"
