@@ -136,5 +136,3 @@ nnoremap <c-l> :+tabmove<CR>
 vnoremap <leader>X c<C-R>=system("IFS='\n' read input; python -c \"print($input,end='')\"",@+)<CR><ESC>
 
 nnoremap <leader>T :TSBufToggle highlight<CR>
-
-nnoremap <leader>h :lua require'hackmd'.hackmd()<CR>
