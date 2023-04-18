@@ -52,7 +52,7 @@ format = " $icon $mem_avail.eng(prefix:M)/$mem_total.eng(prefix:M)($mem_total_us
 [[block]]
 block = "cpu"
 interval = 0.25
-format = " $icon $barchart ($frequency) "
+format = " $icon $barchart ($frequency ($utilization)) "
 
 [[block]]
 block = "temperature"
