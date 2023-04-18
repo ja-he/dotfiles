@@ -81,8 +81,7 @@ bindsym $mod+Right  focus right
 # split in horizontal orientation
 bindsym $mod+b split h
 
-# bluetooth audio quickfix 
-bindsym $mod+shift+b exec ~/scripts/bt-toggle.sh
+bindsym $mod+shift+b exec scripts/backlight-cycle.sh
 
 # split in vertical orientation
 bindsym $mod+v split v
