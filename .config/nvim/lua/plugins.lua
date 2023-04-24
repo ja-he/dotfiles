@@ -91,5 +91,8 @@ return require('packer').startup(function()
 
   use 'Eandrju/cellular-automaton.nvim'
 
+  use 'NoahTheDuke/vim-just'
+  use 'IndianBoy42/tree-sitter-just'
+
   use 'git@github.com:ja-he/mediate.nvim.git'
 end)

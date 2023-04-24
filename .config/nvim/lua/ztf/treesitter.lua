@@ -6,6 +6,8 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 
+require'tree-sitter-just'.setup({})
+
 local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
 parser_config.spdxtv = {
   install_info = {
