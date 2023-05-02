@@ -106,6 +106,7 @@ nnoremap <silent> <leader>ftb :lua require'telescope.builtin'.builtin()<cr>
 "nnoremap          <leader>ze :tabe $ZETTELKASTENPATH/
 nnoremap          <leader>zff :lua require'z'.z_file_picker()<CR>
 nnoremap          <leader>zs :FloatermNew --wintype=split z sync<CR>
+nnoremap          <leader>zm :FloatermNew --wintype=split z make<CR>
 
 " lsp keymappings (per example, adjusted by me)
 nnoremap <leader>ld   <cmd>lua vim.lsp.buf.declaration()<CR>
