@@ -1633,3 +1633,497 @@ blueprints:
     objects: [ "main.pdf" ]
   journal:
     open: "nvim {{.Today}}_{{.Name}}.md"
+  apx-lecture-notes:
+    subdir: "{{.Today}}-lecture-notes-{{.Name}}"
+    sources: [ "index.md" ]
+    objects: [ "index.pdf", "index.html" ]
+    templates:
+      "index.md": |
+        ---
+        author: Jan Hensel
+        date: {{.Today}}
+        lecturer: Nicole Megow
+        title: {{.Name}}
+        lecture-n: 0
+        term: SoSe 2023
+        course: Approximation Algorithms
+        css: style.css
+        output:
+          pdf_document:
+            pandoc_args: [ "--filter", "./filter.lua" ]
+        ---
+        \newcommand{\abs}[1]{\left| #1 \right|}
+        \newcommand{\etal}{\textit{et~al.}}
+        \newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
+        \newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+        \newcommand{\R}{\mathbb{R}}
+        \newcommand{\Q}{\mathbb{Q}}
+        \newcommand{\Z}{\mathbb{Z}}
+        \newcommand{\N}{\mathbb{N}}
+        \newcommand{\Rpos}{\mathbb{R}^+}
+        \newcommand{\Qpos}{\mathbb{Q}^+}
+        \newcommand{\Zpos}{\mathbb{Z}^+}
+        \newcommand{\np}{\ensuremath{\mathcal{NP}}}
+        \newcommand{\p}{\ensuremath{\mathcal{P}}}
+        \newcommand{\OO}[1]{\mathcal{O}(#1)}
+        \newcommand{\alg}{\text{\sf Alg}}
+        \newcommand{\opt}{\text{\sf Opt}}
+
+      "filter.lua": |
+        function Div(el)
+          -- NOTE: probably breaks when _actually_ including multiple of these classes
+          if el.classes:includes("def") then
+            -- insert element in front
+            table.insert(el.content, 1, pandoc.RawBlock("latex", "\\begin{definition}"))
+            -- insert element at the back
+            table.insert(el.content, pandoc.RawBlock("latex", "\\end{definition}"))
+          elseif el.classes:includes("cor") then
+            -- insert element in front
+            table.insert(el.content, 1, pandoc.RawBlock("latex", "\\begin{corollary}"))
+            -- insert element at the back
+            table.insert(el.content, pandoc.RawBlock("latex", "\\end{corollary}"))
+          elseif el.classes:includes("obs") then
+            -- insert element in front
+            table.insert(el.content, 1, pandoc.RawBlock("latex", "\\begin{observation}"))
+            -- insert element at the back
+            table.insert(el.content, pandoc.RawBlock("latex", "\\end{observation}"))
+          elseif el.classes:includes("exa") then
+            -- insert element in front
+            table.insert(el.content, 1, pandoc.RawBlock("latex", "\\begin{example}"))
+            -- insert element at the back
+            table.insert(el.content, pandoc.RawBlock("latex", "\\end{example}"))
+          elseif el.classes:includes("prp") then
+            -- insert element in front
+            table.insert(el.content, 1, pandoc.RawBlock("latex", "\\begin{proposition}"))
+            -- insert element at the back
+            table.insert(el.content, pandoc.RawBlock("latex", "\\end{proposition}"))
+          elseif el.classes:includes("lem") then
+            -- insert element in front
+            table.insert(el.content, 1, pandoc.RawBlock("latex", "\\begin{lemma}"))
+            -- insert element at the back
+            table.insert(el.content, pandoc.RawBlock("latex", "\\end{lemma}"))
+          elseif el.classes:includes("thm") then
+            -- insert element in front
+            table.insert(el.content, 1, pandoc.RawBlock("latex", "\\begin{theorem}"))
+            -- insert element at the back
+            table.insert(el.content, pandoc.RawBlock("latex", "\\end{theorem}"))
+          elseif el.classes:includes("claim") then
+            -- insert element in front
+            table.insert(el.content, 1, pandoc.RawBlock("latex", "\\begin{claim}"))
+            -- insert element at the back
+            table.insert(el.content, pandoc.RawBlock("latex", "\\end{claim}"))
+          elseif el.classes:includes("proof") then
+            -- insert element in front
+            table.insert(el.content, 1, pandoc.RawBlock("latex", "\\begin{proof}"))
+            -- insert element at the back
+            table.insert(el.content, pandoc.RawBlock("latex", "\\end{proof}"))
+          elseif el.classes:includes("alg") then
+            -- insert element in front
+            table.insert(el.content, 1, pandoc.RawBlock("latex", "\\begin{algorithm}[H]"))
+            -- insert element at the back
+            table.insert(el.content, pandoc.RawBlock("latex", "\\end{algorithm}"))
+          end
+          return el
+        end
+        
+        function Span(el)
+          if el.classes:includes("problem") then
+            -- insert element in front
+            table.insert(el.content, 1, pandoc.RawInline("latex", "\\problem{"))
+            -- insert element at the back
+            table.insert(el.content, pandoc.RawInline("latex", "}"))
+          end
+          return el
+        end
+
+      ".exrc": |
+        iabbrev AAPX $\alpha$-approximation
+
+      "default.latex": |
+        \documentclass[twoside,a4paper,11pt]{article}
+        
+        %\usepackage{a4wide}
+        \usepackage[margin=1in,a4paper]{geometry}
+        \usepackage{amsmath,amsfonts,graphicx,amssymb,sectsty,amsthm}
+        \usepackage{hyperref}
+        \usepackage{cleveref}
+        \usepackage{mathpazo}
+        \usepackage[normalem]{ulem}
+        %
+        % The following commands set up the lecnum (lecture number)
+        % counter and make various numbering schemes work relative
+        % to the lecture number.
+        %
+        %\newcounter{lecnum}
+        %\renewcommand{\thepage}{\thelecnum/\arabic{page}}
+        %\renewcommand{\thesection}{\thelecnum.\arabic{section}}
+        %\renewcommand{\theequation}{\thelecnum.\arabic{equation}}
+        %\renewcommand{\thefigure}{\thelecnum.\arabic{figure}}
+        %\renewcommand{\thetable}{\thelecnum.\arabic{table}}
+
+        \newcommand{\problem}[1]{\textsc{#1}}
+
+        \providecommand{\tightlist}{%
+          \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+        %----------------------------------------------------------------------
+        %  Standard lemma, theorem, and corollary environments.
+        % ----------------------------------------------------------------------
+        \newtheorem{lemma}{Lemma}
+        \newtheorem{theorem}[lemma]{Theorem}
+        \newtheorem{corollary}[lemma]{Corollary}
+        \newtheorem{definition}[lemma]{Definition}
+        \newtheorem{observation}[lemma]{Observation}
+        \newtheorem{example}[lemma]{Example}
+        \newtheorem{proposition}[lemma]{Proposition}
+        \newtheorem{claim}[lemma]{Claim}
+        
+        % ----------------------------------------------------------------------
+        %  Miscellaneous commands 
+        % ----------------------------------------------------------------------
+        
+        \usepackage[vlined,linesnumbered,ruled]{algorithm2e}
+        	\SetKwInOut{Input}{Input}
+            \SetKwInOut{Output}{Output}
+            \DontPrintSemicolon
+          % declares a \Comment command for use in algorithm
+          \SetKwComment{Comment}{// }{}
+
+        
+        % tikz
+        \usepackage{tikz}
+        \usetikzlibrary{matrix}
+        \usepackage{graphicx}
+        
+        %-----------------------------------------------------------------------
+        % if you need some other packages:
+        
+        %-----------------------------------------------------------------------
+        $if(highlighting-macros)$
+        $highlighting-macros$
+        $endif$
+        
+        \begin{document}
+        \noindent
+        {\bf $course$ \hfill University of Bremen}\\
+        {\bf $term$, Lecture $lecture-n$} \hfill Faculty 03: Math/CS\\
+        Lecturer: $lecturer$ \hfill \hfill $date$
+        \vspace*{0.6ex}
+        \hrule
+        
+        \vspace*{2ex}
+        
+        \begin{center}
+          {\Large \textbf{$title$}}\\
+          {Lecture notes by \textbf{$author$}}
+        \end{center}
+        
+        $body$
+        
+        \end{document}
+      "style.css": |
+        html {
+          line-height: 1.5;
+          font-family: sans-serif;
+          font-size: 20px;
+          color: #1a1a1a;
+        }
+        body {
+          margin: 0 auto;
+          max-width: 36em;
+          padding-left: 50px;
+          padding-right: 50px;
+          padding-top: 50px;
+          padding-bottom: 50px;
+          hyphens: auto;
+          overflow-wrap: break-word;
+          text-rendering: optimizeLegibility;
+          font-kerning: normal;
+        }
+        @media (max-width: 600px) {
+          body {
+            font-size: 0.9em;
+            padding: 1em;
+          }
+          h1 {
+            font-size: 1.8em;
+          }
+        }
+        @media print {
+          body {
+            background-color: transparent;
+            color: black;
+            font-size: 12pt;
+          }
+          p, h2, h3 {
+            orphans: 3;
+            widows: 3;
+          }
+          h2, h3, h4 {
+            page-break-after: avoid;
+          }
+        }
+        p {
+          margin: 1em 0;
+        }
+        a {
+          color: #15426b;
+        }
+        a:visited {
+          color: #15426b;
+        }
+        img {
+          max-width: 100%;
+        }
+        h1, h2, h3, h4, h5, h6 {
+          margin-top: 1.4em;
+        }
+        h5, h6 {
+          font-size: 1em;
+          font-style: italic;
+        }
+        h6 {
+          font-weight: normal;
+        }
+        ol, ul {
+          padding-left: 1.7em;
+          margin-top: 1em;
+        }
+        li > ol, li > ul {
+          margin-top: 0;
+        }
+        dl {
+          margin: 1em;
+          padding-left: 1em;
+          padding-right: 1em;
+          background: #e6f6ff;
+        }
+        dt {
+          text-decoration: underline;
+        }
+        blockquote {
+          margin: 1em 0 1em 1.7em;
+          padding-left: 1em;
+          border-left: 2px solid #e6e6e6;
+          color: #606060;
+        }
+        code {
+          font-family: monospace;
+          font-size: 85%;
+          margin: 0;
+          padding-left: 0.25em;
+          padding-right: 0.25em;
+        }
+        pre {
+          margin: 1em 0;
+          padding-left: 1em;
+          padding-right: 1em;
+          overflow: auto;
+          background: #00000011;
+        }
+        pre code {
+          background: #00000000;
+          padding: 0;
+          overflow: visible;
+          overflow-wrap: normal;
+          white-space: pre;
+        }
+        code {
+          background: #00000011;
+          border-radius: 0.15em;
+        }
+        .sourceCode {
+          background-color: transparent;
+          overflow: visible;
+        }
+        pre.sourceCode {
+          background: #00000011;
+        }
+        code.sourceCode {
+          background: #00000000;
+        }
+        hr {
+          background-color: #1a1a1a;
+          border: none;
+          height: 1px;
+          margin: 1em 0;
+        }
+        table {
+          margin-left: auto;
+          margin-right: auto;
+          border-collapse: collapse;
+          width: 50%;
+          overflow-x: auto;
+          display: block;
+          font-variant-numeric: lining-nums tabular-nums;
+        }
+        table caption {
+          margin-bottom: 0.75em;
+        }
+        tbody {
+          margin-top: 0.5em;
+          border-top: 1px solid #1a1a1a;
+          border-bottom: 1px solid #1a1a1a;
+        }
+        th {
+          border-top: 1px solid #1a1a1a;
+          padding: 0.25em 0.5em 0.25em 0.5em;
+        }
+        td {
+          padding: 0.125em 0.5em 0.25em 0.5em;
+        }
+        header {
+          margin-bottom: 4em;
+          text-align: center;
+        }
+        #TOC li {
+          list-style: none;
+        }
+        #TOC ul {
+          padding-left: 1.3em;
+        }
+        #TOC > ul {
+          padding-left: 0;
+        }
+        #TOC a:not(:hover) {
+          text-decoration: none;
+        }
+        code{white-space: pre-wrap;}
+        span.smallcaps{font-variant: small-caps;}
+        div.columns{display: flex; gap: min(4vw, 1.5em);}
+        div.column{flex: auto; overflow-x: auto;}
+        div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+        ul.task-list{list-style: none;}
+        ul.task-list li input[type="checkbox"] {
+          width: 0.8em;
+          margin: 0 0.8em 0.2em -1.6em;
+          vertical-align: middle;
+        }
+        .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+        
+        .assumption {
+          background: #ffe6e6;
+          margin: 1em;
+          font-size: 0.75em;
+          padding-left: 1em;
+          padding-right: 1em;
+          padding-top: 0.5em;
+          padding-bottom: 0.5em;
+        }
+        .sidenote {
+          background: #ecffc6;
+          margin: 1em;
+          font-size: 0.75em;
+          padding-left: 1em;
+          padding-right: 1em;
+          padding-top: 0.5em;
+          padding-bottom: 0.5em;
+        }
+        
+        .references {
+          background: #e6e6e6;
+          padding-left: 1em;
+          padding-right: 1em;
+          padding-bottom: 1em;
+        }
+        div.csl-bib-body { }
+        div.csl-entry {
+          clear: both;
+          font-size: 0.75em;
+          margin-bottom: 1em;
+        }
+        .hanging div.csl-entry {
+          margin-left:2em;
+          text-indent:-2em;
+        }
+        div.csl-left-margin {
+          color: #888888;
+          font-weight: bold;
+          min-width:2em;
+          float:left;
+        }
+        div.csl-right-inline {
+          margin-left:2em;
+          padding-left:1em;
+        }
+        div.csl-indent {
+          margin-left: 2em;
+        }
+        
+        details {
+          background: #f8f8f8;
+          color: #4c4c4c;
+          padding-left: 0.5em;
+          padding-right: 0.5em;
+          border-radius: 0.25em;
+          border: 1px solid #4c4c4c;
+        }
+        
+        .title {
+          text-decoration: underline #000088;
+        }
+        .author {
+        }
+        .date {
+          font-family: monospace;
+          font-size: 0.5em;
+        }
+        
+        .def, .obs, .cor, .exa, .prp, .lem {
+          margin: 1em;
+          padding-left: 1em;
+          padding-right: 1em;
+          padding-top: 1.0em;
+          padding-bottom: 0.25em;
+          position: relative;
+        }
+        .def:before, .obs:before, .cor:before, .exa:before, .prp:before, .lem:before {
+          font-family: sans;
+          font-weight: bold;
+          font-size: 1em;
+          color: #00000044;
+          font-variant-caps: small-caps;
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 20em;
+          height: 1em;
+        }
+        .def { background: #ecffc6; } .def:before { content: "Definition" ; }
+        .obs { background: #faffa6; } .obs:before { content: "Observation"; }
+        .cor { background: #cceeee; } .cor:before { content: "Corollary"  ; }
+        .exa { background: #facca6; } .exa:before { content: "Example"    ; }
+        .prp { background: #ffaacc; } .prp:before { content: "Proposition"; }
+        .lem { background: #bbccff; } .lem:before { content: "Lemma"      ; }
+        
+        .def em {
+          font-weight: bold;
+          font-style: normal;
+          text-decoration: underline;
+        }
+        
+        .problem { font-variant: small-caps; }
+        .problem .math { font-variant: normal; }
+        
+        .algorithm {
+          font-family: monospace;
+          font-size: 85%;
+          margin: 1em 0;
+          padding-left: 1em;
+          padding-right: 1em;
+          background: #00000011;
+          overflow: visible;
+          overflow-wrap: normal;
+          white-space: pre;
+          border-radius: 0.15em;
+        }
+
+        span .defsubj {
+          text-decoration: underline;
+        }
+    open: "nvim index.md"
+    view: "zathura index.pdf"
+    post:
+      - "pandoc -f markdown -t pdf --template=./default.latex --lua-filter=./filter.lua index.md -o index.pdf"
+      - "pandoc -f markdown -t html --mathjax --lua-filter=./filter.lua index.md -s -o index.html"
