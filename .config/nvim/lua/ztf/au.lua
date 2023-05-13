@@ -66,6 +66,11 @@ create_ft_au('rust', function()
 end)
 create_ft_au('markdown.pandoc', wrapped_writing_settings)
 create_ft_au('tex', wrapped_writing_settings)
+create_ft_au('tex', function()
+  vim.cmd('set foldmethod=expr')
+  vim.cmd('set foldexpr=vimtex#fold#level(v:lnum)')
+  vim.cmd('set foldtext=vimtex#fold#text()')
+end)
 
 -- TODO(maybe):
 --   autocmd FileType floaterm set nonumber norelativenumber
