@@ -95,4 +95,5 @@ return require('packer').startup(function()
   use 'IndianBoy42/tree-sitter-just'
 
   use 'git@github.com:ja-he/mediate.nvim.git'
+  use 'git@github.com:ja-he/heat.nvim.git'
 end)

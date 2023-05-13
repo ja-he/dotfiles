@@ -42,6 +42,7 @@ lua require("ztf.configure.luasnip")
 lua require("ztf.configure.nvim-goc")
 lua require("ztf.configure.spellsitter")
 lua require("ztf.configure.true-zen")
+lua require("ztf.configure.heat")
 " source ~/.config/nvim/configure/which-key.vim
 source ~/.config/nvim/configure/floaterm.vim
 source ~/.config/nvim/configure/ultisnips.vim
