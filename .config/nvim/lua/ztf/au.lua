@@ -71,6 +71,18 @@ create_ft_au('tex', function()
   vim.cmd('set foldexpr=vimtex#fold#level(v:lnum)')
   vim.cmd('set foldtext=vimtex#fold#text()')
 end)
+create_ft_au('tex', function()
+  vim.ui.select({
+    'compile',
+    'none',
+  }, {
+    prompt = "Which VimTeX mode would you like for this TeX doc?",
+  }, function(choice)
+    if choice == 'compile' then
+      vim.cmd("VimtexCompile")
+    end
+  end)
+end)
 
 -- TODO(maybe):
 --   autocmd FileType floaterm set nonumber norelativenumber
