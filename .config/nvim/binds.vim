@@ -1,6 +1,9 @@
 map j gj
 map k gk
 
+" '=' -> fold toggle
+map = za
+
 " leaders
 let mapleader = "\<space>"
 let maplocalleader = "\\"
