@@ -94,6 +94,8 @@ return require('packer').startup(function()
   use 'NoahTheDuke/vim-just'
   use 'IndianBoy42/tree-sitter-just'
 
+  use 'kaarmu/typst.vim'
+
   use 'git@github.com:ja-he/mediate.nvim.git'
   use 'git@github.com:ja-he/heat.nvim.git'
 end)
