@@ -1871,8 +1871,79 @@ blueprints:
         %\usepackage{a4wide}
         \usepackage[margin=1in,a4paper]{geometry}
         \usepackage{amsmath,amsfonts,graphicx,amssymb,sectsty,amsthm}
-        \usepackage{hyperref}
+        \usepackage{mathtools}
+        \usepackage[usenames,dvipsnames]{xcolor}
+        \usepackage[colorlinks]{hyperref}
+        \hypersetup{
+          colorlinks=true,
+          linkcolor={NavyBlue},
+          anchorcolor={red},
+          citecolor={ForestGreen},
+          filecolor={black},
+          menucolor={red},
+          runcolor={red},
+          urlcolor={NavyBlue},
+          linktoc=page,
+        }
         \usepackage{cleveref}
+        \usepackage{mathpazo}
+        \usepackage[normalem]{ulem}
+        \usepackage{longtable}
+        \usepackage{booktabs}
+        \usepackage{wrapfig}
+        \usepackage{svg}
+        \usepackage{floatrow}
+        \usepackage{cutwin}
+        \usepackage[inline]{asymptote}
+        
+        \usepackage[breakable]{tcolorbox}
+        \tcbuselibrary{most}
+        
+        $if(biblatex)$
+        \usepackage[$if(biblio-style)$style=$biblio-style$,$endif$$for(biblatexoptions)$$biblatexoptions$$sep$,$endfor$]{biblatex}
+        $for(bibliography)$
+        \addbibresource{$bibliography$}
+        $endfor$
+        $endif$
+        $if(nocite-ids)$
+        \nocite{$for(nocite-ids)$$it$$sep$, $endfor$}
+        $endif$
+        $if(csl-refs)$
+        \newlength{\cslhangindent}
+        \setlength{\cslhangindent}{1.5em}
+        \newlength{\csllabelwidth}
+        \setlength{\csllabelwidth}{3em}
+        \newlength{\cslentryspacingunit} % times entry-spacing
+        \setlength{\cslentryspacingunit}{\parskip}
+        \newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+         {% don't indent paragraphs
+          \setlength{\parindent}{0pt}
+          % turn on hanging indent if param 1 is 1
+          \ifodd #1
+          \let\oldpar\par
+          \def\par{\hangindent=\cslhangindent\oldpar}
+          \fi
+          % set entry spacing
+          \setlength{\parskip}{#2\cslentryspacingunit}
+         }%
+         {}
+        \usepackage{calc}
+        \newcommand{\CSLBlock}[1]{#1\hfill\break}
+        \newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+        \newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+        \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+        $endif$
+        
+        % \begin{asydef}
+        % // Global Asymptote definitions can be put here.
+        % settings.prc=true;
+        % import three;
+        % usepackage("bm");
+        % texpreamble("\def\V#1{\bm{#1}}");
+        % // One can globally override the default toolbar settings here:
+        % // settings.toolbar=true;
+        % \end{asydef}
+        
         %
         % The following commands set up the lecnum (lecture number)
         % counter and make various numbering schemes work relative
@@ -1885,6 +1956,14 @@ blueprints:
         %\renewcommand{\thefigure}{\thelecnum.\arabic{figure}}
         %\renewcommand{\thetable}{\thelecnum.\arabic{table}}
         
+        \newcommand{\problem}[1]{\textsc{#1}}
+        
+        \newcommand{\Keyword}[1]{\textbf{#1}}
+        \newcommand{\Placeholder}[1]{\textit{#1}}
+        
+        \providecommand{\tightlist}{%
+          \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+        
         %----------------------------------------------------------------------
         %  Standard lemma, theorem, and corollary environments.
         % ----------------------------------------------------------------------
@@ -1895,6 +1974,7 @@ blueprints:
         \newtheorem{observation}[lemma]{Observation}
         \newtheorem{example}[lemma]{Example}
         \newtheorem{proposition}[lemma]{Proposition}
+        \newtheorem{claim}[lemma]{Claim}
         
         % ----------------------------------------------------------------------
         %  Miscellaneous commands 
@@ -1904,6 +1984,9 @@ blueprints:
         	\SetKwInOut{Input}{Input}
             \SetKwInOut{Output}{Output}
             \DontPrintSemicolon
+          % declares a \Comment command for use in algorithm
+          \SetKwComment{Comment}{// }{}
+        
         
         % tikz
         \usepackage{tikz}
@@ -1921,7 +2004,7 @@ blueprints:
         \begin{document}
         \noindent
         {\bf $course$ \hfill University of Bremen}\\
-        {\bf $term$, Lecture $lecture-n$} \hfill Faculty 03: Math/CS \\
+        {\bf $term$, Lecture $lecture-n$} \hfill Faculty 03: Math/CS\\
         Lecturer: $lecturer$ \hfill \hfill $date$
         \vspace*{0.6ex}
         \hrule
@@ -1929,7 +2012,8 @@ blueprints:
         \vspace*{2ex}
         
         \begin{center}
-        \Large \bf $title$
+          {\Large \textbf{$title$}}\\
+          {Lecture notes by \textbf{$author$}}
         \end{center}
         
         $body$
