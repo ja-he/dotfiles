@@ -1670,6 +1670,42 @@ blueprints:
         \newcommand{\opt}{\text{\sf Opt}}
 
       "filter.lua": |
+        local function simple_hash(s)
+          local hash = 0
+          for i = 1, #s do
+            hash = hash + string.byte(s, i)
+          end
+          return string.format('%016x', hash)
+        end
+        
+        local function write_file(filename, content)
+          local file = assert(io.open(filename, "w"))
+          file:write(content)
+          file:close()
+        end
+        
+        local function read_file(filename)
+          local file = assert(io.open(filename, "r"))
+          local content = file:read("*all")
+          file:close()
+          return content
+        end
+        
+        local function compile_asymptote(asymptote_source_code)
+          local filename = simple_hash(asymptote_source_code)
+          local input_filename = filename .. ".asy"
+          local output_filename = filename .. ".eps"
+        
+          -- Write Asymptote source code to a file
+          write_file(input_filename, asymptote_source_code)
+        
+          -- Compile the file using asy shell command
+          local shell_command = "asy " .. input_filename
+          assert(os.execute(shell_command) ~= nil, "Failed to execute shell command: " .. shell_command)
+        
+          return output_filename
+        end
+        
         function Div(el)
           -- NOTE: probably breaks when _actually_ including multiple of these classes
           if el.classes:includes("def") then
@@ -1722,8 +1758,27 @@ blueprints:
             table.insert(el.content, 1, pandoc.RawBlock("latex", "\\begin{algorithm}[H]"))
             -- insert element at the back
             table.insert(el.content, pandoc.RawBlock("latex", "\\end{algorithm}"))
+          elseif el.classes:includes("sidenote") then
+            -- insert element in front
+            table.insert(el.content, 1, pandoc.RawBlock("latex", "\\begin{tcolorbox}[enhanced jigsaw,colback=blue!10,colframe=blue!10,coltext=blue!20!black!90,width=0.8\\linewidth,center,breakable]\\footnotesize"))
+            -- insert element at the back
+            table.insert(el.content, pandoc.RawBlock("latex", "\\end{tcolorbox}"))
+          elseif el.classes:includes("todo") then
+            -- insert element in front
+            table.insert(el.content, 1, pandoc.RawBlock("latex", "\\begin{tcolorbox}[colback=red!10,colframe=red!10,coltext=red!50!black!90,width=0.8\\linewidth,center]\\footnotesize"))
+            -- insert element at the back
+            table.insert(el.content, pandoc.RawBlock("latex", "\\end{tcolorbox}"))
           end
           return el
+        end
+        
+        function Table(el)
+          return {
+            pandoc.RawInline("latex", "{"),
+            pandoc.RawInline("latex", "\\centering"),
+            el,
+            pandoc.RawInline("latex", "}"),
+          }
         end
         
         function Span(el)
@@ -1732,8 +1787,55 @@ blueprints:
             table.insert(el.content, 1, pandoc.RawInline("latex", "\\problem{"))
             -- insert element at the back
             table.insert(el.content, pandoc.RawInline("latex", "}"))
+          elseif el.classes:includes("defsubj") then
+            -- insert element in front
+            table.insert(el.content, 1, pandoc.RawInline("latex", "\\uline{"))
+            -- insert element at the back
+            table.insert(el.content, pandoc.RawInline("latex", "}"))
+          elseif el.classes:includes("keyword") then
+            -- insert element in front
+            table.insert(el.content, 1, pandoc.RawInline("latex", "\\Keyword{"))
+            -- insert element at the back
+            table.insert(el.content, pandoc.RawInline("latex", "}"))
+          elseif el.classes:includes("placeholder") then
+            -- insert element in front
+            table.insert(el.content, 1, pandoc.RawInline("latex", "\\Placeholder{"))
+            -- insert element at the back
+            table.insert(el.content, pandoc.RawInline("latex", "}"))
+          elseif el.classes:includes("rom") then
+            -- insert element in front
+            table.insert(el.content, 1, pandoc.RawInline("latex", "\\uppercase\\expandafter{\\romannumeral"))
+            -- insert element at the back
+            table.insert(el.content, pandoc.RawInline("latex", "\\relax}"))
           end
           return el
+        end
+        
+        function CodeBlock(block)
+          if block.classes[1] == "asy" then
+            -- -- generate a unique output filename
+            -- local hash = simple_hash(block.text)
+            -- local output_filename = "output" .. hash .. ".html"
+            --
+            -- if FORMAT == "html" then
+            --   print("htmltodo")
+            -- elseif FORMAT == "latex" then
+            --   local eps_file = compile_asymptote(block.text)
+            --   local asy_block = '\\begin{figure}[H]\n\\centering\n\\includegraphics[width=0.7\\textwidth]{' .. eps_file .. '}\n\\end{figure}'
+            --   return pandoc.RawBlock('latex', asy_block)
+            -- end
+        
+            return {
+              pandoc.RawBlock('latex', "\\begin{figure}[H]\n"),
+              pandoc.RawBlock('latex', "\\centering\n"),
+              pandoc.RawBlock('latex', "\\begin{asy}[inline=true,attach=false,viewportwidth=\\linewidth]\n"),
+              pandoc.RawBlock('latex', block.text),
+              pandoc.RawBlock('latex', "\\end{asy}\n"),
+              pandoc.RawBlock('latex', "\\end{figure}\n"),
+            }
+        
+          end
+          return block
         end
 
       ".exrc": |
@@ -1747,8 +1849,6 @@ blueprints:
         \usepackage{amsmath,amsfonts,graphicx,amssymb,sectsty,amsthm}
         \usepackage{hyperref}
         \usepackage{cleveref}
-        \usepackage{mathpazo}
-        \usepackage[normalem]{ulem}
         %
         % The following commands set up the lecnum (lecture number)
         % counter and make various numbering schemes work relative
@@ -1760,12 +1860,7 @@ blueprints:
         %\renewcommand{\theequation}{\thelecnum.\arabic{equation}}
         %\renewcommand{\thefigure}{\thelecnum.\arabic{figure}}
         %\renewcommand{\thetable}{\thelecnum.\arabic{table}}
-
-        \newcommand{\problem}[1]{\textsc{#1}}
-
-        \providecommand{\tightlist}{%
-          \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-
+        
         %----------------------------------------------------------------------
         %  Standard lemma, theorem, and corollary environments.
         % ----------------------------------------------------------------------
@@ -1776,7 +1871,6 @@ blueprints:
         \newtheorem{observation}[lemma]{Observation}
         \newtheorem{example}[lemma]{Example}
         \newtheorem{proposition}[lemma]{Proposition}
-        \newtheorem{claim}[lemma]{Claim}
         
         % ----------------------------------------------------------------------
         %  Miscellaneous commands 
@@ -1786,9 +1880,6 @@ blueprints:
         	\SetKwInOut{Input}{Input}
             \SetKwInOut{Output}{Output}
             \DontPrintSemicolon
-          % declares a \Comment command for use in algorithm
-          \SetKwComment{Comment}{// }{}
-
         
         % tikz
         \usepackage{tikz}
@@ -1806,7 +1897,7 @@ blueprints:
         \begin{document}
         \noindent
         {\bf $course$ \hfill University of Bremen}\\
-        {\bf $term$, Lecture $lecture-n$} \hfill Faculty 03: Math/CS\\
+        {\bf $term$, Lecture $lecture-n$} \hfill Faculty 03: Math/CS \\
         Lecturer: $lecturer$ \hfill \hfill $date$
         \vspace*{0.6ex}
         \hrule
@@ -1814,13 +1905,13 @@ blueprints:
         \vspace*{2ex}
         
         \begin{center}
-          {\Large \textbf{$title$}}\\
-          {Lecture notes by \textbf{$author$}}
+        \Large \bf $title$
         \end{center}
         
         $body$
         
         \end{document}
+
       "style.css": |
         html {
           line-height: 1.5;
@@ -2119,11 +2210,32 @@ blueprints:
           border-radius: 0.15em;
         }
 
-        span .defsubj {
+        .defsubj {
           text-decoration: underline;
         }
-    open: "nvim index.md"
-    view: "zathura index.pdf"
+
+      ".latexmkrc:": |
+        sub asy {return system("asy \"$_[0]\"");}
+        add_cus_dep("asy","eps",0,"asy");
+        add_cus_dep("asy","pdf",0,"asy");
+        add_cus_dep("asy","tex",0,"asy");
+
+      ".gitignore": |
+        *.asy
+        *.eps
+        *.pre
+        *.tex
+        *.pdf
+        *.fls
+        *.out
+        *.log
+        *.aux
+        *.fdb_latexmk
+        *.aux
+        *synctex*
+
+    open: nvim index.md
+    view: zathura index.pdf
     post:
-      - "pandoc -f markdown -t pdf --template=./default.latex --lua-filter=./filter.lua index.md -o index.pdf"
-      - "pandoc -f markdown -t html --mathjax --lua-filter=./filter.lua index.md -s -o index.html"
+      - 'pandoc -f markdown -t latex --citeproc --template=./default.latex --lua-filter=./filter.lua index.md -s -o index.tex && latexmk -pdf index.tex'
+      - 'pandoc -f markdown -t html --citeproc --mathjax --lua-filter=./filter.lua index.md -s -o index.html'
