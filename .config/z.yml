@@ -1840,6 +1840,30 @@ blueprints:
 
       ".exrc": |
         iabbrev AAPX $\alpha$-approximation
+        iabbrev SC [Set Cover]{.problem}
+        iabbrev SP [Scheduling]{.problem}
+        
+        lua << EOF
+          local job = require('plenary.job')
+          vim.api.nvim_create_autocmd({"BufWritePost"}, {
+            pattern = {"*"},
+            group = vim.api.nvim_create_augroup("z-make-async", {clear=true}),
+            callback = function(ev)
+              job:new({
+                command = 'bash',
+                args = {'-c', 'z make || ( just clean && z make )'},
+                on_exit = function(j, exit_code)
+                  local res = table.concat(j:result(), "\n")
+                  local type = "Success!"
+                  if exit_code ~=0 then
+                    type = "ERROR"
+                  end
+                  print(type, res)
+                end,
+              }):start()
+            end
+          })
+        EOF
 
       "default.latex": |
         \documentclass[twoside,a4paper,11pt]{article}
