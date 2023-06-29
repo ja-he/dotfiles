@@ -16,6 +16,8 @@ lspconfig.gopls.setup{}
 
 lspconfig.vimls.setup{}
 
+lspconfig.typst_lsp.setup{}
+
 lspconfig.bashls.setup{}
 
 lspconfig.pylsp.setup{}
