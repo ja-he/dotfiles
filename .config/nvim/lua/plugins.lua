@@ -29,6 +29,7 @@ return require('packer').startup(function()
 
   use 'neovim/nvim-lspconfig'
   use 'mfussenegger/nvim-dap'
+  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
   use 'kabouzeid/nvim-lspinstall'
   -- rust
   use 'simrat39/rust-tools.nvim'
