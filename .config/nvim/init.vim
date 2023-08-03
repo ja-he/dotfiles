@@ -30,6 +30,7 @@ augroup end
 source ~/.config/nvim/colorscheme.vim
 
 lua require("ztf.lsp")
+lua require("ztf.dap")
 lua require('ztf.treesitter')
 
 lua require("ztf.configure.nvim-cmp")

@@ -28,6 +28,7 @@ return require('packer').startup(function()
   use 'tommcdo/vim-lion'
 
   use 'neovim/nvim-lspconfig'
+  use 'mfussenegger/nvim-dap'
   use 'kabouzeid/nvim-lspinstall'
   -- rust
   use 'simrat39/rust-tools.nvim'
