@@ -35,6 +35,8 @@ return require('packer').startup(function()
   use 'simrat39/rust-tools.nvim'
   -- java 🤮
   use 'mfussenegger/nvim-jdtls'
+  -- go
+  use { 'leoluz/nvim-dap-go', requires = {'mfussenegger/nvim-dap'} }
 
   use { 'ja-he/nvim-goc.lua', branch = 'fix-deprecated-hi-link' }
 

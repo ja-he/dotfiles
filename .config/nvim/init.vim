@@ -34,6 +34,7 @@ lua require("ztf.dap")
 lua require('ztf.treesitter')
 
 lua require("ztf.configure.dapui")
+lua require("ztf.configure.dap-go")
 lua require("ztf.configure.nvim-cmp")
 lua require('ztf.configure.nvim-colorizer')
 lua require("ztf.configure.comment")
