@@ -128,6 +128,7 @@ nnoremap <leader>ls   :LspInfo<CR>
 nnoremap <leader>len  <cmd>lua vim.diagnostic.goto_next()<CR>
 nnoremap <leader>lep  <cmd>lua vim.diagnostic.goto_prev()<CR>
 nnoremap <leader>lel  <cmd>lua vim.diagnostic.setloclist()<CR>
+nnoremap <leader>leL  <cmd>lua vim.diagnostic.setqflist()<CR>
 nnoremap <leader>lea  <cmd>lua vim.lsp.buf.code_action()<CR>
 nnoremap <leader>lo   :LspStop<CR>
 nnoremap <leader>lO   :LspStart<CR>
