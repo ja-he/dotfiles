@@ -93,6 +93,7 @@ nnoremap <leader>gH :Gitsigns toggle_word_diff<CR>
 nnoremap <silent> <leader>ff :lua require'telescope.builtin'.find_files({hidden = true})<CR>
 nnoremap          <leader>fF :Files<CR>
 nnoremap <silent> <leader>fc :lua require'telescope.builtin'.find_files({cwd = "$HOME/.config/"})<cr>
+nnoremap <silent> <leader>fa :lua require'telescope.builtin'.live_grep()<cr>
 nnoremap          <leader>fA :Ag<CR>
 nnoremap <silent> <leader>fgc :lua require'telescope.builtin'.git_commits()<cr>
 nnoremap <silent> <leader>fgb :lua require'telescope.builtin'.git_branches()<cr>
