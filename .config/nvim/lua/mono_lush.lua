@@ -141,7 +141,7 @@ local theme = lush(function(injected_functions)
     TablineFill   { VertSplit },
 
     -- "Above the text"
-    Visual        { bg = pale_yellow },
+    Visual        { bg = pale_blue , fg = black },
     Search        { bg = pale_pink }, -- TODO: color
     IncSearch     { bg = Search.bg.darken(20) },
 
@@ -331,12 +331,15 @@ local theme = lush(function(injected_functions)
       SignifySignDeleteFirstLine { SignifySignDelete },
 
       -- gitsigns
-      GitSignsAdd                { SignifySignAdd },
-      GitSignsChange             { SignifySignChange },
-      GitSignsDelete             { SignifySignDelete },
-      GitSignsAddFG              { fg = SignifySignAdd.fg },
-      GitSignsChangeFG           { fg = SignifySignChange.fg },
-      GitSignsDeleteFG           { fg = SignifySignDelete.fg },
+      GitSignsAdd                { bg = pale_green.lighten(40) },
+      GitSignsAddFG              { fg = dark_green },
+      GitSignsAddLnInline        { fg = dark_green.darken(40) },
+      GitSignsChange             { bg = pale_yellow.lighten(40) },
+      GitSignsChangeFG           { fg = dark_yellow },
+      GitSignsChangeLnInline     { fg = dark_yellow.darken(40) },
+      GitSignsDelete             { bg = pale_red.lighten(40) },
+      GitSignsDeleteFG           { fg = dark_red },
+      GitSignsDeleteLnInline     { fg = dark_red.darken(40) },
 
       -- WhichKey
       WhichKey          { SpecialKey , gui = "bold" },
@@ -404,9 +407,9 @@ local theme = lush(function(injected_functions)
       TelescopePreviewTitle   { fg = TelescopePreviewNormal.bg.darken(70), bg = TelescopePreviewNormal.bg.darken(20), gui = "italic" },
       TelescopePreviewMessage { fg = TelescopePreviewNormal.bg.darken(40) },
 
-			GocNormal    { bg = light_grey },
-			GocUncovered { bg = pale_red },
-			GocCovered   { bg = pale_green },
+      GocNormal    { bg = light_grey },
+      GocUncovered { bg = pale_red },
+      GocCovered   { bg = pale_green },
   }
 end)
 
