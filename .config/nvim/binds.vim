@@ -142,3 +142,13 @@ nnoremap <c-l> :+tabmove<CR>
 vnoremap <leader>X c<C-R>=system("IFS='\n' read input; python -c \"print($input,end='')\"",@+)<CR><ESC>
 
 nnoremap <leader>T :TSBufToggle highlight<CR>
+
+" --- copilot ---
+" Dismiss the current suggestion.
+inoremap <c-c>d <Plug>(copilot-dismiss)
+" Cycle to the next suggestion, if one is available.
+inoremap <c-c>n <Plug>(copilot-next)
+" Cycle to the previous suggestion.
+inoremap <c-c>p <Plug>(copilot-previous)
+" Explicitly request a suggestion, even if Copilot is disabled.
+inoremap <c-c>S <Plug>(copilot-suggest)

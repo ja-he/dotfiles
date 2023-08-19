@@ -102,4 +102,6 @@ return require('packer').startup(function()
 
   use 'git@github.com:ja-he/mediate.nvim.git'
   use 'git@github.com:ja-he/heat.nvim.git'
+
+  use { 'github/copilot.vim' , opt = true , cmd = 'Copilot' }
 end)
