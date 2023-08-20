@@ -103,7 +103,7 @@ nnoremap <silent> <leader>fbl :lua require'telescope.builtin'.current_buffer_fuz
 nnoremap          <leader>fbL :BLines<CR>
 nnoremap <silent> <leader>fh :lua require'telescope.builtin'.help_tags()<CR>
 nnoremap          <leader>fs :Snippets<CR>
-nnoremap <silent> <leader>ftb :lua require'telescope.builtin'.builtin()<cr>
+nnoremap <silent> <leader>ftb :lua require'telescope.builtin'.builtin({previewer=false})<cr>
 " z binds
 "nnoremap <silent> <leader>zff :lua require'telescope.builtin'.find_files({cwd = "$ZETTELKASTENPATH", find_command = {'rg', '--files', '--glob', '!README.md'}})<cr>
 "nnoremap          <leader>zfa :cd $ZETTELKASTENPATH<CR>:Ag<CR>
