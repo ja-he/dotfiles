@@ -3,7 +3,6 @@ require('telescope').setup{
     mappings = {
       i = {
         ['<C-u>'] = false,
-        ['<C-d>'] = false,
         ['<C-h>'] = "which_key",
         ['<C-d>'] = "close",
         ['<C-j>'] = "move_selection_next",
