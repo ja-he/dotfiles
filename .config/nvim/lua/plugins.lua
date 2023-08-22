@@ -73,6 +73,7 @@ return require('packer').startup(function()
   })
 
   use 'stevearc/dressing.nvim'
+  use 'nvim-lualine/lualine.nvim'
   use {
     'nvim-telescope/telescope.nvim',
     requires = {
