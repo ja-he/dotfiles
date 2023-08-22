@@ -1,8 +1,7 @@
 if empty($DISPLAY)
   colorscheme fahrenheit
 else
-  set background=light
-  if &background ==# 'dark'
+  if $ZTF_COLO == 'dark'
 lua << EOF
     local lush = require('lush')
     local parsed = require('kurzzug')

@@ -145,6 +145,8 @@ eval "$(starship init bash)"
 export EDITOR="nvim"
 export MANPAGER='nvim +Man!'
 
+export ZTF_COLO='dark'
+
 source ${HOME}/.bash_secrets
 
 source /usr/share/fzf/key-bindings.bash
