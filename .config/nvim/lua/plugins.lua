@@ -90,7 +90,7 @@ return require('packer').startup(function()
   use 'pocco81/true-zen.nvim'
 
   -- colorschemes
-  use 'ja-he/kurzzug'
+  use 'git@github.com:ja-he/kurzzug.git'
   use 'Shatur/neovim-ayu'
   use 'fcpg/vim-fahrenheit'
 
