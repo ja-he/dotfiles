@@ -23,13 +23,13 @@ set noswapfile
 " undo across closing/reopening
 set undofile
 
-" show line numbers (absolute)
-set number
+" show no numbers
+set nonumber
 set norelativenumber
 " Presentation Settings 
 set mouse=a
 
-set colorcolumn=81
+set colorcolumn=0
 
 " indicate the current line
 set cursorline
@@ -96,7 +96,7 @@ set termguicolors
 set concealcursor-=n
 
 " let the foldcolumn expand with fold automatically up to 3 levels of nesting
-set foldcolumn=auto:3
+set foldcolumn=0
 
 " indenting behaviour
 set autoindent  " automatically indent based on pre-/successors
