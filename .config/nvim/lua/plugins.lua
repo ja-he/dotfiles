@@ -40,11 +40,12 @@ return require('packer').startup(function()
 
   use { 'ja-he/nvim-goc.lua', branch = 'fix-deprecated-hi-link' }
 
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/nvim-cmp'
+
+  use { 'hrsh7th/cmp-nvim-lsp' , requires = { 'hrsh7th/nvim-cmp' } }
+  use { 'hrsh7th/cmp-buffer'   , requires = { 'hrsh7th/nvim-cmp' } }
+  use { 'hrsh7th/cmp-path'     , requires = { 'hrsh7th/nvim-cmp' } }
+  use { 'hrsh7th/cmp-cmdline'  , requires = { 'hrsh7th/nvim-cmp' } }
   -- use 'folke/lua-dev.nvim'
 
   use 'L3MON4D3/LuaSnip'
