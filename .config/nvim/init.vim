@@ -18,42 +18,32 @@
 " __________________________________________________________________
 
 source ~/.config/nvim/settings.vim
-source ~/.config/nvim/binds.vim
+source ~/.config/nvim/binds.vim " this sets mapleader BEFORE lazy is loaded!
 lua require("ztf.au")
 
-lua require("plugins")
-augroup packer_user_config
-  autocmd!
-  autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-augroup end
+lua << EOF
+  local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+  if not vim.loop.fs_stat(lazypath) then
+    print("installing lazy at '"..lazypath.."'")
+    output = vim.fn.system({
+      "git",
+      "clone",
+      "--filter=blob:none",
+      "https://github.com/folke/lazy.nvim.git",
+      "--branch=stable",
+      lazypath,
+    })
+    print("lazy-install output: '" .. output .. "'")
+  end
+  vim.opt.rtp:prepend(lazypath)
+  require("plugins")
+EOF
 
 source ~/.config/nvim/colorscheme.vim
 
 lua require("ztf.lsp")
 lua require("ztf.dap")
 lua require('ztf.treesitter')
-
-lua require("ztf.configure.dapui")
-lua require("ztf.configure.dap-go")
-lua require("ztf.configure.nvim-cmp")
-lua require('ztf.configure.nvim-colorizer')
-lua require("ztf.configure.comment")
-lua require("ztf.configure.gitsigns")
-lua require("ztf.configure.telescope")
-lua require("ztf.configure.luasnip")
-lua require("ztf.configure.lualine")
-lua require("ztf.configure.nvim-goc")
-lua require("ztf.configure.spellsitter")
-lua require("ztf.configure.true-zen")
-lua require("ztf.configure.heat")
-" source ~/.config/nvim/configure/which-key.vim
-source ~/.config/nvim/configure/floaterm.vim
-source ~/.config/nvim/configure/ultisnips.vim
-source ~/.config/nvim/configure/fzf.vim
-source ~/.config/nvim/configure/git-messenger.vim
-source ~/.config/nvim/configure/pandoc.vim
-source ~/.config/nvim/configure/markdown-preview.vim
-
 
 " ----- TODO: place somewhere sensible: ----------------------------------------
 

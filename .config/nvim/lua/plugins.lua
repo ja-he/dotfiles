@@ -1,67 +1,94 @@
 -- vim:foldmethod=indent
 
--- Only required if you have packer configured as `opt`
-vim.cmd [[packadd packer.nvim]] -- TODO???
+local plugins = {
 
-return require('packer').startup(function()
-  -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+  { 'nvim-lua/plenary.nvim' },
 
-  use 'lewis6991/gitsigns.nvim'
-  use 'tpope/vim-fugitive'
-  -- use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' , config = require("ztf.configure.neogit") }
-  use 'rhysd/git-messenger.vim'
-  use 'junegunn/fzf' -- TODO: how do I do this: `{ 'do': { -> fzf#install() } }`
-  use 'junegunn/fzf.vim'
-  use 'vim-pandoc/vim-pandoc-syntax'
-  use 'lervag/vimtex'
-  use 'chrisbra/unicode.vim'
-  use 'kylelaker/riscv.vim'
-  -- use 'liuchengxu/vim-which-key'
-  use 'liuchengxu/vista.vim'
-  use 'norcalli/nvim-colorizer.lua'
-  use 'numToStr/Comment.nvim'
-  use 'tpope/vim-surround'
-  use 'tpope/vim-characterize'
-  use 'tpope/vim-dadbod'
-  use 'kristijanhusak/vim-dadbod-ui'
-  use 'tommcdo/vim-lion'
+  -- git
+  'tpope/vim-fugitive',
+  { 'lewis6991/gitsigns.nvim', config = function() require("ztf.configure.gitsigns") end },
+  { 'rhysd/git-messenger.vim', config = function() vim.cmd('source ~/.config/nvim/configure/git-messenger.vim') end },
 
-  use 'neovim/nvim-lspconfig'
-  use 'mfussenegger/nvim-dap'
-  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
-  use 'kabouzeid/nvim-lspinstall'
+  -- stuff?
+  'vim-pandoc/vim-pandoc-syntax',
+  'chrisbra/unicode.vim',
+  'kylelaker/riscv.vim',
+  { 'norcalli/nvim-colorizer.lua', config = function() require('ztf.configure.nvim-colorizer') end },
+  { 'numToStr/Comment.nvim',       config = function() require("ztf.configure.comment") end },
+  'tpope/vim-surround',
+  'tpope/vim-characterize',
+  'tommcdo/vim-lion',
+
+  'neovim/nvim-lspconfig',
+  'mfussenegger/nvim-dap',
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = { "mfussenegger/nvim-dap" },
+    lazy = true,
+    config = function() require("ztf.configure.dapui") end,
+  },
   -- rust
-  use 'simrat39/rust-tools.nvim'
+  {
+    'simrat39/rust-tools.nvim',
+    lazy = true,
+    ft = 'rust',
+    config = function() require 'ztf.configure.rust-tools' end,
+    dependencies = { 'mfussenegger/nvim-dap' , 'neovim/nvim-lspconfig' },
+  },
   -- java 🤮
-  use 'mfussenegger/nvim-jdtls'
+  { 'mfussenegger/nvim-jdtls',  lazy = true, ft = 'java' },
   -- go
-  use { 'leoluz/nvim-dap-go', requires = {'mfussenegger/nvim-dap'} }
+  {
+    'leoluz/nvim-dap-go',
+    dependencies = { 'mfussenegger/nvim-dap' },
+    ft = 'go',
+    config = function() require("ztf.configure.dap-go") end,
+  },
+  {
+    'rafaelsq/nvim-goc.lua',
+    lazy = true,
+    config = function() require("ztf.configure.nvim-goc") end,
+  },
+  -- 'folke/lua-dev.nvim',
 
-  use { 'ja-he/nvim-goc.lua', branch = 'fix-deprecated-hi-link' }
+  { 'hrsh7th/nvim-cmp',         config = function() require("ztf.configure.nvim-cmp") end },
+  { 'hrsh7th/cmp-nvim-lsp',     dependencies = { 'hrsh7th/nvim-cmp' } },
+  { 'hrsh7th/cmp-buffer',       dependencies = { 'hrsh7th/nvim-cmp' } },
+  { 'hrsh7th/cmp-path',         dependencies = { 'hrsh7th/nvim-cmp' } },
+  { 'hrsh7th/cmp-cmdline',      dependencies = { 'hrsh7th/nvim-cmp' } },
+  { 'saadparwaiz1/cmp_luasnip', dependencies = { 'L3MON4D3/LuaSnip', 'hrsh7th/nvim-cmp' }, },
 
-  use 'hrsh7th/nvim-cmp'
+  -- luasnip
+  { 'L3MON4D3/LuaSnip',         config = function() require("ztf.configure.luasnip") end },
 
-  use { 'hrsh7th/cmp-nvim-lsp' , requires = { 'hrsh7th/nvim-cmp' } }
-  use { 'hrsh7th/cmp-buffer'   , requires = { 'hrsh7th/nvim-cmp' } }
-  use { 'hrsh7th/cmp-path'     , requires = { 'hrsh7th/nvim-cmp' } }
-  use { 'hrsh7th/cmp-cmdline'  , requires = { 'hrsh7th/nvim-cmp' } }
-  -- use 'folke/lua-dev.nvim'
+  -- DB viewing
+  {
+    'kristijanhusak/vim-dadbod-ui',
+    dependencies = { 'tpope/vim-dadbod', lazy = true },
+    lazy = true,
+    cmd =
+    'DBUIToggle'
+  },
 
-  use 'L3MON4D3/LuaSnip'
-  use 'saadparwaiz1/cmp_luasnip'
+  { 'github/copilot.vim',              lazy = true,                                                 cmd = 'Copilot' },
+  {
+    'voldikss/vim-floaterm',
+    config = function() vim.cmd('source ~/.config/nvim/configure/floaterm.vim') end,
+  },
+  {
+    'dstein64/nvim-scrollview',
+    lazy = true,
+    cmd =
+    'ScrollViewToggle'
+  },
+  { 'rktjmp/lush.nvim' },
 
-  use 'tweekmonster/startuptime.vim'
-  use 'voldikss/vim-floaterm'
-  use 'metakirby5/codi.vim'
-  use 'dstein64/nvim-scrollview'
-  use 'rktjmp/lush.nvim'
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-  use 'nvim-treesitter/playground'
-  use 'lewis6991/spellsitter.nvim'
-  use 'nvim-lua/plenary.nvim'
+  { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
+  { 'nvim-treesitter/playground',      dependencies = { 'nvim-treesitter/nvim-treesitter' } },
+  { 'lewis6991/spellsitter.nvim',      config = function() require("ztf.configure.spellsitter") end },
 
-  use({ 'https://github.com/nat-418/boole.nvim',
+  {
+    'https://github.com/nat-418/boole.nvim',
     config = function()
       require('boole').setup({
         mappings = { increment = '<c-a>', decrement = '<c-x>' },
@@ -71,39 +98,61 @@ return require('packer').startup(function()
         },
       })
     end
-  })
+  },
 
-  use 'stevearc/dressing.nvim'
-  use 'nvim-lualine/lualine.nvim'
-  use {
+  -- searching
+  {
     'nvim-telescope/telescope.nvim',
-    requires = {
-      { 'nvim-lua/plenary.nvim' },
-    },
-  }
-  use {
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    config = function() require("ztf.configure.telescope") end,
+  },
+  {
     'nvim-telescope/telescope-fzf-native.nvim',
-    run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
-  }
+    build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && '
+        .. 'cmake --build build --config Release && '
+        .. 'cmake --install build --prefix build',
+    dependencies = { 'nvim-telescope/telescope.nvim' },
+  },
+  'junegunn/fzf',
+  {
+    'junegunn/fzf.vim',
+    config = function() vim.cmd("source ~/.config/nvim/configure/fzf.vim") end,
+  },
 
-  use { 'iamcco/markdown-preview.nvim', run = ':call mkdp#util#install()' }
-
-  use 'pocco81/true-zen.nvim'
+  -- ui stuff
+  'stevearc/dressing.nvim',
+  { 'pocco81/true-zen.nvim',            config = function() require("ztf.configure.true-zen") end },
+  { 'nvim-lualine/lualine.nvim',        config = function() require("ztf.configure.lualine") end },
 
   -- colorschemes
-  use 'git@github.com:ja-he/kurzzug.git'
-  use 'Shatur/neovim-ayu'
-  use 'fcpg/vim-fahrenheit'
+  { 'git@github.com:ja-he/kurzzug.git', dependencies = 'rktjmp/lush.nvim' },
+  { 'Shatur/neovim-ayu', },
+  { 'fcpg/vim-fahrenheit', },
 
-  use 'Eandrju/cellular-automaton.nvim'
+  -- play around
+  {
+    'Eandrju/cellular-automaton.nvim',
+    lazy = true,
+    cmd =
+    'CellularAutomaton'
+  },
 
-  use 'NoahTheDuke/vim-just'
-  use 'IndianBoy42/tree-sitter-just'
+  'NoahTheDuke/vim-just',
+  'IndianBoy42/tree-sitter-just',
 
-  use 'kaarmu/typst.vim'
+  -- { 'iamcco/markdown-preview.nvim', build = ':call mkdp#util#install()' },
 
-  use 'git@github.com:ja-he/mediate.nvim.git'
-  use 'git@github.com:ja-he/heat.nvim.git'
+  'lervag/vimtex',
+  'kaarmu/typst.vim',
 
-  use { 'github/copilot.vim' , opt = true , cmd = 'Copilot' }
-end)
+  'git@github.com:ja-he/mediate.nvim.git',
+  {
+    'git@github.com:ja-he/heat.nvim.git',
+    config = function() require("ztf.configure.heat") end,
+  },
+
+  { 'tweekmonster/startuptime.vim', lazy = true, cmd = 'StartupTime' },
+
+}
+
+require('lazy').setup(plugins)
