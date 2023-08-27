@@ -49,8 +49,9 @@ local plugins = {
     lazy = true,
     config = function() require("ztf.configure.nvim-goc") end,
   },
-  -- 'folke/lua-dev.nvim',
+  { 'folke/neodev.nvim',        opts = {} }, -- formerly 'folke/lua-dev.nvim'
 
+  -- cmp
   { 'hrsh7th/nvim-cmp',         config = function() require("ztf.configure.nvim-cmp") end },
   { 'hrsh7th/cmp-nvim-lsp',     dependencies = { 'hrsh7th/nvim-cmp' } },
   { 'hrsh7th/cmp-buffer',       dependencies = { 'hrsh7th/nvim-cmp' } },
