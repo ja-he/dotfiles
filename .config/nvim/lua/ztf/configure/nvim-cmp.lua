@@ -40,5 +40,6 @@ cmp.setup {
     { name = 'path' },
     { name = 'luasnip' },
     { name = 'nvim_lsp_signature_help' },
+    { name = 'emoji' },
   })
 }
