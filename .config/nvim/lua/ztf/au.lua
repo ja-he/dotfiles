@@ -84,6 +84,8 @@ create_ft_au('tex', function()
   end)
 end)
 
+create_ft_au('typst', wrapped_writing_settings)
+
 -- TODO(maybe):
 --   autocmd FileType floaterm set nonumber norelativenumber
 --   autocmd FileType PKGBUILD nnoremap <leader>ma :!(updpkgsums ; makepkg --printsrcinfo > .SRCINFO)<CR>
