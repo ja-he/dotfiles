@@ -6,9 +6,9 @@ require'gitsigns'.setup{
     topdelete    = {hl = 'GitSignsDeleteFG', text = '‾', numhl='GitSignsDelete', linehl='GitSignsDelete'},
     changedelete = {hl = 'GitSignsChangeFG', text = '~', numhl='GitSignsChange', linehl='GitSignsChange'},
   },
-  signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
+  signcolumn = false,  -- Toggle with `:Gitsigns toggle_signs`
   numhl      = false,  -- Toggle with `:Gitsigns toggle_numhl`
-  linehl     = false,  -- Toggle with `:Gitsigns toggle_linehl`
+  linehl     = true,  -- Toggle with `:Gitsigns toggle_linehl`
   word_diff  = false, -- Toggle with `:Gitsigns toggle_word_diff`
   watch_gitdir = {
     interval = 1000,
