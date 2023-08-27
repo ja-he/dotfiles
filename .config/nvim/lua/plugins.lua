@@ -142,7 +142,7 @@ local plugins = {
 
   -- { 'iamcco/markdown-preview.nvim', build = ':call mkdp#util#install()' },
 
-  'lervag/vimtex',
+  { 'lervag/vimtex', opt = true , ft = { 'latex' , 'tex' } },
   'kaarmu/typst.vim',
 
   'git@github.com:ja-he/mediate.nvim.git',
