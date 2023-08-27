@@ -33,10 +33,10 @@ local plugins = {
     lazy = true,
     ft = 'rust',
     config = function() require 'ztf.configure.rust-tools' end,
-    dependencies = { 'mfussenegger/nvim-dap' , 'neovim/nvim-lspconfig' },
+    dependencies = { 'mfussenegger/nvim-dap', 'neovim/nvim-lspconfig' },
   },
   -- java 🤮
-  { 'mfussenegger/nvim-jdtls',  lazy = true, ft = 'java' },
+  { 'mfussenegger/nvim-jdtls',  lazy = true,                                               ft = 'java' },
   -- go
   {
     'leoluz/nvim-dap-go',
@@ -151,7 +151,7 @@ local plugins = {
 
   -- { 'iamcco/markdown-preview.nvim', build = ':call mkdp#util#install()' },
 
-  { 'lervag/vimtex', opt = true , ft = { 'latex' , 'tex' } },
+  { 'lervag/vimtex',                opt = true,  ft = { 'latex', 'tex' } },
   'kaarmu/typst.vim',
 
   'git@github.com:ja-he/mediate.nvim.git',
