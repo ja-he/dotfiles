@@ -121,8 +121,16 @@ local plugins = {
 
   -- ui stuff
   'stevearc/dressing.nvim',
-  { 'pocco81/true-zen.nvim',            config = function() require("ztf.configure.true-zen") end },
-  { 'nvim-lualine/lualine.nvim',        config = function() require("ztf.configure.lualine") end },
+  { 'pocco81/true-zen.nvim',     config = function() require("ztf.configure.true-zen") end },
+  { 'nvim-lualine/lualine.nvim', config = function() require("ztf.configure.lualine") end },
+  {
+    "j-hui/fidget.nvim",
+    tag = "legacy",
+    event = "LspAttach",
+    opts = {
+      -- options
+    },
+  },
 
   -- colorschemes
   { 'git@github.com:ja-he/kurzzug.git', dependencies = 'rktjmp/lush.nvim' },
