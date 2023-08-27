@@ -97,3 +97,10 @@ scripts/quicktexfiles/content.tex
 .config/qutebrowser/autoconfig.yml
 .config/qutebrowser/quickmarks
 .config/dayplan/config.yaml
+/.local/state/
+/.local/share/
+/.config/nvim/lazy-lock.json
+/.config/nvim/lua/.luarc.json
+/.config/discord/
+/.config/xournalpp/autosave/
+/.config/xournalpp/metadata/
