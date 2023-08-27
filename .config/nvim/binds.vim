@@ -152,3 +152,6 @@ inoremap <c-c>n <Plug>(copilot-next)
 inoremap <c-c>p <Plug>(copilot-previous)
 " Explicitly request a suggestion, even if Copilot is disabled.
 inoremap <c-c>S <Plug>(copilot-suggest)
+
+" lazy
+nnoremap <leader>L :Lazy<CR>
