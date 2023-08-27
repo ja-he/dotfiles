@@ -148,7 +148,7 @@ local plugins = {
     tag = "legacy",
     event = "LspAttach",
     opts = {
-      -- options
+      text = { spinner = "dots_pulse" },
     },
   },
 
