@@ -36,7 +36,11 @@ local plugins = {
     dependencies = { 'mfussenegger/nvim-dap', 'neovim/nvim-lspconfig' },
   },
   -- java 🤮
-  { 'mfussenegger/nvim-jdtls',  lazy = true,                                               ft = 'java' },
+  {
+    'mfussenegger/nvim-jdtls',
+    lazy = true,
+    ft = 'java',
+  },
   -- go
   {
     'leoluz/nvim-dap-go',
@@ -49,7 +53,11 @@ local plugins = {
     lazy = true,
     config = function() require("ztf.configure.nvim-goc") end,
   },
-  { 'folke/neodev.nvim',        opts = {} }, -- formerly 'folke/lua-dev.nvim'
+  -- lua
+  {
+    'folke/neodev.nvim',
+    opts = {},
+  }, -- formerly 'folke/lua-dev.nvim'
 
   -- cmp
   { 'hrsh7th/nvim-cmp',                    config = function() require("ztf.configure.nvim-cmp") end },
@@ -62,7 +70,10 @@ local plugins = {
   { 'saadparwaiz1/cmp_luasnip',            dependencies = { 'L3MON4D3/LuaSnip', 'hrsh7th/nvim-cmp' }, },
 
   -- luasnip
-  { 'L3MON4D3/LuaSnip',         config = function() require("ztf.configure.luasnip") end },
+  {
+    'L3MON4D3/LuaSnip',
+    config = function() require("ztf.configure.luasnip") end,
+  },
 
   -- DB viewing
   {
@@ -124,8 +135,14 @@ local plugins = {
 
   -- ui stuff
   'stevearc/dressing.nvim',
-  { 'pocco81/true-zen.nvim',     config = function() require("ztf.configure.true-zen") end },
-  { 'nvim-lualine/lualine.nvim', config = function() require("ztf.configure.lualine") end },
+  {
+    'pocco81/true-zen.nvim',
+    config = function() require("ztf.configure.true-zen") end,
+  },
+  {
+    'nvim-lualine/lualine.nvim',
+    config = function() require("ztf.configure.lualine") end,
+  },
   {
     "j-hui/fidget.nvim",
     tag = "legacy",
@@ -153,7 +170,11 @@ local plugins = {
 
   -- { 'iamcco/markdown-preview.nvim', build = ':call mkdp#util#install()' },
 
-  { 'lervag/vimtex',                opt = true,  ft = { 'latex', 'tex' } },
+  {
+    'lervag/vimtex',
+    lazy = true,
+    ft = { 'latex', 'tex' },
+  },
   'kaarmu/typst.vim',
 
   'git@github.com:ja-he/mediate.nvim.git',
