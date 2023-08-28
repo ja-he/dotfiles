@@ -47,28 +47,29 @@ require 'lualine'.setup({
     }
   },
   sections = {
-    lualine_a = {'mode'},
+    lualine_a = { 'mode' },
     lualine_b = {
       'branch',
-      { 'diff',
+      {
+        'diff',
         diff_color = {
-          added    = { fg = 'green'  },
+          added    = { fg = 'green' },
           modified = { fg = 'orange' },
-          removed  = { fg = 'red'    },
-        }, 
+          removed  = { fg = 'red' },
+        },
       },
       'diagnostics',
     },
-    lualine_c = {'filename'},
-    lualine_x = {'encoding', 'fileformat', 'filetype'},
-    lualine_y = {'progress'},
-    lualine_z = {'location'}
+    lualine_c = { 'filename' },
+    lualine_x = { 'encoding', 'fileformat', 'filetype' },
+    lualine_y = { 'progress' },
+    lualine_z = { 'location' }
   },
   inactive_sections = {
     lualine_a = {},
     lualine_b = {},
-    lualine_c = {'filename'},
-    lualine_x = {'location'},
+    lualine_c = { 'filename' },
+    lualine_x = { 'location' },
     lualine_y = {},
     lualine_z = {}
   },
