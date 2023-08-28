@@ -39,7 +39,7 @@ lua << EOF
   require("plugins")
 EOF
 
-source ~/.config/nvim/colorscheme.vim
+lua require('ztf.colorscheme').apply()
 
 lua require("ztf.lsp")
 lua require("ztf.dap")
