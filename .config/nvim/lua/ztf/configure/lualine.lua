@@ -3,8 +3,6 @@ local base_theme = require('ztf.colorscheme').mappings()
 require 'lualine'.setup({
   options = {
     icons_enabled = true,
-    component_separators = { left = '', right = ''},
-    section_separators = { left = '', right = ''},
     theme = {
       normal = {
         a = { bg = base_theme.Pmenu.bg, fg = base_theme.Pmenu.fg, gui = 'bold' },
@@ -33,6 +31,8 @@ require 'lualine'.setup({
       },
       -- TODO: inactive = { },
     },
+    component_separators = { left = '', right = '' },
+    section_separators = { left = '', right = '' },
     disabled_filetypes = {
       statusline = {},
       winbar = {},
