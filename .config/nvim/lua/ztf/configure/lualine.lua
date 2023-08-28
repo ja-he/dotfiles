@@ -47,7 +47,7 @@ require 'lualine'.setup({
     }
   },
   sections = {
-    lualine_a = { 'mode' },
+    lualine_a = { 'mode', 'selectioncount' },
     lualine_b = {
       'branch',
       {
@@ -58,12 +58,11 @@ require 'lualine'.setup({
           removed  = { fg = 'red' },
         },
       },
-      'diagnostics',
     },
-    lualine_c = { 'filename' },
+    lualine_c = { 'filename', 'filesize' },
     lualine_x = { 'encoding', 'fileformat', 'filetype' },
-    lualine_y = { 'progress' },
-    lualine_z = { 'location' }
+    lualine_y = { 'diagnostics' },
+    lualine_z = { 'searchcount', 'progress', 'location' }
   },
   inactive_sections = {
     lualine_a = {},
