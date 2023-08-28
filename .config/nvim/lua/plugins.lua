@@ -127,7 +127,10 @@ local plugins = {
         .. 'cmake --install build --prefix build',
     dependencies = { 'nvim-telescope/telescope.nvim' },
   },
-  'junegunn/fzf',
+  {
+    'junegunn/fzf', -- this contains a small basic vim plugin, so it is needed
+    -- build = 'call fzf#install()', -- this step is not needed, as pacman should keep us on a reasonably current version of the fzf binary
+  },
   {
     'junegunn/fzf.vim',
     config = function() vim.cmd("source ~/.config/nvim/configure/fzf.vim") end,
