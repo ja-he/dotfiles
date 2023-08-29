@@ -8,8 +8,6 @@ map = za
 let mapleader = "\<space>"
 let maplocalleader = "\\"
 
-nnoremap <leader>d :NvimTreeToggle<CR>
-
 " terminal mappings and settings
 nnoremap <leader>ma  :FloatermNew --autoclose=0 --wintype=split make -j8 <CR>
 nnoremap <leader>mc  :FloatermNew --wintype=split make clean<CR>
