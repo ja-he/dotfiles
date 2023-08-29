@@ -155,3 +155,9 @@ inoremap <c-c>S <Plug>(copilot-suggest)
 
 " lazy
 nnoremap <leader>L :Lazy<CR>
+
+" dap
+nnoremap <leader>du :lua require'dapui'.toggle()<CR>
+nnoremap <leader>dc :lua require'dap'.continue()<CR>
+nnoremap <leader>db :lua require'dap'.toggle_breakpoint()<CR>
+nnoremap <leader>dn :lua require'dap'.step_over()<CR>
