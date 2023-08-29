@@ -22,7 +22,7 @@ local themes = {
 }
 
 if os.getenv("DISPLAY") == nil then
-  return themes.nodisplay
+  return themes.fahrenheit
 else
   if os.getenv("ZTF_COLO") == 'dark' then
     return themes.kurzzug
