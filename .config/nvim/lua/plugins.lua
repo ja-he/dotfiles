@@ -59,6 +59,21 @@ local plugins = {
     opts = {},
   }, -- formerly 'folke/lua-dev.nvim'
 
+  -- null-ls (rip)
+  {
+    'jose-elias-alvarez/null-ls.nvim',
+    lazy = true,
+    ft = { 'go' },
+    config = function()
+      local ls = require'null-ls'
+      ls.setup({
+        sources={
+          ls.builtins.diagnostics.revive,
+        },
+      })
+    end,
+  },
+
   -- cmp
   {
     'hrsh7th/nvim-cmp',
