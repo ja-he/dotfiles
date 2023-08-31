@@ -41,6 +41,8 @@ lspconfig.pylsp.setup{}
 
 -- lspconfig.jdtls.setup{}
 
+lspconfig.jsonls.setup{}
+
 --Enable (broadcasting) snippet capability for completion
 local html_caps = vim.lsp.protocol.make_client_capabilities()
 html_caps.textDocument.completion.completionItem.snippetSupport = true
