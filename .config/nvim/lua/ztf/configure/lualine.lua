@@ -59,7 +59,13 @@ require 'lualine'.setup({
         },
       },
     },
-    lualine_c = { 'filename', 'filesize' },
+    lualine_c = {
+      {
+        'filename',
+        path = 1, -- relative path
+      },
+      'filesize',
+    },
     lualine_x = { 'encoding', 'fileformat', 'filetype' },
     lualine_y = { 'diagnostics' },
     lualine_z = { 'searchcount', 'progress', 'location' }
