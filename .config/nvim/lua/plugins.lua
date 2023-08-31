@@ -60,7 +60,20 @@ local plugins = {
   }, -- formerly 'folke/lua-dev.nvim'
 
   -- cmp
-  { 'hrsh7th/nvim-cmp',                    config = function() require("ztf.configure.nvim-cmp") end },
+  {
+    'hrsh7th/nvim-cmp',
+    config = function() require("ztf.configure.nvim-cmp") end,
+    dependencies = {
+      'onsails/lspkind.nvim',
+      config = function()
+        require 'lspkind'.init({
+          symbol_map = {
+            Copilot = "",
+          },
+        })
+      end,
+    },
+  },
   { 'hrsh7th/cmp-nvim-lsp',                dependencies = { 'hrsh7th/nvim-cmp' } },
   { 'hrsh7th/cmp-buffer',                  dependencies = { 'hrsh7th/nvim-cmp' } },
   { 'hrsh7th/cmp-path',                    dependencies = { 'hrsh7th/nvim-cmp' } },
@@ -84,7 +97,22 @@ local plugins = {
     'DBUIToggle'
   },
 
-  { 'github/copilot.vim',              lazy = true,                                                 cmd = 'Copilot' },
+  -- { 'github/copilot.vim',              lazy = true,                                                 cmd = 'Copilot' },
+  {
+    "zbirenbaum/copilot-cmp",
+    opts = {},
+    cmd = "Copilot",
+    dependencies = {
+      "hrsh7th/nvim-cmp",
+      {
+        "zbirenbaum/copilot.lua",
+        opts = {
+          suggestion = { enabled = false, },
+          panel = { enabled = false, },
+        },
+      },
+    },
+  },
   {
     'voldikss/vim-floaterm',
     config = function() vim.cmd('source ~/.config/nvim/configure/floaterm.vim') end,
