@@ -13,9 +13,9 @@ cmp.setup {
   mapping = {
     ['<C-d>'] = cmp.mapping.scroll_docs(4),
     ['<C-u>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+    ['<C-q>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
     ['<C-e>'] = cmp.mapping.abort(),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    ['<Tab>'] = cmp.mapping.confirm({ select = true }),
     ["<C-n>"] = function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
