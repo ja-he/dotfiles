@@ -63,12 +63,13 @@ local plugins = {
   {
     'jose-elias-alvarez/null-ls.nvim',
     lazy = true,
-    ft = { 'go' },
+    ft = { 'go', 'gitcommit' },
     config = function()
       local ls = require'null-ls'
       ls.setup({
         sources={
           ls.builtins.diagnostics.revive,
+          ls.builtins.diagnostics.gitlint,
         },
       })
     end,
