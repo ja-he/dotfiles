@@ -33,11 +33,14 @@ nnoremap <F12>           :FloatermNew --wintype=split<CR>
 nnoremap <leader>nt :tabnew<CR>
 
 " focus
+" probably drop these
 vnoremap <leader>xn :TZNarrow<CR>
 nnoremap <leader>xn :TZNarrow<CR>
 nnoremap <leader>xf :TZFocus<CR>
 nnoremap <leader>xm :TZMinimalist<CR>
 nnoremap <leader>xa :TZAtaraxis<CR>
+" and only keep this
+nnoremap <leader>Z :ZenMode<CR>
 
 nnoremap <leader>vm :mkview<CR>
 nnoremap <leader>vl :loadview<CR>
