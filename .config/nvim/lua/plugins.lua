@@ -2,15 +2,27 @@
 
 local plugins = {
 
-  { 'nvim-lua/plenary.nvim' },
-
   -- git
-  'tpope/vim-fugitive',
-  { 'lewis6991/gitsigns.nvim', config = function() require("ztf.configure.gitsigns") end },
-  { 'rhysd/git-messenger.vim', config = function() vim.cmd('source ~/.config/nvim/configure/git-messenger.vim') end },
+  {
+    'tpope/vim-fugitive',
+    lazy = true,
+    cmd = { "G", "Git", "Gedit" },
+  },
+  {
+    'lewis6991/gitsigns.nvim',
+    config = function() require("ztf.configure.gitsigns") end,
+  },
+  {
+    'rhysd/git-messenger.vim',
+    config = function() vim.cmd('source ~/.config/nvim/configure/git-messenger.vim') end,
+  },
 
   -- stuff?
-  'vim-pandoc/vim-pandoc-syntax',
+  {
+    'vim-pandoc/vim-pandoc-syntax',
+    lazy = true,
+    ft = 'markdown',
+  },
   'chrisbra/unicode.vim',
   'kylelaker/riscv.vim',
   { 'norcalli/nvim-colorizer.lua', config = function() require('ztf.configure.nvim-colorizer') end },
@@ -23,9 +35,9 @@ local plugins = {
   'mfussenegger/nvim-dap',
   {
     "rcarriga/nvim-dap-ui",
-    dependencies = { "mfussenegger/nvim-dap" },
     lazy = true,
     config = function() require("ztf.configure.dapui") end,
+    dependencies = { "mfussenegger/nvim-dap" },
   },
   -- rust
   {
@@ -44,9 +56,10 @@ local plugins = {
   -- go
   {
     'leoluz/nvim-dap-go',
-    dependencies = { 'mfussenegger/nvim-dap' },
+    lazy = true,
     ft = 'go',
     config = function() require("ztf.configure.dap-go") end,
+    dependencies = { 'mfussenegger/nvim-dap' },
   },
   {
     'rafaelsq/nvim-goc.lua',
@@ -65,9 +78,9 @@ local plugins = {
     lazy = true,
     ft = { 'go', 'gitcommit' },
     config = function()
-      local ls = require'null-ls'
+      local ls = require 'null-ls'
       ls.setup({
-        sources={
+        sources = {
           ls.builtins.diagnostics.revive,
           ls.builtins.diagnostics.staticcheck,
           ls.builtins.diagnostics.gitlint,
