@@ -103,6 +103,7 @@ local plugins = {
   {
     'L3MON4D3/LuaSnip',
     config = function() require("ztf.configure.luasnip") end,
+    dependencies = { 'rafamadriz/friendly-snippets' },
   },
 
   -- DB viewing

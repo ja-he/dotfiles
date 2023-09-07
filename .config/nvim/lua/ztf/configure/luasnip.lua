@@ -46,3 +46,5 @@ luasnip.add_snippets("bash", {
     t("$(( $RANDOM % "), i(1, "modulus"), t(" + "), i(2, "base-value"), t(" ))"),
   }),
 })
+
+require("luasnip.loaders.from_vscode").lazy_load()
