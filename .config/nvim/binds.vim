@@ -53,19 +53,16 @@ nnoremap <leader>ctC :lua require'nvim-goc'.ClearCoverage()<CR>
 nnoremap <leader>cl  :FloatermNew --wintype=split --autoclose=0 revive -formatter stylish %<CR>
 
 " spell mappings
-nnoremap <leader>ss :setlocal spell<CR>
+nnoremap <leader>s+ :setlocal spell<CR>
 nnoremap <leader>s- :setlocal nospell<CR>
-nnoremap <leader>sd :setlocal spelllang=de<CR>
-nnoremap <leader>se :setlocal spelllang=en<CR>
-nnoremap <leader>se :setlocal spelllang=en<CR>
+nnoremap <leader>sg zg
+nnoremap <leader>sb zw
 nnoremap <leader>sf :lua require'telescope.builtin'.spell_suggest()<CR>
 nnoremap <leader>sn ]s
 nnoremap <leader>sp [s
 
-nnoremap <leader>snh :nohlsearch<CR>
-
-nnoremap <leader>sc :call Conceal()<CR>
-nnoremap <leader>sC :call NoConceal()<CR>
+nnoremap <leader>Sc :call Conceal()<CR>
+nnoremap <leader>SC :call NoConceal()<CR>
 
 " editing certain files binds
 nnoremap <leader>ecv :edit $HOME/repositories/dotfiles/.config/nvim/init.vim<CR>
@@ -88,7 +85,7 @@ nnoremap <leader>gd :FloatermNew --width=0.9 git diff %<CR>
 nnoremap <leader>gg :FloatermNew --wintype=split --autoclose=0 git graph<CR>
 " signify bindings
 nnoremap <leader>gh :Gitsigns toggle_numhl<CR>
-nnoremap <leader>gH :Gitsigns toggle_word_diff<CR>
+nnoremap <leader>gH :Gitsigns toggle_linehl<CR>
 
 " find binds (telescope and fzf)
 nnoremap <silent> <leader>ff :lua require'telescope.builtin'.find_files({hidden = true})<CR>
