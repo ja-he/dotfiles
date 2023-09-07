@@ -131,6 +131,7 @@ nnoremap <leader>lea  <cmd>lua vim.lsp.buf.code_action()<CR>
 nnoremap <leader>lo   :LspStop<CR>
 nnoremap <leader>lO   :LspStart<CR>
 autocmd FileType rust nnoremap <leader>lt :RustToggleInlayHints<CR>
+nnoremap <leader>tt :TroubleToggle<CR>
 
 nnoremap H :tabprev<CR>
 nnoremap L :tabnext<CR>
@@ -139,7 +140,7 @@ nnoremap <c-l> :+tabmove<CR>
 
 vnoremap <leader>X c<C-R>=system("IFS='\n' read input; python -c \"print($input,end='')\"",@+)<CR><ESC>
 
-nnoremap <leader>T :TSBufToggle highlight<CR>
+nnoremap <leader>Th :TSBufToggle highlight<CR>
 
 " --- copilot ---
 " Dismiss the current suggestion.

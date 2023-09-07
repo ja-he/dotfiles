@@ -184,6 +184,15 @@ local plugins = {
   -- ui stuff
   'stevearc/dressing.nvim',
   {
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    },
+  },
+  {
     'pocco81/true-zen.nvim',
     config = function() require("ztf.configure.true-zen") end,
   },
