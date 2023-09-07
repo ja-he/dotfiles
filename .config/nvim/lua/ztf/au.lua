@@ -64,6 +64,11 @@ create_ft_au('rust', function()
   vim.bo.textwidth = 100
   vim.o.colorcolumn = '101'
 end)
+create_ft_au('go', function()
+  vim.cmd([[set noexpandtab]])
+  vim.cmd([[set colorcolumn=0]])
+  vim.cmd([[set textwidth=0]])
+end)
 create_ft_au('markdown.pandoc', wrapped_writing_settings)
 create_ft_au('tex', wrapped_writing_settings)
 create_ft_au('tex', function()
