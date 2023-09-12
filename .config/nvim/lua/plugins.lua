@@ -242,6 +242,10 @@ local plugins = {
       text = { spinner = "dots_pulse" },
     },
   },
+  {
+    'nvim-pack/nvim-spectre',
+    dependencies = {  'nvim-lua/plenary.nvim' },
+  },
 
   -- colorschemes
   { 'git@github.com:ja-he/kurzzug.git', dependencies = 'rktjmp/lush.nvim' },
