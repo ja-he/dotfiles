@@ -22,7 +22,7 @@ local s = luasnip.snippet
 -- local sn = luasnip.snippet_node
 local t = luasnip.text_node
 local i = luasnip.insert_node
--- local f = luasnip.function_node
+local f = luasnip.function_node
 -- local c = luasnip.choice_node
 -- local d = luasnip.dynamic_node
 -- local r = luasnip.restore_node
@@ -38,6 +38,17 @@ local i = luasnip.insert_node
 -- local conds = require("luasnip.extras.conditions")
 -- local conds_expand = require("luasnip.extras.conditions.expand")
 
+local random = math.random
+local function uuid()
+  -- function from <https://gist.github.com/jrus/3197011>
+  math.randomseed(os.time())
+  local template = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'
+  return string.gsub(template, '[xy]', function(c)
+    local v = (c == 'x') and random(0, 0xf) or random(8, 0xb)
+    return string.format('%x', v)
+  end)
+end
+
 luasnip.add_snippets("bash", {
   s("definition with efault value", {
     i(1, "varfoo"), t("=${"), i(2, "varbar"), t(":-"), i(3, "defaultval"), t("}"),
@@ -45,6 +56,10 @@ luasnip.add_snippets("bash", {
   s("random number (quick and dirty)", {
     t("$(( $RANDOM % "), i(1, "modulus"), t(" + "), i(2, "base-value"), t(" ))"),
   }),
+})
+
+luasnip.add_snippets("all", {
+  s("uuid", { f(uuid) }),
 })
 
 require("luasnip.loaders.from_vscode").lazy_load()
