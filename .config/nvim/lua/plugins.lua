@@ -74,7 +74,7 @@ local plugins = {
 
   -- null-ls (rip)
   {
-    'jose-elias-alvarez/null-ls.nvim',
+    'nvimtools/none-ls.nvim',
     lazy = true,
     ft = { 'go', 'gitcommit' },
     config = function()
