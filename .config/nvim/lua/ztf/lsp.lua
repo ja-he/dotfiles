@@ -12,9 +12,7 @@ local configs = require 'lspconfig.configs'
 --    )
 --    capabilities.textDocument.completion.snippetSupport = false
 
-lspconfig.gopls.setup{}
-
-lspconfig.vimls.setup{}
+lspconfig.gopls.setup {}
 
 lspconfig.typst_lsp.setup{
   root_dir = function(path)
@@ -34,14 +32,15 @@ lspconfig.typst_lsp.setup{
     return result
   end,
 }
+lspconfig.vimls.setup {}
 
-lspconfig.bashls.setup{}
+lspconfig.bashls.setup {}
 
-lspconfig.pylsp.setup{}
+lspconfig.pylsp.setup {}
 
 -- lspconfig.jdtls.setup{}
 
-lspconfig.jsonls.setup{}
+lspconfig.jsonls.setup {}
 
 --Enable (broadcasting) snippet capability for completion
 local html_caps = vim.lsp.protocol.make_client_capabilities()
@@ -64,7 +63,7 @@ lspconfig.lua_ls.setup {
       },
       diagnostics = {
         -- Get the language server to recognize the `vim` global
-        globals = {'vim'},
+        globals = { 'vim' },
       },
       workspace = {
         -- Make the server aware of Neovim runtime files
@@ -74,15 +73,15 @@ lspconfig.lua_ls.setup {
   },
 }
 
-lspconfig.clangd.setup{
+lspconfig.clangd.setup {
   init_options = { clangdFileStatus = true },
   settings = {
     cmd = { "clangd",
-              "-j=10",
-              "--clang-tidy" ,
-              "--suggest-missing-includes" ,
-              "--cross-file-rename"
-          }
+      "-j=10",
+      "--clang-tidy",
+      "--suggest-missing-includes",
+      "--cross-file-rename"
+    }
   }
 }
 
@@ -90,27 +89,27 @@ lspconfig.clangd.setup{
 if not configs.spdx_lsp then
   configs.spdx_lsp = {
     default_config = {
-      cmd = {'/home/jhen/repositories/silwerboom/silwerboom'};
-      filetypes = {'spdx'};
+      cmd = { '/home/jhen/repositories/silwerboom/silwerboom' },
+      filetypes = { 'spdx' },
       root_dir = function(fname)
         return lspconfig.util.path.dirname(fname)
-      end;
-      settings = {};
-    };
+      end,
+      settings = {},
+    },
   }
 end
-lspconfig.spdx_lsp.setup{}
+lspconfig.spdx_lsp.setup {}
 
 if not configs.muddles then
   configs.muddles = {
     default_config = {
-      cmd = {'/home/ztf/repositories/muddles/target/debug/muddles'};
-      filetypes = {'mud'};
+      cmd = { '/home/ztf/repositories/muddles/target/debug/muddles' },
+      filetypes = { 'mud' },
       root_dir = function(fname)
         return lspconfig.util.path.dirname(fname)
-      end;
-      settings = {};
-    };
+      end,
+      settings = {},
+    },
   }
 end
-lspconfig.muddles.setup{}
+lspconfig.muddles.setup {}
