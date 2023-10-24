@@ -89,6 +89,8 @@ set breakindent
 set list
 set listchars=tab:\·\ ,trail:·,extends:…
 
+set breakat-=@
+
 " use 24-bit RGB colors
 set termguicolors
 
