@@ -45,7 +45,15 @@ lspconfig.jsonls.setup {}
 --Enable (broadcasting) snippet capability for completion
 local html_caps = vim.lsp.protocol.make_client_capabilities()
 html_caps.textDocument.completion.completionItem.snippetSupport = true
-require'lspconfig'.html.setup {
+lspconfig.html.setup {
+  capabilities = html_caps,
+  configurationSection = { "html", "css", "javascript" },
+  embeddedLanguages = {
+    css = true,
+    javascript = true
+  },
+}
+lspconfig.cssls.setup {
   capabilities = html_caps,
 }
 
