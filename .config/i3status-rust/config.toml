@@ -78,6 +78,12 @@ interval = 10
 device = "BAT1"
 
 [[block]]
+block = "backlight"
+format = " $icon "
+invert_icons = true
+missing_format = ""
+
+[[block]]
 block = "time"
 interval = 1
 format = " $icon $timestamp.datetime(f:'%a %Y-%m-%d %R', l:en_US) "
