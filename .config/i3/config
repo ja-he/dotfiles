@@ -257,8 +257,8 @@ bar {
 # Window Settings 
 set $BorderWidth 4
 hide_edge_borders none
-new_window pixel $BorderWidth
-new_float pixel $BorderWidth
+default_border pixel $BorderWidth
+default_floating_border pixel $BorderWidth
 #bindsym $mod+i border none
 bindsym $mod+u       [window_type="normal"] border pixel $BorderWidth
 
