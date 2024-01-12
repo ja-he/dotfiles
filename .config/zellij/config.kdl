@@ -145,8 +145,10 @@ keybinds {
         bind "x" { CloseFocus; SwitchToMode "Normal"; }
     }
     shared_except "locked" {
-        bind "Ctrl g" { SwitchToMode "Locked"; }
-        bind "Ctrl q" { Quit; }
+        //bind "Ctrl g" { SwitchToMode "Locked"; }
+        unbind "Ctrl g"
+        //bind "Ctrl q" { Quit; }
+        unbind "Ctrl q"
         bind "Alt n" { NewPane; }
         bind "Alt h" "Alt Left" { MoveFocusOrTab "Left"; }
         bind "Alt l" "Alt Right" { MoveFocusOrTab "Right"; }
@@ -161,22 +163,28 @@ keybinds {
         bind "Enter" "Esc" { SwitchToMode "Normal"; }
     }
     shared_except "pane" "locked" {
-        bind "Ctrl p" { SwitchToMode "Pane"; }
+        //bind "Ctrl p" { SwitchToMode "Pane"; }
+        unbind "Ctrl p"
     }
     shared_except "resize" "locked" {
-        bind "Ctrl n" { SwitchToMode "Resize"; }
+        //bind "Ctrl n" { SwitchToMode "Resize"; }
+        unbind "Ctrl n"
     }
     shared_except "scroll" "locked" {
-        bind "Ctrl s" { SwitchToMode "Scroll"; }
+        //bind "Ctrl s" { SwitchToMode "Scroll"; }
+        unbind "Ctrl s"
     }
     shared_except "session" "locked" {
-        bind "Ctrl o" { SwitchToMode "Session"; }
+        //bind "Ctrl o" { SwitchToMode "Session"; }
+        unbind "Ctrl o"
     }
     shared_except "tab" "locked" {
-        bind "Ctrl t" { SwitchToMode "Tab"; }
+        //bind "Ctrl t" { SwitchToMode "Tab"; }
+        unbind "Ctrl t"
     }
     shared_except "move" "locked" {
-        bind "Ctrl h" { SwitchToMode "Move"; }
+        // bind "Ctrl h" { SwitchToMode "Move"; }
+        unbind "Ctrl h"
     }
     shared_except "tmux" "locked" {
         bind "Ctrl b" { SwitchToMode "Tmux"; }
