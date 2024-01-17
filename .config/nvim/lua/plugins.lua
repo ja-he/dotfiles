@@ -83,7 +83,6 @@ local plugins = {
         sources = {
           ls.builtins.diagnostics.revive,
           ls.builtins.diagnostics.staticcheck,
-          ls.builtins.diagnostics.gitlint,
         },
       })
     end,
