@@ -1,0 +1,10 @@
+#!/bin/bash
+set -euo pipefail
+
+THESIS_PATH="${THESIS_PATH:-/home/ztf/repositories/msc-thesis}"
+
+ts="$(date --rfc-3339=seconds | sed 's/ /_/g' | sed 's/://g')"
+
+new_log_file="${THESIS_PATH}/log/${ts}.typ"
+
+nvim "${new_log_file}"
