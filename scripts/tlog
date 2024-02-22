@@ -3,8 +3,24 @@ set -euo pipefail
 
 THESIS_PATH="${THESIS_PATH:-/home/ztf/repositories/msc-thesis}"
 
-ts="$(date --rfc-3339=seconds | sed 's/ /_/g' | sed 's/://g')"
+cmd="${1}"
 
-new_log_file="${THESIS_PATH}/log/${ts}.typ"
+case "${cmd}" in
 
-nvim "${new_log_file}"
+  "new")
+    ts="$(date --rfc-3339=seconds | sed 's/ /_/g' | sed 's/://g')"
+    new_log_file="${THESIS_PATH}/log/${ts}.typ"
+    nvim "${new_log_file}"
+    ;;
+
+  "latest")
+    latest_log_file="$(ls "${THESIS_PATH}"/log/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_*.typ | tail -n 1)"
+    nvim "${latest_log_file}"
+    ;;
+
+  "help")
+    echo "Usage: tlog [new|latest|help]"
+    exit 0
+    ;;
+
+esac
