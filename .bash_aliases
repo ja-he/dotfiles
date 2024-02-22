@@ -13,3 +13,4 @@ alias last_screenshot='find ${HOME}/Pictures/screenshots/ -regextype sed -type f
 alias clera='clear'
 alias claer='clear'
 alias celar='clear'
+alias juts='just'
