@@ -1,0 +1,5 @@
+#!/usr/bin/nu
+
+let last_screenshot = (ls ~/Nextcloud/screenshots/ | sort-by modified | last)
+
+echo $last_screenshot.name
