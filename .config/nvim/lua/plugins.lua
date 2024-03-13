@@ -76,13 +76,14 @@ local plugins = {
   {
     'nvimtools/none-ls.nvim',
     lazy = true,
-    ft = { 'go', 'gitcommit' },
+    ft = { 'go', 'gitcommit', 'sh' },
     config = function()
       local ls = require 'null-ls'
       ls.setup({
         sources = {
           ls.builtins.diagnostics.revive,
           ls.builtins.diagnostics.staticcheck,
+          ls.builtins.code_actions.shellcheck,
         },
       })
     end,
