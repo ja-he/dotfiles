@@ -161,6 +161,7 @@ keybinds {
 
         bind "Ctrl r" { SwitchToMode "Resize"; }
         bind "Ctrl p" { SwitchToMode "Pane"; }
+        bind "Ctrl t" { SwitchToMode "Tab"; }
         bind "Ctrl o" { SwitchToMode "Session"; }
     }
     shared_except "locked" {
