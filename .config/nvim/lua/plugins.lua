@@ -72,6 +72,11 @@ local plugins = {
     opts = {},
   }, -- formerly 'folke/lua-dev.nvim'
 
+  -- nushell
+  {
+    'LhKipp/nvim-nu',
+  },
+
   -- null-ls (rip)
   {
     'nvimtools/none-ls.nvim',
