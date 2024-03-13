@@ -285,6 +285,8 @@ local plugins = {
 
   { 'tweekmonster/startuptime.vim', lazy = true, cmd = 'StartupTime' },
 
+	{ 'mbbill/undotree' },
+
 }
 
 require('lazy').setup(plugins)

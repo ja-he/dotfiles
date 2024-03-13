@@ -138,6 +138,8 @@ nnoremap L :tabnext<CR>
 nnoremap <c-h> :-tabmove<CR>
 nnoremap <c-l> :+tabmove<CR>
 
+nnoremap <leader>uu :UndotreeToggle<CR>
+
 vnoremap <leader>X c<C-R>=system("IFS='\n' read input; python -c \"print($input,end='')\"",@+)<CR><ESC>
 
 nnoremap <leader>Th :TSBufToggle highlight<CR>
