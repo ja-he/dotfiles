@@ -3,24 +3,38 @@ set -euo pipefail
 
 THESIS_PATH="${THESIS_PATH:-/home/ztf/repositories/msc-thesis}"
 
-cmd="${1}"
+cmd="${1:-}"
 
 case "${cmd}" in
 
   "new")
     ts="$(date --rfc-3339=seconds | sed 's/ /_/g' | sed 's/://g')"
     new_log_file="${THESIS_PATH}/log/${ts}.typ"
+    cd "${THESIS_PATH}/log"
     nvim "${new_log_file}"
     ;;
 
   "latest")
     latest_log_file="$(ls "${THESIS_PATH}"/log/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_*.typ | tail -n 1)"
+    cd "${THESIS_PATH}/log"
     nvim "${latest_log_file}"
     ;;
 
   "help")
     echo "Usage: tlog [new|latest|help]"
     exit 0
+    ;;
+
+  "")
+    echo "no command given"
+    echo "Usage: tlog [new|latest|help]"
+    exit 1
+    ;;
+
+  *)
+    echo "unknown command '${cmd}' provided"
+    echo "Usage: tlog [new|latest|help]"
+    exit 1
     ;;
 
 esac
