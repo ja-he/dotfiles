@@ -117,7 +117,8 @@ nnoremap <leader>lh   <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <leader>li   <cmd>lua vim.lsp.buf.implementation()<CR>
 nnoremap <leader>lS   <cmd>lua vim.lsp.buf.signature_help()<CR>
 nnoremap <leader>lt   <cmd>lua vim.lsp.buf.type_definition()<CR>
-nnoremap <leader>lr   <cmd>lua vim.lsp.buf.references()<CR>
+" nnoremap <leader>lr   <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <leader>lr   <cmd>lua require'telescope.builtin'.lsp_references()<CR>
 nnoremap <leader>lw   <cmd>lua vim.lsp.buf.document_symbol()<CR>
 nnoremap <leader>lW   <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap <leader>lf   <cmd>lua vim.lsp.buf.format()<CR>
