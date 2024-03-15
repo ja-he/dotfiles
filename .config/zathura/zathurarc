@@ -4,6 +4,5 @@ set recolor-lightcolor  '#000000'
 set default-fg '#ffffff'
 set default-bg '#000000'
 
-set highlight-color '#ffb914'
-set highlight-active-color '#14a5ff'
-set highlight-transparency 0.25
+set highlight-color "rgba(0xff, 0xb9, 0x14, 0.25)"
+set highlight-active-color "rgba(0x14, 0xa5, 0xff, 0.25)"
