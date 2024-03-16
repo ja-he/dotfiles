@@ -448,6 +448,13 @@ $env.config = {
             event: { send: openeditor }
         }
         {
+            name: open_command_editor
+            modifier: none
+            keycode: char_v
+            mode: [emacs vi_normal]
+            event: { send: openeditor }
+        }
+        {
             name: move_up
             modifier: none
             keycode: up
@@ -711,7 +718,7 @@ $env.config = {
             name: cut_line_from_start
             modifier: control
             keycode: char_u
-            mode: emacs
+            mode: [emacs vi_normal vi_insert]
             event: {edit: cutfromstart}
         }
         {
