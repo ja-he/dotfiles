@@ -104,3 +104,19 @@ scripts/quicktexfiles/content.tex
 /.config/discord/
 /.config/xournalpp/autosave/
 /.config/xournalpp/metadata/
+/.config/caddy/
+/.config/darktable/
+/.config/Nextcloud/
+/.config/Microsoft/
+/.config/zoom.conf
+/.config/whatsapp/
+/.config/tmux/plugins/
+/.config/sqlitebrowser/
+/.config/syncthing/
+/.config/obsidian/
+/.config/kdeconnect/
+/.config/JetBrains/
+/.config/GitKraken/
+/.config/Code - OSS/
+/.config/Signal/
+/.config/LanguageTool/
