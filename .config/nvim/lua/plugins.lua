@@ -249,7 +249,14 @@ local plugins = {
   },
   {
     'nvim-pack/nvim-spectre',
-    dependencies = {  'nvim-lua/plenary.nvim' },
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    opts = {
+      highlight = {
+        ui = "String",
+        search = "DiffDelete",
+        replace = "DiffAdd"
+      },
+    },
   },
 
   -- colorschemes
