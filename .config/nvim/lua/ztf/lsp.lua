@@ -14,6 +14,8 @@ local configs = require 'lspconfig.configs'
 
 lspconfig.gopls.setup {}
 
+lspconfig.vimls.setup {}
+
 -- lspconfig.typst_lsp.setup {
 --   root_dir = function(path)
 --     local strip_dir_pat = '/([^/]+)$'
@@ -43,13 +45,12 @@ lspconfig.tinymist.setup {
     return lspconfig.util.path.dirname(fname)
   end,
 }
-lspconfig.vimls.setup {}
 
 lspconfig.bashls.setup {}
 
 lspconfig.pylsp.setup {}
 
--- lspconfig.jdtls.setup{}
+-- lspconfig.jdtls.setup {}
 
 lspconfig.jsonls.setup {}
 

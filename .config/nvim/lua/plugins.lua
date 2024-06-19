@@ -299,7 +299,7 @@ local plugins = {
 
   { 'tweekmonster/startuptime.vim', lazy = true, cmd = 'StartupTime' },
 
-	{ 'mbbill/undotree' },
+  { 'mbbill/undotree' },
 
 }
 
