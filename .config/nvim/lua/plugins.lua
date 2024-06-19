@@ -39,6 +39,14 @@ local plugins = {
     config = function() require("ztf.configure.dapui") end,
     dependencies = { "mfussenegger/nvim-dap" },
   },
+  {
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "tinymist",
+      },
+    },
+  },
   -- rust
   {
     'simrat39/rust-tools.nvim',

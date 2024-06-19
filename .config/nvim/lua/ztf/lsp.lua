@@ -14,22 +14,33 @@ local configs = require 'lspconfig.configs'
 
 lspconfig.gopls.setup {}
 
-lspconfig.typst_lsp.setup{
-  root_dir = function(path)
-    local strip_dir_pat = '/([^/]+)$'
-    local strip_sep_pat = '/$'
-    if not path or #path == 0 then
-      return
-    end
-    local result = path:gsub(strip_sep_pat, ''):gsub(strip_dir_pat, '')
-    if #result == 0 then
-      if vim.loop.os_uname().version:match 'Windows' then
-        return path:sub(1, 2):upper()
-      else
-        return '/'
-      end
-    end
-    return result
+-- lspconfig.typst_lsp.setup {
+--   root_dir = function(path)
+--     local strip_dir_pat = '/([^/]+)$'
+--     local strip_sep_pat = '/$'
+--     if not path or #path == 0 then
+--       return
+--     end
+--     local result = path:gsub(strip_sep_pat, ''):gsub(strip_dir_pat, '')
+--     if #result == 0 then
+--       if vim.loop.os_uname().version:match 'Windows' then
+--         return path:sub(1, 2):upper()
+--       else
+--         return '/'
+--       end
+--     end
+--     return result
+--   end,
+-- }
+
+-- tinymist is an LS for typst
+lspconfig.tinymist.setup {
+  settings = {
+    exportPdf = "onType",
+    outputPath = "$dir/live/$name",
+  },
+  root_dir = function(fname)
+    return lspconfig.util.path.dirname(fname)
   end,
 }
 lspconfig.vimls.setup {}
