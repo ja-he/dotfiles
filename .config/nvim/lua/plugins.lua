@@ -163,7 +163,6 @@ local plugins = {
 
   { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
   { 'nvim-treesitter/playground',      dependencies = { 'nvim-treesitter/nvim-treesitter' } },
-  { 'lewis6991/spellsitter.nvim',      config = function() require("ztf.configure.spellsitter") end },
 
   {
     'https://github.com/nat-418/boole.nvim',
