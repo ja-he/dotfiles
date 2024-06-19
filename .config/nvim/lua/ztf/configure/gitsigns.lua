@@ -1,10 +1,10 @@
 require'gitsigns'.setup{
   signs = {
-    add          = {hl = 'GitSignsAddFG'   , text = '│', numhl='GitSignsAdd'   , linehl='GitSignsAdd'},
-    change       = {hl = 'GitSignsChangeFG', text = '│', numhl='GitSignsChange', linehl='GitSignsChange'},
-    delete       = {hl = 'GitSignsDeleteFG', text = '_', numhl='GitSignsDelete', linehl='GitSignsDelete'},
-    topdelete    = {hl = 'GitSignsDeleteFG', text = '‾', numhl='GitSignsDelete', linehl='GitSignsDelete'},
-    changedelete = {hl = 'GitSignsChangeFG', text = '~', numhl='GitSignsChange', linehl='GitSignsChange'},
+    add          = {text = '│'},
+    change       = {text = '│'},
+    delete       = {text = '_'},
+    topdelete    = {text = '‾'},
+    changedelete = {text = '~'},
   },
   signcolumn = false,  -- Toggle with `:Gitsigns toggle_signs`
   numhl      = false,  -- Toggle with `:Gitsigns toggle_numhl`
@@ -22,9 +22,6 @@ require'gitsigns'.setup{
     delay = 1000,
     ignore_whitespace = false,
   },
-  current_line_blame_formatter_opts = {
-    relative_time = false
-  },
   sign_priority = 6,
   update_debounce = 100,
   status_formatter = nil, -- Use default
@@ -36,8 +33,5 @@ require'gitsigns'.setup{
     relative = 'cursor',
     row = 0,
     col = 1
-  },
-  yadm = {
-    enable = false
   },
 }
