@@ -31,21 +31,35 @@ local plugins = {
   'tpope/vim-characterize',
   'tommcdo/vim-lion',
 
-  'neovim/nvim-lspconfig',
+  {
+    "williamboman/mason.nvim",
+    opts = {},
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    opts = {
+      ensure_installed = {
+        "tinymist",
+        "rust_analyzer",
+        "rust_analyzer",
+        "lua_ls",
+      },
+    },
+    dependencies = { "williamboman/mason.nvim" },
+  },
+  {
+    'neovim/nvim-lspconfig',
+    dependencies = { "williamboman/mason-lspconfig.nvim" },
+    config = function()
+      require("ztf.lsp")
+    end,
+  },
   'mfussenegger/nvim-dap',
   {
     "rcarriga/nvim-dap-ui",
     lazy = true,
     config = function() require("ztf.configure.dapui") end,
     dependencies = { "mfussenegger/nvim-dap" },
-  },
-  {
-    "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        "tinymist",
-      },
-    },
   },
   -- rust
   {
