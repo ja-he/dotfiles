@@ -278,6 +278,11 @@ bindsym $mod+c       exec alacritty -e python3
 #bindsym $mod+i       exec xinput --disable "SynPS/2 Synaptics TouchPad"
 #bindsym $mod+shift+i exec xinput --enable  "SynPS/2 Synaptics TouchPad"
 
+input "type:keyboard" {
+    xkb_layout de
+    xkb_variant nodeadkeys
+}
+
 #bindsym XF86AudioPlay exec ~/scripts/micmutetoggle.sh
 bindsym XF86AudioMicMute exec ~/scripts/micmutetoggle.sh
 bindsym $mod+m exec ~/scripts/micmutetoggle.sh
