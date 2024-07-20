@@ -846,4 +846,7 @@ $env.config = {
     ]
 }
 
+alias l = ls
+alias ll = ls -l
+
 # use ~/.cache/starship/init.nu
