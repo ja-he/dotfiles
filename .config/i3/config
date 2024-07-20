@@ -36,15 +36,9 @@ bindsym $mod+Shift+q kill
 # create and show a QR code for the current clipboard contents
 bindsym $mod+q exec xclip -selection clipboard -o | qrencode -o - |  feh --zoom fill --geometry 800x800 --force-aliasing -
 
-# start dmenu (a program launcher)
-#bindsym $mod+d exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+# valid alternative programs are dmenu, rofi, tofi, ...
 bindsym $mod+d exec rofi -show run
 bindsym $mod+shift+d exec rofi -show window
-# you could add a rofi window switcher as well... 
 
 # moving workspaces to other display 
 bindsym $mod+i move workspace to output $Display0
