@@ -7,7 +7,7 @@ _exit_because_monitor() {
 }
 pactl get-default-source | grep -i "monitor" && _exit_because_monitor
 
-if pactl list | grep loopback; then
+if pactl list short modules | grep module-loopback; then
   pactl unload-module module-loopback
   notify-send -t 1000 "loopback off"
 else 
