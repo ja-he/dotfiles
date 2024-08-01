@@ -120,3 +120,7 @@ scripts/quicktexfiles/content.tex
 /.config/Code - OSS/
 /.config/Signal/
 /.config/LanguageTool/
+/.config/Podman Desktop/
+/.config/autostart/
+/.config/cat_installer/
+/.config/cni/

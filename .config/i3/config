@@ -36,15 +36,9 @@ bindsym $mod+Shift+q kill
 # create and show a QR code for the current clipboard contents
 bindsym $mod+q exec xclip -selection clipboard -o | qrencode -o - |  feh --zoom fill --geometry 800x800 --force-aliasing -
 
-# start dmenu (a program launcher)
-#bindsym $mod+d exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+# valid alternative programs are dmenu, rofi, tofi, ...
 bindsym $mod+d exec rofi -show run
 bindsym $mod+shift+d exec rofi -show window
-# you could add a rofi window switcher as well... 
 
 # moving workspaces to other display 
 bindsym $mod+i move workspace to output $Display0
@@ -81,7 +75,8 @@ bindsym $mod+Right  focus right
 # split in horizontal orientation
 bindsym $mod+b split h
 
-bindsym $mod+shift+b exec scripts/backlight-cycle.sh
+bindsym $mod+shift+b exec scripts/backlight-cycle.sh up
+bindsym $mod+shift+v exec scripts/backlight-cycle.sh down
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -110,7 +105,8 @@ for_window [class="feh"] floating enable
 
 # screenshot (select)
 #bindsym --release   $mod+z  exec scrot -f
-bindsym --release   $mod+z  exec scrot -s -f -q 100 '/home/ztf/images/screenshots/%Y-%m-%d_%H%M%S.jpg' && notify-send "screenshot saved" || notify-send "screenshot aborted"
+#bindsym --release   $mod+z  exec scrot -s -f -q 100 '/home/ztf/Nextcloud/screenshots/%Y-%m-%d_%H%M%S.jpg' && notify-send "screenshot saved" || notify-send "screenshot aborted"
+bindsym --release   $mod+z  exec grim -g "$(slurp)" "/home/ztf/Nextcloud/screenshots/$(date +%Y-%m-%d_%H%M%S).png" && notify-send "screenshot saved" || notify-send "screenshot aborted"
 bindsym $mod+shift+z        exec feh $(find Pictures/screenshots/ -name "`date '+%Y-%m-%d'`*.png" | sort -r | head -n1)
 
 #bindsym --release   $mod+z  exec pactl set-source-mute bluez_source.4C_87_5D_0A_68_6C.headset_head_unit true
@@ -281,6 +277,13 @@ bindsym $mod+c       exec alacritty -e python3
 
 #bindsym $mod+i       exec xinput --disable "SynPS/2 Synaptics TouchPad"
 #bindsym $mod+shift+i exec xinput --enable  "SynPS/2 Synaptics TouchPad"
+
+input "type:keyboard" {
+    xkb_layout de
+    xkb_variant nodeadkeys
+}
+
+input "9580:109:Tablet_Monitor_Pen" map_to_output "HDMI-A-1"
 
 #bindsym XF86AudioPlay exec ~/scripts/micmutetoggle.sh
 bindsym XF86AudioMicMute exec ~/scripts/micmutetoggle.sh

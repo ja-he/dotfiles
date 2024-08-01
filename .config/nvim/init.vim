@@ -41,7 +41,6 @@ EOF
 
 lua require('ztf.colorscheme').apply()
 
-lua require("ztf.lsp")
 lua require("ztf.dap")
 lua require('ztf.treesitter')
 
