@@ -113,6 +113,7 @@ nnoremap          <leader>zm :FloatermNew --wintype=split z make<CR>
 " lsp keymappings (per example, adjusted by me)
 nnoremap <leader>ld   <cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap <leader>lD   <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <leader>lT   <cmd>lua vim.lsp.buf.type_definition()<CR>
 nnoremap <leader>lh   <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <leader>li   <cmd>lua vim.lsp.buf.implementation()<CR>
 nnoremap <leader>lS   <cmd>lua vim.lsp.buf.signature_help()<CR>
