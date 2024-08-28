@@ -41,8 +41,8 @@ local plugins = {
       ensure_installed = {
         "tinymist",
         "rust_analyzer",
-        "rust_analyzer",
         "lua_ls",
+        "gopls",
       },
     },
     dependencies = { "williamboman/mason.nvim" },
@@ -63,11 +63,29 @@ local plugins = {
   },
   -- rust
   {
-    'simrat39/rust-tools.nvim',
-    lazy = true,
-    ft = 'rust',
-    config = function() require 'ztf.configure.rust-tools' end,
+    'mrcjkb/rustaceanvim',
+    version = '^5', -- Recommended
+    lazy = false, -- This plugin is already lazy
     dependencies = { 'mfussenegger/nvim-dap', 'neovim/nvim-lspconfig' },
+    -- TODO: somehow might need to add this to setup
+    --
+    --     lspconfig.rust_analyzer.setup {
+    --       -- Other Configs ...
+    --       settings = {
+    --         ["rust-analyzer"] = {
+    --           -- Other Settings ...
+    --           procMacro = {
+    --             ignored = {
+    --               leptos_macro = {
+    --                 -- optional: --
+    --                 -- "component",
+    --                 "server",
+    --               },
+    --             },
+    --           },
+    --         },
+    --       }
+    --     }
   },
   -- java 🤮
   {
