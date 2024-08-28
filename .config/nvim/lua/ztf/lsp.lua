@@ -20,7 +20,8 @@ lspconfig.vimls.setup {}
 lspconfig.tinymist.setup {
   settings = {
     exportPdf = "onType",
-    outputPath = "$dir/live/$name",
+    outputPath = "$root/live/$dir/$name",
+    systemFonts = true,
   },
   root_dir = function(fname)
     return lspconfig.util.path.dirname(fname)
