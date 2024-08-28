@@ -60,6 +60,7 @@ local plugins = {
   {
     "rcarriga/nvim-dap-ui",
     dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
+		opts = {},
   },
   -- rust
   {
@@ -122,9 +123,7 @@ local plugins = {
         initialize_timeout_sec = 20,
         -- a string that defines the port to start delve debugger.
         -- default to string "${port}" which instructs nvim-dap
-        -- to start the process in a random available port.
-        -- if you set a port in your debug configuration, its value will be
-        -- assigned dynamically.
+        -- to start the process in a random available port
         port = "${port}",
         -- additional args to pass to dlv
         args = {},
@@ -134,21 +133,7 @@ local plugins = {
         -- compiled during debugging, for example.
         -- passing build flags using args is ineffective, as those are
         -- ignored by delve in dap mode.
-        -- avaliable ui interactive function to prompt for arguments get_arguments
-        build_flags = {},
-        -- whether the dlv process to be created detached or not. there is
-        -- an issue on Windows where this needs to be set to false
-        -- otherwise the dlv server creation will fail.
-        -- avaliable ui interactive function to prompt for build flags: get_build_flags
-        detached = vim.fn.has("win32") == 0,
-        -- the current working directory to run dlv from, if other than
-        -- the current working directory.
-        cwd = nil,
-      },
-      -- options related to running closest test
-      tests = {
-        -- enables verbosity when running the test.
-        verbose = false,
+        build_flags = "",
       },
     },
     dependencies = { 'mfussenegger/nvim-dap' },
