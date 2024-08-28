@@ -7,6 +7,7 @@ keybinds {
         bind "F1" { ToggleFloatingPanes; SwitchToMode "Normal"; }
         bind "F2" { TogglePaneEmbedOrFloating; SwitchToMode "Normal"; }
 
+        bind "F9" { CloseFocus; SwitchToMode "Normal"; }
         bind "F11" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
     }
     locked {
@@ -164,6 +165,8 @@ keybinds {
         bind "Ctrl t" { SwitchToMode "Tab"; }
         bind "Ctrl h" { SwitchToMode "Move"; }
         bind "Ctrl o" { SwitchToMode "Session"; }
+
+        bind "Ctrl q" { Quit; }
     }
     shared_except "locked" {
         //bind "Ctrl g" { SwitchToMode "Locked"; }
