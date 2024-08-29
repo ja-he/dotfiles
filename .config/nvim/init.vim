@@ -17,8 +17,12 @@
 "               \/_____/   \/_/   \/_/
 " __________________________________________________________________
 
-source ~/.config/nvim/settings.vim
-source ~/.config/nvim/binds.vim " this sets mapleader BEFORE lazy is loaded!
+let config_home = stdpath('config')
+
+execute 'source ' . config_home . '/settings.vim'
+" this sets mapleader BEFORE lazy is loaded!
+execute 'source ' . config_home . '/binds.vim'
+
 lua require("ztf.au")
 
 lua << EOF

@@ -14,7 +14,7 @@ local plugins = {
   },
   {
     'rhysd/git-messenger.vim',
-    config = function() vim.cmd('source ~/.config/nvim/configure/git-messenger.vim') end,
+    config = function() vim.cmd("source " .. vim.fn.stdpath('config') .. "/configure/git-messenger.vim") end,
   },
 
   -- stuff?
@@ -250,7 +250,7 @@ local plugins = {
   },
   {
     'voldikss/vim-floaterm',
-    config = function() vim.cmd('source ~/.config/nvim/configure/floaterm.vim') end,
+    config = function() vim.cmd("source " .. vim.fn.stdpath('config') .. "/configure/floaterm.vim") end,
   },
   {
     'dstein64/nvim-scrollview',
@@ -295,7 +295,7 @@ local plugins = {
   },
   {
     'junegunn/fzf.vim',
-    config = function() vim.cmd("source ~/.config/nvim/configure/fzf.vim") end,
+    config = function() vim.cmd("source " .. vim.fn.stdpath('config') .. "/configure/fzf.vim") end,
   },
   {
     'stevearc/oil.nvim',
@@ -540,7 +540,7 @@ local plugins = {
   },
 
   -- colorschemes
-  { 'git@github.com:ja-he/kurzzug.git', dependencies = 'rktjmp/lush.nvim' },
+  { 'ja-he/kurzzug', dependencies = 'rktjmp/lush.nvim' },
   { 'Shatur/neovim-ayu', },
   { 'fcpg/vim-fahrenheit', },
 
@@ -564,9 +564,9 @@ local plugins = {
   },
   'kaarmu/typst.vim',
 
-  'git@github.com:ja-he/mediate.nvim.git',
+  'ja-he/mediate.nvim',
   {
-    'git@github.com:ja-he/heat.nvim.git',
+    'ja-he/heat.nvim',
     config = function() require("ztf.configure.heat") end,
   },
 

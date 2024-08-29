@@ -21,7 +21,7 @@ local themes = {
   },
 }
 
-if os.getenv("DISPLAY") == nil then
+if not vim.fn.has('win32') and os.getenv("DISPLAY") == nil then
   return themes.fahrenheit
 else
   if os.getenv("ZTF_COLO") == 'dark' then
