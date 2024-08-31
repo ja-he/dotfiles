@@ -1,4 +1,4 @@
-intro-banner = "long"
+intro-banner = "off"
 prompt = ">>> "
 pretty-print = "auto"
 color = "auto"
