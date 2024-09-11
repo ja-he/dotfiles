@@ -266,6 +266,7 @@ local theme = lush(function(injected_functions)
     sym('@constructor')           { sym('@method') , gui = "italic" }, -- For constructor calls and definitions: `{ }` in Lua, and Java constructors.
     sym('@keyword')               { Keyword }, -- For keywords that don't fall in previous categories.
     sym('@type')                  { Type }, -- For types.
+    sym('@variable')              { Identifier },
 
     manOptionDesc { Title },
 
