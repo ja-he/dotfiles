@@ -86,4 +86,4 @@ missing_format = ""
 [[block]]
 block = "time"
 interval = 1
-format = " $icon $timestamp.datetime(f:'%a %Y-%m-%d %R', l:en_US) "
+format = " $icon $timestamp.datetime(f:'%a %Y-%m-%d %H:%M:%S', l:en_US) "
