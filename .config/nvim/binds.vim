@@ -164,3 +164,9 @@ nnoremap <leader>du :lua require'dapui'.toggle()<CR>
 nnoremap <leader>dc :lua require'dap'.continue()<CR>
 nnoremap <leader>db :lua require'dap'.toggle_breakpoint()<CR>
 nnoremap <leader>dn :lua require'dap'.step_over()<CR>
+
+nnoremap <leader>cp :Colortils picker<CR>
+nnoremap <leader>cl :Colortils lighten<CR>
+nnoremap <leader>cd :Colortils darken<CR>
+nnoremap <leader>cg :Colortils greyscale<CR>
+nnoremap <leader>cC :Colortils css<CR>
