@@ -19,7 +19,9 @@ separator = ""
 
 [icons]
 icons = "awesome5"
-
+[icons.overrides]
+sun = ""
+moon = ""
 
 [[block]]
 block = "sound"
@@ -82,6 +84,18 @@ block = "backlight"
 format = " $icon "
 invert_icons = true
 missing_format = ""
+
+[[block]]
+block = "custom"
+command = "/home/ztf/scripts/,theme-util i3status-rust-block | jq -c"
+interval = 120
+json = true
+format = " $icon "
+[[block.click]]
+button = "left"
+update = true
+sync = true
+cmd = "/home/ztf/scripts/,theme-util switch"
 
 [[block]]
 block = "time"
