@@ -1,0 +1,101 @@
+#!/bin/bash
+
+# Define paths and variables
+THEME_FILE="$HOME/.config/theme-util/current-theme"
+LOCK_FILE="$THEME_FILE.lock"
+DEFAULT_THEME="dark"
+DEFAULT_GTK_THEME_DARK="Adwaita-dark"
+DEFAULT_GTK_THEME_LIGHT="Adwaita-light"
+DEFAULT_ZTF_COLO_DARK="dark"
+DEFAULT_ZTF_COLO_LIGHT="light"
+DEFAULT_ZELLIJ_DARK="catppuccin-mocha"
+DEFAULT_ZELLIJ_LIGHT="catppuccin-latte"
+DEFAULT_KITTY_CONF_DARK="dark.conf"
+DEFAULT_KITTY_CONF_LIGHT="light.conf"
+
+# Ensure the theme file exists with a default value
+mkdir -p "$(dirname "$THEME_FILE")"
+if [ ! -f "$THEME_FILE" ]; then
+    echo "$DEFAULT_THEME" > "$THEME_FILE"
+fi
+
+switch_theme() {
+  (
+    # Create lock file and obtain exclusive lock
+    exec 200>"$LOCK_FILE"
+    flock -e 200
+
+    CURRENT_THEME=$(cat "$THEME_FILE")
+    local NEW_THEME
+    local NEW_GTK_THEME
+    local NEW_ZTF_COLO
+    local NEW_ZELLIJ_THEME
+    local NEW_KITTY_CONF
+
+    if [ "$CURRENT_THEME" == "dark" ]; then
+        NEW_THEME="light"
+        NEW_GTK_THEME=$DEFAULT_GTK_THEME_LIGHT
+        NEW_ZTF_COLO=$DEFAULT_ZTF_COLO_LIGHT
+        NEW_ZELLIJ_THEME=$DEFAULT_ZELLIJ_LIGHT
+        NEW_KITTY_CONF=$DEFAULT_KITTY_CONF_LIGHT
+    else
+        NEW_THEME="dark"
+        NEW_GTK_THEME=$DEFAULT_GTK_THEME_DARK
+        NEW_ZTF_COLO=$DEFAULT_ZTF_COLO_DARK
+        NEW_ZELLIJ_THEME=$DEFAULT_ZELLIJ_DARK
+        NEW_KITTY_CONF=$DEFAULT_KITTY_CONF_DARK
+    fi
+
+    # Apply changes
+    gsettings set org.gnome.desktop.interface gtk-theme "$NEW_GTK_THEME"
+    sed -i "s/^export\s\+ZTF_COLO=.*$/export ZTF_COLO=$NEW_ZTF_COLO/" "$HOME/.bashrc"
+    sed -i "s/^theme \".*\"$/theme \"$NEW_ZELLIJ_THEME\"/" "$HOME/.config/zellij/config.kdl"
+    sed -i "s|^include \./.*\.conf$|include ./$NEW_KITTY_CONF|" "$HOME/.config/kitty/kitty.conf"
+
+    # Update theme file
+    echo "$NEW_THEME" > "$THEME_FILE"
+
+    echo "Switched to $NEW_THEME theme." >&2
+
+  )
+}
+
+i3status_rust_block() {
+  (
+    # Create lock file and obtain exclusive lock
+    exec 200>"$LOCK_FILE"
+    flock -e 200
+
+    CURRENT_THEME=$(cat "$THEME_FILE")
+    ICON=""
+    STATE="Idle"
+
+    case $CURRENT_THEME in
+        "dark")
+            ICON="moon"
+            STATE="Good"
+            ;;
+        "light")
+            ICON="sun"
+            STATE="Good"
+            ;;
+    esac
+    OUTPUT_JSON=$(jq -n --arg icon "$ICON" --arg state "$STATE" --arg text "$CURRENT_THEME" --arg short_text "$CURRENT_THEME" \
+        '{icon: $icon, state: $state, text: $text, short_text: $short_text}')
+    echo "$OUTPUT_JSON"
+
+  )
+}
+
+case "$1" in
+    switch)
+        switch_theme
+        ;;
+    i3status-rust-block)
+        i3status_rust_block
+        ;;
+    *)
+        echo "Usage: $0 {switch|i3status-rust-block}" >&2
+        exit 1
+        ;;
+esac
