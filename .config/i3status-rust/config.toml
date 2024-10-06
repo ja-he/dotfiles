@@ -22,6 +22,9 @@ icons = "awesome5"
 [icons.overrides]
 sun = ""
 moon = ""
+toggle_on = ""
+toggle_off = ""
+theme = ""
 
 [[block]]
 block = "sound"
@@ -90,7 +93,7 @@ block = "custom"
 command = "/home/ztf/scripts/,theme-util i3status-rust-block | jq -c"
 interval = 120
 json = true
-format = " $icon "
+format = "  : $icon  "
 [[block.click]]
 button = "left"
 update = true
