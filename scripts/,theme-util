@@ -108,8 +108,24 @@ good_bg = "#ffffff"'
   ' "$I3SR_CONFIG" > "$I3SR_CONFIG.tmp" && mv "$I3SR_CONFIG.tmp" "$I3SR_CONFIG"
 }
 
-
 switch_theme() {
+  local POST_COMMAND=""
+  
+  # Parse additional options for switch
+  while [[ "$1" != "" ]]; do
+    case $1 in
+      --post-command )
+        shift
+        POST_COMMAND="$1"
+        ;;
+      * )
+        echo "Invalid option: $1" >&2
+        exit 1
+        ;;
+    esac
+    shift
+  done
+
   (
     # Create lock file and obtain exclusive lock
     exec 200>"$LOCK_FILE"
@@ -135,7 +151,7 @@ switch_theme() {
         NEW_ZELLIJ_THEME=$DEFAULT_ZELLIJ_DARK
         NEW_KITTY_CONF=$DEFAULT_KITTY_CONF_DARK
     fi
-
+    
     # Apply changes
     gsettings set org.gnome.desktop.interface gtk-theme "$NEW_GTK_THEME"
     sed -i "s/^export\s\+ZTF_COLO=.*$/export ZTF_COLO=$NEW_ZTF_COLO/" "$HOME/.bashrc"
@@ -151,6 +167,11 @@ switch_theme() {
 
     echo "Switched to $NEW_THEME theme." >&2
 
+    # Execute the post-command if specified
+    if [ -n "$POST_COMMAND" ]; then
+      echo "Executing post-command: $POST_COMMAND" >&2
+      bash -c "$POST_COMMAND"
+    fi
   )
 }
 
@@ -183,13 +204,14 @@ i3status_rust_block() {
 
 case "$1" in
     switch)
-        switch_theme
+        shift
+        switch_theme "$@"
         ;;
     i3status-rust-block)
         i3status_rust_block
         ;;
     *)
-        echo "Usage: $0 {switch|i3status-rust-block}" >&2
+        echo "Usage: $0 {switch|i3status-rust-block} [--post-command 'command']" >&2
         exit 1
         ;;
 esac
