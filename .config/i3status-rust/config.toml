@@ -98,7 +98,7 @@ format = "  : $icon  "
 button = "left"
 update = true
 sync = true
-cmd = "/home/ztf/scripts/,theme-util switch"
+cmd = "/home/ztf/scripts/,theme-util switch --post-command 'swaymsg reload'"
 
 [[block]]
 block = "time"
