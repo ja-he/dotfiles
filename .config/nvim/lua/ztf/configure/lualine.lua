@@ -1,36 +1,7 @@
-local base_theme = require('ztf.colorscheme').mappings()
-
 require 'lualine'.setup({
   options = {
     icons_enabled = true,
-    theme = {
-      normal = {
-        a = { bg = base_theme.Pmenu.bg, fg = base_theme.Pmenu.fg, gui = 'bold' },
-        b = { bg = base_theme.StatusLine.bg, fg = base_theme.StatusLine.fg },
-        c = { bg = base_theme.Tabline.bg, fg = base_theme.Tabline.fg },
-      },
-      insert = {
-        a = { bg = base_theme.PmenuSel.bg, fg = base_theme.PmenuSel.fg, gui = 'bold' },
-        b = { bg = base_theme.StatusLine.bg, fg = base_theme.StatusLine.fg },
-        c = { bg = base_theme.Tabline.bg, fg = base_theme.Tabline.fg },
-      },
-      visual = {
-        a = { bg = base_theme.Visual.bg, fg = base_theme.Visual.fg, gui = 'bold' },
-        b = { bg = base_theme.StatusLine.bg, fg = base_theme.StatusLine.fg },
-        c = { bg = base_theme.Tabline.bg, fg = base_theme.Tabline.fg },
-      },
-      replace = {
-        a = { bg = base_theme.PmenuSel.bg, fg = base_theme.PmenuSel.fg, gui = 'bold' },
-        b = { bg = base_theme.StatusLine.bg, fg = base_theme.StatusLine.fg },
-        c = { bg = base_theme.Tabline.bg, fg = base_theme.Tabline.fg },
-      },
-      command = {
-        a = { bg = base_theme.Search.bg, fg = base_theme.Search.fg, gui = 'bold' },
-        b = { bg = base_theme.StatusLine.bg, fg = base_theme.StatusLine.fg },
-        c = { bg = base_theme.Tabline.bg, fg = base_theme.Tabline.fg },
-      },
-      -- TODO: inactive = { },
-    },
+    theme = 'auto',
     component_separators = { left = '', right = '' },
     section_separators = { left = '', right = '' },
     disabled_filetypes = {
@@ -41,9 +12,9 @@ require 'lualine'.setup({
     always_divide_middle = true,
     globalstatus = true,
     refresh = {
-      statusline = 1000,
-      tabline = 1000,
-      winbar = 1000,
+      statusline = 100,
+      tabline = 100,
+      winbar = 100,
     }
   },
   sections = {
