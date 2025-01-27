@@ -267,6 +267,7 @@ local theme = lush(function(injected_functions)
     sym('@keyword')               { Keyword }, -- For keywords that don't fall in previous categories.
     sym('@type')                  { Type }, -- For types.
     sym('@variable')              { Identifier },
+    sym('@markup.raw')            { bg = light_grey },
 
     manOptionDesc { Title },
 
@@ -411,6 +412,8 @@ local theme = lush(function(injected_functions)
       GocNormal    { bg = light_grey },
       GocUncovered { bg = pale_red },
       GocCovered   { bg = pale_green },
+
+      ColortilsCurrentLine { PmenuSel },
   }
 end)
 
