@@ -519,6 +519,7 @@ local plugins = {
     'nvim-lualine/lualine.nvim',
     config = function() require("ztf.configure.lualine") end,
   },
+  { "rktjmp/shipwright.nvim" },
   {
     "j-hui/fidget.nvim",
     tag = "legacy",
