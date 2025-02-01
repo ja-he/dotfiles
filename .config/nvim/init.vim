@@ -43,9 +43,9 @@ lua << EOF
   require("plugins")
 EOF
 
-lua require('ztf.colorscheme').apply()
-
 lua require('ztf.treesitter')
+
+lua require('ztf.colorscheme').auto().apply()
 
 " ----- TODO: place somewhere sensible: ----------------------------------------
 
