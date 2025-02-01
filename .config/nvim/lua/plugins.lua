@@ -556,13 +556,6 @@ local plugins = {
   'NoahTheDuke/vim-just',
   'IndianBoy42/tree-sitter-just',
 
-  -- { 'iamcco/markdown-preview.nvim', build = ':call mkdp#util#install()' },
-
-  {
-    'lervag/vimtex',
-    lazy = true,
-    ft = { 'latex', 'tex' },
-  },
   'kaarmu/typst.vim',
 
   'ja-he/mediate.nvim',

@@ -71,23 +71,6 @@ create_ft_au('go', function()
 end)
 create_ft_au('markdown.pandoc', wrapped_writing_settings)
 create_ft_au('tex', wrapped_writing_settings)
-create_ft_au('tex', function()
-  vim.cmd('set foldmethod=expr')
-  vim.cmd('set foldexpr=vimtex#fold#level(v:lnum)')
-  vim.cmd('set foldtext=vimtex#fold#text()')
-end)
-create_ft_au('tex', function()
-  vim.ui.select({
-    'compile',
-    'none',
-  }, {
-    prompt = "Which VimTeX mode would you like for this TeX doc?",
-  }, function(choice)
-    if choice == 'compile' then
-      vim.cmd("VimtexCompile")
-    end
-  end)
-end)
 
 create_ft_au('typst', wrapped_writing_settings)
 
