@@ -17,6 +17,7 @@ cmp.setup {
     ['<C-d>'] = cmp.mapping.scroll_docs(4),
     ['<C-u>'] = cmp.mapping.scroll_docs(-4),
     ['<C-q>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+    ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
     ['<C-e>'] = cmp.mapping.abort(),
     ['<Tab>'] = cmp.mapping.confirm({ select = true }),
     ["<C-n>"] = function(fallback)
