@@ -66,6 +66,28 @@ set $cStatusFG  "#3a751a"'
   ' "$I3_CONFIG" > "$I3_CONFIG.tmp" && mv "$I3_CONFIG.tmp" "$I3_CONFIG"
 }
 
+switch_sway_bg() {
+  local NEW_THEME="$1"
+
+  local DARK_BG_IMG=/home/ztf/bg-dark.jpg
+  local LIGHT_BG_IMG=/home/ztf/bg-light.png
+
+  local CHOSEN_IMAGE=
+  if [ "$NEW_THEME" == "dark" ]; then
+    CHOSEN_IMAGE="${DARK_BG_IMG}"
+  else
+    CHOSEN_IMAGE="${LIGHT_BG_IMG}"
+  fi
+
+  if [ ! -f "${CHOSEN_IMAGE}" ]; then
+    echo "Will not switch to '${CHOSEN_IMAGE}' because I cannot find it."
+    return
+  fi
+
+  echo "${CHOSEN_IMAGE}" > /home/ztf/.wallpaper-path
+  systemctl restart --user wallpaper.service
+}
+
 switch_i3sr_colors() {
   local NEW_THEME="$1"
 
@@ -160,6 +182,7 @@ switch_theme() {
 
     # Update sway colors
     switch_sway_colors "$NEW_THEME"
+    switch_sway_bg "$NEW_THEME"
     switch_i3sr_colors "$NEW_THEME"
 
     # Update theme file

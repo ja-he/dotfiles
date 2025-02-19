@@ -302,3 +302,4 @@ exec redshift
 exec seafile-applet
 exec hsetroot -solid '#f8f8f8'
 # exec picom --experimental-backends
+exec systemctl restart --user wallpaper.service
