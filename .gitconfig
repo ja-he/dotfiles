@@ -4,6 +4,9 @@
 
 [core]
   pager = delta
+  # fsmonitor = true
+  # untrackedCache = true
+  # excludesfile = ~/.gitignore
 
 [interactive]
   diffFilter = delta --color-only
@@ -24,5 +27,50 @@
   ui = "!f() { nvim -c ':Gedit :'; }; f"
 [merge]
   tool = meld
+  conflictstyle = zdiff3 
+
 [pull]
   rebase = false
+
+[rebase]
+  autoSquash = true
+  autoStash = true
+  updateRefs = true
+
+[column]
+  # ui = auto
+
+[branch]
+  sort = -committerdate
+
+[tag]
+  sort = version:refname
+
+[init]
+  defaultBranch = main
+
+[diff]
+  algorithm = histogram
+  colorMoved = plain
+  mnemonicPrefix = true
+  renames = true
+
+[push]
+  default = simple
+  autoSetupRemote = true
+  followTags = true
+
+[fetch]
+  prune = true
+  pruneTags = true
+  all = true
+
+[help]
+  # autocorrect = prompt
+
+[commit]
+  verbose = true
+
+[rerere]
+  enabled = true
+  autoupdate = true
