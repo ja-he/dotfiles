@@ -11,6 +11,7 @@ local plugins = {
   {
     'lewis6991/gitsigns.nvim',
     config = function() require("ztf.configure.gitsigns") end,
+    lazy = false,
   },
   {
     'rhysd/git-messenger.vim',
@@ -38,15 +39,19 @@ local plugins = {
   {
     "williamboman/mason-lspconfig.nvim",
     opts = {
-			automatic_enable = false, -- at least for now, I still have my own
+      automatic_enable = false, -- at least for now, I still have my own
       ensure_installed = {
         "tinymist",
         "rust_analyzer",
         "lua_ls",
         "gopls",
+        "sqls",
       },
     },
-    dependencies = { "williamboman/mason.nvim" },
+    dependencies = {
+      "mason-org/mason.nvim",
+      "neovim/nvim-lspconfig",
+    },
   },
   {
     'neovim/nvim-lspconfig',
@@ -61,13 +66,13 @@ local plugins = {
   {
     "rcarriga/nvim-dap-ui",
     dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
-		opts = {},
+    opts = {},
   },
   -- rust
   {
     'mrcjkb/rustaceanvim',
     version = '^5', -- Recommended
-    lazy = false, -- This plugin is already lazy
+    lazy = false,   -- This plugin is already lazy
     dependencies = { 'mfussenegger/nvim-dap', 'neovim/nvim-lspconfig' },
     -- TODO: somehow might need to add this to setup
     --
@@ -259,7 +264,9 @@ local plugins = {
     cmd =
     'ScrollViewToggle'
   },
-  { 'rktjmp/lush.nvim' },
+  {
+    'rktjmp/lush.nvim'
+  },
 
   { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
   { 'nvim-treesitter/playground',      dependencies = { 'nvim-treesitter/nvim-treesitter' } },
@@ -597,7 +604,8 @@ local plugins = {
         enabled = false,
         first_provider = "openai",
         second_provider = "claude",
-        prompt = "Based on the two reference outputs below, generate a response that incorporates elements from both but reflects your own judgment and unique perspective. Do not provide any explanation, just give the response directly. Reference Output 1: [{{provider1_output}}], Reference Output 2: [{{provider2_output}}]",
+        prompt =
+        "Based on the two reference outputs below, generate a response that incorporates elements from both but reflects your own judgment and unique perspective. Do not provide any explanation, just give the response directly. Reference Output 1: [{{provider1_output}}], Reference Output 2: [{{provider2_output}}]",
         timeout = 60000, -- Timeout in milliseconds
       },
       behaviour = {
@@ -644,10 +652,10 @@ local plugins = {
       windows = {
         ---@type "right" | "left" | "top" | "bottom"
         position = "right", -- the position of the sidebar
-        wrap = true, -- similar to vim.o.wrap
-        width = 30, -- default % based on available width
+        wrap = true,        -- similar to vim.o.wrap
+        width = 30,         -- default % based on available width
         sidebar_header = {
-          enabled = true, -- true, false to enable/disable the header
+          enabled = true,   -- true, false to enable/disable the header
           align = "center", -- left, center, right for title
           rounded = true,
         },
@@ -660,7 +668,7 @@ local plugins = {
           start_insert = true, -- Start insert mode when opening the edit window
         },
         ask = {
-          floating = false, -- Open the 'AvanteAsk' prompt in a floating window
+          floating = false,    -- Open the 'AvanteAsk' prompt in a floating window
           start_insert = true, -- Start insert mode when opening the ask window
           border = "rounded",
           ---@type "ours" | "theirs"
@@ -693,9 +701,9 @@ local plugins = {
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
       --- The below dependencies are optional,
-      "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
+      "hrsh7th/nvim-cmp",            -- autocompletion for avante commands and mentions
       "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-      "zbirenbaum/copilot.lua", -- for providers='copilot'
+      "zbirenbaum/copilot.lua",      -- for providers='copilot'
       {
         -- support for image pasting
         "HakonHarnes/img-clip.nvim",
