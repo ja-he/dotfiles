@@ -38,6 +38,7 @@ local plugins = {
   {
     "williamboman/mason-lspconfig.nvim",
     opts = {
+			automatic_enable = false, -- at least for now, I still have my own
       ensure_installed = {
         "tinymist",
         "rust_analyzer",
