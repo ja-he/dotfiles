@@ -130,9 +130,18 @@ good_bg = "#ffffff"'
   ' "$I3SR_CONFIG" > "$I3SR_CONFIG.tmp" && mv "$I3SR_CONFIG.tmp" "$I3SR_CONFIG"
 }
 
+switch_git_delta_theme() {
+  local NEW_THEME="$1"
+  if [ "$NEW_THEME" == "dark" ]; then
+    git config --global delta.light false
+  else
+    git config --global delta.light true
+  fi
+}
+
 switch_theme() {
   local POST_COMMAND=""
-  
+
   # Parse additional options for switch
   while [[ "$1" != "" ]]; do
     case $1 in
@@ -184,6 +193,7 @@ switch_theme() {
     switch_sway_colors "$NEW_THEME"
     switch_sway_bg "$NEW_THEME"
     switch_i3sr_colors "$NEW_THEME"
+    switch_git_delta_theme "$NEW_THEME"
 
     # Update theme file
     echo "$NEW_THEME" > "$THEME_FILE"
