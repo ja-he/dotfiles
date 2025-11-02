@@ -165,6 +165,7 @@ switch_theme() {
     CURRENT_THEME=$(cat "$THEME_FILE")
     local NEW_THEME
     local NEW_GTK_THEME
+    local NEW_GTK_COLOR_SCHEME_ARG
     local NEW_ZTF_COLO
     local NEW_ZELLIJ_THEME
     local NEW_KITTY_CONF
@@ -172,22 +173,27 @@ switch_theme() {
     if [ "$CURRENT_THEME" == "dark" ]; then
         NEW_THEME="light"
         NEW_GTK_THEME=$DEFAULT_GTK_THEME_LIGHT
+        NEW_GTK_COLOR_SCHEME_ARG=default
         NEW_ZTF_COLO=$DEFAULT_ZTF_COLO_LIGHT
         NEW_ZELLIJ_THEME=$DEFAULT_ZELLIJ_LIGHT
         NEW_KITTY_CONF=$DEFAULT_KITTY_CONF_LIGHT
     else
         NEW_THEME="dark"
         NEW_GTK_THEME=$DEFAULT_GTK_THEME_DARK
+        NEW_GTK_COLOR_SCHEME_ARG=prefer-dark
         NEW_ZTF_COLO=$DEFAULT_ZTF_COLO_DARK
         NEW_ZELLIJ_THEME=$DEFAULT_ZELLIJ_DARK
         NEW_KITTY_CONF=$DEFAULT_KITTY_CONF_DARK
     fi
-    
+
     # Apply changes
+
     gsettings set org.gnome.desktop.interface gtk-theme "$NEW_GTK_THEME"
     sed -i "s/^export\s\+ZTF_COLO=.*$/export ZTF_COLO=$NEW_ZTF_COLO/" "$HOME/.bashrc"
     sed -i "s/^theme \".*\"$/theme \"$NEW_ZELLIJ_THEME\"/" "$HOME/.config/zellij/config.kdl"
     sed -i "s|^include \./.*\.conf$|include ./$NEW_KITTY_CONF|" "$HOME/.config/kitty/kitty.conf"
+    # to be safe, we also apply this
+    gsettings set org.gnome.desktop.interface color-scheme "${NEW_GTK_COLOR_SCHEME_ARG}"
 
     # Update sway colors
     switch_sway_colors "$NEW_THEME"
