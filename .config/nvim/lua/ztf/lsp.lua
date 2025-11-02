@@ -1,9 +1,5 @@
 -- vim:foldmethod=marker
 
-local lspconfig = require("lspconfig")
-local configs = require 'lspconfig.configs'
-
-
 -- You can specify the capabilities to exclude snippets explicitly like this
 -- but in my experience it is not necessary:
 --
@@ -12,34 +8,50 @@ local configs = require 'lspconfig.configs'
 --    )
 --    capabilities.textDocument.completion.snippetSupport = false
 
-lspconfig.gopls.setup {}
+vim.lsp.enable('gopls')
 
-lspconfig.vimls.setup {}
+vim.lsp.enable('vimls')
 
 -- tinymist is an LS for typst
-lspconfig.tinymist.setup {
+vim.lsp.config['tinymist'] = {
+  offset_encoding = "utf-8",
   settings = {
-    exportPdf = "onType",
+    exportPdf = "onSave", -- onSave/onType
     outputPath = "$root/live/$dir/$name",
     systemFonts = true,
   },
-  root_dir = function(fname)
-    return lspconfig.util.path.dirname(fname)
-  end,
+  root_markers = { 'main.typ' },
 }
+vim.lsp.enable('tinymist')
 
-lspconfig.bashls.setup {}
+vim.lsp.enable('bashls')
 
-lspconfig.pylsp.setup {}
+vim.lsp.enable('pylsp')
+vim.lsp.enable('pyright')
+-- vim.lsp.enable('jdtls')
+vim.lsp.enable('ruff')
 
--- lspconfig.jdtls.setup {}
+vim.lsp.enable('jsonls')
 
-lspconfig.jsonls.setup {}
+vim.lsp.config['yamlls'] = {
+  settings = {
+    yaml = {
+      schemaStore = {
+        -- You must disable built-in schemaStore support if you want to use
+        -- this plugin and its advanced options like `ignore`.
+        enable = false,
+        -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
+        url = "",
+      },
+      schemas = require('schemastore').yaml.schemas(),
+    },
+  },
+}
 
 --Enable (broadcasting) snippet capability for completion
 local html_caps = vim.lsp.protocol.make_client_capabilities()
 html_caps.textDocument.completion.completionItem.snippetSupport = true
-lspconfig.html.setup {
+vim.lsp.config['html'] = {
   capabilities = html_caps,
   configurationSection = { "html", "css", "javascript" },
   embeddedLanguages = {
@@ -47,14 +59,16 @@ lspconfig.html.setup {
     javascript = true
   },
 }
-lspconfig.cssls.setup {
+vim.lsp.enable('html')
+vim.lsp.config['cssls'] = {
   capabilities = html_caps,
 }
+vim.lsp.enable('cssls')
 
 local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
-lspconfig.lua_ls.setup {
+vim.lsp.config['lua_ls'] = {
   settings = {
     Lua = {
       telemetry = { enable = false, }, -- 😠
@@ -74,8 +88,9 @@ lspconfig.lua_ls.setup {
     },
   },
 }
+vim.lsp.enable('lua_ls')
 
-lspconfig.clangd.setup {
+vim.lsp.config['clangd'] = {
   init_options = { clangdFileStatus = true },
   settings = {
     cmd = { "clangd",
@@ -86,37 +101,26 @@ lspconfig.clangd.setup {
     }
   }
 }
+vim.lsp.enable('clangd')
 
 -- spdx-lsp
-if not configs.spdx_lsp then
-  configs.spdx_lsp = {
-    default_config = {
-      cmd = { '/home/jhen/repositories/silwerboom/silwerboom' },
-      filetypes = { 'spdx' },
-      root_dir = function(fname)
-        return lspconfig.util.path.dirname(fname)
-      end,
-      settings = {},
-    },
-  }
-end
-lspconfig.spdx_lsp.setup {}
+vim.lsp.config('spdx_lsp', {
+  cmd = { '/home/jhen/repositories/silwerboom/silwerboom' },
+  filetypes = { 'spdx' },
+  root_markers = { '.git' },
+  settings = {},
+})
+vim.lsp.enable('spdx_lsp')
 
-if not configs.muddles then
-  configs.muddles = {
-    default_config = {
-      cmd = { '/home/ztf/repositories/muddles/target/debug/muddles' },
-      filetypes = { 'mud' },
-      root_dir = function(fname)
-        return lspconfig.util.path.dirname(fname)
-      end,
-      settings = {},
-    },
-  }
-end
-lspconfig.muddles.setup {}
+vim.lsp.config('muddles', {
+  cmd = { '/home/ztf/repositories/muddles/target/debug/muddles' },
+  filetypes = { 'mud' },
+  root_markers = { '.git' },
+  settings = {},
+})
+vim.lsp.enable('muddles')
 
-lspconfig.harper_ls.setup {
+vim.lsp.config['harper_ls'] = {
   settings = {
     ["harper-ls"] = {
       userDictPath = "",
@@ -147,3 +151,4 @@ lspconfig.harper_ls.setup {
     }
   }
 }
+vim.lsp.enable('harper_ls')
