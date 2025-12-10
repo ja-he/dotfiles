@@ -26,9 +26,16 @@ vim.lsp.enable('tinymist')
 
 vim.lsp.enable('bashls')
 
-vim.lsp.enable('pylsp')
-vim.lsp.enable('pyright')
+-- vim.lsp.enable('pylsp')
 -- vim.lsp.enable('jdtls')
+vim.lsp.config['basedpyright'] = {
+  settings = {
+    basedpyright = {
+      analysis = { typeCheckingMode = "basic" },
+    }
+  }
+}
+vim.lsp.enable('basedpyright')
 vim.lsp.enable('ruff')
 
 vim.lsp.enable('jsonls')

@@ -46,6 +46,8 @@ local plugins = {
         "lua_ls",
         "gopls",
         "sqls",
+        "basedpyright",
+        "ruff",
       },
     },
     dependencies = {
