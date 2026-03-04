@@ -271,7 +271,6 @@ local plugins = {
   },
 
   { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
-  { 'nvim-treesitter/playground',      dependencies = { 'nvim-treesitter/nvim-treesitter' } },
 
   {
     'https://github.com/nat-418/boole.nvim',
