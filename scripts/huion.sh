@@ -4,7 +4,7 @@ print_help() {
   echo "a script to map the Huion Kamvas 13 (2020) pen tablet input to its display (sway/Wayland)"
   echo "|"
   echo "| usage:"
-  echo "|   ./huion.sh <command> <huion-mon> <main-mon>"
+  echo "|   ./huion.sh <command>"
   echo "| commands:"
   echo "|   landscape        map to pen display in landscape mode"
   echo "|   dual             map to pen display in dual-screen mode"
@@ -21,13 +21,26 @@ if [ -z "$1" ]; then
   exit 1
 fi
 
-huion_monitor="${2}"
+outputs=$(swaymsg -t get_outputs)
+
+# Find the Kamvas by its description
+huion_monitor=$(echo "$outputs" | jq -r '.[] | select(.make == "HAT" and (.model | test("Kamvas"))) | .name')
+if [ -z "$huion_monitor" ]; then
+  echo "error: Huion Kamvas not found in sway outputs"
+  exit 1
+fi
 echo "huion output: '$huion_monitor'"
-main_monitor="${3}"
+
+# Main monitor is the first non-Huion, non-laptop active output (fall back to any non-Huion)
+main_monitor=$(echo "$outputs" | jq -r "[.[] | select(.name != \"$huion_monitor\" and .active)] | first | .name")
+if [ -z "$main_monitor" ] || [ "$main_monitor" == "null" ]; then
+  echo "error: no other active output found"
+  exit 1
+fi
 echo "main output: '$main_monitor'"
 
 # Get the main monitor's height for positioning in dual mode
-main_height=$(swaymsg -t get_outputs | jq -r ".[] | select(.name==\"$main_monitor\") | .current_mode.height")
+main_height=$(echo "$outputs" | jq -r ".[] | select(.name==\"$main_monitor\") | .current_mode.height")
 
 if   [ "$1" == "landscape" ]; then
   swaymsg output "$huion_monitor" enable mode 1920x1080 transform normal
