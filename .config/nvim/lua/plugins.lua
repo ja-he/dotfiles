@@ -599,6 +599,8 @@ local plugins = {
     },
   },
 
+  "b0o/schemastore.nvim",
+
 }
 
 require('lazy').setup(plugins)
