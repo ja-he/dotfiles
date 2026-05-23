@@ -242,21 +242,6 @@ local plugins = {
 
   -- { 'github/copilot.vim',              lazy = true,                                                 cmd = 'Copilot' },
   {
-    "zbirenbaum/copilot-cmp",
-    opts = {},
-    cmd = "Copilot",
-    dependencies = {
-      "hrsh7th/nvim-cmp",
-      {
-        "zbirenbaum/copilot.lua",
-        opts = {
-          suggestion = { enabled = false, },
-          panel = { enabled = false, },
-        },
-      },
-    },
-  },
-  {
     'voldikss/vim-floaterm',
     config = function() vim.cmd("source " .. vim.fn.stdpath('config') .. "/configure/floaterm.vim") end,
   },
