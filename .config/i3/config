@@ -30,10 +30,10 @@ bindsym $mod+q exec wl-paste | qrencode -o - |  feh --zoom fill --geometry 800x8
 bindsym $mod+d exec rofi -show run
 bindsym $mod+shift+d exec rofi -show window
 
-# moving workspaces to other display 
-bindsym $mod+i move workspace to output $Display0
-bindsym $mod+o move workspace to output $Display1
-bindsym $mod+p move workspace to output $Display2
+# moving workspaces to other display (output names resolved dynamically by position)
+bindsym $mod+i exec ~/scripts/\,move-workspace-to-output.sh left
+bindsym $mod+o exec ~/scripts/\,move-workspace-to-output.sh main
+bindsym $mod+p exec ~/scripts/\,move-workspace-to-output.sh right
 
 # scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -158,10 +158,7 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 assign [class="Xournalpp"] $workspace05
 assign [class="Seafile"] $workspace06
 
-# Display Details 
-set $Display0    HDMI-A-0
-set $Display1    DisplayPort-2
-set $Display2    DisplayPort-0
+set $MainDisplay eDP-1
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -215,7 +212,7 @@ set $cStatusFG  "#c2edab"
 bar {
   mode dock
   status_command i3status-rs ~/.config/i3status-rust/config.toml
-  tray_output $Display1
+  tray_output $MainDisplay
 
   colors {
         background          $cBG
